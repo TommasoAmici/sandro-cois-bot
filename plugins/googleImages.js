@@ -1,5 +1,5 @@
-const unirest = require("unirest");
-const bot = require("../main");
+import unirest from "unirest";
+import { randomChoice } from "./utils";
 
 // from https://console.developers.google.com/apis/credentials
 const googleApiToken = "";
@@ -7,16 +7,12 @@ const googleApiToken = "";
 const googleCseToken = "";
 const baseApi = "https://www.googleapis.com/customsearch/v1";
 
-const getRandomInt = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1)) + min;
-
 // Matches "!i [whatever]"
-bot.onText(/!i (.+)/, (msg, match) => {
+export default (msg, match) => {
   // 'msg' is the received Message from Telegram
   // 'match' is the result of executing the regexp above on the text content
   // of the message
 
-  const chatId = msg.chat.id;
   const resp = match[1]; // the captured "whatever"
 
   const query = encodeURIComponent(resp);
@@ -27,11 +23,6 @@ bot.onText(/!i (.+)/, (msg, match) => {
     )
     .end(function(result) {
       // search returns 10 results, get one at random
-      const img = result.body.items[getRandomInt(0, 9)].link;
-      if (img === null) {
-        bot.sendPhoto(chatId, "Error downloading image");
-      } else {
-        bot.sendPhoto(chatId, img);
-      }
+      return randomChoice(result.body.items).link;
     });
-});
+};

@@ -1,4 +1,4 @@
-const bot = require("../main");
+import { randomChoice } from "./utils";
 
 const choices = [
   "Per quanto posso vedere, sì",
@@ -23,8 +23,4 @@ const choices = [
   "Molto incerto"
 ];
 
-// Matches "!i [whatever]"
-bot.onText(/\/magic8ball (.+)/, (msg, match) => {
-  const chatId = msg.chat.id;
-  bot.sendMessage(chatId, choices[Math.floor(Math.random() * choices.length)]);
-});
+export default () => randomChoice(choices);
