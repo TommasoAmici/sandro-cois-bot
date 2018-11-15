@@ -14,8 +14,23 @@ bot.onText(/!i (.+)/, (msg, match) => {
   // 'match' is the result of executing the regexp above on the text content
   // of the message
   const chatId = msg.chat.id;
-  const img = googleImages(msg, match);
-  bot.sendPhoto(chatId, img);
+
+  const resp = match[1]; // the captured "whatever"
+
+  const query = encodeURIComponent(resp);
+
+  const googleApiToken = "";
+  // from https://cse.google.com/
+  const googleCseToken = "";
+  const baseApi = "https://www.googleapis.com/customsearch/v1";
+
+  unirest
+    .get(
+      `${baseApi}?q=${query}&cx=${googleCseToken}&key=${googleApiToken}&searchType=image`
+    )
+    .end(function(result) {
+      bot.sendPhoto(chatId, randomChoice(result.body.items).link);
+    });
 });
 
 // Matches "!i [whatever]"
