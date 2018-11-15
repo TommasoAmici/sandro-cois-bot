@@ -1,6 +1,6 @@
 import TelegramBot from "node-telegram-bot-api";
-import googleImages from "./plugins/googleImages";
 import magic8ball from "./plugins/magic8Ball";
+import { randomChoice } from "./plugins/utils";
 
 // replace the value below with the Telegram token you receive from @BotFather
 const telegramToken = "";
