@@ -1,6 +1,8 @@
 import unirest from "unirest";
 import { randomChoice } from "./utils";
 
+//TODO return Promise from GET
+
 // from https://console.developers.google.com/apis/credentials
 const googleApiToken = "";
 // from https://cse.google.com/
@@ -17,12 +19,7 @@ export default (msg, match) => {
 
   const query = encodeURIComponent(resp);
 
-  unirest
-    .get(
-      `${baseApi}?q=${query}&cx=${googleCseToken}&key=${googleApiToken}&searchType=image`
-    )
-    .end(function(result) {
-      // search returns 10 results, get one at random
-      return randomChoice(result.body.items).link;
-    });
+  // make get request to
+  // `${baseApi}?q=${query}&cx=${googleCseToken}&key=${googleApiToken}&searchType=image`
+  // return Promise or async/await and return URL
 };
