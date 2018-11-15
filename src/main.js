@@ -1,4 +1,5 @@
 import TelegramBot from "node-telegram-bot-api";
+import unirest from "unirest";
 import magic8ball from "./plugins/magic8Ball";
 import { randomChoice } from "./plugins/utils";
 
