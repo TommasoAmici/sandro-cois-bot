@@ -19,7 +19,7 @@ bot.onText(/!i (.+)/, (msg, match) => {
 });
 
 // Matches "!i [whatever]"
-bot.onText(/\/magic8ball (.+)/, (msg, match) => {
+bot.onText(/\/magic8ball/, (msg, match) => {
   const chatId = msg.chat.id;
   bot.sendMessage(chatId, magic8ball());
 });
