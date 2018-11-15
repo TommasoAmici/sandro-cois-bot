@@ -4,6 +4,11 @@
     "unirest": "^0.5.1"
   },
   "scripts": {
+    "build": "babel src -d lib",
     "start": "node main.js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
   }
 }
