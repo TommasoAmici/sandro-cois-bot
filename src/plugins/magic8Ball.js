@@ -1,4 +1,4 @@
-import { randomChoice } from "./utils";
+const utils = require("./utils");
 
 const choices = [
   "Per quanto posso vedere, sì",
@@ -23,4 +23,7 @@ const choices = [
   "Molto incerto"
 ];
 
-export default () => randomChoice(choices);
+module.exports = bot => (msg, _) => {
+  const chatId = msg.chat.id;
+  bot.sendMessage(chatId, utils.randomChoice(choices));
+}
