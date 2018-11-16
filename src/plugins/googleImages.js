@@ -1,25 +1,38 @@
-import unirest from "unirest";
-import { randomChoice } from "./utils";
+const axios = require("axios");
+const querystring = require("querystring");
+const utils = require("./utils");
+const cfg = require("../config");
 
-//TODO return Promise from GET
-
-// from https://console.developers.google.com/apis/credentials
-const googleApiToken = "";
-// from https://cse.google.com/
-const googleCseToken = "";
-const baseApi = "https://www.googleapis.com/customsearch/v1";
-
-// Matches "!i [whatever]"
-export default (msg, match) => {
+module.exports =  bot => async (msg, match) => {
   // 'msg' is the received Message from Telegram
   // 'match' is the result of executing the regexp above on the text content
   // of the message
+  const chatId = msg.chat.id;
+  const query = match[1]; // the captured "whatever"
 
-  const resp = match[1]; // the captured "whatever"
+  // from https://cse.google.com/
+  const baseApi = "https://www.googleapis.com/customsearch/v1";
 
-  const query = encodeURIComponent(resp);
+  const params = {
+    q: query,
+    cx: cfg.googleCseToken,
+    key: cfg.googleApiToken,
+    searchType: 'image',
+  }
 
-  // make get request to
-  // `${baseApi}?q=${query}&cx=${googleCseToken}&key=${googleApiToken}&searchType=image`
-  // return Promise or async/await and return URL
-};
+  try {
+    const response = await axios.get(baseApi, { params })
+    
+    if (!response.data.items || response.data.items.length === 0) {
+      bot.sendMessage("No photo found.")
+    } else {
+      const item = utils.randomChoice(response.data.items)
+      bot.sendPhoto(chatId, item.link)
+    }
+  } catch (error) {
+    if (error.response && error.response.status >= 400) {
+      bot.sendMessage(chatId, error.response.status)
+    }
+    console.error(error.response)
+  }
+}
