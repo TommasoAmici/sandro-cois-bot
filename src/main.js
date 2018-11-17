@@ -21,6 +21,6 @@ bot.onText(/\/magic8ball/, magic8ball(bot));
 bot.onText(/\/weather (.+)/, weather(bot));
 bot.onText(/\/9gago/, gago(bot));
 bot.onText(/!nsfw/, nsfw(bot));
-bot.onText(/!set (.+)/, set(bot, db));
+bot.onText(/!set ([\s\S]*)/, set(bot, db));
 bot.onText(/\w+/, get(bot, db));
 bot.onText(/!spongebob (.+)/, spongebob(bot));
