@@ -9,6 +9,7 @@ const weather = require("./plugins/weather");
 const gago = require("./plugins/9gago");
 const nsfw = require("./plugins/nsfw");
 const set = require("./plugins/set");
+const get = require("./plugins/get");
 const spongebob = require("./plugins/spongebob");
 
 // Create a bot that uses 'polling' to fetch new updates
@@ -21,4 +22,5 @@ bot.onText(/\/weather (.+)/, weather(bot));
 bot.onText(/\/9gago/, gago(bot));
 bot.onText(/!nsfw/, nsfw(bot));
 bot.onText(/!set (.+)/, set(bot, db));
+bot.onText(/\w+/, get(bot, db));
 bot.onText(/!spongebob (.+)/, spongebob(bot));
