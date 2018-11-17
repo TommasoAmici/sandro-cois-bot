@@ -13,6 +13,7 @@ const unset = require("./plugins/unset");
 const get = require("./plugins/get");
 const spongebob = require("./plugins/spongebob");
 const addQuote = require("./plugins/addQuote");
+const addQuoteFromReply = require("./plugins/addQuoteFromReply");
 const getQuote = require("./plugins/getQuote");
 const getRandomQuote = require("./plugins/randomQuote");
 
@@ -27,6 +28,7 @@ bot.onText(/^\/weather (.+)/i, weather(bot));
 bot.onText(/^\/9gago/i, gago(bot));
 bot.onText(/^!nsfw/i, nsfw(bot));
 bot.onText(/^!addquote ([\s\S]*)/i, addQuote(bot, dbQuotes));
+bot.onText(/^!addquote$/i, addQuoteFromReply(bot, dbQuotes));
 bot.onText(/^!quote (.+)/i, getQuote(bot, dbQuotes));
 bot.onText(/^!quote$/i, getRandomQuote(bot, dbQuotes));
 bot.onText(/^!set ([\s\S]*)/i, set(bot, db));
