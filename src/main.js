@@ -16,6 +16,7 @@ const addQuote = require("./plugins/addQuote");
 const addQuoteFromReply = require("./plugins/addQuoteFromReply");
 const getQuote = require("./plugins/getQuote");
 const getRandomQuote = require("./plugins/randomQuote");
+const removeQuote = require("./plugins/removeQuote");
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(cfg.telegramToken, { polling: true });
@@ -29,6 +30,7 @@ bot.onText(/^\/9gago/i, gago(bot));
 bot.onText(/^!nsfw/i, nsfw(bot));
 bot.onText(/^!addquote ([\s\S]*)/i, addQuote(bot, dbQuotes));
 bot.onText(/^!addquote$/i, addQuoteFromReply(bot, dbQuotes));
+bot.onText(/^!unquote$/i, removeQuote(bot, dbQuotes));
 bot.onText(/^!quote (.+)/i, getQuote(bot, dbQuotes));
 bot.onText(/^!quote$/i, getRandomQuote(bot, dbQuotes));
 bot.onText(/^!set ([\s\S]*)/i, set(bot, db));
