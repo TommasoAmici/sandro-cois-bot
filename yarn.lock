@@ -113,6 +113,11 @@ debug@^3.1.0:
   dependencies:
     ms "^2.1.1"
 
+deck@>=0.0.3:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/deck/-/deck-0.0.4.tgz#d4d89d460ba81ee820b04a05a7d0dce64d8b730a"
+  integrity sha1-1NidRguoHuggsEoFp9Dc5k2Lcwo=
+
 define-properties@^1.1.2:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/define-properties/-/define-properties-1.1.3.tgz#cf88da6cbee26fe6db7094f61d870cbd84cee9f1"
@@ -258,6 +263,13 @@ has@^1.0.1:
   dependencies:
     function-bind "^1.1.1"
 
+hashish@>=0.0.2:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/hashish/-/hashish-0.0.4.tgz#6d60bc6ffaf711b6afd60e426d077988014e6554"
+  integrity sha1-bWC8b/r3Ebav1g5CbQd5iAFOZVQ=
+  dependencies:
+    traverse ">=0.2.4"
+
 http-signature@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/http-signature/-/http-signature-1.2.0.tgz#9aecd925114772f3d95b65a60abb8f7c18fbace1"
@@ -346,10 +358,24 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+lazy@>=1.0.3:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/lazy/-/lazy-1.0.11.tgz#daa068206282542c088288e975c297c1ae77b690"
+  integrity sha1-2qBoIGKCVCwIgojpdcKXwa53tpA=
+
 lodash@^4.13.1:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
+
+markov@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/markov/-/markov-0.0.7.tgz#35ace82ae26133f719e1608d21f0cbc21452abe3"
+  integrity sha1-NazoKuJhM/cZ4WCNIfDLwhRSq+M=
+  dependencies:
+    deck ">=0.0.3"
+    hashish ">=0.0.2"
+    lazy ">=1.0.3"
 
 mime-db@~1.37.0:
   version "1.37.0"
@@ -550,6 +576,11 @@ tough-cookie@>=2.3.3, tough-cookie@~2.4.3:
   dependencies:
     psl "^1.1.24"
     punycode "^1.4.1"
+
+traverse@>=0.2.4:
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/traverse/-/traverse-0.6.6.tgz#cbdf560fd7b9af632502fed40f918c157ea97137"
+  integrity sha1-y99WD9e5r2MlAv7UD5GMFX6pcTc=
 
 tunnel-agent@^0.6.0:
   version "0.6.0"
