@@ -4,7 +4,7 @@ const findQuote = (str, db) => {
   const keys = utils.shuffle(db.keys());
   for (k in keys) {
     let quote = db.get(keys[k]);
-    if (quote.includes(str)) {
+    if (quote.toLowerCase().includes(str)) {
       return quote;
     }
   }
