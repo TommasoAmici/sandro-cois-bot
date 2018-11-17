@@ -1,5 +1,5 @@
 const TelegramBot = require("node-telegram-bot-api");
-const googleImages = require('./plugins/googleImages');
+const googleImages = require("./plugins/googleImages");
 const magic8ball = require("./plugins/magic8Ball");
 const cfg = require("./config");
 
