@@ -21,6 +21,7 @@ const removeQuote = require("./plugins/removeQuote");
 const markov = require("./plugins/markov");
 const stats = require("./plugins/stats");
 const printStats = require("./plugins/printStats");
+const giphy = require("./plugins/giphy");
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(cfg.telegramToken, { polling: true });
@@ -30,6 +31,12 @@ const dbStats = new cetriolino.Cetriolino("./stats.db", true);
 const markovWriteStream = fs.createWriteStream("markov.txt", { flags: "a" });
 
 bot.onText(/^!i (.+)/i, googleImages(bot, markovWriteStream));
+bot.onText(
+  /(.+).(png|jpg|jpeg|tiff|stk)/i,
+  googleImages(bot, markovWriteStream)
+);
+bot.onText(/^!gif (.+)/i, giphy(bot, markovWriteStream));
+bot.onText(/(.+).(gif|webm|mp4|gifv)/i, giphy(bot, markovWriteStream));
 bot.onText(/^\/magic8ball/i, magic8ball(bot));
 bot.onText(/^\/weather (.+)/i, weather(bot));
 bot.onText(/^\/9gago/i, gago(bot));
