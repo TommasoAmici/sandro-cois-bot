@@ -32,11 +32,14 @@ const markovWriteStream = fs.createWriteStream("markov.txt", { flags: "a" });
 
 bot.onText(/^!i (.+)/i, googleImages(bot, markovWriteStream));
 bot.onText(
-  /(.+).(png|jpg|jpeg|tiff|stk)/i,
+  /^[^(http)](.+).(png|jpg|jpeg|tiff|stk)$/i,
   googleImages(bot, markovWriteStream)
 );
 bot.onText(/^!gif (.+)/i, giphy(bot, markovWriteStream));
-bot.onText(/(.+).(gif|webm|mp4|gifv)/i, giphy(bot, markovWriteStream));
+bot.onText(
+  /^[^(http)](.+).(gif|webm|mp4|gifv)$/i,
+  giphy(bot, markovWriteStream)
+);
 bot.onText(/^\/magic8ball/i, magic8ball(bot));
 bot.onText(/^\/weather (.+)/i, weather(bot));
 bot.onText(/^\/9gago/i, gago(bot));
