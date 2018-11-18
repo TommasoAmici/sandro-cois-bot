@@ -27,7 +27,6 @@ module.exports = (bot, markovStream) => async (msg, match) => {
       bot.sendMessage("No gif found.");
     } else {
       const item = utils.randomChoice(response.data.data);
-      console.log(item);
       bot.sendVideo(chatId, item.images.original.mp4);
     }
   } catch (error) {
