@@ -19,11 +19,14 @@ const getQuote = require("./plugins/getQuote");
 const getRandomQuote = require("./plugins/randomQuote");
 const removeQuote = require("./plugins/removeQuote");
 const markov = require("./plugins/markov");
+const stats = require("./plugins/stats");
+const printStats = require("./plugins/printStats");
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(cfg.telegramToken, { polling: true });
 const db = new cetriolino.Cetriolino("./sandrocois.db", true);
 const dbQuotes = new cetriolino.Cetriolino("./quotes.db", true);
+const dbStats = new cetriolino.Cetriolino("./stats.db", true);
 const markovWriteStream = fs.createWriteStream("markov.txt", { flags: "a" });
 
 bot.onText(/^!i (.+)/i, googleImages(bot, markovWriteStream));
@@ -42,3 +45,5 @@ bot.onText(/^\w+/i, get(bot, db, markovWriteStream));
 bot.onText(/^!spongebob (.+)/i, spongebob(bot));
 bot.onText(/^\/markov (.+)/i, markov(bot));
 bot.onText(/^\/markov$/i, markov(bot));
+bot.onText(/^!stats$/i, printStats(bot, dbStats));
+bot.on("message", stats(bot, dbStats));
