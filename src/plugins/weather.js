@@ -9,7 +9,8 @@ const conditionsEmojis = {
   Drizzle: "🌧",
   Rain: "☔️",
   Snow: "☃️",
-  Atmosphere: "🌫 ",
+  Atmosphere: "🌫",
+  Mist: "🌫",
   Clouds: "☁️"
 };
 
