@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "axios": "^0.18.0",
+    "cetriolino": "^0.2.0",
     "markov": "^0.0.7",
     "node-telegram-bot-api": "^0.30.0"
   },

@@ -1,7 +1,13 @@
 const TelegramBot = require("node-telegram-bot-api");
-const cetriolino = require("./cetriolino");
+const Cetriolino = require("cetriolino");
+const utils = require("./plugins/utils");
 const cfg = require("./config");
 const fs = require("fs");
+
+Cetriolino.prototype.random = function() {
+  const randomKey = utils.randomChoice(this.keys());
+  return this.db[randomKey];
+};
 
 // plugins
 const googleImages = require("./plugins/googleImages");
@@ -25,9 +31,9 @@ const giphy = require("./plugins/giphy");
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(cfg.telegramToken, { polling: true });
-const db = new cetriolino.Cetriolino("./sandrocois.db", true);
-const dbQuotes = new cetriolino.Cetriolino("./quotes.db", true);
-const dbStats = new cetriolino.Cetriolino("./stats.db", true);
+const db = new Cetriolino("./sandrocois.db", true);
+const dbQuotes = new Cetriolino("./quotes.db", true);
+const dbStats = new Cetriolino("./stats.db", true);
 const markovWriteStream = fs.createWriteStream("markov.txt", { flags: "a" });
 
 bot.onText(/^!i (.+)/i, googleImages(bot, markovWriteStream));

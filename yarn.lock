@@ -80,6 +80,11 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
+cetriolino@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/cetriolino/-/cetriolino-0.2.0.tgz#b922719a3b4b08f7a1a186fd340bcbf0e01ac1e5"
+  integrity sha512-Ws9rGOFBuqz0nd2Xnumj9irZiFwl0ALZnwykri1P0vnjcoQy03wyls5Jul4Ot3xohYvWiyEb2vp4Y2d7ZNT6Hg==
+
 combined-stream@^1.0.6, combined-stream@~1.0.6:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.7.tgz#2d1d24317afb8abe95d6d2c0b07b57813539d828"
