@@ -4,11 +4,6 @@ const utils = require("./plugins/utils");
 const cfg = require("./config");
 const fs = require("fs");
 
-Cetriolino.prototype.random = function() {
-  const randomKey = utils.randomChoice(this.keys());
-  return this.db[randomKey];
-};
-
 // plugins
 const googleImages = require("./plugins/googleImages");
 const magic8ball = require("./plugins/magic8Ball");
