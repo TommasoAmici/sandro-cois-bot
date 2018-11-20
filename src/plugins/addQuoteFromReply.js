@@ -1,10 +1,12 @@
 module.exports = (bot, db) => (msg, match) => {
   const chatId = msg.chat.id;
-
-  if (msg.reply_to_message.text && msg.reply_to_message.text.length !== 0) {
-    const quote = `${msg.reply_to_message.text}\n– ${
-      msg.reply_to_message.from.first_name
-    }`;
+  const msgReply = msg.reply_to_message;
+  if (msgReply.text && msgReply.text.length !== 0) {
+    const author =
+      msgReply.forward_from === undefined
+        ? msgReply.from.first_name
+        : msgReply.forward_from.first_name;
+    const quote = `${msgReply.text}\n– ${author}`;
     db.set(msg.message_id, quote);
   }
 
