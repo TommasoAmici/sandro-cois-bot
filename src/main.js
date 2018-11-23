@@ -57,5 +57,4 @@ bot.onText(/^!spongebob (.+)/i, spongebob(bot));
 bot.onText(/^\/markov (.+)/i, markov(bot));
 bot.onText(/^\/markov$/i, markov(bot));
 bot.onText(/^!stats$/i, printStats(bot, dbStats));
-bot.onText(/^!wikiquote (.+)/i, wikiquote(bot));
 bot.on("message", stats(bot, dbStats));
