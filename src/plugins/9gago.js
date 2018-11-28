@@ -33,5 +33,10 @@ module.exports = {
     const chatId = msg.chat.id;
     const message = "😂".repeat((match[0].length - 1) / 4);
     bot.sendMessage(chatId, message);
+  },
+  evil: bot => (msg, match) => {
+    const chatId = msg.chat.id;
+    const message = "😡".repeat((match[0].length - 1) / 8);
+    bot.sendMessage(chatId, message);
   }
 };
