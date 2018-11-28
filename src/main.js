@@ -44,7 +44,7 @@ bot.onText(
 );
 bot.onText(/^\/magic8ball/i, magic8ball(bot));
 bot.onText(/^\/weather (.+)/i, weather(bot));
-bot.onText(/^\/9gago/i, gago(bot));
+bot.onText(/^\/(\d+)gago/i, gago(bot));
 bot.onText(/^!nsfw/i, nsfw(bot));
 bot.onText(/^!addquote ([\s\S]*)/i, addQuote(bot, dbQuotes));
 bot.onText(/^!addquote$/i, addQuoteFromReply(bot, dbQuotes));
