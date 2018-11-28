@@ -1,11 +1,8 @@
-const markov = require("markov");
 const fs = require("fs");
-const m = markov(1);
 
-module.exports = bot => (msg, match) => {
+module.exports = (bot, m) => (msg, match) => {
   const chatId = msg.chat.id;
 
-  console.log(1);
   const stream = fs.createReadStream("./markov.txt");
 
   m.seed(stream, () => {

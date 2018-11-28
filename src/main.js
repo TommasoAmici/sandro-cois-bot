@@ -1,8 +1,9 @@
 const TelegramBot = require("node-telegram-bot-api");
 const Cetriolino = require("cetriolino");
-const utils = require("./plugins/utils");
 const cfg = require("./config");
 const fs = require("fs");
+const markov = require("markov");
+const m = markov(1);
 
 // plugins
 const googleImages = require("./plugins/googleImages");
@@ -19,7 +20,7 @@ const addQuoteFromReply = require("./plugins/addQuoteFromReply");
 const getQuote = require("./plugins/getQuote");
 const getRandomQuote = require("./plugins/randomQuote");
 const removeQuote = require("./plugins/removeQuote");
-const markov = require("./plugins/markov");
+const markovPlugin = require("./plugins/markov");
 const stats = require("./plugins/stats");
 const printStats = require("./plugins/printStats");
 const giphy = require("./plugins/giphy");
@@ -55,6 +56,6 @@ bot.onText(/^!unset (.+)/i, unset(bot, db));
 bot.onText(/^\S+/i, get(bot, db, markovWriteStream));
 bot.onText(/^!spongebob (.+)/i, spongebob(bot));
 bot.onText(/^\/markov (.+)/i, markov(bot));
-bot.onText(/^\/markov$/i, markov(bot));
+bot.onText(/^\/markov$/i, markovPlugin(bot, m));
 bot.onText(/^!stats$/i, printStats(bot, dbStats));
 bot.on("message", stats(bot, dbStats));
