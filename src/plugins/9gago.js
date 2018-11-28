@@ -23,8 +23,15 @@ const gago = k => {
   return elements.join("");
 };
 
-module.exports = bot => (msg, match) => {
-  const chatId = msg.chat.id;
-  const message = gago(+match[1]);
-  bot.sendMessage(chatId, message);
+module.exports = {
+  numeric: bot => (msg, match) => {
+    const chatId = msg.chat.id;
+    const message = gago(+match[1]);
+    bot.sendMessage(chatId, message);
+  },
+  alpha: bot => (msg, match) => {
+    const chatId = msg.chat.id;
+    const message = gago((match[0].length - 1) / 4);
+    bot.sendMessage(chatId, message);
+  }
 };
