@@ -26,7 +26,8 @@ const gago = k => {
 module.exports = {
   numeric: bot => (msg, match) => {
     const chatId = msg.chat.id;
-    const message = gago(+match[1]);
+    const gagoIndex = +match[1] <= 1500 ? +match[1] : 1500;
+    const message = gago(gagoIndex);
     bot.sendMessage(chatId, message);
   },
   alpha: bot => (msg, match) => {
