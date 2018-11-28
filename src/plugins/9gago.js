@@ -31,7 +31,7 @@ module.exports = {
   },
   alpha: bot => (msg, match) => {
     const chatId = msg.chat.id;
-    const message = gago((match[0].length - 1) / 4);
+    const message = "😂".repeat((match[0].length - 1) / 4);
     bot.sendMessage(chatId, message);
   }
 };
