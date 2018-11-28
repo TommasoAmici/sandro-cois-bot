@@ -27,6 +27,7 @@ class Markov {
   }
 
   calcProbs() {
+    // calculate cumulative distribution
     for (const key in this.corpus) {
       let total = 0;
       let keys = Object.keys(this.corpus[key]);
@@ -65,7 +66,7 @@ class Markov {
     });
 
     stream.on("error", function(err) {
-      console.log(err.stack);
+      console.error(err.stack);
     });
   }
 
@@ -111,7 +112,6 @@ module.exports = {
     const chatId = msg.chat.id;
     const matched = match[1].split(" ");
     const start = matched.pop();
-    console.log(start);
     const message = markov.makeChain(start);
     bot.sendMessage(chatId, `${matched.join(" ")} ${message}`);
   },
