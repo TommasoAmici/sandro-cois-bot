@@ -1,4 +1,4 @@
-const utils = require("./utils");
+const utils = require("../utils");
 
 const findQuote = (str, db) => {
   const keys = utils.shuffle(db.keys());
@@ -14,7 +14,7 @@ const findQuote = (str, db) => {
 module.exports = (bot, db) => (msg, match) => {
   const chatId = msg.chat.id;
 
-  const quote = findQuote(match[1], db);
+  const quote = findQuote(match[1].toLowerCase(), db);
 
   if (quote) bot.sendMessage(chatId, quote);
 };
