@@ -2,8 +2,6 @@ const TelegramBot = require("node-telegram-bot-api");
 const Cetriolino = require("cetriolino");
 const cfg = require("./config");
 const fs = require("fs");
-const markov = require("markov");
-const m = markov(1);
 
 // plugins
 const googleImages = require("./plugins/googleImages");
@@ -16,7 +14,7 @@ const unset = require("./plugins/unset");
 const get = require("./plugins/get");
 const spongebob = require("./plugins/spongebob");
 const quotes = require("./plugins/quotes");
-const markovPlugin = require("./plugins/markov");
+const Markov = require("./plugins/markov");
 const stats = require("./plugins/stats");
 const printStats = require("./plugins/printStats");
 const giphy = require("./plugins/giphy");
@@ -26,7 +24,11 @@ const bot = new TelegramBot(cfg.telegramToken, { polling: true });
 const db = new Cetriolino("./sandrocois.db", true);
 const dbQuotes = new Cetriolino("./quotes.db", true);
 const dbStats = new Cetriolino("./stats.db", true);
-const markovWriteStream = fs.createWriteStream("markov.txt", { flags: "a" });
+
+// initialize markov chain
+const markovPath = "markov.txt";
+const markovWriteStream = fs.createWriteStream(markovPath, { flags: "a" });
+const markov = new Markov.Markov(markovPath);
 
 bot.onText(/^!i (.+)/i, googleImages(bot, markovWriteStream));
 bot.onText(
@@ -53,7 +55,7 @@ bot.onText(/^!set ([\s\S]*)/i, set(bot, db));
 bot.onText(/^!unset (.+)/i, unset(bot, db));
 bot.onText(/^\S+/i, get(bot, db, markovWriteStream));
 bot.onText(/^!spongebob (.+)/i, spongebob(bot));
-bot.onText(/^\/markov (.+)/i, markov(bot));
-bot.onText(/^\/markov$/i, markovPlugin(bot, m));
+bot.onText(/^\/markov (.+)/i, Markov.reply(bot, markov));
+bot.onText(/^\/markov$/i, Markov.random(bot, markov));
 bot.onText(/^!stats$/i, printStats(bot, dbStats));
 bot.on("message", stats(bot, dbStats));

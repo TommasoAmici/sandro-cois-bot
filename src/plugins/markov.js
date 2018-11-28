@@ -1,13 +1,123 @@
 const fs = require("fs");
+const utils = require("./utils");
 
-module.exports = (bot, m) => (msg, match) => {
-  const chatId = msg.chat.id;
+class Markov {
+  constructor(filePath) {
+    this.path = filePath;
+    this.corpus = {};
+    this.initialize();
+  }
+  processSentence(sentence) {
+    const words = sentence.split(" ");
+    if (words.length === 1) return;
+    for (let i = 0; i < words.length; i++) {
+      const w1 = words[i];
+      const w2 = i === words.length - 1 ? `\n` : words[i + 1];
+      if (this.corpus[w1] !== undefined) {
+        if (this.corpus[w1][w2] !== undefined) {
+          this.corpus[w1][w2] = this.corpus[w1][w2] + 1;
+        } else {
+          this.corpus[w1][w2] = 1;
+        }
+      } else {
+        this.corpus[w1] = {};
+        this.corpus[w1][w2] = 1;
+      }
+    }
+  }
 
-  const stream = fs.createReadStream("./markov.txt");
+  calcProbs() {
+    for (const key in this.corpus) {
+      let total = 0;
+      let keys = Object.keys(this.corpus[key]);
+      keys.forEach(k => (total += this.corpus[key][k]));
+      let cum = 1;
+      const cumDensArr = keys.map(k => {
+        cum -= this.corpus[key][k] / total;
+        let prob = cum;
+        return { word: k, prob: prob };
+      });
+      this.corpus[key] = cumDensArr;
+    }
+  }
 
-  m.seed(stream, () => {
-    const respondTo = match[1] ? match[1] : "";
-    const res = m.respond(respondTo).join(" ");
-    bot.sendMessage(chatId, res);
-  });
+  initialize() {
+    // only get last 40kb
+    const stats = fs.statSync(this.path);
+    const fileSizeInBytes = stats.size;
+    const stream = fs.createReadStream(this.path, {
+      start: fileSizeInBytes - 1000000 <= 0 ? 0 : fileSizeInBytes - 1000000,
+      end: fileSizeInBytes
+    });
+
+    // create markov corpus
+    let data = "";
+    stream.on("data", chunk => {
+      data += chunk;
+    });
+
+    stream.on("end", () => {
+      const sentences = data.split("\n");
+      sentences.forEach(s => {
+        this.processSentence(s);
+      });
+      this.calcProbs();
+    });
+
+    stream.on("error", function(err) {
+      console.log(err.stack);
+    });
+  }
+
+  findNext(currWord) {
+    // find word from CDF
+    // e.g. [{word:"you", prob:0.9}, {word:"me", prob:0.6}]
+    // random = 0.7 => return me (between 0.6 and 0.9)
+    return this.corpus[currWord].find(next => Math.random() >= next.prob).word;
+  }
+
+  makeChain(start, limit = 100) {
+    let currWord = start;
+    let sentence = [start];
+    for (let i = 0; i < limit; i++) {
+      if (this.corpus[currWord] === undefined) {
+        break;
+      }
+      let nextWord = this.findNext(currWord);
+      if (nextWord === "\n") {
+        break;
+      } else {
+        sentence.push(nextWord);
+        currWord = nextWord;
+      }
+    }
+    if (sentence.length > 4) {
+      return sentence.join(" ");
+    } else {
+      return this.makeChain(start, limit);
+    }
+  }
+  get randomKey() {
+    return utils.randomChoice(Object.keys(this.corpus));
+  }
+  makeRandomChain() {
+    return this.makeChain(this.randomKey);
+  }
+}
+
+module.exports = {
+  Markov: Markov,
+  reply: (bot, markov) => (msg, match) => {
+    const chatId = msg.chat.id;
+    const matched = match[1].split(" ");
+    const start = matched.pop();
+    console.log(start);
+    const message = markov.makeChain(start);
+    bot.sendMessage(chatId, `${matched.join(" ")} ${message}`);
+  },
+  random: (bot, markov) => msg => {
+    const chatId = msg.chat.id;
+    const message = markov.makeRandomChain();
+    bot.sendMessage(chatId, message);
+  }
 };
