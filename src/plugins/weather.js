@@ -11,6 +11,7 @@ const conditionsEmojis = {
   Snow: "☃️",
   Atmosphere: "🌫",
   Mist: "🌫",
+  Fog: "🌫",
   Clouds: "☁️"
 };
 
