@@ -7,21 +7,26 @@ class Markov {
     this.corpus = {};
     this.initialize();
   }
+
   processSentence(sentence) {
+    // find follow up of pairs of words
+    // i.e. w1 w2 => w3
+    //      w2 w3 => w4
     const words = sentence.split(" ");
     if (words.length === 1) return;
-    for (let i = 0; i < words.length; i++) {
+    for (let i = 0; i < words.length - 2; i++) {
       const w1 = words[i];
-      const w2 = i === words.length - 1 ? `\n` : words[i + 1];
-      if (this.corpus[w1] !== undefined) {
-        if (this.corpus[w1][w2] !== undefined) {
-          this.corpus[w1][w2] = this.corpus[w1][w2] + 1;
+      const w2 = words[i + 1];
+      const w3 = words[i + 2];
+      if (this.corpus[`${w1} ${w2}`] !== undefined) {
+        if (this.corpus[`${w1} ${w2}`][w3] !== undefined) {
+          this.corpus[`${w1} ${w2}`][w3] = this.corpus[`${w1} ${w2}`][w3] + 1;
         } else {
-          this.corpus[w1][w2] = 1;
+          this.corpus[`${w1} ${w2}`][w3] = 1;
         }
       } else {
-        this.corpus[w1] = {};
-        this.corpus[w1][w2] = 1;
+        this.corpus[`${w1} ${w2}`] = {};
+        this.corpus[`${w1} ${w2}`][w3] = 1;
       }
     }
   }
@@ -43,7 +48,7 @@ class Markov {
   }
 
   initialize() {
-    // only get last 40kb
+    // only get last 1000kb
     const stats = fs.statSync(this.path);
     const fileSizeInBytes = stats.size;
     const stream = fs.createReadStream(this.path, {
@@ -89,7 +94,8 @@ class Markov {
         break;
       } else {
         sentence.push(nextWord);
-        currWord = nextWord;
+        // build pair of words
+        currWord = `${currWord.split(" ")[1]} ${nextWord}`;
       }
     }
     if (sentence.length > 4) {
@@ -98,9 +104,11 @@ class Markov {
       return this.makeChain(start, limit);
     }
   }
+
   get randomKey() {
     return utils.randomChoice(Object.keys(this.corpus));
   }
+
   makeRandomChain() {
     return this.makeChain(this.randomKey);
   }
