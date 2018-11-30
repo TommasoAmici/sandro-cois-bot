@@ -18,6 +18,7 @@ const Markov = require("./plugins/markov");
 const stats = require("./plugins/stats");
 const printStats = require("./plugins/printStats");
 const giphy = require("./plugins/giphy");
+const roll = require("./plugins/roll");
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(cfg.telegramToken, { polling: true });
@@ -58,4 +59,6 @@ bot.onText(/^[/!]spongebob (.+)/i, spongebob(bot));
 bot.onText(/^[/!]markov (.+)/i, Markov.reply(bot, markov));
 bot.onText(/^[/!]markov$/i, Markov.random(bot, markov));
 bot.onText(/^[/!]stats$/i, printStats(bot, dbStats));
+bot.onText(/^[/!]roll d(\d+) (\d+)$/i, roll(bot));
+bot.onText(/^[/!]roll d(\d+)$/i, roll(bot));
 bot.on("message", stats(bot, dbStats));
