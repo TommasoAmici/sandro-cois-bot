@@ -119,8 +119,9 @@ module.exports = {
   reply: (bot, markov) => (msg, match) => {
     const chatId = msg.chat.id;
     const matched = match[1].split(" ");
-    const start = matched.pop();
-    const message = markov.makeChain(start);
+    const w2 = matched.pop();
+    const w1 = matched.pop();
+    const message = markov.makeChain(`${w1} ${w2}`);
     bot.sendMessage(chatId, `${matched.join(" ")} ${message}`);
   },
   random: (bot, markov) => msg => {
