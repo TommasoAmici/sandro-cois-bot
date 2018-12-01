@@ -35,7 +35,9 @@ module.exports = bot => async (msg, match) => {
     if (!response.data.data || response.data.data.length === 0) {
       bot.sendMessage("Nothing found.");
     } else {
-      const item = utils.randomChoice(response.data.data.children);
+      const item = utils.randomChoice(
+        utils.shuffle(response.data.data.children)
+      );
       // find correct api method
       if (
         item.data.domain === "gfycat.com" ||
