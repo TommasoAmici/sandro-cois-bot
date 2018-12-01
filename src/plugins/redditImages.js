@@ -1,6 +1,22 @@
 const axios = require("axios");
 const utils = require("./utils");
 
+const permalink = item => `\n\nhttps://old.reddit.com${item.data.permalink}`;
+
+const url = item => `\n\n${item.data.url}`;
+
+const buildMessage = item => {
+  const links =
+    url(item) === permalink(item)
+      ? permalink(item)
+      : `${url(item)}${permalink(item)}`;
+  const text =
+    item.data.selftext === ""
+      ? `<b>${item.data.title}</b>`
+      : `<b>${item.data.title}</b>\n\n${item.data.selftext}`;
+  return `${text}${links}`;
+};
+
 module.exports = bot => async (msg, match) => {
   const chatId = msg.chat.id;
   const subreddit = match[1].toLowerCase();
@@ -21,8 +37,17 @@ module.exports = bot => async (msg, match) => {
     } else {
       const item = utils.randomChoice(response.data.data.children);
       // find correct api method
-      // images
-      if (item.data.post_hint === "image") {
+      if (
+        item.data.domain === "gfycat.com" ||
+        item.data.url.includes(".gifv")
+      ) {
+        bot.sendVideo(
+          chatId,
+          item.data.preview.reddit_video_preview.fallback_url
+        );
+      } else if (item.data.domain === "youtu.be") {
+        bot.sendMessage(chatId, buildMessage(item), { parse_mode: "html" });
+      } else if (item.data.post_hint === "image") {
         bot.sendPhoto(chatId, item.data.url);
       }
       // hosted on reddit
@@ -31,31 +56,11 @@ module.exports = bot => async (msg, match) => {
       }
       // external video hosting
       else if (item.data.post_hint === "rich:video") {
-        // gfycat sucks
-        if (item.data.domain === "gfycat.com") {
-          bot.sendVideo(
-            chatId,
-            item.data.preview.reddit_video_preview.fallback_url
-          );
-        } else {
-          bot.sendVideo(chatId, item.data.url);
-        }
+        bot.sendVideo(chatId, item.data.url);
       }
-      // links
-      else if (item.data.post_hint === "link") {
-        bot.sendMessage(
-          chatId,
-          `${item.data.title}\n\nhttps://old.reddit.com${
-            item.data.permalink
-          }\n\n${item.data.url}`
-        );
-      }
-      // self text
+      // everything else
       else {
-        bot.sendMessage(
-          chatId,
-          `${item.data.title}\n\nhttps://old.reddit.com${item.data.permalink}`
-        );
+        bot.sendMessage(chatId, buildMessage(item), { parse_mode: "html" });
       }
     }
   } catch (error) {
