@@ -1,12 +1,11 @@
-const utils = require("./utils");
-
 module.exports = (bot, db) => (msg, match) => {
   const chatId = msg.chat.id;
-  const keyValue = utils.splitKeyValues(match[1]);
+  const key = match[1];
+  const val = match[2];
 
-  const message = `${keyValue.key} => ${keyValue.value}`;
+  const message = `${key} => ${val}`;
 
-  db.set(keyValue.key, keyValue.value);
+  db.set(key, val);
 
   bot.sendMessage(chatId, message);
 };
