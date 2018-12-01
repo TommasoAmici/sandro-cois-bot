@@ -4,20 +4,11 @@ const utils = require("./utils");
 module.exports = bot => async (msg, match) => {
   const chatId = msg.chat.id;
   const subreddit = match[1].toLowerCase();
-  let sortBy = "hot";
-  if (match[2] !== undefined) sortBy = match[2].toLowerCase();
-
-  switch (sortBy) {
-    case "new":
-    case "top":
-    case "hot":
-    case "rising":
-    case "gilded":
-    case "controversial":
-      break;
-    default:
-      sortBy = "hot";
-      break;
+  let sortBy;
+  if (match[2] === undefined) {
+    sortBy = "hot";
+  } else {
+    sortBy = match[2].toLowerCase();
   }
 
   const baseApi = `https://old.reddit.com/r/${subreddit}/${sortBy}.json`;

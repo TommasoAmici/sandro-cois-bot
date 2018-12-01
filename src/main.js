@@ -62,6 +62,9 @@ bot.onText(/^[/!]markov$/i, Markov.random(bot, markov));
 bot.onText(/^[/!]stats$/i, printStats(bot, dbStats));
 bot.onText(/^[/!]roll d(\d+) (\d+)$/i, roll(bot));
 bot.onText(/^[/!]roll d(\d+)$/i, roll(bot));
-bot.onText(/^\/r\/(.+) (.+)/i, redditImages(bot));
-bot.onText(/^\/r\/(.+)/i, redditImages(bot));
+bot.onText(
+  /^\/r\/(\w+) (hot|new|controversial|gilded|top|rising)/i,
+  redditImages(bot)
+);
+bot.onText(/^\/r\/(\w+)$/i, redditImages(bot));
 bot.on("message", stats(bot, dbStats));
