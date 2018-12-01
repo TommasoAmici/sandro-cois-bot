@@ -2,12 +2,18 @@ const utils = require("./utils");
 
 module.exports = bot => (msg, match) => {
   const chatId = msg.chat.id;
-  let sides = match[1];
-  if (sides >= 1000) sides = 1000;
 
-  let count = match[2];
+  let count = match[1];
   if (count === undefined || count == 0) count = 1;
   if (count >= 1000) count = 1000;
+
+  let sides = match[2];
+  if (sides >= Number.MAX_SAFE_INTEGER) sides = Number.MAX_SAFE_INTEGER;
+
+  if (sides === undefined) {
+    sides = count;
+    count = 1;
+  }
 
   let total = 0;
   let throws = [];

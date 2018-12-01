@@ -60,7 +60,7 @@ bot.onText(/^[/!]spongebob (.+)/i, spongebob(bot));
 bot.onText(/^[/!]markov (.+)/i, Markov.reply(bot, markov));
 bot.onText(/^[/!]markov$/i, Markov.random(bot, markov));
 bot.onText(/^[/!]stats$/i, printStats(bot, dbStats));
-bot.onText(/^[/!]roll d(\d+) (\d+)$/i, roll(bot));
+bot.onText(/^[/!]roll (\d+)d(\d+)$/i, roll(bot));
 bot.onText(/^[/!]roll d(\d+)$/i, roll(bot));
 bot.onText(
   /^\/r\/(\w+) (hot|new|controversial|gilded|top|rising)/i,
