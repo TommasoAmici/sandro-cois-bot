@@ -8,6 +8,7 @@ const googleImages = require("./plugins/googleImages");
 const magic8ball = require("./plugins/magic8Ball");
 const weather = require("./plugins/weather");
 const calc = require("./plugins/calc");
+const pokedex = require("./plugins/pokedex");
 const gago = require("./plugins/9gago");
 const nsfw = require("./plugins/nsfw");
 const set = require("./plugins/set");
@@ -46,6 +47,8 @@ bot.onText(
 bot.onText(/^[/!]magic8ball/i, magic8ball(bot));
 bot.onText(/^[/!]weather (.+)/i, weather(bot));
 bot.onText(/^[/!]calc (.+)/i, calc(bot));
+bot.onText(/^[/!]pokedex ([a-zA-Z]+)/i, pokedex.byName(bot));
+bot.onText(/^[/!]pokedex (\d+)/i, pokedex.byId(bot));
 bot.onText(/^[/!](\d+)gago/i, gago.numeric(bot));
 bot.onText(/^[/!](gago)+/i, gago.alpha(bot));
 bot.onText(/^[/!](evilgago){2,}/i, gago.evil(bot));
