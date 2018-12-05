@@ -125,3 +125,5 @@ typings/
 
 # ignore babel build
 lib/
+*.db
+*.txt
