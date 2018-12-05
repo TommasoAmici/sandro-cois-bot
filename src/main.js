@@ -58,7 +58,7 @@ bot.onText(/^[/!]addquote$/i, quotes.addFromReply(bot, dbQuotes));
 bot.onText(/^[/!]unquote$/i, quotes.remove(bot, dbQuotes));
 bot.onText(/^[/!]quote (.+)/i, quotes.get(bot, dbQuotes));
 bot.onText(/^[/!]quote$/i, quotes.random(bot, dbQuotes));
-bot.onText(/^[/!]set (.+) ([\s\S]*)/i, set(bot, db));
+bot.onText(/^[/!]set (\w+) ([\s\S]+)/i, set(bot, db));
 bot.onText(/^[/!]unset (.+)/i, unset(bot, db));
 bot.onText(/^\S+/i, get(bot, db, markovWriteStream));
 bot.onText(/^[/!]spongebob (.+)/i, spongebob(bot));
