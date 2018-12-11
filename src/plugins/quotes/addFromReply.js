@@ -1,5 +1,4 @@
 module.exports = (bot, db) => (msg, match) => {
-  const chatId = msg.chat.id;
   const msgReply = msg.reply_to_message;
   if (msgReply.text && msgReply.text.length !== 0) {
     const author =
@@ -10,5 +9,5 @@ module.exports = (bot, db) => (msg, match) => {
     db.set(msg.message_id, quote);
   }
 
-  bot.sendMessage(chatId, "Quote added!");
+  bot.sendMessage(msg.chat.id, "Quote added!");
 };

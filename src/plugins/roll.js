@@ -1,8 +1,6 @@
 const utils = require("./utils");
 
 module.exports = bot => (msg, match) => {
-  const chatId = msg.chat.id;
-
   let count = match[1];
   if (count === undefined || count == 0) count = 1;
   if (count >= 1000) count = 1000;
@@ -23,5 +21,5 @@ module.exports = bot => (msg, match) => {
     throws.push(val);
   }
 
-  bot.sendMessage(chatId, `${throws.join(" ")} | Total: ${total}`);
+  bot.sendMessage(msg.chat.id, `${throws.join(" ")} | Total: ${total}`);
 };

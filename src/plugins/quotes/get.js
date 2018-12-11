@@ -12,9 +12,7 @@ const findQuote = (str, db) => {
 };
 
 module.exports = (bot, db) => (msg, match) => {
-  const chatId = msg.chat.id;
-
   const quote = findQuote(match[1].toLowerCase(), db);
 
-  if (quote) bot.sendMessage(chatId, quote);
+  if (quote) bot.sendMessage(msg.chat.id, quote);
 };

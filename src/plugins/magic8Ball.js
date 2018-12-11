@@ -24,6 +24,5 @@ const choices = [
 ];
 
 module.exports = bot => (msg, _) => {
-  const chatId = msg.chat.id;
-  bot.sendMessage(chatId, utils.randomChoice(choices));
-}
+  bot.sendMessage(msg.chat.id, utils.randomChoice(choices));
+};

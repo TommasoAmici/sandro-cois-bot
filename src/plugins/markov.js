@@ -117,16 +117,14 @@ class Markov {
 module.exports = {
   Markov: Markov,
   reply: (bot, markov) => (msg, match) => {
-    const chatId = msg.chat.id;
     const matched = match[1].split(" ");
     const w2 = matched.pop();
     const w1 = matched.pop();
     const message = markov.makeChain(`${w1} ${w2}`);
-    bot.sendMessage(chatId, `${matched.join(" ")} ${message}`);
+    bot.sendMessage(msg.chat.id, `${matched.join(" ")} ${message}`);
   },
   random: (bot, markov) => msg => {
-    const chatId = msg.chat.id;
     const message = markov.makeRandomChain();
-    bot.sendMessage(chatId, message);
+    bot.sendMessage(msg.chat.id, message);
   }
 };

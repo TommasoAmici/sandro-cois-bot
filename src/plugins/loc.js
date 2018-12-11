@@ -9,7 +9,6 @@ const makeMapboxScreenshot = coord =>
   },10,0.00,0.00/1000x600@2x?access_token=${cfg.mapboxToken}`;
 
 module.exports = bot => (msg, match) => {
-  const chatId = msg.chat.id;
   const query = match[1];
 
   geocodingClient
@@ -20,7 +19,7 @@ module.exports = bot => (msg, match) => {
     .send()
     .then(response => {
       const coord = response.body.features[0].center;
-      bot.sendPhoto(chatId, makeMapboxScreenshot(coord));
-      bot.sendLocation(chatId, coord[1], coord[0]);
+      bot.sendPhoto(msg.chat.id, makeMapboxScreenshot(coord));
+      bot.sendLocation(msg.chat.id, coord[1], coord[0]);
     });
 };

@@ -1,5 +1,4 @@
 module.exports = (bot, db) => (msg, match) => {
-  const chatId = msg.chat.id;
   const key = match[1];
   const val = match[2];
 
@@ -7,5 +6,5 @@ module.exports = (bot, db) => (msg, match) => {
 
   db.set(key, val);
 
-  bot.sendMessage(chatId, message);
+  bot.sendMessage(msg.chat.id, message);
 };

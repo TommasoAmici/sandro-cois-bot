@@ -30,8 +30,7 @@ const prettyPrint = users => {
 };
 
 module.exports = (bot, db) => msg => {
-  const chatId = msg.chat.id;
   const sortedUsers = sortUsers(db);
   const message = prettyPrint(sortedUsers);
-  bot.sendMessage(chatId, message);
+  bot.sendMessage(msg.chat.id, message);
 };

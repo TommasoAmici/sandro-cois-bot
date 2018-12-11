@@ -11,13 +11,12 @@ const removeQuote = (str, db) => {
 };
 
 module.exports = (bot, db) => (msg, match) => {
-  const chatId = msg.chat.id;
   let removed;
   if (msg.reply_to_message.text && msg.reply_to_message.text.length !== 0) {
     removed = removeQuote(msg.reply_to_message.text, db);
   }
 
   removed
-    ? bot.sendMessage(chatId, "Quote removed!")
-    : bot.sendMessage(chatId, "Couldn't remove quote!");
+    ? bot.sendMessage(msg.chat.id, "Quote removed!")
+    : bot.sendMessage(msg.chat.id, "Couldn't remove quote!");
 };

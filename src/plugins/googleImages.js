@@ -6,7 +6,6 @@ module.exports = (bot, markovStream) => async (msg, match) => {
   // 'msg' is the received Message from Telegram
   // 'match' is the result of executing the regexp above on the text content
   // of the message
-  const chatId = msg.chat.id;
   const query = match[1]; // the captured "whatever"
   markovStream.write(match.input + "\n");
   // from https://cse.google.com/
@@ -23,14 +22,14 @@ module.exports = (bot, markovStream) => async (msg, match) => {
     const response = await axios.get(baseApi, { params });
 
     if (!response.data.items || response.data.items.length === 0) {
-      bot.sendMessage("No photo found.");
+      bot.sendMessage(msg.chat.id, "No photo found.");
     } else {
       const item = utils.randomChoice(response.data.items);
-      bot.sendPhoto(chatId, item.link);
+      bot.sendPhoto(msg.chat.id, item.link);
     }
   } catch (error) {
     if (error.response && error.response.status >= 400) {
-      bot.sendMessage(chatId, error.response.status);
+      bot.sendMessage(msg.chat.id, error.response.status);
     }
     console.error(error.response);
   }
