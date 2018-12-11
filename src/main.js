@@ -23,12 +23,14 @@ const printStats = require("./plugins/printStats");
 const giphy = require("./plugins/giphy");
 const roll = require("./plugins/roll");
 const redditImages = require("./plugins/redditImages");
+const stickers = require("./plugins/stickers");
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(cfg.telegramToken, { polling: true });
 const db = new Cetriolino("./sandrocois.db", true);
 const dbQuotes = new Cetriolino("./quotes.db", true);
 const dbStats = new Cetriolino("./stats.db", true);
+const dbStickers = new Cetriolino("./stickers.db", true);
 
 // initialize markov chain
 const markovPath = "markov.txt";
@@ -37,7 +39,8 @@ const markov = new Markov.Markov(markovPath);
 
 bot.onText(/^!i (.+)/i, googleImages(bot, markovWriteStream));
 bot.onText(
-  /^(?!.*http)(.+)\.(png|jpg|jpeg|tiff|stk|bmp|pic|psd|svg)$/i,
+  /^(?!.*http)(.+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)$/i,
+  googleImages(bot)
 );
 bot.onText(/^!gif (.+)/i, giphy(bot, markovWriteStream));
 bot.onText(
@@ -50,15 +53,26 @@ bot.onText(/^[/!]loc (\w+)/i, loc(bot));
 bot.onText(/^[/!]calc (.+)/i, calc(bot));
 bot.onText(/^[/!]pokedex ([a-zA-Z]+)/i, pokedex.byName(bot));
 bot.onText(/^[/!]pokedex (\d+)/i, pokedex.byId(bot));
+
+// GAGO
 bot.onText(/^[/!](\d+)gago/i, gago.numeric(bot));
 bot.onText(/^[/!](gago)+/i, gago.alpha(bot));
 bot.onText(/^[/!](evilgago){2,}/i, gago.evil(bot));
 bot.onText(/^[/!]nsfw/i, nsfw(bot));
+
+// STICKERS
+bot.onText(/^[/!]setsticker (\w+)/i, stickers.setKey(bot));
+bot.onText(/^[/!]unsetstk (\w+)/i, stickers.unset(bot, dbStickers));
+bot.onText(/^(?!.*http)(.+)\.stk$/i, stickers.get(bot, dbStickers));
+bot.on("sticker", stickers.setSticker(bot, dbStickers));
+
+// QUOTES
 bot.onText(/^[/!]addquote ([\s\S]*)/i, quotes.add(bot, dbQuotes));
 bot.onText(/^[/!]addquote$/i, quotes.addFromReply(bot, dbQuotes));
 bot.onText(/^[/!]unquote$/i, quotes.remove(bot, dbQuotes));
 bot.onText(/^[/!]quote (.+)/i, quotes.get(bot, dbQuotes));
 bot.onText(/^[/!]quote$/i, quotes.random(bot, dbQuotes));
+
 bot.onText(/^[/!]set (\w+) ([\s\S]+)/i, set(bot, db));
 bot.onText(/^[/!]unset (.+)/i, unset(bot, db));
 bot.onText(/^\S+/i, get(bot, db, markovWriteStream));
