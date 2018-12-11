@@ -2,12 +2,11 @@ const axios = require("axios");
 const utils = require("./utils");
 const cfg = require("../config");
 
-module.exports = (bot, markovStream) => async (msg, match) => {
+module.exports = bot => async (msg, match) => {
   // 'msg' is the received Message from Telegram
   // 'match' is the result of executing the regexp above on the text content
   // of the message
   const query = match[1]; // the captured "whatever"
-  markovStream.write(match.input + "\n");
   // from https://cse.google.com/
   const baseApi = "https://www.googleapis.com/customsearch/v1";
 

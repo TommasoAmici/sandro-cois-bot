@@ -38,12 +38,11 @@ const markov = new Markov.Markov(markovPath);
 bot.onText(/^!i (.+)/i, googleImages(bot, markovWriteStream));
 bot.onText(
   /^(?!.*http)(.+)\.(png|jpg|jpeg|tiff|stk|bmp|pic|psd|svg)$/i,
-  googleImages(bot, markovWriteStream)
 );
 bot.onText(/^!gif (.+)/i, giphy(bot, markovWriteStream));
 bot.onText(
   /^(?!.*http)(.+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)$/i,
-  giphy(bot, markovWriteStream)
+  giphy(bot)
 );
 bot.onText(/^[/!]magic8ball/i, magic8ball(bot));
 bot.onText(/^[/!]weather (\w+)/i, weather(bot));
