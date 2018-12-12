@@ -3,28 +3,8 @@ const Cetriolino = require("cetriolino");
 const cfg = require("./config");
 const fs = require("fs");
 
-// plugins
-const googleImages = require("./plugins/googleImages");
-const magic8ball = require("./plugins/magic8Ball");
-const weather = require("./plugins/weather");
-const loc = require("./plugins/loc");
-const calc = require("./plugins/calc");
-const pokedex = require("./plugins/pokedex");
-const gago = require("./plugins/9gago");
-const nsfw = require("./plugins/nsfw");
-const set = require("./plugins/set");
-const unset = require("./plugins/unset");
-const get = require("./plugins/get");
-const spongebob = require("./plugins/spongebob");
-const quotes = require("./plugins/quotes");
 const Markov = require("./plugins/markov");
-const stats = require("./plugins/stats");
-const printStats = require("./plugins/printStats");
-const giphy = require("./plugins/giphy");
-const roll = require("./plugins/roll");
-const redditImages = require("./plugins/redditImages");
-const stickers = require("./plugins/stickers");
-const what = require("./plugins/what");
+const plugins = require("./plugins");
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(cfg.telegramToken, { polling: true });
@@ -38,55 +18,55 @@ const markovPath = "markov.txt";
 const markovWriteStream = fs.createWriteStream(markovPath, { flags: "a" });
 const markov = new Markov.Markov(markovPath);
 
-bot.onText(/^!i (.+)/i, googleImages(bot, markovWriteStream));
+bot.onText(/^!i (.+)/i, plugins.googleImages(bot));
 bot.onText(
   /^(?!.*http)(.+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)$/i,
-  googleImages(bot)
+  plugins.googleImages(bot)
 );
-bot.onText(/^!gif (.+)/i, giphy(bot, markovWriteStream));
+bot.onText(/^!gif (.+)/i, plugins.giphy(bot));
 bot.onText(
   /^(?!.*http)(.+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)$/i,
-  giphy(bot)
+  plugins.giphy(bot)
 );
-bot.onText(/^[/!]magic8ball/i, magic8ball(bot));
-bot.onText(/^[/!]weather (\w+)/i, weather(bot));
-bot.onText(/^[/!]loc (\w+)/i, loc(bot));
-bot.onText(/^[/!]calc (.+)/i, calc(bot));
-bot.onText(/^(what|cosa|cos|wat)$/i, what(bot));
-bot.onText(/^[/!]pokedex ([a-zA-Z]+)/i, pokedex.byName(bot));
-bot.onText(/^[/!]pokedex (\d+)/i, pokedex.byId(bot));
+bot.onText(/^[/!]magic8ball/i, plugins.magic8ball(bot));
+bot.onText(/^[/!]weather (\w+)/i, plugins.weather(bot));
+bot.onText(/^[/!]loc (\w+)/i, plugins.loc(bot));
+bot.onText(/^[/!]calc (.+)/i, plugins.calc(bot));
+bot.onText(/^(what|cosa|cos|wat)$/i, plugins.what(bot));
+bot.onText(/^[/!]pokedex ([a-zA-Z]+)/i, plugins.pokedex.byName(bot));
+bot.onText(/^[/!]pokedex (\d+)/i, plugins.pokedex.byId(bot));
 
 // GAGO
-bot.onText(/^[/!](\d+)gago/i, gago.numeric(bot));
-bot.onText(/^[/!](gago)+/i, gago.alpha(bot));
-bot.onText(/^[/!](evilgago){2,}/i, gago.evil(bot));
-bot.onText(/^[/!]nsfw/i, nsfw(bot));
+bot.onText(/^[/!](\d+)gago/i, plugins.gago.numeric(bot));
+bot.onText(/^[/!](gago)+/i, plugins.gago.alpha(bot));
+bot.onText(/^[/!](evilgago){2,}/i, plugins.gago.evil(bot));
+bot.onText(/^[/!]nsfw/i, plugins.nsfw(bot));
 
 // STICKERS
-bot.onText(/^[/!]setsticker (\w+)/i, stickers.setKey(bot));
-bot.onText(/^[/!]unsetstk (\w+)/i, stickers.unset(bot, dbStickers));
-bot.onText(/^(?!.*http)(.+)\.stk$/i, stickers.get(bot, dbStickers));
-bot.on("sticker", stickers.setSticker(bot, dbStickers));
+bot.onText(/^[/!]setsticker (\w+)/i, plugins.stickers.setKey(bot));
+bot.onText(/^[/!]unsetstk (\w+)/i, plugins.stickers.unset(bot, dbStickers));
+bot.onText(/^(?!.*http)(.+)\.stk$/i, plugins.stickers.get(bot, dbStickers));
+bot.on("sticker", plugins.stickers.setSticker(bot, dbStickers));
 
 // QUOTES
-bot.onText(/^[/!]addquote ([\s\S]*)/i, quotes.add(bot, dbQuotes));
-bot.onText(/^[/!]addquote$/i, quotes.addFromReply(bot, dbQuotes));
-bot.onText(/^[/!]unquote$/i, quotes.remove(bot, dbQuotes));
-bot.onText(/^[/!]quote (.+)/i, quotes.get(bot, dbQuotes));
-bot.onText(/^[/!]quote$/i, quotes.random(bot, dbQuotes));
+bot.onText(/^[/!]addquote ([\s\S]*)/i, plugins.quotes.add(bot, dbQuotes));
+bot.onText(/^[/!]addquote$/i, plugins.quotes.addFromReply(bot, dbQuotes));
+bot.onText(/^[/!]unquote$/i, plugins.quotes.remove(bot, dbQuotes));
+bot.onText(/^[/!]quote (.+)/i, plugins.quotes.get(bot, dbQuotes));
+bot.onText(/^[/!]quote$/i, plugins.quotes.random(bot, dbQuotes));
 
-bot.onText(/^[/!]set (\w+) ([\s\S]+)/i, set(bot, db));
-bot.onText(/^[/!]unset (.+)/i, unset(bot, db));
-bot.onText(/^\S+/i, get(bot, db, markovWriteStream));
-bot.onText(/^[/!]spongebob (.+)/i, spongebob(bot));
+bot.onText(/^[/!]set (\w+) ([\s\S]+)/i, plugins.set(bot, db));
+bot.onText(/^[/!]unset (.+)/i, plugins.unset(bot, db));
+bot.onText(/^\S+/i, plugins.get(bot, db, markovWriteStream));
+bot.onText(/^[/!]spongebob (.+)/i, plugins.spongebob(bot));
 bot.onText(/^[/!]markov (.+)/i, Markov.reply(bot, markov));
 bot.onText(/^[/!]markov$/i, Markov.random(bot, markov));
-bot.onText(/^[/!]stats$/i, printStats(bot, dbStats));
-bot.onText(/^[/!]roll (\d+)d(\d+)$/i, roll(bot));
-bot.onText(/^[/!]roll d(\d+)$/i, roll(bot));
+bot.onText(/^[/!]stats$/i, plugins.printStats(bot, dbStats));
+bot.onText(/^[/!]roll (\d+)d(\d+)$/i, plugins.roll(bot));
+bot.onText(/^[/!]roll d(\d+)$/i, plugins.roll(bot));
 bot.onText(
   /^\/r\/(\w+) (hot|new|controversial|gilded|top|rising)/i,
-  redditImages(bot)
+  plugins.redditImages(bot)
 );
-bot.onText(/^\/r\/(\w+)$/i, redditImages(bot));
-bot.on("message", stats(bot, dbStats));
+bot.onText(/^\/r\/(\w+)$/i, plugins.redditImages(bot));
+bot.on("message", plugins.stats(bot, dbStats));
