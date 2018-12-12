@@ -24,6 +24,7 @@ const giphy = require("./plugins/giphy");
 const roll = require("./plugins/roll");
 const redditImages = require("./plugins/redditImages");
 const stickers = require("./plugins/stickers");
+const what = require("./plugins/what");
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(cfg.telegramToken, { polling: true });
@@ -51,6 +52,7 @@ bot.onText(/^[/!]magic8ball/i, magic8ball(bot));
 bot.onText(/^[/!]weather (\w+)/i, weather(bot));
 bot.onText(/^[/!]loc (\w+)/i, loc(bot));
 bot.onText(/^[/!]calc (.+)/i, calc(bot));
+bot.onText(/^(what|cosa|cos|wat)$/i, what(bot));
 bot.onText(/^[/!]pokedex ([a-zA-Z]+)/i, pokedex.byName(bot));
 bot.onText(/^[/!]pokedex (\d+)/i, pokedex.byId(bot));
 
