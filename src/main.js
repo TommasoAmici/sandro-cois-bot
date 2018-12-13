@@ -40,14 +40,14 @@ bot.onText(/^[/!](evilgago){2,}/i, plugins.gago.evil(bot));
 bot.onText(/^[/!]nsfw/i, plugins.nsfw(bot));
 
 // STICKERS
-bot.onText(/^[/!]setsticker (\w+)/i, plugins.stickers.setKey(bot));
-bot.onText(/^[/!]unsetstk (\w+)/i, plugins.stickers.unset(bot, dbStickers));
+bot.onText(/^[/!]setsticker (.+)/i, plugins.stickers.setKey(bot));
+bot.onText(/^[/!]unsetstk (.+)/i, plugins.stickers.unset(bot, dbStickers));
 bot.onText(/^(?!.*http)(.+)\.stk$/i, plugins.stickers.get(bot, dbStickers));
 bot.on("sticker", plugins.stickers.setSticker(bot, dbStickers));
 
 // GIFS
-bot.onText(/^[/!]setgif (\w+)/i, plugins.gifs.setKey(bot));
-bot.onText(/^[/!]unsetgif (\w+)/i, plugins.gifs.unset(bot, dbGifs));
+bot.onText(/^[/!]setgif (.+)/i, plugins.gifs.setKey(bot));
+bot.onText(/^[/!]unsetgif (.+)/i, plugins.gifs.unset(bot, dbGifs));
 bot.onText(
   /^(?!.*http)(.+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)$/i,
   plugins.gifs.get(bot, dbGifs)
