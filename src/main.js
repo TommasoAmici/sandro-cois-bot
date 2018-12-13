@@ -39,15 +39,27 @@ bot.onText(/^[/!](gago)+/i, plugins.gago.alpha(bot));
 bot.onText(/^[/!](evilgago){2,}/i, plugins.gago.evil(bot));
 bot.onText(/^[/!]nsfw/i, plugins.nsfw(bot));
 
+// [A-Za-z\u00C0-\u017F]
+// regex for accented chars https://stackoverflow.com/a/11550799
+
 // STICKERS
-bot.onText(/^[/!]setsticker (.+)/i, plugins.stickers.setKey(bot));
-bot.onText(/^[/!]unsetstk (.+)/i, plugins.stickers.unset(bot, dbStickers));
+bot.onText(
+  /^[/!]setsticker ([A-Za-z\u00C0-\u017F]+)/i,
+  plugins.stickers.setKey(bot)
+);
+bot.onText(
+  /^[/!]unsetstk ([A-Za-z\u00C0-\u017F]+)/i,
+  plugins.stickers.unset(bot, dbStickers)
+);
 bot.onText(/^(?!.*http)(.+)\.stk$/i, plugins.stickers.get(bot, dbStickers));
 bot.on("sticker", plugins.stickers.setSticker(bot, dbStickers));
 
 // GIFS
-bot.onText(/^[/!]setgif (.+)/i, plugins.gifs.setKey(bot));
-bot.onText(/^[/!]unsetgif (.+)/i, plugins.gifs.unset(bot, dbGifs));
+bot.onText(/^[/!]setgif ([A-Za-z\u00C0-\u017F]+)/i, plugins.gifs.setKey(bot));
+bot.onText(
+  /^[/!]unsetgif ([A-Za-z\u00C0-\u017F]+)/i,
+  plugins.gifs.unset(bot, dbGifs)
+);
 bot.onText(
   /^(?!.*http)(.+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)$/i,
   plugins.gifs.get(bot, dbGifs)
