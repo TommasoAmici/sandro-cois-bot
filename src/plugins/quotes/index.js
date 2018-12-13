@@ -5,9 +5,9 @@ const random = require("./random");
 const remove = require("./remove");
 
 module.exports = {
-  add: add,
-  addFromReply: addFromReply,
-  get: get,
-  random: random,
-  remove: remove
+  add,
+  addFromReply,
+  get,
+  random,
+  remove
 };

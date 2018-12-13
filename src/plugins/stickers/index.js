@@ -4,8 +4,8 @@ const get = require("./get");
 const unset = require("./unset");
 
 module.exports = {
-  setKey: setKey,
-  setSticker: setSticker,
-  get: get,
-  unset: unset
+  setKey,
+  setSticker,
+  get,
+  unset
 };
