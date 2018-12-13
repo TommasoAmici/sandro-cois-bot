@@ -55,9 +55,9 @@ bot.onText(/^(?!.*http)(.+)\.stk$/i, plugins.stickers.get(bot, dbStickers));
 bot.on("sticker", plugins.stickers.setSticker(bot, dbStickers));
 
 // GIFS
-bot.onText(/^[/!]setgif ([A-Za-z\u00C0-\u017F]+)/i, plugins.gifs.setKey(bot));
+bot.onText(/^[/!]setgif ([A-Za-z\u00C0-\u017F_]+)/i, plugins.gifs.setKey(bot));
 bot.onText(
-  /^[/!]unsetgif ([A-Za-z\u00C0-\u017F]+)/i,
+  /^[/!]unsetgif ([A-Za-z\u00C0-\u017F_]+)/i,
   plugins.gifs.unset(bot, dbGifs)
 );
 bot.onText(
