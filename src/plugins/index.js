@@ -14,31 +14,31 @@ const spongebob = require("./spongebob");
 const quotes = require("./quotes");
 const stats = require("./stats");
 const printStats = require("./printStats");
-const giphy = require("./giphy");
 const roll = require("./roll");
 const redditImages = require("./redditImages");
 const stickers = require("./stickers");
+const gifs = require("./gifs");
 const what = require("./what");
 
 module.exports = {
-  googleImages: googleImages,
-  magic8ball: magic8ball,
-  weather: weather,
-  loc: loc,
-  calc: calc,
-  pokedex: pokedex,
-  gago: gago,
-  nsfw: nsfw,
-  set: set,
-  unset: unset,
-  get: get,
-  spongebob: spongebob,
-  quotes: quotes,
-  stats: stats,
-  printStats: printStats,
-  giphy: giphy,
-  roll: roll,
-  redditImages: redditImages,
-  stickers: stickers,
-  what: what
+  googleImages,
+  magic8ball,
+  weather,
+  loc,
+  calc,
+  pokedex,
+  gago,
+  nsfw,
+  set,
+  unset,
+  get,
+  spongebob,
+  quotes,
+  stats,
+  printStats,
+  roll,
+  redditImages,
+  stickers,
+  gifs,
+  what
 };

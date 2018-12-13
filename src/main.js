@@ -12,6 +12,7 @@ const db = new Cetriolino("./sandrocois.db", true);
 const dbQuotes = new Cetriolino("./quotes.db", true);
 const dbStats = new Cetriolino("./stats.db", true);
 const dbStickers = new Cetriolino("./stickers.db", true);
+const dbGifs = new Cetriolino("./gifs.db", true);
 
 // initialize markov chain
 const markovPath = "markov.txt";
@@ -23,11 +24,7 @@ bot.onText(
   /^(?!.*http)(.+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)$/i,
   plugins.googleImages(bot)
 );
-bot.onText(/^!gif (.+)/i, plugins.giphy(bot));
-bot.onText(
-  /^(?!.*http)(.+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)$/i,
-  plugins.giphy(bot)
-);
+bot.onText(/^!gif (.+)/i, plugins.gifs.giphy(bot));
 bot.onText(/^[/!]magic8ball/i, plugins.magic8ball(bot));
 bot.onText(/^[/!]weather (\w+)/i, plugins.weather(bot));
 bot.onText(/^[/!]loc (\w+)/i, plugins.loc(bot));
@@ -47,6 +44,15 @@ bot.onText(/^[/!]setsticker (\w+)/i, plugins.stickers.setKey(bot));
 bot.onText(/^[/!]unsetstk (\w+)/i, plugins.stickers.unset(bot, dbStickers));
 bot.onText(/^(?!.*http)(.+)\.stk$/i, plugins.stickers.get(bot, dbStickers));
 bot.on("sticker", plugins.stickers.setSticker(bot, dbStickers));
+
+// GIFS
+bot.onText(/^[/!]setgif (\w+)/i, plugins.gifs.setKey(bot));
+bot.onText(/^[/!]unsetgif (\w+)/i, plugins.gifs.unset(bot, dbGifs));
+bot.onText(
+  /^(?!.*http)(.+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)$/i,
+  plugins.gifs.get(bot, dbGifs)
+);
+bot.on("document", plugins.gifs.setValue(bot, dbGifs));
 
 // QUOTES
 bot.onText(/^[/!]addquote ([\s\S]*)/i, plugins.quotes.add(bot, dbQuotes));
