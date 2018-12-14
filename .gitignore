@@ -127,3 +127,4 @@ typings/
 lib/
 *.db
 *.txt
+built/
