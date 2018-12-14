@@ -1,11 +1,10 @@
-const Pokedex = require("pokedex");
-import { Message } from "node-telegram-bot-api";
+import { Pokedex, Pokemon } from "pokedex";
 
 import utils from "./utils";
 
 const pokedex = new Pokedex();
 
-const makeCaption = pokemon =>
+const makeCaption = (pokemon: Pokemon): string =>
   `#${pokemon.id} ${utils.toTitleCase(pokemon.name)}\nHeight: ${pokemon.height /
     10} m\nWeight: ${pokemon.weight / 10} kg`;
 
