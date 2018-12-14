@@ -44,11 +44,11 @@ bot.onText(/^[/!]nsfw/i, plugins.nsfw(bot));
 
 // STICKERS
 bot.onText(
-  /^[/!]setsticker ([A-Za-z\u00C0-\u017F]+)/i,
+  /^[/!]setsticker ([A-Za-z\u00C0-\u017F_]+)/i,
   plugins.stickers.setKey(bot)
 );
 bot.onText(
-  /^[/!]unsetstk ([A-Za-z\u00C0-\u017F]+)/i,
+  /^[/!]unsetstk ([A-Za-z\u00C0-\u017F_]+)/i,
   plugins.stickers.unset(bot, dbStickers)
 );
 bot.onText(/^(?!.*http)(.+)\.stk$/i, plugins.stickers.get(bot, dbStickers));
