@@ -1,5 +1,6 @@
 import axios from "axios";
 import cfg from "../config";
+import { Message } from "node-telegram-bot-api";
 
 const kToC = temp => (temp - 273.15).toFixed(1);
 
@@ -17,7 +18,7 @@ const conditionsEmojis = {
 
 const getEmoji = condition => conditionsEmojis[condition];
 
-export default bot => async (msg, match) => {
+export default bot => async (msg: Message, match: RegExpMatchArray) => {
   // 'msg' is the received Message from Telegram
   // 'match' is the result of executing the regexp above on the text content
   // of the message

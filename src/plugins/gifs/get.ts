@@ -1,6 +1,11 @@
-import utils from '../utils';
+import { Message } from "node-telegram-bot-api";
+import Cetriolino from "cetriolino";
+import utils from "../utils";
 
-export default (bot, db) => async (msg, match) => {
+export default (bot, db: Cetriolino) => async (
+  msg: Message,
+  match: RegExpMatchArray
+) => {
   const query = match[1];
   const gifId = db.get(query);
   if (gifId && gifId.length !== 0) {

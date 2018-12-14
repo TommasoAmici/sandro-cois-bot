@@ -1,14 +1,15 @@
 const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
+import { Message } from "node-telegram-bot-api";
 import cfg from "../config";
 
 const geocodingClient = mbxGeocoding({ accessToken: cfg.mapboxToken });
 
-const makeMapboxScreenshot = coord =>
+const makeMapboxScreenshot = (coord: number[]) =>
   `https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/${coord[0]},${
     coord[1]
   },10,0.00,0.00/1000x600@2x?access_token=${cfg.mapboxToken}`;
 
-export default bot => (msg, match) => {
+export default bot => (msg: Message, match: RegExpMatchArray) => {
   const query = match[1];
 
   geocodingClient

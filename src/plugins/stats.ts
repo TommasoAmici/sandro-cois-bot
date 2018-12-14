@@ -1,9 +1,12 @@
-export default (bot, db) => msg => {
-  const userId = msg.from.id;
+import { Message } from "node-telegram-bot-api";
+import Cetriolino from "cetriolino";
+
+export default (bot, db: Cetriolino) => (msg: Message) => {
+  const userId = String(msg.from.id);
   let current = db.get(userId);
   if (current === undefined) {
-    current = {count: 0};
+    current = { count: 0 };
   }
-  const stats = {name: msg.from.username, count: current.count + 1};
+  const stats = { name: msg.from.username, count: current.count + 1 };
   db.set(userId, stats);
 };

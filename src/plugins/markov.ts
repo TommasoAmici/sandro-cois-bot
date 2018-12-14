@@ -1,5 +1,6 @@
 import * as fs from "fs";
 import utils from "./utils";
+import { Message } from "node-telegram-bot-api";
 
 class Markov {
   path: string;
@@ -118,14 +119,14 @@ class Markov {
 
 export default {
   Markov: Markov,
-  reply: (bot, markov) => (msg, match) => {
+  reply: (bot, markov: Markov) => (msg: Message, match: RegExpMatchArray) => {
     const matched = match[1].split(" ");
     const w2 = matched.pop();
     const w1 = matched.pop();
     const message = markov.makeChain(`${w1} ${w2}`);
     bot.sendMessage(msg.chat.id, `${matched.join(" ")} ${message}`);
   },
-  random: (bot, markov) => msg => {
+  random: (bot, markov: Markov) => (msg: Message) => {
     const message = markov.makeRandomChain();
     bot.sendMessage(msg.chat.id, message);
   }

@@ -1,11 +1,12 @@
-import axios from 'axios';
-import cfg from '../config';
+import axios, { AxiosResponse } from "axios";
+import cfg from "../config";
+import { Message } from "node-telegram-bot-api";
 
-const randomChoice = choices =>
-    choices[Math.floor(Math.random() * choices.length)];
+const randomChoice: any = (choices: []) =>
+  choices[Math.floor(Math.random() * choices.length)];
 
 // random number between min and max inclusive
-const randInt = (min, max) => {
+const randInt = (min: number, max: number) => {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -23,24 +24,32 @@ const shuffle = arr => {
   return arr;
 };
 
-const toTitleCase = str => str.replace(
-    /\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+const toTitleCase = (str: string) =>
+  str.replace(
+    /\w\S*/g,
+    txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+  );
 
-const getGif = async query => {
-  const baseApi = 'https://api.giphy.com/v1/gifs/search';
+const getGif = async (query: string) => {
+  const baseApi = "https://api.giphy.com/v1/gifs/search";
 
-  const params =
-      {q: query, limit: 20, api_key: cfg.giphyToken, rating: 'R', lang: 'it'};
-  return await axios.get(baseApi, {params});
+  const params = {
+    q: query,
+    limit: 20,
+    api_key: cfg.giphyToken,
+    rating: "R",
+    lang: "it"
+  };
+  return await axios.get(baseApi, { params });
 };
 
-const sendGif = (bot, msg, response) => {
+const sendGif = (bot, msg: Message, response) => {
   if (!response.data.data || response.data.data.length === 0) {
-    bot.sendMessage('No gif found.');
+    bot.sendMessage("No gif found.");
   } else {
     const item = randomChoice(response.data.data);
     bot.sendVideo(msg.chat.id, item.images.original.mp4);
   }
 };
 
-export default {randomChoice, shuffle, randInt, toTitleCase, sendGif, getGif};
+export default { randomChoice, shuffle, randInt, toTitleCase, sendGif, getGif };

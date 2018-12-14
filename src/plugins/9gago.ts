@@ -1,31 +1,41 @@
-import utils from './utils';
+import utils from "./utils";
+import { Message } from "node-telegram-bot-api";
 
 const choices = [
-  '😍', '🍆 💦 😫', '👌😂', '💯 ', '🔝 ', ' ', '😂😂😂', ' gago ', '🤔', '👏', '🙏',
-  '🍆 💦 🍑'
+  "😍",
+  "🍆 💦 😫",
+  "👌😂",
+  "💯 ",
+  "🔝 ",
+  " ",
+  "😂😂😂",
+  " gago ",
+  "🤔",
+  "👏",
+  "🙏",
+  "🍆 💦 🍑"
 ];
 
-const gago = k => {
+const gago = (k: number) => {
   let elements = [];
   for (let i = 0; i < k; i++) {
     elements.push(utils.randomChoice(choices));
   }
-  return elements.join('');
+  return elements.join("");
 };
 
 export default {
-  numeric:
-      bot => (msg, match) => {
-        const gagoIndex = +match[1] <= 1500 ? +match[1] : 1500;
-        const message = gago(gagoIndex);
-        bot.sendMessage(msg.chat.id, message);
-      },
-  alpha: bot => (msg, match) => {
-    const message = '😂'.repeat((match[0].length - 1) / 4);
+  numeric: bot => (msg: Message, match: RegExpMatchArray) => {
+    const gagoIndex = +match[1] <= 1500 ? +match[1] : 1500;
+    const message = gago(gagoIndex);
     bot.sendMessage(msg.chat.id, message);
   },
-  evil: bot => (msg, match) => {
-    const message = '😡'.repeat((match[0].length - 1) / 8);
+  alpha: bot => (msg: Message, match: RegExpMatchArray) => {
+    const message = "😂".repeat((match[0].length - 1) / 4);
+    bot.sendMessage(msg.chat.id, message);
+  },
+  evil: bot => (msg: Message, match: RegExpMatchArray) => {
+    const message = "😡".repeat((match[0].length - 1) / 8);
     bot.sendMessage(msg.chat.id, message);
   }
 };

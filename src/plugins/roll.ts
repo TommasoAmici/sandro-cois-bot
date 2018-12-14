@@ -1,14 +1,15 @@
 import utils from "./utils";
+import { Message } from "node-telegram-bot-api";
 
-export default bot => (msg, match) => {
-  let count = match[1];
-  if (count === undefined || count == 0) count = 1;
+export default bot => (msg: Message, match: RegExpMatchArray) => {
+  let count = +match[1];
+  if (count === undefined || count === 0) count = 1;
   if (count >= 1000) count = 1000;
 
-  let sides = match[2];
+  let sides = +match[2];
   if (sides >= Number.MAX_SAFE_INTEGER) sides = Number.MAX_SAFE_INTEGER;
 
-  if (sides === undefined) {
+  if (isNaN(sides)) {
     sides = count;
     count = 1;
   }

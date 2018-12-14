@@ -1,4 +1,5 @@
 const Pokedex = require("pokedex");
+import { Message } from "node-telegram-bot-api";
 
 import utils from "./utils";
 
@@ -8,14 +9,14 @@ const makeCaption = pokemon =>
   `#${pokemon.id} ${utils.toTitleCase(pokemon.name)}\nHeight: ${pokemon.height /
     10} m\nWeight: ${pokemon.weight / 10} kg`;
 
-const pokedexByName = bot => (msg, match) => {
+const pokedexByName = bot => (msg: Message, match: RegExpMatchArray) => {
   const pokemon = pokedex.pokemon(match[1].toLowerCase());
   bot.sendVideo(msg.chat.id, pokemon.sprites.animated, {
     caption: makeCaption(pokemon)
   });
 };
 
-const pokedexById = bot => (msg, match) => {
+const pokedexById = bot => (msg: Message, match: RegExpMatchArray) => {
   const pokemon = pokedex.pokemon(+match[1]);
   bot.sendVideo(msg.chat.id, pokemon.sprites.animated, {
     caption: makeCaption(pokemon)

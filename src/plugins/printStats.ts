@@ -1,4 +1,7 @@
-const sortUsers = db => {
+import { Message } from "node-telegram-bot-api";
+import Cetriolino from "cetriolino";
+
+const sortUsers = (db: Cetriolino) => {
   const keys = db.keys();
   let users = [];
   for (let k in keys) {
@@ -29,7 +32,7 @@ const prettyPrint = users => {
   return message;
 };
 
-export default (bot, db) => msg => {
+export default (bot, db: Cetriolino) => (msg: Message) => {
   const sortedUsers = sortUsers(db);
   const message = prettyPrint(sortedUsers);
   bot.sendMessage(msg.chat.id, message);
