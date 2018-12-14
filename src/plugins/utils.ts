@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import cfg from "../config";
-import { Message } from "node-telegram-bot-api";
+import * as TelegramBot from "node-telegram-bot-api";
 
 const randomChoice: any = (choices: []) =>
   choices[Math.floor(Math.random() * choices.length)];
@@ -43,9 +43,13 @@ const getGif = async (query: string) => {
   return await axios.get(baseApi, { params });
 };
 
-const sendGif = (bot, msg: Message, response) => {
+const sendGif = (
+  bot: TelegramBot,
+  msg: TelegramBot.Message,
+  response
+): void => {
   if (!response.data.data || response.data.data.length === 0) {
-    bot.sendMessage("No gif found.");
+    bot.sendMessage(msg.chat.id, "No gif found.");
   } else {
     const item = randomChoice(response.data.data);
     bot.sendVideo(msg.chat.id, item.images.original.mp4);

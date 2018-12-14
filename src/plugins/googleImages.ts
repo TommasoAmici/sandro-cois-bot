@@ -1,9 +1,12 @@
 import axios from "axios";
-import { Message } from "node-telegram-bot-api";
+import * as TelegramBot from "node-telegram-bot-api";
 import cfg from "../config";
 import utils from "./utils";
 
-export default bot => async (msg: Message, match: RegExpMatchArray) => {
+export default (bot: TelegramBot) => async (
+  msg: TelegramBot.Message,
+  match: RegExpMatchArray
+): Promise<void> => {
   // 'msg' is the received Message from Telegram
   // 'match' is the result of executing the regexp above on the text content
   // of the message

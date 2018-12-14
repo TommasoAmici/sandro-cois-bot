@@ -1,4 +1,4 @@
-import { Message } from "node-telegram-bot-api";
+import * as TelegramBot from "node-telegram-bot-api";
 import Cetriolino from "cetriolino";
 
 const sortUsers = (db: Cetriolino) => {
@@ -32,7 +32,9 @@ const prettyPrint = users => {
   return message;
 };
 
-export default (bot, db: Cetriolino) => (msg: Message) => {
+export default (bot: TelegramBot, db: Cetriolino) => (
+  msg: TelegramBot.Message
+) => {
   const sortedUsers = sortUsers(db);
   const message = prettyPrint(sortedUsers);
   bot.sendMessage(msg.chat.id, message);

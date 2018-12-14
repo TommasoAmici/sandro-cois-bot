@@ -1,5 +1,5 @@
 import utils from "./utils";
-import { Message } from "node-telegram-bot-api";
+import * as TelegramBot from "node-telegram-bot-api";
 
 const choices = [
   "😍",
@@ -25,16 +25,25 @@ const gago = (k: number) => {
 };
 
 export default {
-  numeric: bot => (msg: Message, match: RegExpMatchArray) => {
+  numeric: (bot: TelegramBot) => (
+    msg: TelegramBot.Message,
+    match: RegExpMatchArray
+  ): void => {
     const gagoIndex = +match[1] <= 1500 ? +match[1] : 1500;
     const message = gago(gagoIndex);
     bot.sendMessage(msg.chat.id, message);
   },
-  alpha: bot => (msg: Message, match: RegExpMatchArray) => {
+  alpha: (bot: TelegramBot) => (
+    msg: TelegramBot.Message,
+    match: RegExpMatchArray
+  ): void => {
     const message = "😂".repeat((match[0].length - 1) / 4);
     bot.sendMessage(msg.chat.id, message);
   },
-  evil: bot => (msg: Message, match: RegExpMatchArray) => {
+  evil: (bot: TelegramBot) => (
+    msg: TelegramBot.Message,
+    match: RegExpMatchArray
+  ): void => {
     const message = "😡".repeat((match[0].length - 1) / 8);
     bot.sendMessage(msg.chat.id, message);
   }

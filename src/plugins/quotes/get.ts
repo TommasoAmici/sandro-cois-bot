@@ -1,4 +1,4 @@
-import { Message } from "node-telegram-bot-api";
+import * as TelegramBot from "node-telegram-bot-api";
 import utils from "../utils";
 import Cetriolino from "cetriolino";
 
@@ -13,7 +13,10 @@ const findQuote = (str: string, db: Cetriolino) => {
   return false;
 };
 
-export default (bot, db) => (msg: Message, match: RegExpMatchArray) => {
+export default (bot: TelegramBot, db: Cetriolino) => (
+  msg: TelegramBot.Message,
+  match: RegExpMatchArray
+): void => {
   const quote = findQuote(match[1].toLowerCase(), db);
 
   if (quote) bot.sendMessage(msg.chat.id, quote);

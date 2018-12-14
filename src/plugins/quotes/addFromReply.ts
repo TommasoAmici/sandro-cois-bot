@@ -1,7 +1,9 @@
-import { Message } from "node-telegram-bot-api";
+import * as TelegramBot from "node-telegram-bot-api";
 import Cetriolino from "cetriolino";
 
-export default (bot, db: Cetriolino) => (msg: Message) => {
+export default (bot: TelegramBot, db: Cetriolino) => (
+  msg: TelegramBot.Message
+): void => {
   const msgReply = msg.reply_to_message;
   if (msgReply.text && msgReply.text.length !== 0) {
     const author =

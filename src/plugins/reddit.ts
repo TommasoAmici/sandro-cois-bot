@@ -1,6 +1,6 @@
 import axios from "axios";
 import utils from "./utils";
-import { Message } from "node-telegram-bot-api";
+import * as TelegramBot from "node-telegram-bot-api";
 
 const permalink = item => `\n\nhttps://old.reddit.com${item.data.permalink}`;
 
@@ -18,7 +18,10 @@ const buildMessage = item => {
   return `${text}${links}`;
 };
 
-export default bot => async (msg: Message, match: RegExpMatchArray) => {
+export default (bot: TelegramBot) => async (
+  msg: TelegramBot.Message,
+  match: RegExpMatchArray
+): Promise<void> => {
   const subreddit = match[1].toLowerCase();
   let sortBy;
   if (match[2] === undefined) {

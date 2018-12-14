@@ -1,7 +1,10 @@
 import utils from "./utils";
-import { Message } from "node-telegram-bot-api";
+import * as TelegramBot from "node-telegram-bot-api";
 
-export default bot => (msg: Message, match: RegExpMatchArray) => {
+export default (bot: TelegramBot) => (
+  msg: TelegramBot.Message,
+  match: RegExpMatchArray
+): void => {
   let count = +match[1];
   if (count === undefined || count === 0) count = 1;
   if (count >= 1000) count = 1000;

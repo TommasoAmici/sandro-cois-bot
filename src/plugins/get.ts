@@ -1,10 +1,12 @@
-import { Message } from "node-telegram-bot-api";
+import * as TelegramBot from "node-telegram-bot-api";
 import Cetriolino from "cetriolino";
+import { WriteStream } from "fs";
 
-export default (bot, db: Cetriolino, markovStream) => (
-  msg: Message,
-  match: RegExpMatchArray
-) => {
+export default (
+  bot: TelegramBot,
+  db: Cetriolino,
+  markovStream: WriteStream
+) => (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
   // store every message to generate markov chains
   markovStream.write(match.input + "\n");
 

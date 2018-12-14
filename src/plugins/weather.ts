@@ -1,6 +1,6 @@
 import axios from "axios";
 import cfg from "../config";
-import { Message } from "node-telegram-bot-api";
+import * as TelegramBot from "node-telegram-bot-api";
 
 const kToC = temp => (temp - 273.15).toFixed(1);
 
@@ -18,7 +18,10 @@ const conditionsEmojis = {
 
 const getEmoji = condition => conditionsEmojis[condition];
 
-export default bot => async (msg: Message, match: RegExpMatchArray) => {
+export default (bot: TelegramBot) => async (
+  msg: TelegramBot.Message,
+  match: RegExpMatchArray
+): Promise<void> => {
   // 'msg' is the received Message from Telegram
   // 'match' is the result of executing the regexp above on the text content
   // of the message
@@ -33,7 +36,7 @@ export default bot => async (msg: Message, match: RegExpMatchArray) => {
     const response = await axios.get(baseApi, { params });
 
     if (!response.data.weather || response.data.weather.length === 0) {
-      bot.sendMessage(`Couldn't find the weather for ${query}`);
+      bot.sendMessage(msg.chat.id, `Couldn't find the weather for ${query}`);
     } else {
       const conditionsEmoji = getEmoji(response.data.weather[0].main);
       const message = `The temperature in ${response.data.name} is ${kToC(

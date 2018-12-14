@@ -1,7 +1,9 @@
-import { Message } from "node-telegram-bot-api";
+import * as TelegramBot from "node-telegram-bot-api";
 import Cetriolino from "cetriolino";
 
-export default (bot, db: Cetriolino) => (msg: Message) => {
+export default (bot: TelegramBot, db: Cetriolino) => (
+  msg: TelegramBot.Message
+): void => {
   const regexGif = new RegExp(
     /([A-Za-z\u00C0-\u017F_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i
   );

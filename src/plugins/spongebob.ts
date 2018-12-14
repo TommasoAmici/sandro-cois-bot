@@ -1,6 +1,9 @@
-import { Message } from "node-telegram-bot-api";
+import * as TelegramBot from "node-telegram-bot-api";
 
-export default bot => (msg: Message, match: RegExpMatchArray) => {
+export default (bot: TelegramBot) => (
+  msg: TelegramBot.Message,
+  match: RegExpMatchArray
+): void => {
   let output = [];
   for (let char of match[1]) {
     output.push(

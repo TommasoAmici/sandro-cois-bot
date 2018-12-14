@@ -1,6 +1,6 @@
 const Cetriolino = require("cetriolino");
 import { createWriteStream } from "fs";
-const TelegramBot = require("node-telegram-bot-api");
+import * as TelegramBot from "node-telegram-bot-api";
 
 import cfg from "./config";
 import plugins from "./plugins";

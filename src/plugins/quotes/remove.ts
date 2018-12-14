@@ -1,4 +1,4 @@
-import { Message } from "node-telegram-bot-api";
+import * as TelegramBot from "node-telegram-bot-api";
 import Cetriolino from "cetriolino";
 
 const removeQuote = (str: string, db: Cetriolino) => {
@@ -13,7 +13,9 @@ const removeQuote = (str: string, db: Cetriolino) => {
   return false;
 };
 
-export default (bot, db: Cetriolino) => (msg: Message) => {
+export default (bot: TelegramBot, db: Cetriolino) => (
+  msg: TelegramBot.Message
+): void => {
   let removed;
   if (msg.reply_to_message.text && msg.reply_to_message.text.length !== 0) {
     removed = removeQuote(msg.reply_to_message.text, db);

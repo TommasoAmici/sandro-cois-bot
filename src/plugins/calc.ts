@@ -1,7 +1,10 @@
 import math from "mathjs";
-import { Message } from "node-telegram-bot-api";
+import * as TelegramBot from "node-telegram-bot-api";
 
-export default bot => (msg: Message, match: RegExpMatchArray) => {
+export default (bot: TelegramBot) => (
+  msg: TelegramBot.Message,
+  match: RegExpMatchArray
+): void => {
   try {
     const evaluated = math.eval(match[1]);
     if (typeof evaluated === "object") {

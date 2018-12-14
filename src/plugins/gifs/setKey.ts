@@ -1,9 +1,11 @@
-import { Message } from "node-telegram-bot-api";
+import * as TelegramBot from "node-telegram-bot-api";
 
-export default bot => (msg: Message, match: RegExpMatchArray) => {
-  const chatId = msg.chat.id;
+export default (bot: TelegramBot) => (
+  msg: TelegramBot.Message,
+  match: RegExpMatchArray
+): void => {
   bot.sendMessage(
-    chatId,
+    msg.chat.id,
     `Reply to this message with the gif for ${match[1]}.gif`
   );
 };
