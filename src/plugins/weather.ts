@@ -2,7 +2,7 @@ import axios from "axios";
 import cfg from "../config";
 import * as TelegramBot from "node-telegram-bot-api";
 
-const kToC = temp => (temp - 273.15).toFixed(1);
+const kToC = (temp: number): string => (temp - 273.15).toFixed(1);
 
 const conditionsEmojis = {
   Clear: "☀️",
@@ -16,7 +16,7 @@ const conditionsEmojis = {
   Clouds: "☁️"
 };
 
-const getEmoji = condition => conditionsEmojis[condition];
+const getEmoji = (condition: string): string => conditionsEmojis[condition];
 
 export default (bot: TelegramBot) => async (
   msg: TelegramBot.Message,

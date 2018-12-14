@@ -1,7 +1,7 @@
 import * as TelegramBot from "node-telegram-bot-api";
 import Cetriolino from "cetriolino";
 
-const removeQuote = (str: string, db: Cetriolino) => {
+const removeQuote = (str: string, db: Cetriolino): boolean => {
   const keys = db.keys();
   for (let k in keys) {
     let quote = db.get(keys[k]);

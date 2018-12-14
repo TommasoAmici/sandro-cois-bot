@@ -2,11 +2,12 @@ import axios from "axios";
 import utils from "./utils";
 import * as TelegramBot from "node-telegram-bot-api";
 
-const permalink = item => `\n\nhttps://old.reddit.com${item.data.permalink}`;
+const permalink = (item): string =>
+  `\n\nhttps://old.reddit.com${item.data.permalink}`;
 
-const url = item => `\n\n${item.data.url}`;
+const url = (item): string => `\n\n${item.data.url}`;
 
-const buildMessage = item => {
+const buildMessage = (item): string => {
   const links =
     url(item) === permalink(item)
       ? permalink(item)
@@ -52,7 +53,7 @@ export default (bot: TelegramBot) => async (
         );
       } else if (item.data.domain === "youtu.be") {
         bot.sendMessage(msg.chat.id, buildMessage(item), {
-          parse_mode: "html"
+          parse_mode: "HTML"
         });
       } else if (item.data.post_hint === "image") {
         bot.sendPhoto(msg.chat.id, item.data.url);
@@ -68,7 +69,7 @@ export default (bot: TelegramBot) => async (
       // everything else
       else {
         bot.sendMessage(msg.chat.id, buildMessage(item), {
-          parse_mode: "html"
+          parse_mode: "HTML"
         });
       }
     }

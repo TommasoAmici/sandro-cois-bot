@@ -1,7 +1,12 @@
 import * as TelegramBot from "node-telegram-bot-api";
 import Cetriolino from "cetriolino";
 
-const sortUsers = (db: Cetriolino) => {
+interface User {
+  count: number;
+  name: string;
+}
+
+const sortUsers = (db: Cetriolino): User[] => {
   const keys = db.keys();
   let users = [];
   for (let k in keys) {
@@ -14,7 +19,7 @@ const sortUsers = (db: Cetriolino) => {
   return sortedUsers;
 };
 
-const prettyPrint = users => {
+const prettyPrint = (users: User[]): string => {
   let message = `STATS DELL'ERA SANDRO COIS\n\n`;
   for (let u in users) {
     let emojiMedal = "";

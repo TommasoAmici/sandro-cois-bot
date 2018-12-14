@@ -11,7 +11,7 @@ class Markov {
     this.initialize();
   }
 
-  processSentence(sentence) {
+  processSentence(sentence: string): void {
     // find follow up of pairs of words
     // i.e. w1 w2 => w3
     //      w2 w3 => w4
@@ -34,7 +34,7 @@ class Markov {
     }
   }
 
-  calcProbs() {
+  calcProbs(): void {
     // calculate cumulative distribution
     for (let key in this.corpus) {
       let total = 0;
@@ -50,7 +50,7 @@ class Markov {
     }
   }
 
-  initialize() {
+  initialize(): void {
     // only get last 1000kb
     const stats = fs.statSync(this.path);
     const fileSizeInBytes = stats.size;
@@ -78,14 +78,14 @@ class Markov {
     });
   }
 
-  findNext(currWord) {
+  findNext(currWord: string): string {
     // find word from CDF
     // e.g. [{word:"you", prob:0.9}, {word:"me", prob:0.6}]
     // random = 0.7 => return me (between 0.6 and 0.9)
     return this.corpus[currWord].find(next => Math.random() >= next.prob).word;
   }
 
-  makeChain(start, limit = 100) {
+  makeChain(start: string, limit = 100): string {
     let currWord = start;
     let sentence = [start];
     for (let i = 0; i < limit; i++) {
@@ -108,11 +108,11 @@ class Markov {
     }
   }
 
-  get randomKey() {
+  get randomKey(): string {
     return utils.randomChoice(Object.keys(this.corpus));
   }
 
-  makeRandomChain() {
+  makeRandomChain(): string {
     return this.makeChain(this.randomKey);
   }
 }

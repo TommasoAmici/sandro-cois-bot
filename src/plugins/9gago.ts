@@ -16,7 +16,7 @@ const choices = [
   "🍆 💦 🍑"
 ];
 
-const gago = (k: number) => {
+const gago = (k: number): string => {
   let elements = [];
   for (let i = 0; i < k; i++) {
     elements.push(utils.randomChoice(choices));

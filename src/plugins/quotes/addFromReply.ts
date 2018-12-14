@@ -5,6 +5,7 @@ export default (bot: TelegramBot, db: Cetriolino) => (
   msg: TelegramBot.Message
 ): void => {
   const msgReply = msg.reply_to_message;
+  // if message is fwd, use the original author for quote
   if (msgReply.text && msgReply.text.length !== 0) {
     const author =
       msgReply.forward_from === undefined
