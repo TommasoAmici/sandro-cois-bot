@@ -43,6 +43,7 @@ bot.onText(/^[/!]nsfw/i, plugins.nsfw(bot));
 // regex for accented chars https://stackoverflow.com/a/11550799
 
 // STICKERS
+bot.onText(/^[/!]stklist$/i, plugins.gifs.list(bot, dbStickers));
 bot.onText(
   /^[/!]setsticker ([A-Za-z\u00C0-\u017F_]+)/i,
   plugins.stickers.setKey(bot)
@@ -56,6 +57,7 @@ bot.on("sticker", plugins.stickers.setSticker(bot, dbStickers));
 
 // GIFS
 bot.onText(/^[/!]setgif ([A-Za-z\u00C0-\u017F_]+)/i, plugins.gifs.setKey(bot));
+bot.onText(/^[/!]giflist$/i, plugins.gifs.list(bot, dbGifs));
 bot.onText(
   /^[/!]unsetgif ([A-Za-z\u00C0-\u017F_]+)/i,
   plugins.gifs.unset(bot, dbGifs)
