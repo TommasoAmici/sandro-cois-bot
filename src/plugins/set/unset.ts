@@ -1,7 +1,7 @@
 import * as TelegramBot from "node-telegram-bot-api";
 import Cetriolino from "cetriolino";
 
-export default (bot: TelegramBot, db: Cetriolino) => (
+export default (bot: TelegramBot, db: Cetriolino, ext?: string) => (
   msg: TelegramBot.Message,
   match: RegExpMatchArray
 ): void => {
@@ -9,5 +9,5 @@ export default (bot: TelegramBot, db: Cetriolino) => (
 
   db.remove(key);
 
-  bot.sendMessage(msg.chat.id, `Unset ${key}.gif`);
+  bot.sendMessage(msg.chat.id, `Unset ${key}${ext}`);
 };

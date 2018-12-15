@@ -8,7 +8,7 @@ import Markov from "./plugins/markov";
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(cfg.telegramToken, { polling: true });
-const db = new Cetriolino("./sandrocois.db", true);
+const dbText = new Cetriolino("./sandrocois.db", true);
 const dbQuotes = new Cetriolino("./quotes.db", true);
 const dbStats = new Cetriolino("./stats.db", true);
 const dbStickers = new Cetriolino("./stickers.db", true);
@@ -46,27 +46,43 @@ bot.onText(/^[/!]nsfw/i, plugins.nsfw(bot));
 bot.onText(/^[/!]stklist$/i, plugins.gifs.list(bot, dbStickers));
 bot.onText(
   /^[/!]setsticker ([A-Za-z\u00C0-\u017F_]+)/i,
-  plugins.stickers.setKey(bot)
+  plugins.stickers.setKey(bot, "stk")
 );
 bot.onText(
   /^[/!]unsetstk ([A-Za-z\u00C0-\u017F_]+)/i,
-  plugins.stickers.unset(bot, dbStickers)
+  plugins.stickers.unset(bot, dbStickers, ".stk")
 );
 bot.onText(/^(?!.*http)(.+)\.stk$/i, plugins.stickers.get(bot, dbStickers));
-bot.on("sticker", plugins.stickers.setSticker(bot, dbStickers));
+const regexStk = new RegExp(/([A-Za-z\u00C0-\u017F_]+)\.(stk)/i);
+bot.on(
+  "sticker",
+  plugins.stickers.setValue(bot, dbStickers, regexStk, "Sticker set!")
+);
 
 // GIFS
-bot.onText(/^[/!]setgif ([A-Za-z\u00C0-\u017F_]+)/i, plugins.gifs.setKey(bot));
+bot.onText(
+  /^[/!]setgif ([A-Za-z\u00C0-\u017F_]+)/i,
+  plugins.gifs.setKey(bot, "gif")
+);
 bot.onText(/^[/!]giflist$/i, plugins.gifs.list(bot, dbGifs));
 bot.onText(
   /^[/!]unsetgif ([A-Za-z\u00C0-\u017F_]+)/i,
-  plugins.gifs.unset(bot, dbGifs)
+  plugins.gifs.unset(bot, dbGifs, ".gif")
 );
 bot.onText(
   /^(?!.*http)(.+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)$/i,
   plugins.gifs.get(bot, dbGifs)
 );
-bot.on("document", plugins.gifs.setValue(bot, dbGifs));
+const regexGif = new RegExp(
+  /([A-Za-z\u00C0-\u017F_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i
+);
+bot.on("document", plugins.gifs.setValue(bot, dbGifs, regexGif, "Gif set!"));
+
+// TEXT
+bot.onText(/^[/!]setlist$/i, plugins.text.list(bot, dbText));
+bot.onText(/^[/!]set (\w+) ([\s\S]+)/i, plugins.text.setValue(bot, dbText));
+bot.onText(/^[/!]unset (.+)/i, plugins.text.unset(bot, dbText, ""));
+bot.onText(/^\S+/i, plugins.text.get(bot, dbText, markovWriteStream));
 
 // QUOTES
 bot.onText(/^[/!]addquote ([\s\S]*)/i, plugins.quotes.add(bot, dbQuotes));
@@ -75,13 +91,9 @@ bot.onText(/^[/!]unquote$/i, plugins.quotes.remove(bot, dbQuotes));
 bot.onText(/^[/!]quote (.+)/i, plugins.quotes.get(bot, dbQuotes));
 bot.onText(/^[/!]quote$/i, plugins.quotes.random(bot, dbQuotes));
 
-bot.onText(/^[/!]set (\w+) ([\s\S]+)/i, plugins.set(bot, db));
-bot.onText(/^[/!]unset (.+)/i, plugins.unset(bot, db));
-bot.onText(/^\S+/i, plugins.get(bot, db, markovWriteStream));
 bot.onText(/^[/!]spongebob (.+)/i, plugins.spongebob(bot));
 bot.onText(/^[/!]markov (.+)/i, Markov.reply(bot, markov));
 bot.onText(/^[/!]markov$/i, Markov.random(bot, markov));
-bot.onText(/^[/!]stats$/i, plugins.printStats(bot, dbStats));
 bot.onText(/^[/!]roll (\d+)d(\d+)$/i, plugins.roll(bot));
 bot.onText(/^[/!]roll d(\d+)$/i, plugins.roll(bot));
 bot.onText(
@@ -89,4 +101,5 @@ bot.onText(
   plugins.reddit(bot)
 );
 bot.onText(/^\/r\/(\w+)$/i, plugins.reddit(bot));
-bot.on("message", plugins.stats(bot, dbStats));
+bot.onText(/^[/!]stats$/i, plugins.stats.print(bot, dbStats));
+bot.on("message", plugins.stats.count(dbStats));

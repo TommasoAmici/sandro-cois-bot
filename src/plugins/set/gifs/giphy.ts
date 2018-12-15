@@ -1,5 +1,5 @@
 import * as TelegramBot from "node-telegram-bot-api";
-import utils from "../utils";
+import utils from "../../utils";
 
 export default (bot: TelegramBot) => async (
   msg: TelegramBot.Message,

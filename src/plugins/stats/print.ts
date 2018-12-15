@@ -39,7 +39,7 @@ const prettyPrint = (users: User[]): string => {
 
 export default (bot: TelegramBot, db: Cetriolino) => (
   msg: TelegramBot.Message
-) => {
+): void => {
   const sortedUsers = sortUsers(db);
   const message = prettyPrint(sortedUsers);
   bot.sendMessage(msg.chat.id, message);

@@ -1,6 +1,6 @@
 import * as TelegramBot from "node-telegram-bot-api";
 import Cetriolino from "cetriolino";
-import utils from "../utils";
+import utils from "../../utils";
 
 export default (bot: TelegramBot, db: Cetriolino) => async (
   msg: TelegramBot.Message,

@@ -1,9 +1,7 @@
 import * as TelegramBot from "node-telegram-bot-api";
 import Cetriolino from "cetriolino";
 
-export default (bot: TelegramBot, db: Cetriolino) => (
-  msg: TelegramBot.Message
-): void => {
+export default (db: Cetriolino) => (msg: TelegramBot.Message): void => {
   const userId = String(msg.from.id);
   let current = db.get(userId);
   if (current === undefined) {
