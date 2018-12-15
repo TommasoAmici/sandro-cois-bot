@@ -1,4 +1,4 @@
-import Pokedex from "pokedex";
+const Pokedex = require("pokedex");
 import * as TelegramBot from "node-telegram-bot-api";
 
 import utils from "./utils";

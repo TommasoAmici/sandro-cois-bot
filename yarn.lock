@@ -933,7 +933,7 @@ pify@^3.0.0:
   resolved "https://registry.yarnpkg.com/pify/-/pify-3.0.0.tgz#e5a4acd2c101fdf3d9a4d07f0dbc4db49dd28176"
   integrity sha1-5aSs0sEB/fPZpNB/DbxNtJ3SgXY=
 
-pokedex@pokedex:
+pokedex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/pokedex/-/pokedex-1.1.0.tgz#f869bc9864c3159407c32708a1e694a03c104dbb"
   integrity sha512-hqBajgAuM3kxb6NsXjklsfoNIIMPIhG6f6o9cytGVW2UEEbyLcB5ilM4dKDweklHldUsgrqF5GdUVa+Q6uhgTA==
