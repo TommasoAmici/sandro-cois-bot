@@ -6,7 +6,7 @@
     "cetriolino": "^0.3.2",
     "mathjs": "^5.3.0",
     "node-telegram-bot-api": "^0.30.0",
-    "pokedex": "https://github.com/TommasoAmici/pokedex.git"
+    "pokedex": "pokedex"
   },
   "devDependencies": {
     "@types/node": "^10.12.15",

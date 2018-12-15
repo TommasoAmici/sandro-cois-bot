@@ -933,9 +933,10 @@ pify@^3.0.0:
   resolved "https://registry.yarnpkg.com/pify/-/pify-3.0.0.tgz#e5a4acd2c101fdf3d9a4d07f0dbc4db49dd28176"
   integrity sha1-5aSs0sEB/fPZpNB/DbxNtJ3SgXY=
 
-"pokedex@https://github.com/TommasoAmici/pokedex.git":
+pokedex@pokedex:
   version "1.1.0"
-  resolved "https://github.com/TommasoAmici/pokedex.git#375710d5d9eb7328028e5567201ccf7abe8b456c"
+  resolved "https://registry.yarnpkg.com/pokedex/-/pokedex-1.1.0.tgz#f869bc9864c3159407c32708a1e694a03c104dbb"
+  integrity sha512-hqBajgAuM3kxb6NsXjklsfoNIIMPIhG6f6o9cytGVW2UEEbyLcB5ilM4dKDweklHldUsgrqF5GdUVa+Q6uhgTA==
   dependencies:
     csvtojson "^2.0.8"
 
