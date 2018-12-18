@@ -87,6 +87,10 @@ bot.onText(/^\S+/i, plugins.text.get(bot, dbText, markovWriteStream));
 // QUOTES
 bot.onText(/^[/!]addquote ([\s\S]*)/i, plugins.quotes.add(bot, dbQuotes));
 bot.onText(/^[/!]addquote$/i, plugins.quotes.addFromReply(bot, dbQuotes));
+bot.onText(
+  /^[/!]addquotedate$/i,
+  plugins.quotes.addFromReply(bot, dbQuotes, true)
+);
 bot.onText(/^[/!]unquote$/i, plugins.quotes.remove(bot, dbQuotes));
 bot.onText(/^[/!]quote (.+)/i, plugins.quotes.get(bot, dbQuotes));
 bot.onText(/^[/!]quote$/i, plugins.quotes.random(bot, dbQuotes));
