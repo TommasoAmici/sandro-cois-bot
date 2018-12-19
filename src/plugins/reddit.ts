@@ -24,7 +24,7 @@ export default (bot: TelegramBot) => async (
   match: RegExpMatchArray
 ): Promise<void> => {
   const subreddit = match[1].toLowerCase();
-  let sortBy;
+  let sortBy: string;
   if (match[2] === undefined) {
     sortBy = "hot";
   } else {

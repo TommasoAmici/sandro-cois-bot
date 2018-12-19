@@ -46,7 +46,7 @@ bot.onText(/^[/!]nsfw/i, plugins.nsfw(bot));
 bot.onText(/^[/!]stklist$/i, plugins.gifs.list(bot, dbStickers));
 bot.onText(
   /^[/!]setsticker ([A-Za-z\u00C0-\u017F_]+)/i,
-  plugins.stickers.setKey(bot, "stk")
+  plugins.stickers.setKey(bot, dbStickers, "stk")
 );
 bot.onText(
   /^[/!]unsetstk ([A-Za-z\u00C0-\u017F_]+)/i,
@@ -62,7 +62,7 @@ bot.on(
 // GIFS
 bot.onText(
   /^[/!]setgif ([A-Za-z\u00C0-\u017F_]+)/i,
-  plugins.gifs.setKey(bot, "gif")
+  plugins.gifs.setKey(bot, dbGifs, "gif")
 );
 bot.onText(/^[/!]giflist$/i, plugins.gifs.list(bot, dbGifs));
 bot.onText(
