@@ -95,6 +95,8 @@ bot.onText(/^[/!]unquote$/i, plugins.quotes.remove(bot, dbQuotes));
 bot.onText(/^[/!]quote (.+)/i, plugins.quotes.get(bot, dbQuotes));
 bot.onText(/^[/!]quote$/i, plugins.quotes.random(bot, dbQuotes));
 
+bot.onText(/^[/!]domani$/i, plugins.footballData.matches(bot, 1));
+bot.onText(/^[/!]classifica$/i, plugins.footballData.standings(bot));
 bot.onText(/^[/!]spongebob (.+)/i, plugins.spongebob(bot));
 bot.onText(/^[/!]markov (.+)/i, Markov.reply(bot, markov));
 bot.onText(/^[/!]markov$/i, Markov.random(bot, markov));

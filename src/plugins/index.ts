@@ -1,6 +1,7 @@
 // plugins
 import gago from "./9gago";
 import calc from "./calc";
+import footballData from "./footballData/index";
 import gifs from "./set/gifs";
 import googleImages from "./googleImages";
 import loc from "./loc";
@@ -20,6 +21,7 @@ import text from "./set/text";
 export default {
   gago,
   calc,
+  footballData,
   gifs,
   googleImages,
   loc,
