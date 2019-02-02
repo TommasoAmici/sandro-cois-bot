@@ -17,6 +17,7 @@ import stickers from "./set/stickers";
 import weather from "./weather";
 import what from "./what";
 import text from "./set/text";
+import telegramPremium from "./telegramPremium";
 
 export default {
   gago,
@@ -34,6 +35,7 @@ export default {
   spongebob,
   stats,
   stickers,
+  telegramPremium,
   text,
   weather,
   what

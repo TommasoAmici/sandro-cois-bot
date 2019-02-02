@@ -26,6 +26,7 @@ bot.onText(
 );
 bot.onText(/^!gif (.+)/i, plugins.gifs.giphy(bot));
 bot.onText(/^[/!]magic8ball/i, plugins.magic8ball(bot));
+bot.onText(/^[/!]attivatelegrampremium/i, plugins.telegramPremium(bot));
 bot.onText(/^[/!]weather (\w+)/i, plugins.weather(bot));
 bot.onText(/^[/!]loc (\w+)/i, plugins.loc(bot));
 bot.onText(/^[/!]calc (.+)/i, plugins.calc(bot));
