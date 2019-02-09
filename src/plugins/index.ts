@@ -3,7 +3,7 @@ import gago from "./9gago";
 import calc from "./calc";
 import footballData from "./footballData/index";
 import gifs from "./set/gifs";
-import googleImages from "./googleImages";
+import images from "./images";
 import loc from "./loc";
 import magic8ball from "./magic8Ball";
 import nsfw from "./nsfw";
@@ -24,7 +24,7 @@ export default {
   calc,
   footballData,
   gifs,
-  googleImages,
+  images,
   loc,
   magic8ball,
   nsfw,

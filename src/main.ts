@@ -19,11 +19,11 @@ const markovPath = "markov.txt";
 const markovWriteStream = createWriteStream(markovPath, { flags: "a" });
 const markov = new Markov.Markov(markovPath);
 
-bot.onText(/^!i (.+)/i, plugins.googleImages(bot));
+bot.onText(/^[/!]i (.+)/i, plugins.images.regular(bot));
+bot.onText(/^[/!]i/i, plugins.images.onReply(bot));
 bot.onText(
-  /^(?!.*http)(.+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)$/i,
-  plugins.googleImages(bot)
-);
+    /^(?!.*http)(.+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)$/i,
+    plugins.images.regular(bot));
 bot.onText(/^!gif (.+)/i, plugins.gifs.giphy(bot));
 bot.onText(/^[/!]magic8ball/i, plugins.magic8ball(bot));
 bot.onText(/^[/!]attivatelegrampremium/i, plugins.telegramPremium(bot));
