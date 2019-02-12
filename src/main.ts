@@ -1,5 +1,5 @@
 const Cetriolino = require('cetriolino');
-import {createWriteStream} from 'fs';
+import { createWriteStream } from 'fs';
 import * as TelegramBot from 'node-telegram-bot-api';
 
 import cfg from './config';
@@ -7,7 +7,7 @@ import plugins from './plugins';
 import Markov from './plugins/markov';
 
 // Create a bot that uses 'polling' to fetch new updates
-const bot = new TelegramBot(cfg.telegramToken, {polling: true});
+const bot = new TelegramBot(cfg.telegramToken, { polling: true });
 const dbText = new Cetriolino('./sandrocois.db', true);
 const dbQuotes = new Cetriolino('./quotes.db', true);
 const dbStats = new Cetriolino('./stats.db', true);
@@ -16,14 +16,15 @@ const dbGifs = new Cetriolino('./gifs.db', true);
 
 // initialize markov chain
 const markovPath = 'markov.txt';
-const markovWriteStream = createWriteStream(markovPath, {flags: 'a'});
+const markovWriteStream = createWriteStream(markovPath, { flags: 'a' });
 const markov = new Markov.Markov(markovPath);
 
 bot.onText(/^[/!]i (.+)/i, plugins.images(bot));
 bot.onText(/^[/!]i$/i, plugins.images(bot));
 bot.onText(
     /^(?!.*http)(.+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)$/i,
-    plugins.images(bot));
+    plugins.images(bot)
+);
 bot.onText(/^!gif (.+)/i, plugins.gifs.giphy(bot));
 bot.onText(/^[/!]magic8ball/i, plugins.magic8ball(bot));
 bot.onText(/^[/!]attivatelegrampremium/i, plugins.telegramPremium(bot));
@@ -47,29 +48,36 @@ bot.onText(/^[/!]nsfw/i, plugins.nsfw(bot));
 bot.onText(/^[/!]stklist$/i, plugins.gifs.list(bot, dbStickers));
 bot.onText(
     /^[/!]setsticker ([A-Za-z\u00C0-\u017F_]+)/i,
-    plugins.stickers.setKey(bot, dbStickers, 'stk'));
+    plugins.stickers.setKey(bot, dbStickers, 'stk')
+);
 bot.onText(
     /^[/!]unsetstk ([A-Za-z\u00C0-\u017F_]+)/i,
-    plugins.stickers.unset(bot, dbStickers, '.stk'));
+    plugins.stickers.unset(bot, dbStickers, '.stk')
+);
 bot.onText(/^(?!.*http)(.+)\.stk$/i, plugins.stickers.get(bot, dbStickers));
 const regexStk = new RegExp(/([A-Za-z\u00C0-\u017F_]+)\.(stk)/i);
 bot.on(
     'sticker',
-    plugins.stickers.setValue(bot, dbStickers, regexStk, 'Sticker set!'));
+    plugins.stickers.setValue(bot, dbStickers, regexStk, 'Sticker set!')
+);
 
 // GIFS
 bot.onText(
     /^[/!]setgif ([A-Za-z\u00C0-\u017F_]+)/i,
-    plugins.gifs.setKey(bot, dbGifs, 'gif'));
+    plugins.gifs.setKey(bot, dbGifs, 'gif')
+);
 bot.onText(/^[/!]giflist$/i, plugins.gifs.list(bot, dbGifs));
 bot.onText(
     /^[/!]unsetgif ([A-Za-z\u00C0-\u017F_]+)/i,
-    plugins.gifs.unset(bot, dbGifs, '.gif'));
+    plugins.gifs.unset(bot, dbGifs, '.gif')
+);
 bot.onText(
     /^(?!.*http)(.+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)$/i,
-    plugins.gifs.get(bot, dbGifs));
+    plugins.gifs.get(bot, dbGifs)
+);
 const regexGif = new RegExp(
-    /([A-Za-z\u00C0-\u017F_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i);
+    /([A-Za-z\u00C0-\u017F_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i
+);
 bot.on('document', plugins.gifs.setValue(bot, dbGifs, regexGif, 'Gif set!'));
 
 // TEXT
@@ -82,7 +90,9 @@ bot.onText(/^\S+/i, plugins.text.get(bot, dbText, markovWriteStream));
 bot.onText(/^[/!]addquote ([\s\S]*)/i, plugins.quotes.add(bot, dbQuotes));
 bot.onText(/^[/!]addquote$/i, plugins.quotes.addFromReply(bot, dbQuotes));
 bot.onText(
-    /^[/!]addquotedate$/i, plugins.quotes.addFromReply(bot, dbQuotes, true));
+    /^[/!]addquotedate$/i,
+    plugins.quotes.addFromReply(bot, dbQuotes, true)
+);
 bot.onText(/^[/!]unquote$/i, plugins.quotes.remove(bot, dbQuotes));
 bot.onText(/^[/!]quote (.+)/i, plugins.quotes.get(bot, dbQuotes));
 bot.onText(/^[/!]quote$/i, plugins.quotes.random(bot, dbQuotes));
@@ -96,7 +106,8 @@ bot.onText(/^[/!]roll (\d+)d(\d+)$/i, plugins.roll(bot));
 bot.onText(/^[/!]roll d(\d+)$/i, plugins.roll(bot));
 bot.onText(
     /^\/r\/(\w+) (hot|new|controversial|gilded|top|rising)/i,
-    plugins.reddit(bot));
+    plugins.reddit(bot)
+);
 bot.onText(/^\/r\/(\w+)$/i, plugins.reddit(bot));
 bot.onText(/^[/!]stats$/i, plugins.stats.print(bot, dbStats));
 bot.on('message', plugins.stats.count(dbStats));
