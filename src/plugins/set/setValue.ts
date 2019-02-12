@@ -15,7 +15,7 @@ export default (
     let key: string;
     // function runs for every document, but it's not always applicable
     try {
-        key = msg.reply_to_message.text.match(regex)[1];
+        key = msg.reply_to_message.text.match(regex)[1].toLowerCase();
     } catch (e) {
         key = null;
     }

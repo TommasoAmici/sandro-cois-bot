@@ -8,12 +8,13 @@ export default (bot: TelegramBot, db: Cetriolino, ext: string) => (
 ): void => {
     if (msg.reply_to_message) {
         const fileId = getFileId(msg.reply_to_message);
-        db.set(match[1], fileId);
-        bot.sendMessage(msg.chat.id, `Set ${match[1]}.${ext}!`);
+        const key = match[1].toLowerCase();
+        db.set(key, fileId);
+        bot.sendMessage(msg.chat.id, `Set ${key}.${ext}!`);
     } else {
         bot.sendMessage(
             msg.chat.id,
-            `Reply to this message with the ${ext} for ${match[1]}.${ext}`
+            `Reply to this message with the ${ext} for ${match[1].toLowerCase()}.${ext}`
         );
     }
 };
