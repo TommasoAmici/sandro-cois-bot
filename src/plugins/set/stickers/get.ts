@@ -5,7 +5,7 @@ export default (bot: TelegramBot, db: Cetriolino) => (
     msg: TelegramBot.Message,
     match: RegExpMatchArray
 ): void => {
-    const stickerId = db.get(match[1]);
+    const stickerId = db.get(match[1].toLowerCase());
     if (stickerId && stickerId.length !== 0) {
         bot.sendSticker(msg.chat.id, stickerId);
     }

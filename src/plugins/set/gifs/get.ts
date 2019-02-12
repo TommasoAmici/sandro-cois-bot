@@ -7,7 +7,7 @@ export default (bot: TelegramBot, db: Cetriolino) => async (
     msg: TelegramBot.Message,
     match: RegExpMatchArray
 ): Promise<void> => {
-    const query = match[1];
+    const query = match[1].toLowerCase();
     const gifId = db.get(query);
     if (gifId && gifId.length !== 0) {
         bot.sendDocument(msg.chat.id, gifId);
