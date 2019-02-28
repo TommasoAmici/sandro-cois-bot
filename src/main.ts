@@ -13,6 +13,7 @@ const dbQuotes = new Cetriolino('./quotes.db', true);
 const dbStats = new Cetriolino('./stats.db', true);
 const dbStickers = new Cetriolino('./stickers.db', true);
 const dbGifs = new Cetriolino('./gifs.db', true);
+const dbGOTW = new Cetriolino('./gotw.db', true);
 
 // initialize markov chain
 const markovPath = 'markov.txt';
@@ -73,12 +74,14 @@ bot.onText(
 );
 bot.onText(
     /^(?!.*http)(.+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)$/i,
-    plugins.gifs.get(bot, dbGifs)
+    plugins.gifs.get(bot, dbGifs, dbGOTW)
 );
 const regexGif = new RegExp(
     /([A-Za-z\u00C0-\u017F_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i
 );
 bot.on('document', plugins.gifs.setValue(bot, dbGifs, regexGif, 'Gif set!'));
+bot.on('document', plugins.gifOfTheWeek.count(dbGOTW));
+bot.onText(/^[/!]gotw$/i, plugins.gifOfTheWeek.results(bot, dbGOTW));
 
 // TEXT
 bot.onText(/^[/!]setlist$/i, plugins.text.list(bot, dbText));

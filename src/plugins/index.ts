@@ -1,5 +1,6 @@
 // plugins
 import gago from './9gago';
+import gifOfTheWeek from './gifOfTheWeek/index';
 import calc from './calc';
 import footballData from './footballData/index';
 import images from './images';
@@ -23,6 +24,7 @@ export default {
     gago,
     calc,
     footballData,
+    gifOfTheWeek,
     gifs,
     images,
     loc,
