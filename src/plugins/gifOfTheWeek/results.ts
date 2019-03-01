@@ -16,9 +16,10 @@ export default (bot: TelegramBot, db: Cetriolino) => (
     const pastWeeksGifs = objs
         .filter(d => currDate.valueOf() - d.date.valueOf() <= 604800000)
         .sort((a, b) => b.count - a.count);
+    bot.sendMessage(msg.chat.id, 'GIFS OF THE WEEK');
     for (let i = 0; i < 3; i++) {
         bot.sendDocument(msg.chat.id, pastWeeksGifs[i].id, {
-            caption: medals[i],
+            caption: `${medals[i]} ${pastWeeksGifs[i].count}`,
         });
     }
 };
