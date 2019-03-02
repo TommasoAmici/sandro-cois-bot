@@ -2,6 +2,7 @@
     "dependencies": {
         "@mapbox/mapbox-sdk": "^0.6.0",
         "@types/node-telegram-bot-api": "^0.30.3",
+        "@vitalets/google-translate-api": "^2.7.0",
         "axios": "^0.18.0",
         "cetriolino": "^0.3.2",
         "mathjs": "^5.3.0",

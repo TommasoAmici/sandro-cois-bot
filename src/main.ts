@@ -79,6 +79,7 @@ bot.onText(
 
 bot.on('document', plugins.gifOfTheWeek.handleGifs(bot, dbGifs, dbGOTW));
 bot.onText(/^[/!]gotw$/i, plugins.gifOfTheWeek.results(bot, dbGOTW));
+bot.onText(/^[/!]gaelico ([\s\S]*)/i, plugins.gaelic(bot));
 
 // TEXT
 bot.onText(/^[/!]setlist$/i, plugins.text.list(bot, dbText));
