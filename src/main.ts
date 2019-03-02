@@ -79,7 +79,6 @@ bot.onText(
 
 bot.on('document', plugins.gifOfTheWeek.handleGifs(bot, dbGifs, dbGOTW));
 bot.onText(/^[/!]gotw$/i, plugins.gifOfTheWeek.results(bot, dbGOTW));
-bot.onText(/^[/!]gaelico ([\s\S]*)/i, plugins.gaelic(bot));
 
 // TEXT
 bot.onText(/^[/!]setlist$/i, plugins.text.list(bot, dbText));
@@ -112,3 +111,11 @@ bot.onText(
 bot.onText(/^\/r\/(\w+)$/i, plugins.reddit(bot));
 bot.onText(/^[/!]stats$/i, plugins.stats.print(bot, dbStats));
 bot.on('message', plugins.stats.count(dbStats));
+
+// google translate
+
+bot.onText(/^[/!]gaelico ([\s\S]*)/i, plugins.gtranslate(bot, 'ga'));
+bot.onText(/^[/!]tedesco ([\s\S]*)/i, plugins.gtranslate(bot, 'de'));
+bot.onText(/^[/!]francese ([\s\S]*)/i, plugins.gtranslate(bot, 'fr'));
+bot.onText(/^[/!]olandese ([\s\S]*)/i, plugins.gtranslate(bot, 'nl'));
+bot.onText(/^[/!]inglese ([\s\S]*)/i, plugins.gtranslate(bot, 'en'));

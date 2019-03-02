@@ -1,6 +1,6 @@
 // plugins
 import gago from './9gago';
-import gaelic from './gaelic';
+import gtranslate from './gtranslate';
 import gifOfTheWeek from './gifOfTheWeek/index';
 import calc from './calc';
 import footballData from './footballData/index';
@@ -25,7 +25,7 @@ export default {
     gago,
     calc,
     footballData,
-    gaelic,
+    gtranslate,
     gifOfTheWeek,
     gifs,
     images,
