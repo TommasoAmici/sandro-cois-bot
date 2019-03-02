@@ -76,11 +76,8 @@ bot.onText(
     /^(?!.*http)(.+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)$/i,
     plugins.gifs.get(bot, dbGifs, dbGOTW)
 );
-const regexGif = new RegExp(
-    /([A-Za-z\u00C0-\u017F_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i
-);
-bot.on('document', plugins.gifs.setValue(bot, dbGifs, regexGif, 'Gif set!'));
-bot.on('document', plugins.gifOfTheWeek.count(dbGOTW));
+
+bot.on('document', plugins.gifOfTheWeek.handleGifs(bot, dbGifs, dbGOTW));
 bot.onText(/^[/!]gotw$/i, plugins.gifOfTheWeek.results(bot, dbGOTW));
 
 // TEXT

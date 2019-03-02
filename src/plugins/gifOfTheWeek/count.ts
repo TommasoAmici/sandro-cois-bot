@@ -6,7 +6,7 @@ export interface GifCount {
     count: number;
 }
 
-export default (db: Cetriolino) => (msg: TelegramBot.Message): void => {
+export default (db: Cetriolino, msg: TelegramBot.Message): void => {
     if (db.exists(msg.document.file_id)) {
         const gif: GifCount = db.get(msg.document.file_id);
         db.set(msg.document.file_id, { date: gif.date, count: gif.count + 1 });
