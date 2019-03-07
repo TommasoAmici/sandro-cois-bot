@@ -5,7 +5,7 @@ export default (bot: TelegramBot) => (
     match: RegExpMatchArray
 ): void => {
     let output = [];
-    for (let char of match[1]) {
+    for (let char of match[1].toLowerCase()) {
         output.push(Math.random() > 0.5 ? char.toUpperCase() : char);
     }
     bot.sendMessage(msg.chat.id, output.join(''));
