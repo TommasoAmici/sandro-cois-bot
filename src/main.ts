@@ -119,3 +119,4 @@ bot.onText(/^[/!]tedesco ([\s\S]*)/i, plugins.gtranslate(bot, 'de'));
 bot.onText(/^[/!]francese ([\s\S]*)/i, plugins.gtranslate(bot, 'fr'));
 bot.onText(/^[/!]olandese ([\s\S]*)/i, plugins.gtranslate(bot, 'nl'));
 bot.onText(/^[/!]inglese ([\s\S]*)/i, plugins.gtranslate(bot, 'en'));
+bot.onText(/^[/!]spagnolo ([\s\S]*)/i, plugins.gtranslate(bot, 'es'));
