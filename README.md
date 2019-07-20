@@ -38,13 +38,14 @@ All commands respond to both ! and /, and they are case insensitive. All entries
 -   `[what|cosa|cos|wat]` in response to a message makes it louder.
 -   `/domani` returns next Serie A matchday.
 -   `/classifica` returns Serie A standings.
--   `/gaelico [x]` translates into Gaelic
--   `/tedesco [x]` translates into German
--   `/francese [x]` translates into French
--   `/olandese [x]` translates into Dutch
--   `/inglese [x]` translates into English
--   `/spagnolo [x]` translates into Spanish
--   `/napoletano [x]` translates into Neapolitan
+-   `/gaelico [x]` translates into Gaelic.
+-   `/tedesco [x]` translates into German.
+-   `/francese [x]` translates into French.
+-   `/olandese [x]` translates into Dutch.
+-   `/inglese [x]` translates into English.
+-   `/spagnolo [x]` translates into Spanish.
+-   `/napoletano [x]` translates into Neapolitan.
+-   `/settitle [x]` changes chat title to [x].
 
 ### TODO
 

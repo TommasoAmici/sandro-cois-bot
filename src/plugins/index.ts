@@ -23,6 +23,7 @@ import text from './set/text';
 import unset from './set/unset';
 import get from './set/get';
 import list from './set/list';
+import setTitle from './setTitle';
 
 export default {
     gago,
@@ -45,6 +46,7 @@ export default {
     telegramPremium,
     get,
     setKey,
+    setTitle,
     setValue,
     text,
     unset,

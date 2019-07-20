@@ -129,3 +129,5 @@ bot.onText(/^[/!]olandese ([\s\S]*)/i, plugins.gtranslate(bot, 'nl'));
 bot.onText(/^[/!]inglese ([\s\S]*)/i, plugins.gtranslate(bot, 'en'));
 bot.onText(/^[/!]spagnolo ([\s\S]*)/i, plugins.gtranslate(bot, 'es'));
 bot.onText(/^[/!]napoletano ([\s\S]*)/i, plugins.gtranslate(bot, 'sw'));
+
+bot.onText(/^[/!]settitle ([\s\S]*)/i, plugins.setTitle(bot));
