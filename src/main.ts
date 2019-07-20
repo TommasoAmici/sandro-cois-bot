@@ -1,19 +1,10 @@
-const Cetriolino = require('cetriolino');
-import { createWriteStream } from 'fs';
 import * as TelegramBot from 'node-telegram-bot-api';
 
 import cfg from './config';
 import plugins from './plugins';
-import Markov from './plugins/markov';
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(cfg.telegramToken, { polling: true });
-const dbText = new Cetriolino('./sandrocois.db', true);
-
-// initialize markov chain
-const markovPath = 'markov.txt';
-const markovWriteStream = createWriteStream(markovPath, { flags: 'a' });
-const markov = new Markov.Markov(markovPath);
 
 bot.onText(/^!gif (.+)/i, plugins.giphy(bot));
 bot.onText(/^[/!]magic8ball/i, plugins.magic8ball(bot));
@@ -119,8 +110,6 @@ bot.onText(/^[/!]quote$/i, plugins.quotes.random(bot));
 bot.onText(/^[/!]domani$/i, plugins.footballData.matches(bot, 1));
 bot.onText(/^[/!]classifica$/i, plugins.footballData.standings(bot));
 bot.onText(/^[/!]spongebob (.+)/i, plugins.spongebob(bot));
-bot.onText(/^[/!]markov (.+)/i, Markov.reply(bot, markov));
-bot.onText(/^[/!]markov$/i, Markov.random(bot, markov));
 bot.onText(/^[/!]roll (\d+)d(\d+)$/i, plugins.roll(bot));
 bot.onText(/^[/!]roll d(\d+)$/i, plugins.roll(bot));
 bot.onText(
