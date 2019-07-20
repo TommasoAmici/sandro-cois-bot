@@ -125,7 +125,7 @@ bot.onText(
     plugins.reddit(bot)
 );
 bot.onText(/^\/r\/(\w+)$/i, plugins.reddit(bot));
-bot.onText(/^[/!]stats$/i, plugins.stats.print(bot, dbStats));
+bot.onText(/^[/!]stats$/i, plugins.stats.print(bot));
 bot.on('message', plugins.stats.count());
 
 // google translate

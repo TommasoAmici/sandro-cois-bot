@@ -1,22 +1,19 @@
 import * as TelegramBot from 'node-telegram-bot-api';
-import Cetriolino from 'cetriolino';
+import client, { scanAsync, hmgetAsync } from '../../redisClient';
 
 interface User {
     count: number;
     name: string;
 }
 
-const sortUsers = (db: Cetriolino): User[] => {
-    const keys = db.keys();
-    let users = [];
-    for (let k in keys) {
-        let key = keys[k];
-        users.push(db.get(key));
+const getUsers = async (chatId: Number): Promise<User[]> => {
+    let users: User[] = [];
+    const keys = await scanAsync('0', 'match', `chat:${chatId}:user:*`);
+    for (let key of keys[1]) {
+        let user = await hmgetAsync(key, 'name', 'stats');
+        users.push({ name: user[0], count: +user[1] });
     }
-    const sortedUsers = users.sort((a, b) => {
-        return b.count - a.count;
-    });
-    return sortedUsers;
+    return users;
 };
 
 const prettyPrint = (users: User[]): string => {
@@ -37,10 +34,11 @@ const prettyPrint = (users: User[]): string => {
     return message;
 };
 
-export default (bot: TelegramBot, db: Cetriolino) => (
+export default (bot: TelegramBot) => async (
     msg: TelegramBot.Message
-): void => {
-    const sortedUsers = sortUsers(db);
+): Promise<void> => {
+    const users = await getUsers(msg.chat.id);
+    const sortedUsers = users.sort((a, b) => b.count - a.count);
     const message = prettyPrint(sortedUsers);
     bot.sendMessage(msg.chat.id, message);
 };
