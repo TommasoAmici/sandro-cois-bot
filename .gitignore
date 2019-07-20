@@ -128,3 +128,4 @@ lib/
 *.db
 *.txt
 built/
+*.rdb
