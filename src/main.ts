@@ -6,7 +6,7 @@ import plugins from './plugins';
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(cfg.telegramToken, { polling: true });
 
-bot.onText(/^!gif (.+)/i, plugins.giphy(bot));
+bot.onText(/^[/!]gif (.+)/i, plugins.giphy(bot));
 bot.onText(/^[/!]magic8ball/i, plugins.magic8ball(bot));
 bot.onText(/^[/!]attivatelegrampremium/i, plugins.telegramPremium(bot));
 bot.onText(/^[/!]weather (\w+)/i, plugins.weather(bot));
