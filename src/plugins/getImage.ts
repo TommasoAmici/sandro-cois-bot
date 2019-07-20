@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as TelegramBot from 'node-telegram-bot-api';
-import cfg from '../../../config';
-import utils from '../../utils';
+import cfg from '../config';
+import utils from './utils';
 
 const baseApi = 'https://www.googleapis.com/customsearch/v1';
 

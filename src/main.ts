@@ -9,17 +9,13 @@ import Markov from './plugins/markov';
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(cfg.telegramToken, { polling: true });
 const dbText = new Cetriolino('./sandrocois.db', true);
-const dbStickers = new Cetriolino('./stickers.db', true);
-const dbGifs = new Cetriolino('./gifs.db', true);
-const dbImages = new Cetriolino('./images.db', true);
-const dbGOTW = new Cetriolino('./gotw.db', true);
 
 // initialize markov chain
 const markovPath = 'markov.txt';
 const markovWriteStream = createWriteStream(markovPath, { flags: 'a' });
 const markov = new Markov.Markov(markovPath);
 
-bot.onText(/^!gif (.+)/i, plugins.gifs.giphy(bot));
+bot.onText(/^!gif (.+)/i, plugins.giphy(bot));
 bot.onText(/^[/!]magic8ball/i, plugins.magic8ball(bot));
 bot.onText(/^[/!]attivatelegrampremium/i, plugins.telegramPremium(bot));
 bot.onText(/^[/!]weather (\w+)/i, plugins.weather(bot));
@@ -38,67 +34,79 @@ bot.onText(/^[/!]nsfw/i, plugins.nsfw(bot));
 // [A-Za-z\u00C0-\u017F]
 // regex for accented chars https://stackoverflow.com/a/11550799
 
+export interface Media {
+    type: string;
+    ext: string;
+}
+
+export const media = {
+    stickers: { type: 'stickers', ext: 'stk' },
+    gifs: { type: 'gifs', ext: 'gif' },
+    photos: { type: 'photos', ext: 'png' },
+    text: { type: 'text', ext: 'txt' },
+};
+
 // STICKERS
-bot.onText(/^[/!]stklist$/i, plugins.gifs.list(bot, dbStickers));
+bot.onText(/^[/!]stklist$/i, plugins.list(bot, media.stickers));
 bot.onText(
-    /^[/!]setsticker ([A-Za-z\u00C0-\u017F_]+)/i,
-    plugins.stickers.setKey(bot, dbStickers, 'stk')
+    /^[/!]setstk ([A-Za-z\u00C0-\u017F_]+)/i,
+    plugins.setKey(bot, media.stickers)
 );
 bot.onText(
     /^[/!]unsetstk ([A-Za-z\u00C0-\u017F_]+)/i,
-    plugins.stickers.unset(bot, dbStickers, '.stk')
+    plugins.unset(bot, media.stickers)
 );
-bot.onText(/^(?!.*http)(.+)\.stk$/i, plugins.stickers.get(bot, dbStickers));
+bot.onText(/^(?!.*http)(.+)\.stk$/i, plugins.get(bot, media.stickers));
 const regexStk = new RegExp(/([A-Za-z\u00C0-\u017F_]+)\.(stk)/i);
-bot.on(
-    'sticker',
-    plugins.stickers.setValue(bot, dbStickers, regexStk, 'Sticker set!')
-);
+bot.on('sticker', plugins.setValue(bot, regexStk, media.stickers));
 
 // IMAGES
-bot.onText(/^[/!]i (.+)/i, plugins.images.getImage(bot));
-bot.onText(/^[/!]i$/i, plugins.images.getImage(bot));
+bot.onText(/^[/!]i (.+)/i, plugins.getImage(bot));
+bot.onText(/^[/!]i$/i, plugins.getImage(bot));
 bot.onText(
     /^(?!.*http)(.+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)$/i,
-    plugins.images.get(bot, dbImages)
+    plugins.get(bot, media.photos)
 );
 bot.onText(
     /^[/!]setpic ([A-Za-z\u00C0-\u017F_]+)/i,
-    plugins.images.setKey(bot, dbImages, 'png')
+    plugins.setKey(bot, media.photos)
 );
-bot.onText(/^[/!]piclist$/i, plugins.images.list(bot, dbImages));
+bot.onText(/^[/!]piclist$/i, plugins.list(bot, media.photos));
 bot.onText(
     /^[/!]unsetpic ([A-Za-z\u00C0-\u017F_]+)/i,
-    plugins.images.unset(bot, dbImages, '.png')
+    plugins.unset(bot, media.photos)
 );
 const regexPic = new RegExp(
     /([A-Za-z\u00C0-\u017F_]+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)/i
 );
-bot.on('photo', plugins.images.setValue(bot, dbImages, regexPic, 'Image set!'));
+bot.on('photo', plugins.setValue(bot, regexPic, media.photos));
 
 // GIFS
 bot.onText(
     /^[/!]setgif ([A-Za-z\u00C0-\u017F_]+)/i,
-    plugins.gifs.setKey(bot, dbGifs, 'gif')
+    plugins.setKey(bot, media.gifs)
 );
-bot.onText(/^[/!]giflist$/i, plugins.gifs.list(bot, dbGifs));
+bot.onText(/^[/!]giflist$/i, plugins.list(bot, media.gifs));
 bot.onText(
     /^[/!]unsetgif ([A-Za-z\u00C0-\u017F_]+)/i,
-    plugins.gifs.unset(bot, dbGifs, '.gif')
+    plugins.unset(bot, media.gifs)
 );
 bot.onText(
     /^(?!.*http)(.+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)$/i,
-    plugins.gifs.get(bot, dbGifs, dbGOTW)
+    plugins.get(bot, media.gifs)
 );
 
-bot.on('document', plugins.gifOfTheWeek.handleGifs(bot, dbGifs, dbGOTW));
-bot.onText(/^[/!]gotw$/i, plugins.gifOfTheWeek.results(bot, dbGOTW));
+const regexGif = new RegExp(
+    /([A-Za-z\u00C0-\u017F_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i
+);
+bot.on('document', plugins.setValue(bot, regexGif, media.gifs));
+bot.on('video', plugins.setValue(bot, regexGif, media.gifs));
 
 // TEXT
-bot.onText(/^[/!]setlist$/i, plugins.text.list(bot, dbText));
-bot.onText(/^[/!]set (\w+) ([\s\S]+)/i, plugins.text.setValue(bot, dbText));
-bot.onText(/^[/!]unset (.+)/i, plugins.text.unset(bot, dbText, ''));
-bot.onText(/^\S+/i, plugins.text.get(bot, dbText, markovWriteStream));
+bot.onText(/^[/!]setlist$/i, plugins.list(bot, media.text));
+bot.onText(/^[/!]set (\w+) ([\s\S]+)/i, plugins.text.setValue(bot, media.text));
+bot.onText(/^[/!]unset (.+)/i, plugins.unset(bot, media.text));
+bot.onText(/^\S+/i, plugins.text.get(bot, media.text));
 
 // QUOTES
 bot.onText(/^[/!]addquote ([\s\S]*)/i, plugins.quotes.add(bot));
