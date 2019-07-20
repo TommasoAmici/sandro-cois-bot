@@ -1,28 +1,23 @@
-import Cetriolino from 'cetriolino';
 import * as TelegramBot from 'node-telegram-bot-api';
+import getFileId from './getFileId';
+import set from './set';
+import { Media } from '../../main';
 
-export const getFileId = (msg: TelegramBot.Message): string => {
-    if (msg.photo) return msg.photo[0].file_id;
-    if (msg.document) return msg.document.file_id;
-    return msg.sticker.file_id;
-};
-
-export default (
-    bot: TelegramBot,
-    db: Cetriolino,
-    regex: RegExp,
-    messageOnSuccess: string
-) => (msg: TelegramBot.Message): void => {
-    let key: string;
+export default (bot: TelegramBot, regex: RegExp, media: Media) => (
+    msg: TelegramBot.Message
+): void => {
     // function runs for every document, but it's not always applicable
-    try {
-        key = msg.reply_to_message.text.match(regex)[1].toLowerCase();
-    } catch (e) {
-        key = null;
-    }
-    if (key !== null) {
-        const fileId = getFileId(msg);
-        db.set(key, fileId);
-        bot.sendMessage(msg.chat.id, messageOnSuccess);
+    if (msg.reply_to_message) {
+        let key: string;
+        try {
+            key = msg.reply_to_message.text.match(regex)[1].toLowerCase();
+        } catch (e) {
+            key = null;
+        }
+        if (key !== null) {
+            const fileId = getFileId(msg, media);
+            console.warn(fileId);
+            set(bot, msg, media, key, fileId);
+        }
     }
 };

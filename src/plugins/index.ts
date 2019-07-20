@@ -1,35 +1,38 @@
 // plugins
 import gago from './9gago';
+import getImage from './getImage';
 import gtranslate from './gtranslate';
-import gifOfTheWeek from './gifOfTheWeek/index';
 import calc from './calc';
 import footballData from './footballData/index';
-import images from './set/images';
 import loc from './loc';
 import magic8ball from './magic8Ball';
+import giphy from './giphy';
 import nsfw from './nsfw';
 import pokedex from './pokedex';
 import quotes from './quotes';
 import reddit from './reddit';
 import roll from './roll';
-import gifs from './set/gifs';
-import stickers from './set/stickers';
-import text from './set/text';
 import spongebob from './spongebob';
 import stats from './stats/index';
 import telegramPremium from './telegramPremium';
 import weather from './weather';
 import what from './what';
+import setKey from './set/setKey';
+import setValue from './set/setValue';
+import text from './set/text';
+import unset from './set/unset';
+import get from './set/get';
+import list from './set/list';
 
 export default {
     gago,
     calc,
     footballData,
+    getImage,
+    giphy,
     gtranslate,
-    gifOfTheWeek,
-    gifs,
-    images,
     loc,
+    list,
     magic8ball,
     nsfw,
     pokedex,
@@ -38,9 +41,12 @@ export default {
     roll,
     spongebob,
     stats,
-    stickers,
     telegramPremium,
+    get,
+    setKey,
+    setValue,
     text,
+    unset,
     weather,
     what,
 };

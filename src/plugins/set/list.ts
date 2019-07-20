@@ -1,9 +1,12 @@
 import * as TelegramBot from 'node-telegram-bot-api';
-import Cetriolino from 'cetriolino';
+import { hkeysAsync } from '../../redisClient';
+import { Media } from '../../main';
 
-export default (bot: TelegramBot, db: Cetriolino) => (
+export default (bot: TelegramBot, media: Media) => async (
     msg: TelegramBot.Message
-): void => {
-    const list = db.keys().join('\n');
+): Promise<void> => {
+    const hkey = `chat:${msg.chat.id}:${media.type}`;
+    const allKeys: string[] = await hkeysAsync(hkey);
+    const list = allKeys.join('\n');
     bot.sendMessage(msg.chat.id, list);
 };

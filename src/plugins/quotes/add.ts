@@ -1,13 +1,17 @@
 import * as TelegramBot from 'node-telegram-bot-api';
-import Cetriolino from 'cetriolino';
+import { saddAsync } from '../../redisClient';
 
-export default (bot: TelegramBot, db: Cetriolino) => (
+export const addQuote = (quote, chatId, bot) => {
+    const key = `chat:${chatId}:quotes`;
+    saddAsync(key, quote)
+        .then(res => bot.sendMessage(chatId, 'Quote added!'))
+        .catch(err => bot.sendMessage(chatId, "Couldn't add quote :("));
+};
+
+export default (bot: TelegramBot) => (
     msg: TelegramBot.Message,
     match: RegExpMatchArray
 ): void => {
     const quote = match[1];
-
-    db.set(String(msg.message_id), quote);
-
-    bot.sendMessage(msg.chat.id, 'Quote added!');
+    addQuote(quote, msg.chat.id, bot);
 };

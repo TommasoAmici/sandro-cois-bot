@@ -1,12 +1,9 @@
 import * as TelegramBot from 'node-telegram-bot-api';
-import Cetriolino from 'cetriolino';
+import client, { hincrbyAsync } from '../../redisClient';
 
-export default (db: Cetriolino) => (msg: TelegramBot.Message): void => {
-    const userId = String(msg.from.id);
-    let current = db.get(userId);
-    if (current === undefined) {
-        current = { count: 0 };
-    }
-    const stats = { name: msg.from.username, count: current.count + 1 };
-    db.set(userId, stats);
+export default () => (msg: TelegramBot.Message): void => {
+    const key = `chat:${msg.chat.id}:user:${msg.from.id}`;
+    hincrbyAsync(key, 'stats', 1).then((stats: Number) => {
+        if (stats === 1) client.hset(key, 'name', msg.from.username);
+    });
 };

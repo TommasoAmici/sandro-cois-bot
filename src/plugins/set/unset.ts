@@ -1,13 +1,17 @@
 import * as TelegramBot from 'node-telegram-bot-api';
-import Cetriolino from 'cetriolino';
+import { hdelAsync } from '../../redisClient';
+import { Media } from '../../main';
 
-export default (bot: TelegramBot, db: Cetriolino, ext?: string) => (
+export default (bot: TelegramBot, media: Media) => (
     msg: TelegramBot.Message,
     match: RegExpMatchArray
 ): void => {
     const key = match[1];
+    const hkey = `chat:${msg.chat.id}:${media.type}`;
 
-    db.remove(key);
-
-    bot.sendMessage(msg.chat.id, `Unset ${key}${ext}`);
+    hdelAsync(hkey, key)
+        .then(res => bot.sendMessage(msg.chat.id, `Unset ${key}!`))
+        .catch(err =>
+            bot.sendMessage(msg.chat.id, `Couldn't unset ${key} :()`)
+        );
 };

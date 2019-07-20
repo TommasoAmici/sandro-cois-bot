@@ -1,8 +1,10 @@
 import * as TelegramBot from 'node-telegram-bot-api';
-import Cetriolino from 'cetriolino';
+import { srandmemberAsync } from '../../redisClient';
 
-export default (bot: TelegramBot, db: Cetriolino) => (
+export default (bot: TelegramBot) => async (
     msg: TelegramBot.Message
-): void => {
-    bot.sendMessage(msg.chat.id, db.random());
+): Promise<void> => {
+    const key = `chat:${msg.chat.id}:quotes`;
+    const quote = await srandmemberAsync(key);
+    bot.sendMessage(msg.chat.id, quote);
 };
