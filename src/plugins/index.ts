@@ -24,6 +24,7 @@ import unset from './set/unset';
 import get from './set/get';
 import list from './set/list';
 import setTitle from './setTitle';
+import naziMods from './naziMods';
 
 export default {
     gago,
@@ -52,4 +53,5 @@ export default {
     unset,
     weather,
     what,
+    naziMods,
 };
