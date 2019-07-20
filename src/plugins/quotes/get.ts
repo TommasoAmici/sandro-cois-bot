@@ -1,23 +1,17 @@
 import * as TelegramBot from 'node-telegram-bot-api';
+import { sscanAsync } from '../../redisClient';
 import utils from '../utils';
-import Cetriolino from 'cetriolino';
 
-const findQuote = (str: string, db: Cetriolino) => {
-    const keys = utils.shuffle(db.keys());
-    for (let k in keys) {
-        let quote = db.get(keys[k]);
-        if (quote.toLowerCase().includes(str)) {
-            return quote;
-        }
-    }
-    return false;
-};
-
-export default (bot: TelegramBot, db: Cetriolino) => (
+export default (bot: TelegramBot) => async (
     msg: TelegramBot.Message,
     match: RegExpMatchArray
-): void => {
-    const quote = findQuote(match[1].toLowerCase(), db);
-
-    if (quote) bot.sendMessage(msg.chat.id, quote);
+): Promise<void> => {
+    const key = `chat:${msg.chat.id}:quotes`;
+    const quotes = await sscanAsync(key, '0', 'match', `*${match[1]}*`);
+    if (quotes === undefined) {
+        bot.sendMessage(msg.chat.id, 'No quote found :(');
+    } else {
+        const quote = utils.randomChoice(quotes[1]);
+        bot.sendMessage(msg.chat.id, quote);
+    }
 };

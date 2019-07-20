@@ -9,8 +9,6 @@ import Markov from './plugins/markov';
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(cfg.telegramToken, { polling: true });
 const dbText = new Cetriolino('./sandrocois.db', true);
-const dbQuotes = new Cetriolino('./quotes.db', true);
-const dbStats = new Cetriolino('./stats.db', true);
 const dbStickers = new Cetriolino('./stickers.db', true);
 const dbGifs = new Cetriolino('./gifs.db', true);
 const dbImages = new Cetriolino('./images.db', true);
@@ -103,15 +101,12 @@ bot.onText(/^[/!]unset (.+)/i, plugins.text.unset(bot, dbText, ''));
 bot.onText(/^\S+/i, plugins.text.get(bot, dbText, markovWriteStream));
 
 // QUOTES
-bot.onText(/^[/!]addquote ([\s\S]*)/i, plugins.quotes.add(bot, dbQuotes));
-bot.onText(/^[/!]addquote$/i, plugins.quotes.addFromReply(bot, dbQuotes));
-bot.onText(
-    /^[/!]addquotedate$/i,
-    plugins.quotes.addFromReply(bot, dbQuotes, true)
-);
-bot.onText(/^[/!]unquote$/i, plugins.quotes.remove(bot, dbQuotes));
-bot.onText(/^[/!]quote (.+)/i, plugins.quotes.get(bot, dbQuotes));
-bot.onText(/^[/!]quote$/i, plugins.quotes.random(bot, dbQuotes));
+bot.onText(/^[/!]addquote ([\s\S]*)/i, plugins.quotes.add(bot));
+bot.onText(/^[/!]addquote$/i, plugins.quotes.addFromReply(bot));
+bot.onText(/^[/!]addquotedate$/i, plugins.quotes.addFromReply(bot, true));
+bot.onText(/^[/!]unquote$/i, plugins.quotes.remove(bot));
+bot.onText(/^[/!]quote (.+)/i, plugins.quotes.get(bot));
+bot.onText(/^[/!]quote$/i, plugins.quotes.random(bot));
 
 bot.onText(/^[/!]domani$/i, plugins.footballData.matches(bot, 1));
 bot.onText(/^[/!]classifica$/i, plugins.footballData.standings(bot));
