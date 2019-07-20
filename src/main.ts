@@ -13,6 +13,7 @@ const dbQuotes = new Cetriolino('./quotes.db', true);
 const dbStats = new Cetriolino('./stats.db', true);
 const dbStickers = new Cetriolino('./stickers.db', true);
 const dbGifs = new Cetriolino('./gifs.db', true);
+const dbImages = new Cetriolino('./images.db', true);
 const dbGOTW = new Cetriolino('./gotw.db', true);
 
 // initialize markov chain
@@ -20,12 +21,6 @@ const markovPath = 'markov.txt';
 const markovWriteStream = createWriteStream(markovPath, { flags: 'a' });
 const markov = new Markov.Markov(markovPath);
 
-bot.onText(/^[/!]i (.+)/i, plugins.images(bot));
-bot.onText(/^[/!]i$/i, plugins.images(bot));
-bot.onText(
-    /^(?!.*http)(.+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)$/i,
-    plugins.images(bot)
-);
 bot.onText(/^!gif (.+)/i, plugins.gifs.giphy(bot));
 bot.onText(/^[/!]magic8ball/i, plugins.magic8ball(bot));
 bot.onText(/^[/!]attivatelegrampremium/i, plugins.telegramPremium(bot));
@@ -61,6 +56,27 @@ bot.on(
     'sticker',
     plugins.stickers.setValue(bot, dbStickers, regexStk, 'Sticker set!')
 );
+
+// IMAGES
+bot.onText(/^[/!]i (.+)/i, plugins.images.getImage(bot));
+bot.onText(/^[/!]i$/i, plugins.images.getImage(bot));
+bot.onText(
+    /^(?!.*http)(.+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)$/i,
+    plugins.images.get(bot, dbImages)
+);
+bot.onText(
+    /^[/!]setpic ([A-Za-z\u00C0-\u017F_]+)/i,
+    plugins.images.setKey(bot, dbImages, 'png')
+);
+bot.onText(/^[/!]piclist$/i, plugins.images.list(bot, dbImages));
+bot.onText(
+    /^[/!]unsetpic ([A-Za-z\u00C0-\u017F_]+)/i,
+    plugins.images.unset(bot, dbImages, '.png')
+);
+const regexPic = new RegExp(
+    /([A-Za-z\u00C0-\u017F_]+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)/i
+);
+bot.on('photo', plugins.images.setValue(bot, dbImages, regexPic, 'Image set!'));
 
 // GIFS
 bot.onText(

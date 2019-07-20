@@ -1,10 +1,6 @@
 import Cetriolino from 'cetriolino';
 import * as TelegramBot from 'node-telegram-bot-api';
-
-export const getFileId = (msg: TelegramBot.Message): string => {
-    if (msg.document) return msg.document.file_id;
-    return msg.sticker.file_id;
-};
+import { getFileId } from '../setValue';
 
 export default (
     bot: TelegramBot,

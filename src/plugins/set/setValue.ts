@@ -2,6 +2,7 @@ import Cetriolino from 'cetriolino';
 import * as TelegramBot from 'node-telegram-bot-api';
 
 export const getFileId = (msg: TelegramBot.Message): string => {
+    if (msg.photo) return msg.photo[0].file_id;
     if (msg.document) return msg.document.file_id;
     return msg.sticker.file_id;
 };

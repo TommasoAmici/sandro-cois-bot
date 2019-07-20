@@ -9,6 +9,7 @@ export default (bot: TelegramBot, db: Cetriolino, ext: string) => (
     if (msg.reply_to_message) {
         const fileId = getFileId(msg.reply_to_message);
         const key = match[1].toLowerCase();
+
         db.set(key, fileId);
         bot.sendMessage(msg.chat.id, `Set ${key}.${ext}!`);
     } else {

@@ -1,11 +1,11 @@
 import axios from 'axios';
 import * as TelegramBot from 'node-telegram-bot-api';
-import cfg from '../../config';
-import utils from '../utils';
+import cfg from '../../../config';
+import utils from '../../utils';
 
 const baseApi = 'https://www.googleapis.com/customsearch/v1';
 
-export default async (
+export const getImage = async (
     query: string,
     bot: TelegramBot,
     msg: TelegramBot.Message
@@ -33,4 +33,16 @@ export default async (
         }
         console.error(error.response);
     }
+};
+
+export default (bot: TelegramBot) => (
+    msg: TelegramBot.Message,
+    match: RegExpMatchArray
+): void => {
+    let query = match[1];
+
+    if (query === undefined && msg.reply_to_message) {
+        query = msg.reply_to_message.text;
+    }
+    getImage(query, bot, msg);
 };

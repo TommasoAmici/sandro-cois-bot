@@ -4,7 +4,7 @@ import gtranslate from './gtranslate';
 import gifOfTheWeek from './gifOfTheWeek/index';
 import calc from './calc';
 import footballData from './footballData/index';
-import images from './images';
+import images from './set/images';
 import loc from './loc';
 import magic8ball from './magic8Ball';
 import nsfw from './nsfw';
