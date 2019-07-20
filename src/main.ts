@@ -126,10 +126,9 @@ bot.onText(
 );
 bot.onText(/^\/r\/(\w+)$/i, plugins.reddit(bot));
 bot.onText(/^[/!]stats$/i, plugins.stats.print(bot, dbStats));
-bot.on('message', plugins.stats.count(dbStats));
+bot.on('message', plugins.stats.count());
 
 // google translate
-
 bot.onText(/^[/!]gaelico ([\s\S]*)/i, plugins.gtranslate(bot, 'ga'));
 bot.onText(/^[/!]tedesco ([\s\S]*)/i, plugins.gtranslate(bot, 'de'));
 bot.onText(/^[/!]francese ([\s\S]*)/i, plugins.gtranslate(bot, 'fr'));
