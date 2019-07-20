@@ -110,6 +110,7 @@ bot.onText(/^[/!]quote$/i, plugins.quotes.random(bot));
 bot.onText(/^[/!]domani$/i, plugins.footballData.matches(bot, 1));
 bot.onText(/^[/!]classifica$/i, plugins.footballData.standings(bot));
 bot.onText(/^[/!]spongebob (.+)/i, plugins.spongebob(bot));
+bot.onText(/^[/!]spongebob$/i, plugins.spongebobInReply(bot));
 bot.onText(/^[/!]roll (\d+)d(\d+)$/i, plugins.roll(bot));
 bot.onText(/^[/!]roll d(\d+)$/i, plugins.roll(bot));
 bot.onText(

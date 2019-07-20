@@ -12,7 +12,7 @@ import pokedex from './pokedex';
 import quotes from './quotes';
 import reddit from './reddit';
 import roll from './roll';
-import spongebob from './spongebob';
+import spongebob, { spongebobInReply } from './spongebob';
 import stats from './stats/index';
 import telegramPremium from './telegramPremium';
 import weather from './weather';
@@ -40,6 +40,7 @@ export default {
     reddit,
     roll,
     spongebob,
+    spongebobInReply,
     stats,
     telegramPremium,
     get,
