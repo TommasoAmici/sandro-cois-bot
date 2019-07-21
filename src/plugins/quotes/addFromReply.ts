@@ -7,10 +7,11 @@ const makeQuoteString = (msgReply, addDate) => {
         msgReply.forward_from === undefined
             ? msgReply.from.first_name
             : msgReply.forward_from.first_name;
-    const date = addDate
-        ? new Date(msgReply.date * 1000).toLocaleDateString('it-IT')
-        : '';
-    return `${msgReply.text}\n\n– ${author} ${date}`;
+    if (addDate) {
+        const date = new Date(msgReply.date * 1000).toLocaleDateString('it-IT');
+        return `${msgReply.text}\n\n– ${author} ${date}`;
+    }
+    return `${msgReply.text}\n\n– ${author}`;
 };
 
 export default (bot: TelegramBot, addDate = false) => (
