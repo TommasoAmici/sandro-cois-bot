@@ -1,5 +1,5 @@
 import * as TelegramBot from 'node-telegram-bot-api';
-import { scanAsync, hmgetAsync } from '../../redisClient';
+import client from '../../redisClient';
 
 interface User {
     count: number;
@@ -8,15 +8,9 @@ interface User {
 
 const getUsers = async (chatId: Number): Promise<User[]> => {
     let users: User[] = [];
-    const keys = await scanAsync(
-        '0',
-        'match',
-        `chat:${chatId}:user:*`,
-        'count',
-        '1000'
-    );
+    const keys = await client.scan(0, 'match', `chat:${chatId}:user:*`);
     for (let key of keys[1]) {
-        let user = await hmgetAsync(key, 'name', 'stats');
+        let user = await client.hmget(key, 'name', 'stats');
         users.push({ name: user[0], count: +user[1] });
     }
     return users;

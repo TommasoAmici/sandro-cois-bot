@@ -1,6 +1,6 @@
 import * as TelegramBot from 'node-telegram-bot-api';
 import { Media, media } from '../../main';
-import { hgetAsync } from '../../redisClient';
+import client from '../../redisClient';
 import utils from '../utils';
 import { getImage } from '../getImage';
 
@@ -10,7 +10,7 @@ export default (bot: TelegramBot, mediaMsg: Media) => async (
 ): Promise<void> => {
     const key = match[1].toLowerCase();
     const hkey = `chat:${msg.chat.id}:${mediaMsg.type}`;
-    const fileId = await hgetAsync(hkey, key);
+    const fileId = await client.hget(hkey, key);
     if (mediaMsg === media.stickers) {
         if (fileId !== null) bot.sendSticker(msg.chat.id, fileId);
     } else if (mediaMsg === media.photos) {

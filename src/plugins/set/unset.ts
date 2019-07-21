@@ -1,5 +1,5 @@
 import * as TelegramBot from 'node-telegram-bot-api';
-import { hdelAsync } from '../../redisClient';
+import client from '../../redisClient';
 import { Media } from '../../main';
 
 export default (bot: TelegramBot, media: Media) => (
@@ -9,7 +9,8 @@ export default (bot: TelegramBot, media: Media) => (
     const key = match[1];
     const hkey = `chat:${msg.chat.id}:${media.type}`;
 
-    hdelAsync(hkey, key)
+    client
+        .hdel(hkey, key)
         .then(res => bot.sendMessage(msg.chat.id, `Unset ${key}!`))
         .catch(err =>
             bot.sendMessage(msg.chat.id, `Couldn't unset ${key} :()`)

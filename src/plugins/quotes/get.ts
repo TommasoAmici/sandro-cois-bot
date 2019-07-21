@@ -1,11 +1,12 @@
 import * as TelegramBot from 'node-telegram-bot-api';
-import { sscanAsync } from '../../redisClient';
+import * as utf8 from 'utf8';
+import client from '../../redisClient';
 import utils from '../utils';
 
 const getQuote = async (key, match) => {
-    const quotes = await sscanAsync(
+    const quotes = await client.sscan(
         key,
-        '0',
+        0,
         'match',
         `*${match}*`,
         'count',
@@ -19,7 +20,8 @@ export default (bot: TelegramBot) => async (
     match: RegExpMatchArray
 ): Promise<void> => {
     const key = `chat:${msg.chat.id}:quotes`;
-    const quotes = await getQuote(key, match[1]);
+    const toMatch = utf8.encode(match[1]);
+    const quotes = await getQuote(key, toMatch);
     if (quotes === undefined) {
         bot.sendMessage(msg.chat.id, 'No quote found :(');
     } else {

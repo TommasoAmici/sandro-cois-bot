@@ -1,5 +1,5 @@
 import * as TelegramBot from 'node-telegram-bot-api';
-import { hgetAsync } from '../../../redisClient';
+import client from '../../../redisClient';
 import { Media } from '../../../main';
 
 export default (bot: TelegramBot, media: Media) => async (
@@ -9,7 +9,7 @@ export default (bot: TelegramBot, media: Media) => async (
     // store every message to generate markov chains
     const hkey = `chat:${msg.chat.id}:${media.type}`;
     const key = match[0];
-    const message = await hgetAsync(hkey, key);
+    const message = await client.hget(hkey, key);
 
     if (message && message.length !== 0) {
         bot.sendMessage(msg.chat.id, message);
