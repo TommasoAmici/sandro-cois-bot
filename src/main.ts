@@ -22,7 +22,7 @@ bot.onText(/^[/!](gago)+/i, plugins.gago.alpha(bot));
 bot.onText(/^[/!](evilgago){2,}/i, plugins.gago.evil(bot));
 bot.onText(/^[/!]nsfw/i, plugins.nsfw(bot));
 
-// [A-Za-z\u00C0-\u017F]
+// [A-Za-z\u00C0-\u017F\0-9\]
 // regex for accented chars https://stackoverflow.com/a/11550799
 
 export interface Media {
@@ -40,15 +40,15 @@ export const media = {
 // STICKERS
 bot.onText(/^[/!]stklist$/i, plugins.list(bot, media.stickers));
 bot.onText(
-    /^[/!]setstk ([A-Za-z\u00C0-\u017F_]+)/i,
+    /^[/!]setstk ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
     plugins.setKey(bot, media.stickers)
 );
 bot.onText(
-    /^[/!]unsetstk ([A-Za-z\u00C0-\u017F_]+)/i,
+    /^[/!]unsetstk ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
     plugins.unset(bot, media.stickers)
 );
 bot.onText(/^(?!.*http)(.+)\.stk$/i, plugins.get(bot, media.stickers));
-const regexStk = new RegExp(/([A-Za-z\u00C0-\u017F_]+)\.(stk)/i);
+const regexStk = new RegExp(/([A-Za-z\u00C0-\u017F\0-9\_]+)\.(stk)/i);
 bot.on('sticker', plugins.setValue(bot, regexStk, media.stickers));
 
 // IMAGES
@@ -59,27 +59,27 @@ bot.onText(
     plugins.get(bot, media.photos)
 );
 bot.onText(
-    /^[/!]setpic ([A-Za-z\u00C0-\u017F_]+)/i,
+    /^[/!]setpic ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
     plugins.setKey(bot, media.photos)
 );
 bot.onText(/^[/!]piclist$/i, plugins.list(bot, media.photos));
 bot.onText(
-    /^[/!]unsetpic ([A-Za-z\u00C0-\u017F_]+)/i,
+    /^[/!]unsetpic ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
     plugins.unset(bot, media.photos)
 );
 const regexPic = new RegExp(
-    /([A-Za-z\u00C0-\u017F_]+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)/i
+    /([A-Za-z\u00C0-\u017F\0-9\_]+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)/i
 );
 bot.on('photo', plugins.setValue(bot, regexPic, media.photos));
 
 // GIFS
 bot.onText(
-    /^[/!]setgif ([A-Za-z\u00C0-\u017F_]+)/i,
+    /^[/!]setgif ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
     plugins.setKey(bot, media.gifs)
 );
 bot.onText(/^[/!]giflist$/i, plugins.list(bot, media.gifs));
 bot.onText(
-    /^[/!]unsetgif ([A-Za-z\u00C0-\u017F_]+)/i,
+    /^[/!]unsetgif ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
     plugins.unset(bot, media.gifs)
 );
 bot.onText(
@@ -88,7 +88,7 @@ bot.onText(
 );
 
 const regexGif = new RegExp(
-    /([A-Za-z\u00C0-\u017F_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i
+    /([A-Za-z\u00C0-\u017F\0-9\_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i
 );
 bot.on('document', plugins.setValue(bot, regexGif, media.gifs));
 bot.on('video', plugins.setValue(bot, regexGif, media.gifs));
