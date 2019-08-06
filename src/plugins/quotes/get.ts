@@ -4,15 +4,11 @@ import client from '../../redisClient';
 import utils from '../utils';
 
 const getQuote = async (key, match) => {
-    const quotes = await client.sscan(
-        key,
-        0,
-        'match',
-        `*${match}*`,
-        'count',
-        '1000'
+    const quotes = await client.smembers(key);
+    const matchingQuotes = quotes.filter((q: String) =>
+        q.toLowerCase().includes(match)
     );
-    return quotes[1];
+    return utils.randomChoice(matchingQuotes);
 };
 
 export default (bot: TelegramBot) => async (
@@ -21,11 +17,10 @@ export default (bot: TelegramBot) => async (
 ): Promise<void> => {
     const key = `chat:${msg.chat.id}:quotes`;
     const toMatch = utf8.encode(match[1]);
-    const quotes = await getQuote(key, toMatch);
-    if (quotes === undefined) {
+    const quote = await getQuote(key, toMatch);
+    if (quote === undefined) {
         bot.sendMessage(msg.chat.id, 'No quote found :(');
     } else {
-        const quote = utils.randomChoice(quotes);
         bot.sendMessage(msg.chat.id, quote);
     }
 };
