@@ -11,7 +11,7 @@ const getUsers = async (chatId: Number): Promise<User[]> => {
     const keys = await client.scan(
         0,
         'COUNT',
-        100,
+        1000,
         'MATCH',
         `chat:${chatId}:user:*`
     );
