@@ -25,10 +25,12 @@ import get from './set/get';
 import list from './set/list';
 import setTitle from './setTitle';
 import naziMods from './naziMods';
+import calciomercato from './calciomercato';
 
 export default {
     gago,
     calc,
+    calciomercato,
     footballData,
     getImage,
     giphy,

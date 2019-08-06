@@ -132,3 +132,4 @@ bot.onText(/^[/!]napoletano ([\s\S]*)/i, plugins.gtranslate(bot, 'sw'));
 
 bot.onText(/^[/!]settitle ([\s\S]*)/i, plugins.setTitle(bot));
 bot.onText(/^[/!]nazi$/i, plugins.naziMods(bot));
+bot.onText(/^[/!](calciomercato|cm)$/i, plugins.calciomercato(bot));
