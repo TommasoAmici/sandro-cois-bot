@@ -14,7 +14,7 @@ export default (bot: TelegramBot) => (msg: TelegramBot.Message) => {
         .get(url)
         .then(res => {
             const article = utils.randomChoice(
-                parse(res.data).childNodes.filter(
+                (parse(res.data).childNodes as any[]).filter(
                     (a: any) => a.tagName === 'article'
                 )
             );

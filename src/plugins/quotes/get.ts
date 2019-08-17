@@ -3,8 +3,8 @@ import * as utf8 from 'utf8';
 import client from '../../redisClient';
 import utils from '../utils';
 
-const getQuote = async (key, match) => {
-    const quotes = await client.smembers(key);
+const getQuote = async (key: string, match: string) => {
+    const quotes: string[] = await client.smembers(key);
     const matchingQuotes = quotes.filter((q: String) =>
         q.toLowerCase().includes(match)
     );

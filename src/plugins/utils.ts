@@ -2,7 +2,7 @@ import cfg from '../config';
 import * as TelegramBot from 'node-telegram-bot-api';
 import axios, { AxiosResponse } from 'axios';
 
-const randomChoice = (choices: any[]): any =>
+const randomChoice = <T>(choices: T[]): T =>
     choices[Math.floor(Math.random() * choices.length)];
 
 // random number between min and max inclusive
@@ -46,12 +46,12 @@ const getGif = async (query: string): Promise<AxiosResponse> => {
 const sendGif = (
     bot: TelegramBot,
     msg: TelegramBot.Message,
-    response
+    response: AxiosResponse
 ): void => {
     if (!response.data.data || response.data.data.length === 0) {
         bot.sendMessage(msg.chat.id, 'No gif found.');
     } else {
-        const item = randomChoice(response.data.data);
+        const item = randomChoice(response.data.data as Gif[]);
         bot.sendVideo(msg.chat.id, item.images.original.mp4);
     }
 };

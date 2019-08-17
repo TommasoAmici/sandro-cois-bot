@@ -24,7 +24,7 @@ export const getImage = async (
         if (!response.data.items || response.data.items.length === 0) {
             bot.sendMessage(msg.chat.id, 'No photo found.');
         } else {
-            const item = utils.randomChoice(response.data.items);
+            const item = utils.randomChoice(response.data.items as ImageItem[]);
             bot.sendPhoto(msg.chat.id, item.link);
         }
     } catch (error) {
