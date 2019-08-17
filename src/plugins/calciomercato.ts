@@ -49,7 +49,7 @@ interface Article {
 }
 
 const prepareString = (article: Article): string =>
-    `**${article.headline}**\n${article.standFirst}\n\n${article.url}`;
+    `*${article.headline}*\n${article.standFirst}\n\n${article.url}`;
 
 const gazzetta = (bot: TelegramBot, msg: TelegramBot.Message) =>
     axios
