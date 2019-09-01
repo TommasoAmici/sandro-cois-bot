@@ -6,4 +6,5 @@ export default {
     giphyToken: process.env.GIPHY_TOKEN,
     mapboxToken: process.env.MAPBOX_TOKEN,
     footballDataToken: process.env.FOOTBALLDATA_TOKEN,
+    alphaVantageToken: process.env.ALPHA_VANTAGE_TOKEN,
 };

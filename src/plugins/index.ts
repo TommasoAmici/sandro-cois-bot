@@ -26,8 +26,10 @@ import list from './set/list';
 import setTitle from './setTitle';
 import naziMods from './naziMods';
 import calciomercato from './calciomercato';
+import stocks from './stocks';
 
 export default {
+    stocks,
     gago,
     calc,
     calciomercato,

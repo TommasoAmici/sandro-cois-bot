@@ -133,3 +133,12 @@ bot.onText(/^[/!]napoletano ([\s\S]*)/i, plugins.gtranslate(bot, 'sw'));
 bot.onText(/^[/!]settitle ([\s\S]*)/i, plugins.setTitle(bot));
 bot.onText(/^[/!]nazi$/i, plugins.naziMods(bot));
 bot.onText(/^[/!](calciomercato|cm)$/i, plugins.calciomercato(bot));
+
+bot.onText(
+    /^[/!](stonks|stocks|borsa) (\w*\.\w*)$/i,
+    plugins.stocks.quote(bot)
+);
+bot.onText(
+    /^[/!](stonkssearch|stockssearch|borsacerca) (\w+)$/i,
+    plugins.stocks.search(bot)
+);
