@@ -1,36 +1,38 @@
 // plugins
 import gago from './9gago';
-import getImage from './getImage';
-import gtranslate from './gtranslate';
 import calc from './calc';
+import calciomercato from './calciomercato';
+import coronavirus from './coronavirus';
 import footballData from './footballData/index';
+import getImage from './getImage';
+import giphy from './giphy';
+import gtranslate from './gtranslate';
 import loc from './loc';
 import magic8ball from './magic8Ball';
-import giphy from './giphy';
+import naziMods from './naziMods';
 import nsfw from './nsfw';
 import pokedex from './pokedex';
 import quotes from './quotes';
 import reddit from './reddit';
 import roll from './roll';
-import spongebob, { spongebobInReply } from './spongebob';
-import stats from './stats/index';
-import telegramPremium from './telegramPremium';
-import weather from './weather';
-import what from './what';
+import get from './set/get';
+import list from './set/list';
 import setKey from './set/setKey';
 import setValue from './set/setValue';
 import text from './set/text';
 import unset from './set/unset';
-import get from './set/get';
-import list from './set/list';
 import setTitle from './setTitle';
-import naziMods from './naziMods';
-import calciomercato from './calciomercato';
+import spongebob, { spongebobInReply } from './spongebob';
+import stats from './stats/index';
 import stocks from './stocks';
+import telegramPremium from './telegramPremium';
+import weather from './weather';
+import what from './what';
 
 export default {
     stocks,
     gago,
+    coronavirus,
     calc,
     calciomercato,
     footballData,

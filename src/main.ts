@@ -1,5 +1,4 @@
 import * as TelegramBot from 'node-telegram-bot-api';
-
 import cfg from './config';
 import plugins from './plugins';
 
@@ -8,7 +7,10 @@ const bot = new TelegramBot(cfg.telegramToken, { polling: true });
 
 bot.onText(/^[/!]gif(?:@\w+)? (.+)/i, plugins.giphy(bot));
 bot.onText(/^[/!]magic8ball(?:@\w+)?/i, plugins.magic8ball(bot));
-bot.onText(/^[/!]attivatelegrampremium(?:@\w+)?/i, plugins.telegramPremium(bot));
+bot.onText(
+    /^[/!]attivatelegrampremium(?:@\w+)?/i,
+    plugins.telegramPremium(bot)
+);
 bot.onText(/^[/!]weather(?:@\w+)? (\w+)/i, plugins.weather(bot));
 bot.onText(/^[/!]loc(?:@\w+)? (\w+)/i, plugins.loc(bot));
 bot.onText(/^[/!]calc(?:@\w+)? (.+)/i, plugins.calc(bot));
@@ -18,6 +20,7 @@ bot.onText(/^[/!]pokedex(?:@\w+)? (\d+)/i, plugins.pokedex.byId(bot));
 
 // GAGO
 bot.onText(/^[/!](\d+)gago/i, plugins.gago.numeric(bot));
+bot.onText(/^[/!](\d+)covid/i, plugins.coronavirus(bot));
 bot.onText(/^[/!](gago)+/i, plugins.gago.alpha(bot));
 bot.onText(/^[/!](evilgago){2,}/i, plugins.gago.evil(bot));
 bot.onText(/^[/!]nsfw(?:@\w+)?/i, plugins.nsfw(bot));
@@ -95,14 +98,20 @@ bot.on('video', plugins.setValue(bot, regexGif, media.gifs));
 
 // TEXT
 bot.onText(/^[/!]setlist(?:@\w+)?$/i, plugins.list(bot, media.text));
-bot.onText(/^[/!]set(?:@\w+)? (\w+) ([\s\S]+)/i, plugins.text.setValue(bot, media.text));
+bot.onText(
+    /^[/!]set(?:@\w+)? (\w+) ([\s\S]+)/i,
+    plugins.text.setValue(bot, media.text)
+);
 bot.onText(/^[/!]unset(?:@\w+)? (.+)/i, plugins.unset(bot, media.text));
 bot.onText(/^\S+/i, plugins.text.get(bot, media.text));
 
 // QUOTES
 bot.onText(/^[/!]addquote(?:@\w+)? ([\s\S]*)/i, plugins.quotes.add(bot));
 bot.onText(/^[/!]addquote(?:@\w+)?$/i, plugins.quotes.addFromReply(bot));
-bot.onText(/^[/!]addquotedate(?:@\w+)?$/i, plugins.quotes.addFromReply(bot, true));
+bot.onText(
+    /^[/!]addquotedate(?:@\w+)?$/i,
+    plugins.quotes.addFromReply(bot, true)
+);
 bot.onText(/^[/!]unquote(?:@\w+)?$/i, plugins.quotes.remove(bot));
 bot.onText(/^[/!]quote(?:@\w+)? (.+)/i, plugins.quotes.get(bot));
 bot.onText(/^[/!]quote(?:@\w+)?$/i, plugins.quotes.random(bot));
@@ -128,7 +137,10 @@ bot.onText(/^[/!]francese(?:@\w+)? ([\s\S]*)/i, plugins.gtranslate(bot, 'fr'));
 bot.onText(/^[/!]olandese(?:@\w+)? ([\s\S]*)/i, plugins.gtranslate(bot, 'nl'));
 bot.onText(/^[/!]inglese(?:@\w+)? ([\s\S]*)/i, plugins.gtranslate(bot, 'en'));
 bot.onText(/^[/!]spagnolo(?:@\w+)? ([\s\S]*)/i, plugins.gtranslate(bot, 'es'));
-bot.onText(/^[/!]napoletano(?:@\w+)? ([\s\S]*)/i, plugins.gtranslate(bot, 'sw'));
+bot.onText(
+    /^[/!]napoletano(?:@\w+)? ([\s\S]*)/i,
+    plugins.gtranslate(bot, 'sw')
+);
 
 bot.onText(/^[/!]settitle(?:@\w+)? ([\s\S]*)/i, plugins.setTitle(bot));
 bot.onText(/^[/!]nazi(?:@\w+)?$/i, plugins.naziMods(bot));
