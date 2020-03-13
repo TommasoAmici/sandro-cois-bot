@@ -17,10 +17,11 @@ bot.onText(/^[/!]calc(?:@\w+)? (.+)/i, plugins.calc(bot));
 bot.onText(/^(what|cosa|cos|wat)$/i, plugins.what(bot));
 bot.onText(/^[/!]pokedex(?:@\w+)? ([a-zA-Z]+)/i, plugins.pokedex.byName(bot));
 bot.onText(/^[/!]pokedex(?:@\w+)? (\d+)/i, plugins.pokedex.byId(bot));
-
+// COVID
+bot.onText(/^[/!](\d+)covid/i, plugins.coronavirus.gago(bot));
+bot.onText(/^[/!]covid/i, plugins.coronavirus.percent(bot));
 // GAGO
 bot.onText(/^[/!](\d+)gago/i, plugins.gago.numeric(bot));
-bot.onText(/^[/!](\d+)covid/i, plugins.coronavirus(bot));
 bot.onText(/^[/!](gago)+/i, plugins.gago.alpha(bot));
 bot.onText(/^[/!](evilgago){2,}/i, plugins.gago.evil(bot));
 bot.onText(/^[/!]nsfw(?:@\w+)?/i, plugins.nsfw(bot));
