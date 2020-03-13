@@ -1,5 +1,5 @@
-import * as TelegramBot from 'node-telegram-bot-api';
 import axios from 'axios';
+import * as TelegramBot from 'node-telegram-bot-api';
 import config from '../../config';
 
 interface GlobalQuote {
@@ -24,7 +24,9 @@ const url = (ticker: string) =>
 
 const makeString = (globalQuote: GlobalQuote) =>
     `${globalQuote['01. symbol']}\n${globalQuote['05. price']}\n${
-        Number(globalQuote['10. change percent']) > 0 ? '📈 ' : '📉 '
+        Number(globalQuote['10. change percent'].replace('%', '')) > 0
+            ? '📈 '
+            : '📉 '
     }${globalQuote['10. change percent']}`;
 
 export default (bot: TelegramBot) => (
