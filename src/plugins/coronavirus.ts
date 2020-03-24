@@ -58,7 +58,7 @@ export default {
         match: RegExpMatchArray
     ) => {
         covid
-            .getCountry({ country: match[0] })
+            .getCountry({ country: match[1] })
             .then(data =>
                 bot.sendMessage(
                     msg.chat.id,

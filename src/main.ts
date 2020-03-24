@@ -21,7 +21,7 @@ bot.onText(/^[/!]pokedex(?:@\w+)? (\d+)/i, plugins.pokedex.byId(bot));
 bot.onText(/^[/!](\d+)covid/i, plugins.coronavirus.gago(bot));
 bot.onText(/^[/!]covid(\d+)/i, plugins.coronavirus.gago(bot));
 bot.onText(/^[/!]covid$/i, plugins.coronavirus.percent(bot));
-bot.onText(/^[/!]covid (\w+)?/i, plugins.coronavirus.country(bot));
+bot.onText(/^[/!]covid(?:@\w+)? (\w+)/i, plugins.coronavirus.country(bot));
 
 // GAGO
 bot.onText(/^[/!](\d+)gago/i, plugins.gago.numeric(bot));
