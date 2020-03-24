@@ -1,6 +1,8 @@
 import * as TelegramBot from 'node-telegram-bot-api';
 import utils from './utils';
 
+const covid = require('novelcovid');
+
 const choices = [
     '😷',
     '🤒',
@@ -50,5 +52,15 @@ export default {
     },
     percent: (bot: TelegramBot) => (msg: TelegramBot.Message): void => {
         bot.sendMessage(msg.chat.id, covidIndex());
+    },
+    country: (bot: TelegramBot) => async (
+        msg: TelegramBot.Message,
+        match: RegExpMatchArray
+    ): Promise<void> => {
+        const countryData = await covid.getCountry({ country: match });
+        bot.sendMessage(
+            msg.chat.id,
+            `Casi: ${countryData.cases}\nCasi oggi: ${countryData.todayCases}\n\nMorti: ${countryData.deaths}\nMorti oggi: ${countryData.todayDeaths}\n\nGuariti: ${countryData.recovered}`
+        );
     },
 };

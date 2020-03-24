@@ -1019,6 +1019,11 @@ ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
+node-fetch@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
+  integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
+
 node-html-parser@^1.1.16:
   version "1.1.16"
   resolved "https://registry.yarnpkg.com/node-html-parser/-/node-html-parser-1.1.16.tgz#59f072bcabf1cf6e23f7878a76e0c3b81b9194fa"
@@ -1051,6 +1056,13 @@ normalize-url@2.0.1:
     prepend-http "^2.0.0"
     query-string "^5.0.1"
     sort-keys "^2.0.0"
+
+novelcovid@^1.0.7-b3:
+  version "1.0.7-b3"
+  resolved "https://registry.yarnpkg.com/novelcovid/-/novelcovid-1.0.7-b3.tgz#d71dd170fd16645bd3bee5ec24ab047f1309bd99"
+  integrity sha512-csjBSBo8d9flQvkzFdf2aRwL3kF1YuXQcPyjYLVmec+Bj5CT0cAiIA70p1R1JWMrRUJ7x0Q071jbSAJOEMHYDw==
+  dependencies:
+    node-fetch "^2.6.0"
 
 oauth-sign@~0.9.0:
   version "0.9.0"
