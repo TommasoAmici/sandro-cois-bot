@@ -22,7 +22,7 @@ bot.onText(/^[/!](\d+)covid/i, plugins.coronavirus.gago(bot));
 bot.onText(/^[/!]covid(\d+)/i, plugins.coronavirus.gago(bot));
 bot.onText(/^[/!]covid$/i, plugins.coronavirus.percent(bot));
 bot.onText(
-    /^[/!]covid(?:@\w+)? (^\w+( \w+)*$)/i,
+    /^[/!]covid(?:@\w+)? ([a-zA-Z -]+)/i,
     plugins.coronavirus.country(bot)
 );
 
