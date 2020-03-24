@@ -57,14 +57,28 @@ export default {
         msg: TelegramBot.Message,
         match: RegExpMatchArray
     ) => {
-        covid
-            .getCountry({ country: match[1] })
-            .then(data =>
-                bot.sendMessage(
-                    msg.chat.id,
-                    `Casi: ${data.cases}\nCasi oggi: ${data.todayCases}\n\nMorti: ${data.deaths}\nMorti oggi: ${data.todayDeaths}\n\nGuariti: ${data.recovered}`
+        if (match[1].toLowerCase() === 'all') {
+            covid
+                .getAll()
+                .then(data =>
+                    bot.sendMessage(
+                        msg.chat.id,
+                        `Casi: ${data.cases}\nMorti: ${data.deaths}\nGuariti: ${
+                            data.recovered
+                        }\n\nAggiornato ${new Date(data.updated).toISOString()}`
+                    )
                 )
-            )
-            .catch(e => bot.sendMessage(msg.chat.id, String(e)));
+                .catch(e => bot.sendMessage(msg.chat.id, String(e)));
+        } else {
+            covid
+                .getCountry({ country: match[1] })
+                .then(data =>
+                    bot.sendMessage(
+                        msg.chat.id,
+                        `Casi: ${data.cases}\nCasi oggi: ${data.todayCases}\n\nMorti: ${data.deaths}\nMorti oggi: ${data.todayDeaths}\n\nGuariti: ${data.recovered}`
+                    )
+                )
+                .catch(e => bot.sendMessage(msg.chat.id, String(e)));
+        }
     },
 };
