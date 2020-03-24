@@ -53,21 +53,18 @@ export default {
     percent: (bot: TelegramBot) => (msg: TelegramBot.Message): void => {
         bot.sendMessage(msg.chat.id, covidIndex());
     },
-    country: (bot: TelegramBot) => async (
+    country: (bot: TelegramBot) => (
         msg: TelegramBot.Message,
         match: RegExpMatchArray
-    ): Promise<void> => {
-        try {
-            const countryData = await covid.getCountry({ country: match });
-            bot.sendMessage(
-                msg.chat.id,
-                `Casi: ${countryData.cases}\nCasi oggi: ${countryData.todayCases}\n\nMorti: ${countryData.deaths}\nMorti oggi: ${countryData.todayDeaths}\n\nGuariti: ${countryData.recovered}`
-            );
-        } catch (error) {
-            if (error.response && error.response.status >= 400) {
-                bot.sendMessage(msg.chat.id, error.response.status);
-            }
-            console.error(error.response);
-        }
+    ) => {
+        covid
+            .getCountry({ country: match })
+            .then(data =>
+                bot.sendMessage(
+                    msg.chat.id,
+                    `Casi: ${data.cases}\nCasi oggi: ${data.todayCases}\n\nMorti: ${data.deaths}\nMorti oggi: ${data.todayDeaths}\n\nGuariti: ${data.recovered}`
+                )
+            )
+            .catch(e => bot.sendMessage(msg.chat.id, String(e)));
     },
 };
