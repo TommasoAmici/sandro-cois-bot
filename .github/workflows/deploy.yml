@@ -1,0 +1,27 @@
+name: CI/CD Pre
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+  pull_request:
+    branches:
+      - master
+      - dev
+
+jobs:
+  deploy:
+    name: Deploy pre
+    runs-on: self-hosted
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: |
+          yarn
+          yarn build
+
+      - name: Restart service
+        run: sudo /usr/bin/systemctl restart sandro-cois.service
