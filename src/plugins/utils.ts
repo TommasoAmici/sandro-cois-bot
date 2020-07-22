@@ -62,7 +62,8 @@ const paginateMessages = (
     longMsg: string
 ) => {
     const chunks: string[] = [];
-    for (let i = 0, charsLength = longMsg.length; i < charsLength; i += 3000) {
+    const maxChars = longMsg.length > 10_000 ? 10_000 : longMsg.length;
+    for (let i = 0; i < maxChars; i += 3000) {
         chunks.push(longMsg.substring(i, i + 3000));
     }
     chunks.forEach((chunk) => {
