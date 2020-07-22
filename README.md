@@ -1,3 +1,5 @@
+![CI/CD](https://github.com/TommasoAmici/sandro-cois-bot/workflows/CI/CD/badge.svg)
+
 ## Sandro Cois bot
 
 A multipurpose Telegram bot that can be expanded with plugins.
