@@ -7,6 +7,7 @@ import footballData from './footballData/index';
 import getImage from './getImage';
 import giphy from './giphy';
 import gtranslate from './gtranslate';
+import kedde from './kedde';
 import loc from './loc';
 import magic8ball from './magic8Ball';
 import naziMods from './naziMods';
@@ -40,6 +41,7 @@ export default {
     getImage,
     giphy,
     gtranslate,
+    kedde,
     loc,
     list,
     magic8ball,
