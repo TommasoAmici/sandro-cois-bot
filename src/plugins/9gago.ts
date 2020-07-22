@@ -1,5 +1,5 @@
-import utils from './utils';
 import * as TelegramBot from 'node-telegram-bot-api';
+import utils from './utils';
 
 const choices = [
     '😍',
@@ -34,9 +34,9 @@ export default {
         msg: TelegramBot.Message,
         match: RegExpMatchArray
     ): void => {
-        const gagoIndex = +match[1] <= 1500 ? +match[1] : 1500;
+        const gagoIndex = +match[1];
         const message = gago(gagoIndex);
-        bot.sendMessage(msg.chat.id, message);
+        utils.paginateMessages(bot, msg, message);
     },
     alpha: (bot: TelegramBot) => (
         msg: TelegramBot.Message,

@@ -1,6 +1,6 @@
-import cfg from '../config';
-import * as TelegramBot from 'node-telegram-bot-api';
 import axios, { AxiosResponse } from 'axios';
+import * as TelegramBot from 'node-telegram-bot-api';
+import cfg from '../config';
 
 const randomChoice = <T>(choices: T[]): T =>
     choices[Math.floor(Math.random() * choices.length)];
@@ -27,7 +27,7 @@ const shuffle = (arr: any[]): any[] => {
 const toTitleCase = (str: string): string =>
     str.replace(
         /\w\S*/g,
-        txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+        (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
     );
 
 const getGif = async (query: string): Promise<AxiosResponse> => {
@@ -56,4 +56,26 @@ const sendGif = (
     }
 };
 
-export default { randomChoice, shuffle, randInt, toTitleCase, sendGif, getGif };
+const paginateMessages = (
+    bot: TelegramBot,
+    msg: TelegramBot.Message,
+    longMsg: string
+) => {
+    const chunks: string[] = [];
+    for (let i = 0, charsLength = longMsg.length; i < charsLength; i += 3000) {
+        chunks.push(longMsg.substring(i, i + 3000));
+    }
+    chunks.forEach((chunk) => {
+        bot.sendMessage(msg.chat.id, chunk);
+    });
+};
+
+export default {
+    randomChoice,
+    shuffle,
+    randInt,
+    toTitleCase,
+    sendGif,
+    getGif,
+    paginateMessages,
+};
