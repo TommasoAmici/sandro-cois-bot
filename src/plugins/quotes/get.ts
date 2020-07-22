@@ -6,7 +6,7 @@ import utils from '../utils';
 const getQuote = async (key: string, match: string) => {
     const quotes: string[] = await client.smembers(key);
     const matchingQuotes = quotes.filter((q: String) =>
-        q.toLowerCase().includes(match)
+        q.toLowerCase().includes(match.toLowerCase())
     );
     return utils.randomChoice(matchingQuotes);
 };
