@@ -13,6 +13,7 @@ bot.onText(
 );
 bot.onText(/^[/!]weather(?:@\w+)? (\w+)/i, plugins.weather(bot));
 bot.onText(/^[/!]loc(?:@\w+)? (\w+)/i, plugins.loc(bot));
+bot.onText(/^[/!]treccani(?:@\w+)? (\w+)/i, plugins.treccani(bot));
 bot.onText(/^[/!]calc(?:@\w+)? (.+)/i, plugins.calc(bot));
 bot.onText(/^(what|cosa|cos|wat)$/i, plugins.what(bot));
 bot.onText(/^[/!]pokedex(?:@\w+)? ([a-zA-Z]+)/i, plugins.pokedex.byName(bot));

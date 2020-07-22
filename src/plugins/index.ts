@@ -26,6 +26,7 @@ import spongebob, { spongebobInReply } from './spongebob';
 import stats from './stats/index';
 import stocks from './stocks';
 import telegramPremium from './telegramPremium';
+import treccani from './treccani';
 import weather from './weather';
 import what from './what';
 
@@ -56,6 +57,7 @@ export default {
     setTitle,
     setValue,
     text,
+    treccani,
     unset,
     weather,
     what,
