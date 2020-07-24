@@ -95,8 +95,9 @@ const getAmount = (prop) => {
 };
 
 const allTeams = async (teams) => {
-    let teamsFormatted = [];
+    let teamsObjects = [];
     for (const t of teams) {
+        if (t.qualifiers === undefined) continue;
         const teamID = t.mainsnak.datavalue.value.id;
         const teamName = await getTeamName(teamID);
         const startDate = getYear(t.qualifiers['P580']);
@@ -104,9 +105,10 @@ const allTeams = async (teams) => {
         const numMatches = getAmount(t.qualifiers['P1350']);
         const numGoals = getAmount(t.qualifiers['P1351']);
         const teamString = `${startDate}-${endDate} ${teamName} - ${numMatches} (${numGoals})\n`;
-        teamsFormatted.push(teamString);
+        teamsObjects.push({ teamString, startDate });
     }
-    return teamsFormatted;
+    const sorted = teamsObjects.sort((a, b) => a.startDate - b.startDate);
+    return sorted.map((s) => s.teamString);
 };
 
 const play = (bot: TelegramBot) => async (msg: TelegramBot.Message) => {
