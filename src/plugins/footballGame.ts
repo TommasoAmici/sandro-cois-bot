@@ -23,14 +23,19 @@ const redisKey = 'football-players';
 const redisKeyTeams = 'football-teams';
 
 const endpointUrl = 'https://query.wikidata.org/sparql';
-const sparqlQuery = `# men football players serie A
-SELECT DISTINCT ?men ?menLabel
-WHERE
-{
-       ?men wdt:P106 wd:Q937857 .
-       SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
-}
-LIMIT 5000`;
+const sparqlQuery = `# men football players serie A champions league
+SELECT DISTINCT ?item ?itemLabel ?number_of_matches_played_races_starts WHERE {
+    ?item wdt:P106 wd:Q937857.
+    VALUES ?participantIn {
+      wd:Q30032467
+      wd:Q219705
+      wd:Q275673
+      wd:Q3957172
+      wd:Q61686413
+    }
+    SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+  }
+  LIMIT 5000`;
 const fullURL = endpointUrl + '?query=' + encodeURIComponent(sparqlQuery);
 
 const build = (bot: TelegramBot) => (msg: TelegramBot.Message) => {
