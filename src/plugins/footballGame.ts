@@ -5,13 +5,13 @@ import client from '../redisClient';
 import { getUsers, prettyPrint } from './stats/print';
 const Fuse = require('fuse.js');
 //   {
-//     men: { type: 'uri', value: 'http://www.wikidata.org/entity/Q1938' },
-//     menLabel: { 'xml:lang': 'en', type: 'literal', value: 'Bacary Sagna' }
+//     item: { type: 'uri', value: 'http://www.wikidata.org/entity/Q1938' },
+//     itemLabel: { 'xml:lang': 'en', type: 'literal', value: 'Bacary Sagna' }
 //   }
 
 interface WikiFootballDataBinding {
-    men: { type: string; value: string };
-    menLabel: { 'xml:lang': string; type: string; value: string };
+    item: { type: string; value: string };
+    itemLabel: { 'xml:lang': string; type: string; value: string };
 }
 
 interface WikiFootballData {
@@ -23,8 +23,7 @@ const redisKey = 'football-players';
 const redisKeyTeams = 'football-teams';
 
 const endpointUrl = 'https://query.wikidata.org/sparql';
-const sparqlQuery = `# men football players serie A champions league
-SELECT DISTINCT ?item ?itemLabel WHERE {
+const sparqlQuery = `SELECT DISTINCT ?item ?itemLabel WHERE {
     ?item wdt:P106 wd:Q937857.
     VALUES ?participantIn {
       wd:Q30032467
@@ -46,12 +45,16 @@ const build = (bot: TelegramBot) => (msg: TelegramBot.Message) => {
         })
         .then((res) => {
             const data: WikiFootballData = res.data;
+            console.log(data.results.bindings[0]);
             data.results.bindings.forEach((b) => {
-                const ID = b.men.value.replace(
+                const ID = b.item.value.replace(
                     'http://www.wikidata.org/entity/',
                     ''
                 );
-                client.sadd(redisKey, `${utf8.encode(b.menLabel.value)}:${ID}`);
+                client.sadd(
+                    redisKey,
+                    `${utf8.encode(b.itemLabel.value)}:${ID}`
+                );
             });
             bot.sendMessage(msg.chat.id, 'Il gioco è pronto');
         })
