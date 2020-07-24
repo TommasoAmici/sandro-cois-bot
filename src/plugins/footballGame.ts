@@ -120,7 +120,6 @@ const play = (bot: TelegramBot) => async (msg: TelegramBot.Message) => {
     const teamsFormatted = await allTeams(teams);
 
     bot.sendMessage(msg.chat.id, teamsFormatted.join(''));
-    bot.sendMessage(msg.chat.id, randomPlayerName);
 
     client.set(`${msg.chat.id}:solution`, randomPlayerName);
 };
