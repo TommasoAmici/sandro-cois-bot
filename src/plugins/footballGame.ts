@@ -24,7 +24,7 @@ const redisKeyTeams = 'football-teams';
 
 const endpointUrl = 'https://query.wikidata.org/sparql';
 const sparqlQuery = `# men football players serie A champions league
-SELECT DISTINCT ?item ?itemLabel ?number_of_matches_played_races_starts WHERE {
+SELECT DISTINCT ?item ?itemLabel WHERE {
     ?item wdt:P106 wd:Q937857.
     VALUES ?participantIn {
       wd:Q30032467
