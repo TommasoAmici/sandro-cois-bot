@@ -22,7 +22,7 @@ export const getUsers = async (
         let user = await client.hmget(key, 'name', category);
         users.push({ name: user[0], count: +user[1] });
     }
-    return users;
+    return users.filter((u) => u.count > 0);
 };
 
 export const prettyPrint = (users: User[]): string => {
