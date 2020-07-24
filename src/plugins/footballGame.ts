@@ -149,6 +149,8 @@ const winner = (bot: TelegramBot) => async (
         client.hincrby(key, 'football-game', 1);
         client.set(`${msg.chat.id}:solution`, null);
         bot.sendMessage(msg.chat.id, `@${msg.from.username} ha indovinato`);
+    } else {
+        bot.sendMessage(msg.chat.id, 'No');
     }
 };
 
