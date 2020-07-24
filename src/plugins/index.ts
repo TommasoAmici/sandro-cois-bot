@@ -4,6 +4,7 @@ import calc from './calc';
 import calciomercato from './calciomercato';
 import coronavirus from './coronavirus';
 import footballData from './footballData/index';
+import footballGame from './footballGame';
 import getImage from './getImage';
 import giphy from './giphy';
 import gtranslate from './gtranslate';
@@ -38,6 +39,7 @@ export default {
     calc,
     calciomercato,
     footballData,
+    footballGame,
     getImage,
     giphy,
     gtranslate,
