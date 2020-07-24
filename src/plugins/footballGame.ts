@@ -144,13 +144,13 @@ const winner = (bot: TelegramBot) => async (
     const fuse = new Fuse([s], options);
 
     const result = fuse.search(match[1]);
-    if (result[0].score < 0.3) {
+    if (result[0] === undefined) {
+        bot.sendMessage(msg.chat.id, 'No');
+    } else if (result[0].score < 0.3) {
         const key = `chat:${msg.chat.id}:user:${msg.from.id}`;
         client.hincrby(key, 'football-game', 1);
         client.set(`${msg.chat.id}:solution`, null);
         bot.sendMessage(msg.chat.id, `@${msg.from.username} ha indovinato`);
-    } else {
-        bot.sendMessage(msg.chat.id, 'No');
     }
 };
 
