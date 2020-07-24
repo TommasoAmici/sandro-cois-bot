@@ -95,7 +95,8 @@ const getAmount = (prop) => {
 };
 
 const allTeams = async (teams) => {
-    let teamsObjects = [];
+    let clubObjects = [];
+    let nationalObjects = [];
     for (const t of teams) {
         if (t.qualifiers === undefined) continue;
         const teamID = t.mainsnak.datavalue.value.id;
@@ -105,10 +106,21 @@ const allTeams = async (teams) => {
         const numMatches = getAmount(t.qualifiers['P1350']);
         const numGoals = getAmount(t.qualifiers['P1351']);
         const teamString = `${startDate}-${endDate} ${teamName} - ${numMatches} (${numGoals})\n`;
-        teamsObjects.push({ teamString, startDate });
+        if (teamName.includes('national')) {
+            nationalObjects.push({ teamString, startDate });
+        } else {
+            clubObjects.push({ teamString, startDate });
+        }
     }
-    const sorted = teamsObjects.sort((a, b) => a.startDate - b.startDate);
-    return sorted.map((s) => s.teamString);
+    const clubsSorted = clubObjects.sort((a, b) => a.startDate - b.startDate);
+    const nationalSorted = nationalObjects.sort(
+        (a, b) => a.startDate - b.startDate
+    );
+    return [
+        ...clubsSorted.map((s) => s.teamString),
+        '\n',
+        ...nationalSorted.map((s) => s.teamString),
+    ];
 };
 
 const play = (bot: TelegramBot) => async (msg: TelegramBot.Message) => {
