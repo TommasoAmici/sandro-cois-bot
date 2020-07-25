@@ -132,6 +132,7 @@ const allTeams = async (teams) => {
 };
 
 const play = (bot: TelegramBot) => async (msg: TelegramBot.Message) => {
+    const prevSolution = await client.get(`${msg.chat.id}:solution`);
     const randomPlayer = await client.spop(redisKey);
     const randomPlayerName = utf8.decode(randomPlayer.split(':')[0]);
     const randomPlayerID = randomPlayer.split(':')[1];
@@ -142,6 +143,7 @@ const play = (bot: TelegramBot) => async (msg: TelegramBot.Message) => {
     const teamsFormatted = await allTeams(teams);
 
     bot.sendMessage(msg.chat.id, teamsFormatted.join(''));
+    if (prevSolution !== null) bot.sendMessage(msg.chat.id, prevSolution);
 
     client.set(`${msg.chat.id}:solution`, randomPlayerName);
 };
