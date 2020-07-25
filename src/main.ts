@@ -173,3 +173,5 @@ bot.onText(
     /^[/!]solution(?:@\w+)? ([\s\S]*)/i,
     plugins.footballGame.winner(bot)
 );
+
+bot.onText(/^[/!]echoid(?:@\w+)?$/i, plugins.echoID(bot));

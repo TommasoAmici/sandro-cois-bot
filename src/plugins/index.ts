@@ -3,6 +3,7 @@ import gago from './9gago';
 import calc from './calc';
 import calciomercato from './calciomercato';
 import coronavirus from './coronavirus';
+import echoID from './echoID';
 import footballData from './footballData/index';
 import footballGame from './footballGame';
 import getImage from './getImage';
@@ -38,6 +39,7 @@ export default {
     coronavirus,
     calc,
     calciomercato,
+    echoID,
     footballData,
     footballGame,
     getImage,
