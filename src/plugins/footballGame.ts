@@ -3,6 +3,8 @@ import * as TelegramBot from 'node-telegram-bot-api';
 import * as utf8 from 'utf8';
 import client from '../redisClient';
 import { getUsers, prettyPrint } from './stats/print';
+import { remove as removeDiacritics } from 'diacritics';
+
 const Fuse = require('fuse.js');
 //   {
 //     item: { type: 'uri', value: 'http://www.wikidata.org/entity/Q1938' },
@@ -158,12 +160,13 @@ const winner = (bot: TelegramBot) => async (
     msg: TelegramBot.Message,
     match: RegExpMatchArray
 ) => {
-    const s = await client.get(`${msg.chat.id}:solution`);
+    const solution = await client.get(`${msg.chat.id}:solution`);
+    const normalizedSolution = removeDiacritics(solution);
     const options = {
         includeScore: true,
     };
 
-    const fuse = new Fuse([s], options);
+    const fuse = new Fuse([normalizedSolution], options);
 
     const result = fuse.search(match[1]);
     if (result[0] === undefined) {
@@ -175,7 +178,7 @@ const winner = (bot: TelegramBot) => async (
             bot.sendMessage(msg.chat.id, 'Vergognati!');
         } else bot.sendMessage(msg.chat.id, 'No');
     } else if (result[0].score < 0.3) {
-        if (match[1].length / s.length < 0.2) {
+        if (match[1].length / solution.length < 0.2) {
             bot.sendMessage(msg.chat.id, 'Non ci provare');
         } else {
             const key = `chat:${msg.chat.id}:user:${msg.from.id}`;
@@ -183,7 +186,7 @@ const winner = (bot: TelegramBot) => async (
             client.set(`${msg.chat.id}:solution`, null);
             bot.sendMessage(
                 msg.chat.id,
-                `@${msg.from.username} ha indovinato: ${s}`
+                `@${msg.from.username} ha indovinato: ${solution}`
             );
         }
     }
