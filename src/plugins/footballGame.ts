@@ -168,7 +168,7 @@ const winner = (bot: TelegramBot) => async (
     const result = fuse.search(match[1]);
     if (result[0] === undefined) {
         if (
-            ['smith', 'inho', 'sson', 'escu', 'mohamed'].includes(
+            ['smith', 'inho', 'sson', 'escu', 'mohamed', 'chenko'].includes(
                 match[1].toLowerCase()
             )
         ) {
