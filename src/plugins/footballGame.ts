@@ -165,15 +165,21 @@ const winner = (bot: TelegramBot) => async (
 
     const result = fuse.search(match[1]);
     if (result[0] === undefined) {
-        bot.sendMessage(msg.chat.id, 'No');
+        if (match[1].toLowerCase() === 'smith') {
+            bot.sendMessage(msg.chat.id, 'Vergognati!');
+        } else bot.sendMessage(msg.chat.id, 'No');
     } else if (result[0].score < 0.3) {
-        const key = `chat:${msg.chat.id}:user:${msg.from.id}`;
-        client.hincrby(key, 'football-game', 1);
-        client.set(`${msg.chat.id}:solution`, null);
-        bot.sendMessage(
-            msg.chat.id,
-            `@${msg.from.username} ha indovinato: ${s}`
-        );
+        if (match[1].length / s.length < 0.2) {
+            bot.sendMessage(msg.chat.id, 'Non ci provare');
+        } else {
+            const key = `chat:${msg.chat.id}:user:${msg.from.id}`;
+            client.hincrby(key, 'football-game', 1);
+            client.set(`${msg.chat.id}:solution`, null);
+            bot.sendMessage(
+                msg.chat.id,
+                `@${msg.from.username} ha indovinato: ${s}`
+            );
+        }
     }
 };
 
