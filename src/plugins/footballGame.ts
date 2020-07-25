@@ -165,7 +165,11 @@ const winner = (bot: TelegramBot) => async (
 
     const result = fuse.search(match[1]);
     if (result[0] === undefined) {
-        if (['smith', 'inho'].includes(match[1].toLowerCase())) {
+        if (
+            ['smith', 'inho', 'sson', 'escu', 'mohamed'].includes(
+                match[1].toLowerCase()
+            )
+        ) {
             bot.sendMessage(msg.chat.id, 'Vergognati!');
         } else bot.sendMessage(msg.chat.id, 'No');
     } else if (result[0].score < 0.3) {
