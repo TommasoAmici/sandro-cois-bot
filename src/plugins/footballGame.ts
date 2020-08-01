@@ -1,9 +1,9 @@
 import axios from 'axios';
+import { remove as removeDiacritics } from 'diacritics';
 import * as TelegramBot from 'node-telegram-bot-api';
 import * as utf8 from 'utf8';
 import client from '../redisClient';
 import { getUsers, prettyPrint } from './stats/print';
-import { remove as removeDiacritics } from 'diacritics';
 
 const Fuse = require('fuse.js');
 //   {
@@ -28,11 +28,11 @@ const endpointUrl = 'https://query.wikidata.org/sparql';
 const sparqlQuery = `SELECT DISTINCT ?item ?itemLabel WHERE {
     ?item wdt:P106 wd:Q937857.
     VALUES ?participantIn {
-      wd:Q30032467
-      wd:Q219705
-      wd:Q275673
-      wd:Q3957172
-      wd:Q61686413
+      wd:Q15847307 #serie a 2014-2015
+      wd:Q19309054 #serie a 2015-2016
+      wd:Q23728326 #serie a 2016-2017
+      wd:Q28820477 #serie a 2017-2018
+      wd:Q48782372 #serie a 2018-2019
     }
     SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
   }
