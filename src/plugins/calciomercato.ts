@@ -1,18 +1,16 @@
-import * as TelegramBot from 'node-telegram-bot-api';
 import axios from 'axios';
+import { decode } from 'html-entities';
 import { parse } from 'node-html-parser';
-import { AllHtmlEntities } from 'html-entities';
-
+import * as TelegramBot from 'node-telegram-bot-api';
 import utils from './utils';
 
-const entities = new AllHtmlEntities();
 const url =
     'https://www.calciomercato.com/api/articles.html?limit=36&favourite_team=mercato&articleType=categoryNews';
 
 const calcioMercato = (bot: TelegramBot, msg: TelegramBot.Message) =>
     axios
         .get(url)
-        .then(res => {
+        .then((res) => {
             const article = utils.randomChoice(
                 (parse(res.data).childNodes as any[]).filter(
                     (a: any) => a.tagName === 'article'
@@ -22,12 +20,12 @@ const calcioMercato = (bot: TelegramBot, msg: TelegramBot.Message) =>
                 .querySelector('.news-item__extract')
                 .removeWhitespace();
             const href = item.attributes.href;
-            const text = entities.decode(item.childNodes[0].rawText);
+            const text = decode(item.childNodes[0].rawText);
             bot.sendMessage(msg.chat.id, `${text}\n${href}`, {
                 parse_mode: 'HTML',
             });
         })
-        .catch(e => bot.sendMessage(msg.chat.id, '🤷🏻‍♂️'));
+        .catch((e) => bot.sendMessage(msg.chat.id, '🤷🏻‍♂️'));
 
 const gazzettaUrl =
     'https://components2.gazzettaobjects.it/rcs_gaz_searchapi/v1/latest.json';
@@ -54,7 +52,7 @@ const prepareString = (article: Article): string =>
 const gazzetta = (bot: TelegramBot, msg: TelegramBot.Message) =>
     axios
         .get(gazzettaUrl)
-        .then(res => {
+        .then((res) => {
             const calcioArticles = res.data.response.docs.filter((d: Article) =>
                 includesCalcio(d.section)
             ) as Article[];
@@ -64,7 +62,7 @@ const gazzetta = (bot: TelegramBot, msg: TelegramBot.Message) =>
                 parse_mode: 'Markdown',
             });
         })
-        .catch(e => bot.sendMessage(msg.chat.id, '🤷🏻‍♂️'));
+        .catch((e) => bot.sendMessage(msg.chat.id, '🤷🏻‍♂️'));
 
 const providers = [gazzetta, calcioMercato];
 
