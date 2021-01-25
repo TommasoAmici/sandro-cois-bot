@@ -21,6 +21,7 @@ export default (bot: TelegramBot) => async (
     if (quote === undefined) {
         bot.sendMessage(msg.chat.id, 'No quote found :(');
     } else {
-        bot.sendMessage(msg.chat.id, quote);
+        const decoded = utf8.decode(quote);
+        bot.sendMessage(msg.chat.id, decoded);
     }
 };
