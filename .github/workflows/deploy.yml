@@ -14,10 +14,11 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v2
 
+      - name: Dependencies
+        run: yarn
+
       - name: Build
-        run: |
-          yarn
-          yarn build
+        run: yarn build
 
       - name: Restart service
         run: sudo /usr/bin/systemctl restart sandro-cois.service
