@@ -1,12 +1,12 @@
 import * as TelegramBot from 'node-telegram-bot-api';
 
 const translationTable = [
-    { find: RegExp('c(a|i|o)', 'gi'), replace: 'ghe' },
-    { find: RegExp('a|i|o', 'gi'), replace: 'e' },
-    { find: 't', replace: 'd' },
-    { find: 'c', replace: 'g' },
-    { find: 'p', replace: 'b' },
-    { find: 'q', replace: 'g' },
+    { find: /c(a|i|o)/gi, replace: 'ghe' },
+    { find: /a|i|o/gi, replace: 'e' },
+    { find: /t/gi, replace: 'd' },
+    { find: /c/gi, replace: 'g' },
+    { find: /p/gi, replace: 'b' },
+    { find: /q/gi, replace: 'g' },
 ];
 
 const ghenverde = (msg: string) => {
