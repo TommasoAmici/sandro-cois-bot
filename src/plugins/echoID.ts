@@ -1,7 +1,7 @@
-import * as TelegramBot from 'node-telegram-bot-api';
+import * as TelegramBot from "node-telegram-bot-api";
 
 export default (bot: TelegramBot) => async (
-    msg: TelegramBot.Message
+  msg: TelegramBot.Message
 ): Promise<void> => {
-    bot.sendMessage(msg.chat.id, String(msg.chat.id));
+  bot.sendMessage(msg.chat.id, String(msg.chat.id));
 };

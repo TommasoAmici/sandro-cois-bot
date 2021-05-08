@@ -1,7 +1,7 @@
-import quote from './quote';
-import search from './search';
+import quote from "./quote";
+import search from "./search";
 
 export default {
-    quote,
-    search,
+  quote,
+  search,
 };
