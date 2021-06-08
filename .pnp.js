@@ -39,7 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@mapbox/mapbox-sdk", "npm:0.12.1"],
             ["@types/diacritics", "npm:1.3.1"],
-            ["@types/html-entities", "npm:1.2.16"],
+            ["@types/html-entities", "npm:1.3.3"],
             ["@types/ioredis", "npm:4.26.4"],
             ["@types/node", "npm:14.17.3"],
             ["@types/node-telegram-bot-api", "npm:0.51.1"],
@@ -220,10 +220,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/html-entities", [
-        ["npm:1.2.16", {
-          "packageLocation": "./.yarn/cache/@types-html-entities-npm-1.2.16-3ba51f1c05-109db62c01.zip/node_modules/@types/html-entities/",
+        ["npm:1.3.3", {
+          "packageLocation": "./.yarn/cache/@types-html-entities-npm-1.3.3-b1a14673fd-75fc7b0abf.zip/node_modules/@types/html-entities/",
           "packageDependencies": [
-            ["@types/html-entities", "npm:1.2.16"]
+            ["@types/html-entities", "npm:1.3.3"],
+            ["html-entities", "npm:2.3.2"]
           ],
           "linkType": "HARD",
         }]
@@ -2930,7 +2931,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["root-workspace-0b6124", "workspace:."],
             ["@mapbox/mapbox-sdk", "npm:0.12.1"],
             ["@types/diacritics", "npm:1.3.1"],
-            ["@types/html-entities", "npm:1.2.16"],
+            ["@types/html-entities", "npm:1.3.3"],
             ["@types/ioredis", "npm:4.26.4"],
             ["@types/node", "npm:14.17.3"],
             ["@types/node-telegram-bot-api", "npm:0.51.1"],

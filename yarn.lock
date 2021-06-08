@@ -138,10 +138,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/html-entities@npm:1.2.16":
-  version: 1.2.16
-  resolution: "@types/html-entities@npm:1.2.16"
-  checksum: 109db62c01767f4133ec694ebc5449950d69cbaf4920705e6c0f7c83344d8c2aa06b8b5cedec1c8fb04da8820c025b05094937b17ddd9f121dafcbc09103d021
+"@types/html-entities@npm:1.3.3":
+  version: 1.3.3
+  resolution: "@types/html-entities@npm:1.3.3"
+  dependencies:
+    html-entities: "*"
+  checksum: 75fc7b0abf16432e661a7cfd8d6d75a479ccab5621f994f86dc701b9cfe3cbe159e115a3b23af5c04f5e7df3a21bbddcb68e7e3a3f81759de0c8470031cd3512
   languageName: node
   linkType: hard
 
@@ -1385,7 +1387,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-entities@npm:2.3.2":
+"html-entities@npm:*, html-entities@npm:2.3.2":
   version: 2.3.2
   resolution: "html-entities@npm:2.3.2"
   checksum: a0bcdfdb2326d8943d43d4f5f794769f666d335f7795e82ac5140154970d82a8a1be082725bd53e18c8727821713e7d124982ed9a3463db9b0159b58bc6eff42
@@ -2476,7 +2478,7 @@ __metadata:
   dependencies:
     "@mapbox/mapbox-sdk": 0.12.1
     "@types/diacritics": 1.3.1
-    "@types/html-entities": 1.2.16
+    "@types/html-entities": 1.3.3
     "@types/ioredis": 4.26.4
     "@types/node": 14.17.3
     "@types/node-telegram-bot-api": 0.51.1
