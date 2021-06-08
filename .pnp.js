@@ -55,7 +55,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ioredis", "npm:4.27.5"],
             ["lint-staged", "npm:11.0.0"],
             ["mathjs", "npm:9.4.2"],
-            ["node-html-parser", "npm:3.2.0"],
+            ["node-html-parser", "npm:3.3.5"],
             ["node-telegram-bot-api", "npm:0.53.0"],
             ["novelcovid", "npm:3.0.0"],
             ["pinst", "npm:2.1.6"],
@@ -850,6 +850,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nth-check", "npm:2.0.0"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:4.1.3", {
+          "packageLocation": "./.yarn/cache/css-select-npm-4.1.3-97d7b817c1-0259932ad2.zip/node_modules/css-select/",
+          "packageDependencies": [
+            ["css-select", "npm:4.1.3"],
+            ["boolbase", "npm:1.0.0"],
+            ["css-what", "npm:5.0.1"],
+            ["domhandler", "npm:4.2.0"],
+            ["domutils", "npm:2.7.0"],
+            ["nth-check", "npm:2.0.0"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["css-what", [
@@ -857,6 +869,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/css-what-npm-4.0.0-5d0d0ff02b-2116d25ed2.zip/node_modules/css-what/",
           "packageDependencies": [
             ["css-what", "npm:4.0.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:5.0.1", {
+          "packageLocation": "./.yarn/cache/css-what-npm-5.0.1-66d2e8ba46-051bcda396.zip/node_modules/css-what/",
+          "packageDependencies": [
+            ["css-what", "npm:5.0.1"]
           ],
           "linkType": "HARD",
         }]
@@ -1041,6 +1060,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["domelementtype", "npm:2.1.0"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:2.2.0", {
+          "packageLocation": "./.yarn/cache/domelementtype-npm-2.2.0-c37b3b15bf-70af22cd69.zip/node_modules/domelementtype/",
+          "packageDependencies": [
+            ["domelementtype", "npm:2.2.0"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["domhandler", [
@@ -1049,6 +1075,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["domhandler", "npm:4.0.0"],
             ["domelementtype", "npm:2.1.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:4.2.0", {
+          "packageLocation": "./.yarn/cache/domhandler-npm-4.2.0-e0e096a781-1bdb0ae6b9.zip/node_modules/domhandler/",
+          "packageDependencies": [
+            ["domhandler", "npm:4.2.0"],
+            ["domelementtype", "npm:2.2.0"]
           ],
           "linkType": "HARD",
         }]
@@ -1061,6 +1095,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["dom-serializer", "npm:1.2.0"],
             ["domelementtype", "npm:2.1.0"],
             ["domhandler", "npm:4.0.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:2.7.0", {
+          "packageLocation": "./.yarn/cache/domutils-npm-2.7.0-31a28e89d6-b7c6cbd485.zip/node_modules/domutils/",
+          "packageDependencies": [
+            ["domutils", "npm:2.7.0"],
+            ["dom-serializer", "npm:1.2.0"],
+            ["domelementtype", "npm:2.2.0"],
+            ["domhandler", "npm:4.2.0"]
           ],
           "linkType": "HARD",
         }]
@@ -2272,11 +2316,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["node-html-parser", [
-        ["npm:3.2.0", {
-          "packageLocation": "./.yarn/cache/node-html-parser-npm-3.2.0-69df5eca63-5d457e8719.zip/node_modules/node-html-parser/",
+        ["npm:3.3.5", {
+          "packageLocation": "./.yarn/cache/node-html-parser-npm-3.3.5-1f65fe27af-fcae73ef46.zip/node_modules/node-html-parser/",
           "packageDependencies": [
-            ["node-html-parser", "npm:3.2.0"],
-            ["css-select", "npm:3.1.2"],
+            ["node-html-parser", "npm:3.3.5"],
+            ["css-select", "npm:4.1.3"],
             ["he", "npm:1.2.0"]
           ],
           "linkType": "HARD",
@@ -2902,7 +2946,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ioredis", "npm:4.27.5"],
             ["lint-staged", "npm:11.0.0"],
             ["mathjs", "npm:9.4.2"],
-            ["node-html-parser", "npm:3.2.0"],
+            ["node-html-parser", "npm:3.3.5"],
             ["node-telegram-bot-api", "npm:0.53.0"],
             ["novelcovid", "npm:3.0.0"],
             ["pinst", "npm:2.1.6"],
