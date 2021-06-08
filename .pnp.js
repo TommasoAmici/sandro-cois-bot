@@ -54,7 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["husky", "npm:6.0.0"],
             ["ioredis", "npm:4.27.5"],
             ["lint-staged", "npm:11.0.0"],
-            ["mathjs", "npm:9.3.2"],
+            ["mathjs", "npm:9.4.2"],
             ["node-html-parser", "npm:3.2.0"],
             ["node-telegram-bot-api", "npm:0.53.0"],
             ["novelcovid", "npm:3.0.0"],
@@ -104,6 +104,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/helper-validator-identifier", "npm:7.14.0"],
             ["chalk", "npm:2.4.2"],
             ["js-tokens", "npm:4.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@babel/runtime", [
+        ["npm:7.14.0", {
+          "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.14.0-fba2a32266-ab6653f2f8.zip/node_modules/@babel/runtime/",
+          "packageDependencies": [
+            ["@babel/runtime", "npm:7.14.0"],
+            ["regenerator-runtime", "npm:0.13.8"]
           ],
           "linkType": "HARD",
         }]
@@ -761,10 +771,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["complex.js", [
-        ["npm:2.0.11", {
-          "packageLocation": "./.yarn/cache/complex.js-npm-2.0.11-89ac9823c9-00305ab626.zip/node_modules/complex.js/",
+        ["npm:2.0.13", {
+          "packageLocation": "./.yarn/cache/complex.js-npm-2.0.13-e0d258e22f-4c4a20da8c.zip/node_modules/complex.js/",
           "packageDependencies": [
-            ["complex.js", "npm:2.0.11"]
+            ["complex.js", "npm:2.0.13"]
           ],
           "linkType": "HARD",
         }]
@@ -1332,10 +1342,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["fraction.js", [
-        ["npm:4.0.13", {
-          "packageLocation": "./.yarn/cache/fraction.js-npm-4.0.13-01647fa6a5-1e9ec132b0.zip/node_modules/fraction.js/",
+        ["npm:4.1.1", {
+          "packageLocation": "./.yarn/cache/fraction.js-npm-4.1.1-17f3b8b11b-3667dfc488.zip/node_modules/fraction.js/",
           "packageDependencies": [
-            ["fraction.js", "npm:4.0.13"]
+            ["fraction.js", "npm:4.1.1"]
           ],
           "linkType": "HARD",
         }]
@@ -2169,14 +2179,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["mathjs", [
-        ["npm:9.3.2", {
-          "packageLocation": "./.yarn/cache/mathjs-npm-9.3.2-745e5264b9-aab9614ec9.zip/node_modules/mathjs/",
+        ["npm:9.4.2", {
+          "packageLocation": "./.yarn/cache/mathjs-npm-9.4.2-49a1e91053-761ae480aa.zip/node_modules/mathjs/",
           "packageDependencies": [
-            ["mathjs", "npm:9.3.2"],
-            ["complex.js", "npm:2.0.11"],
+            ["mathjs", "npm:9.4.2"],
+            ["@babel/runtime", "npm:7.14.0"],
+            ["complex.js", "npm:2.0.13"],
             ["decimal.js", "npm:10.2.1"],
             ["escape-latex", "npm:1.2.0"],
-            ["fraction.js", "npm:4.0.13"],
+            ["fraction.js", "npm:4.1.1"],
             ["javascript-natural-sort", "npm:0.7.1"],
             ["seedrandom", "npm:3.0.5"],
             ["tiny-emitter", "npm:2.1.0"],
@@ -2724,6 +2735,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["regenerator-runtime", [
+        ["npm:0.13.8", {
+          "packageLocation": "./.yarn/cache/regenerator-runtime-npm-0.13.8-0450f887d6-20178f5753.zip/node_modules/regenerator-runtime/",
+          "packageDependencies": [
+            ["regenerator-runtime", "npm:0.13.8"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["request", [
         ["npm:2.88.0", {
           "packageLocation": "./.yarn/cache/request-npm-2.88.0-9de8117818-2735b6a5d6.zip/node_modules/request/",
@@ -2881,7 +2901,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["husky", "npm:6.0.0"],
             ["ioredis", "npm:4.27.5"],
             ["lint-staged", "npm:11.0.0"],
-            ["mathjs", "npm:9.3.2"],
+            ["mathjs", "npm:9.4.2"],
             ["node-html-parser", "npm:3.2.0"],
             ["node-telegram-bot-api", "npm:0.53.0"],
             ["novelcovid", "npm:3.0.0"],
