@@ -43,7 +43,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ioredis", "npm:4.26.1"],
             ["@types/node", "npm:14.14.44"],
             ["@types/node-telegram-bot-api", "npm:0.51.1"],
-            ["@types/redis", "npm:2.8.28"],
+            ["@types/redis", "npm:2.8.29"],
             ["@types/utf8", "npm:2.1.6"],
             ["@vitalets/google-translate-api", "npm:7.0.0"],
             ["axios", "npm:0.21.1"],
@@ -275,10 +275,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/redis", [
-        ["npm:2.8.28", {
-          "packageLocation": "./.yarn/cache/@types-redis-npm-2.8.28-913353dc30-a6f17271c3.zip/node_modules/@types/redis/",
+        ["npm:2.8.29", {
+          "packageLocation": "./.yarn/cache/@types-redis-npm-2.8.29-7e28ba6951-83b06413bf.zip/node_modules/@types/redis/",
           "packageDependencies": [
-            ["@types/redis", "npm:2.8.28"],
+            ["@types/redis", "npm:2.8.29"],
             ["@types/node", "npm:11.10.4"]
           ],
           "linkType": "HARD",
@@ -2870,7 +2870,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ioredis", "npm:4.26.1"],
             ["@types/node", "npm:14.14.44"],
             ["@types/node-telegram-bot-api", "npm:0.51.1"],
-            ["@types/redis", "npm:2.8.28"],
+            ["@types/redis", "npm:2.8.29"],
             ["@types/utf8", "npm:2.1.6"],
             ["@vitalets/google-translate-api", "npm:7.0.0"],
             ["axios", "npm:0.21.1"],
