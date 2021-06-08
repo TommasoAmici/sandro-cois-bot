@@ -2004,12 +2004,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"novelcovid@npm:3.0.0":
-  version: 3.0.0
-  resolution: "novelcovid@npm:3.0.0"
+"novelcovid@npm:3.0.2":
+  version: 3.0.2
+  resolution: "novelcovid@npm:3.0.2"
   dependencies:
     "@aero/centra": ^1.0.3
-  checksum: 22762503085fcaa5ffd5316417fa7c193bbe07e7e15570386bc5bea1aa1d767640546f79c4f6a66914cf625dbbd40cf175411f03c8fec5d5631410e7d0f049b2
+  checksum: f1882365cc7103b15cc36671a36a693ad3b5ca2deb8ef4d16e500ee7c4448cace4c5edbd3ccbc653d5d2aac2981573150b55c8593775a3dbc43e7a889aa9b997
   languageName: node
   linkType: hard
 
@@ -2494,7 +2494,7 @@ __metadata:
     mathjs: 9.4.2
     node-html-parser: 3.3.5
     node-telegram-bot-api: 0.53.0
-    novelcovid: 3.0.0
+    novelcovid: 3.0.2
     pinst: 2.1.6
     pokedex: 1.1.0
     prettier: 2.3.1
