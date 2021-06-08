@@ -40,7 +40,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mapbox/mapbox-sdk", "npm:0.12.1"],
             ["@types/diacritics", "npm:1.3.1"],
             ["@types/html-entities", "npm:1.2.16"],
-            ["@types/ioredis", "npm:4.26.1"],
+            ["@types/ioredis", "npm:4.26.4"],
             ["@types/node", "npm:14.14.44"],
             ["@types/node-telegram-bot-api", "npm:0.51.1"],
             ["@types/redis", "npm:2.8.29"],
@@ -52,7 +52,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["g-i-s", "npm:2.1.6"],
             ["html-entities", "npm:2.3.2"],
             ["husky", "npm:6.0.0"],
-            ["ioredis", "npm:4.27.2"],
+            ["ioredis", "npm:4.27.5"],
             ["lint-staged", "npm:11.0.0"],
             ["mathjs", "npm:9.3.2"],
             ["node-html-parser", "npm:3.2.0"],
@@ -219,10 +219,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/ioredis", [
-        ["npm:4.26.1", {
-          "packageLocation": "./.yarn/cache/@types-ioredis-npm-4.26.1-4daa88acfa-2c262483a7.zip/node_modules/@types/ioredis/",
+        ["npm:4.26.4", {
+          "packageLocation": "./.yarn/cache/@types-ioredis-npm-4.26.4-eeb37feb17-0138b8c3c2.zip/node_modules/@types/ioredis/",
           "packageDependencies": [
-            ["@types/ioredis", "npm:4.26.1"],
+            ["@types/ioredis", "npm:4.26.4"],
             ["@types/node", "npm:11.10.4"]
           ],
           "linkType": "HARD",
@@ -888,10 +888,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:a66826dc35b53a9674f865114f6d4023f7b380fbec9656317e70f8306bfa26929621c1e57f5a0a48a302c68d52f7b8086a3ae5e6d98f52a807fd476d3f08437b#npm:3.2.6", {
-          "packageLocation": "./.yarn/$$virtual/debug-virtual-6c907d9649/0/cache/debug-npm-3.2.6-6214e40f12-619feb53b1.zip/node_modules/debug/",
+        ["virtual:120c88fd6edb642c05689a9e02800b63e5af78c990bfc8ec575257119aa2fd18f1947b7ececa721ff6ab8c98f106a5c37240feff689e33c25f2837c48f3a184b#npm:4.3.2", {
+          "packageLocation": "./.yarn/$$virtual/debug-virtual-54cf708c69/0/cache/debug-npm-4.3.2-f0148b6afe-5543570879.zip/node_modules/debug/",
           "packageDependencies": [
-            ["debug", "virtual:a66826dc35b53a9674f865114f6d4023f7b380fbec9656317e70f8306bfa26929621c1e57f5a0a48a302c68d52f7b8086a3ae5e6d98f52a807fd476d3f08437b#npm:3.2.6"],
+            ["debug", "virtual:120c88fd6edb642c05689a9e02800b63e5af78c990bfc8ec575257119aa2fd18f1947b7ececa721ff6ab8c98f106a5c37240feff689e33c25f2837c48f3a184b#npm:4.3.2"],
             ["ms", "npm:2.1.2"],
             ["supports-color", null]
           ],
@@ -900,10 +900,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:c8fbd65592d7e8b9f5117b365c7677c056770bdfa3b34080f66248adcdfe65ad7c78e4f85f9296831fe6002fcb721264651437881666a5490e0ee7d0380665ce#npm:4.3.2", {
-          "packageLocation": "./.yarn/$$virtual/debug-virtual-13d0cf63cc/0/cache/debug-npm-4.3.2-f0148b6afe-5543570879.zip/node_modules/debug/",
+        ["virtual:a66826dc35b53a9674f865114f6d4023f7b380fbec9656317e70f8306bfa26929621c1e57f5a0a48a302c68d52f7b8086a3ae5e6d98f52a807fd476d3f08437b#npm:3.2.6", {
+          "packageLocation": "./.yarn/$$virtual/debug-virtual-6c907d9649/0/cache/debug-npm-3.2.6-6214e40f12-619feb53b1.zip/node_modules/debug/",
           "packageDependencies": [
-            ["debug", "virtual:c8fbd65592d7e8b9f5117b365c7677c056770bdfa3b34080f66248adcdfe65ad7c78e4f85f9296831fe6002fcb721264651437881666a5490e0ee7d0380665ce#npm:4.3.2"],
+            ["debug", "virtual:a66826dc35b53a9674f865114f6d4023f7b380fbec9656317e70f8306bfa26929621c1e57f5a0a48a302c68d52f7b8086a3ae5e6d98f52a807fd476d3f08437b#npm:3.2.6"],
             ["ms", "npm:2.1.2"],
             ["supports-color", null]
           ],
@@ -1708,12 +1708,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["ioredis", [
-        ["npm:4.27.2", {
-          "packageLocation": "./.yarn/cache/ioredis-npm-4.27.2-c8fbd65592-8e6e21495b.zip/node_modules/ioredis/",
+        ["npm:4.27.5", {
+          "packageLocation": "./.yarn/cache/ioredis-npm-4.27.5-120c88fd6e-ee5924ccf4.zip/node_modules/ioredis/",
           "packageDependencies": [
-            ["ioredis", "npm:4.27.2"],
+            ["ioredis", "npm:4.27.5"],
             ["cluster-key-slot", "npm:1.1.0"],
-            ["debug", "virtual:c8fbd65592d7e8b9f5117b365c7677c056770bdfa3b34080f66248adcdfe65ad7c78e4f85f9296831fe6002fcb721264651437881666a5490e0ee7d0380665ce#npm:4.3.2"],
+            ["debug", "virtual:120c88fd6edb642c05689a9e02800b63e5af78c990bfc8ec575257119aa2fd18f1947b7ececa721ff6ab8c98f106a5c37240feff689e33c25f2837c48f3a184b#npm:4.3.2"],
             ["denque", "npm:1.4.1"],
             ["lodash.defaults", "npm:4.2.0"],
             ["lodash.flatten", "npm:4.4.0"],
@@ -2038,7 +2038,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["cli-truncate", "npm:2.1.0"],
             ["commander", "npm:7.2.0"],
             ["cosmiconfig", "npm:7.0.0"],
-            ["debug", "virtual:c8fbd65592d7e8b9f5117b365c7677c056770bdfa3b34080f66248adcdfe65ad7c78e4f85f9296831fe6002fcb721264651437881666a5490e0ee7d0380665ce#npm:4.3.2"],
+            ["debug", "virtual:120c88fd6edb642c05689a9e02800b63e5af78c990bfc8ec575257119aa2fd18f1947b7ececa721ff6ab8c98f106a5c37240feff689e33c25f2837c48f3a184b#npm:4.3.2"],
             ["dedent", "npm:0.7.0"],
             ["enquirer", "npm:2.3.6"],
             ["execa", "npm:5.0.0"],
@@ -2867,7 +2867,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mapbox/mapbox-sdk", "npm:0.12.1"],
             ["@types/diacritics", "npm:1.3.1"],
             ["@types/html-entities", "npm:1.2.16"],
-            ["@types/ioredis", "npm:4.26.1"],
+            ["@types/ioredis", "npm:4.26.4"],
             ["@types/node", "npm:14.14.44"],
             ["@types/node-telegram-bot-api", "npm:0.51.1"],
             ["@types/redis", "npm:2.8.29"],
@@ -2879,7 +2879,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["g-i-s", "npm:2.1.6"],
             ["html-entities", "npm:2.3.2"],
             ["husky", "npm:6.0.0"],
-            ["ioredis", "npm:4.27.2"],
+            ["ioredis", "npm:4.27.5"],
             ["lint-staged", "npm:11.0.0"],
             ["mathjs", "npm:9.3.2"],
             ["node-html-parser", "npm:3.2.0"],
