@@ -57,7 +57,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mathjs", "npm:9.3.2"],
             ["node-html-parser", "npm:3.2.0"],
             ["node-telegram-bot-api", "npm:0.53.0"],
-            ["novelcovid", "npm:3.0.0"],
+            ["novelcovid", "npm:3.0.2"],
             ["pinst", "npm:2.1.6"],
             ["pokedex", "npm:1.1.0"],
             ["prettier", "npm:2.2.1"],
@@ -2320,10 +2320,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["novelcovid", [
-        ["npm:3.0.0", {
-          "packageLocation": "./.yarn/cache/novelcovid-npm-3.0.0-7d194bb252-2276250308.zip/node_modules/novelcovid/",
+        ["npm:3.0.2", {
+          "packageLocation": "./.yarn/cache/novelcovid-npm-3.0.2-909fec9018-f1882365cc.zip/node_modules/novelcovid/",
           "packageDependencies": [
-            ["novelcovid", "npm:3.0.0"],
+            ["novelcovid", "npm:3.0.2"],
             ["@aero/centra", "npm:1.0.4"]
           ],
           "linkType": "HARD",
@@ -2884,7 +2884,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mathjs", "npm:9.3.2"],
             ["node-html-parser", "npm:3.2.0"],
             ["node-telegram-bot-api", "npm:0.53.0"],
-            ["novelcovid", "npm:3.0.0"],
+            ["novelcovid", "npm:3.0.2"],
             ["pinst", "npm:2.1.6"],
             ["pokedex", "npm:1.1.0"],
             ["prettier", "npm:2.2.1"],
