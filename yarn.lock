@@ -136,12 +136,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ioredis@npm:4.26.1":
-  version: 4.26.1
-  resolution: "@types/ioredis@npm:4.26.1"
+"@types/ioredis@npm:4.26.4":
+  version: 4.26.4
+  resolution: "@types/ioredis@npm:4.26.4"
   dependencies:
     "@types/node": "*"
-  checksum: 2c262483a755e67517a2ae2b6c5e341d118b243427f1920841607d4dd53fcc1b5add45e8ac1e124bb2198f380a9ca89eb78bbc7587f1e15ed9212655fdc466f5
+  checksum: 0138b8c3c290b4917529d797380a31f365756ac9056525dc19a6eb91e9f8484e1116fc249b91001ac3bf1ddcfbd68f1b685d83f63b4e4751022bb000dd7347ea
   languageName: node
   linkType: hard
 
@@ -1430,9 +1430,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:4.27.2":
-  version: 4.27.2
-  resolution: "ioredis@npm:4.27.2"
+"ioredis@npm:4.27.5":
+  version: 4.27.5
+  resolution: "ioredis@npm:4.27.5"
   dependencies:
     cluster-key-slot: ^1.1.0
     debug: ^4.3.1
@@ -1444,7 +1444,7 @@ __metadata:
     redis-errors: ^1.2.0
     redis-parser: ^3.0.0
     standard-as-callback: ^2.1.0
-  checksum: 8e6e21495bbbc726e4dc6349441d48fd013713f6de9896db3b1790e7d707b36652fa96060121e7aac875c22fdf96a0e95a0ebb5a076d08d02ddce1f5f4fc5913
+  checksum: ee5924ccf4e04643ebc644312d1105a6da70e009badaf845618dd0d408f82690098892d2c648b02b0e3612d548b0fd162af12f3e18aec71edd8c983f59357509
   languageName: node
   linkType: hard
 
@@ -2413,7 +2413,7 @@ __metadata:
     "@mapbox/mapbox-sdk": 0.12.1
     "@types/diacritics": 1.3.1
     "@types/html-entities": 1.2.16
-    "@types/ioredis": 4.26.1
+    "@types/ioredis": 4.26.4
     "@types/node": 14.14.44
     "@types/node-telegram-bot-api": 0.51.1
     "@types/redis": 2.8.29
@@ -2425,7 +2425,7 @@ __metadata:
     g-i-s: 2.1.6
     html-entities: 2.3.2
     husky: 6.0.0
-    ioredis: 4.27.2
+    ioredis: 4.27.5
     lint-staged: 11.0.0
     mathjs: 9.3.2
     node-html-parser: 3.2.0
