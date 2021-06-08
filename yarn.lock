@@ -49,7 +49,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mapbox/mapbox-sdk@npm:^0.12.1":
+"@mapbox/mapbox-sdk@npm:0.12.1":
   version: 0.12.1
   resolution: "@mapbox/mapbox-sdk@npm:0.12.1"
   dependencies:
@@ -113,7 +113,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/diacritics@npm:^1.3.1":
+"@types/diacritics@npm:1.3.1":
   version: 1.3.1
   resolution: "@types/diacritics@npm:1.3.1"
   checksum: 7c6eb39cfb7965f0f8d4c720c26006c076f33cb34a7001c4e1504a046596978e5e64e617fc6023b73463e89ff81eab43c3e918579b1541684f8458890a5fa28e
@@ -129,14 +129,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/html-entities@npm:^1.2.16":
+"@types/html-entities@npm:1.2.16":
   version: 1.2.16
   resolution: "@types/html-entities@npm:1.2.16"
   checksum: 109db62c01767f4133ec694ebc5449950d69cbaf4920705e6c0f7c83344d8c2aa06b8b5cedec1c8fb04da8820c025b05094937b17ddd9f121dafcbc09103d021
   languageName: node
   linkType: hard
 
-"@types/ioredis@npm:^4.26.1":
+"@types/ioredis@npm:4.26.1":
   version: 4.26.1
   resolution: "@types/ioredis@npm:4.26.1"
   dependencies:
@@ -154,7 +154,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node-telegram-bot-api@npm:^0.51.1":
+"@types/node-telegram-bot-api@npm:0.51.1":
   version: 0.51.1
   resolution: "@types/node-telegram-bot-api@npm:0.51.1"
   dependencies:
@@ -171,7 +171,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^14.14.44":
+"@types/node@npm:14.14.44":
   version: 14.14.44
   resolution: "@types/node@npm:14.14.44"
   checksum: 5c4db716325fc8a25b5b76b800acf0ff00c8fa1e7cfcb764fc79d79594939488cb9d2a756e188eb8e8a36da51e8e2be1ffe859be901b338779cb0aa12ad73b3a
@@ -185,7 +185,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/redis@npm:^2.8.28":
+"@types/redis@npm:2.8.28":
   version: 2.8.28
   resolution: "@types/redis@npm:2.8.28"
   dependencies:
@@ -222,14 +222,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/utf8@npm:^2.1.6":
+"@types/utf8@npm:2.1.6":
   version: 2.1.6
   resolution: "@types/utf8@npm:2.1.6"
   checksum: aa03477b681e9afda291b43994dac81d134383ac189496355507bf8bb8641402661a820ae65bedff982623e0d5d7569845a03a81cfa8a02e5b214c10ae5acc41
   languageName: node
   linkType: hard
 
-"@vitalets/google-translate-api@npm:^7.0.0":
+"@vitalets/google-translate-api@npm:7.0.0":
   version: 7.0.0
   resolution: "@vitalets/google-translate-api@npm:7.0.0"
   dependencies:
@@ -368,7 +368,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.21.1":
+"axios@npm:0.21.1":
   version: 0.21.1
   resolution: "axios@npm:0.21.1"
   dependencies:
@@ -814,7 +814,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"diacritics@npm:^1.3.0":
+"diacritics@npm:1.3.0":
   version: 1.3.0
   resolution: "diacritics@npm:1.3.0"
   checksum: 89191c856f1a95966992fc7158bc121c06f9b19ef2d20b7beb60818e6cb10058d61d11a547c70ee421664b023d1c86507d8f09f51f393469bdcec46338d05c0c
@@ -1130,14 +1130,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fuse.js@npm:^6.4.6":
+"fuse.js@npm:6.4.6":
   version: 6.4.6
   resolution: "fuse.js@npm:6.4.6"
   checksum: 404a8a553398982d8b79e0606649641e791208d2d7e64aa6c106f44ef4e46bbb6c19b6564190ff3a128eea308690e3321173f4778f677c47c91f73ae4b13b5c9
   languageName: node
   linkType: hard
 
-"g-i-s@npm:^2.1.6":
+"g-i-s@npm:2.1.6":
   version: 2.1.6
   resolution: "g-i-s@npm:2.1.6"
   dependencies:
@@ -1329,7 +1329,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-entities@npm:^2.3.2":
+"html-entities@npm:2.3.2":
   version: 2.3.2
   resolution: "html-entities@npm:2.3.2"
   checksum: a0bcdfdb2326d8943d43d4f5f794769f666d335f7795e82ac5140154970d82a8a1be082725bd53e18c8727821713e7d124982ed9a3463db9b0159b58bc6eff42
@@ -1380,7 +1380,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^6.0.0":
+"husky@npm:6.0.0":
   version: 6.0.0
   resolution: "husky@npm:6.0.0"
   bin:
@@ -1430,7 +1430,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:^4.27.2":
+"ioredis@npm:4.27.2":
   version: 4.27.2
   resolution: "ioredis@npm:4.27.2"
   dependencies:
@@ -1695,7 +1695,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^11.0.0":
+"lint-staged@npm:11.0.0":
   version: 11.0.0
   resolution: "lint-staged@npm:11.0.0"
   dependencies:
@@ -1812,7 +1812,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mathjs@npm:^9.3.2":
+"mathjs@npm:9.3.2":
   version: 9.3.2
   resolution: "mathjs@npm:9.3.2"
   dependencies:
@@ -1893,7 +1893,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-html-parser@npm:^3.2.0":
+"node-html-parser@npm:3.2.0":
   version: 3.2.0
   resolution: "node-html-parser@npm:3.2.0"
   dependencies:
@@ -1903,7 +1903,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-telegram-bot-api@npm:^0.53.0":
+"node-telegram-bot-api@npm:0.53.0":
   version: 0.53.0
   resolution: "node-telegram-bot-api@npm:0.53.0"
   dependencies:
@@ -1947,7 +1947,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"novelcovid@npm:^3.0.0":
+"novelcovid@npm:3.0.0":
   version: 3.0.0
   resolution: "novelcovid@npm:3.0.0"
   dependencies:
@@ -2138,7 +2138,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pinst@npm:^2.1.6":
+"pinst@npm:2.1.6":
   version: 2.1.6
   resolution: "pinst@npm:2.1.6"
   dependencies:
@@ -2158,7 +2158,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pokedex@npm:^1.1.0":
+"pokedex@npm:1.1.0":
   version: 1.1.0
   resolution: "pokedex@npm:1.1.0"
   dependencies:
@@ -2174,7 +2174,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.2.1":
+"prettier@npm:2.2.1":
   version: 2.2.1
   resolution: "prettier@npm:2.2.1"
   bin:
@@ -2287,7 +2287,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redis@npm:^3.1.2":
+"redis@npm:3.1.2":
   version: 3.1.2
   resolution: "redis@npm:3.1.2"
   dependencies:
@@ -2410,33 +2410,33 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@mapbox/mapbox-sdk": ^0.12.1
-    "@types/diacritics": ^1.3.1
-    "@types/html-entities": ^1.2.16
-    "@types/ioredis": ^4.26.1
-    "@types/node": ^14.14.44
-    "@types/node-telegram-bot-api": ^0.51.1
-    "@types/redis": ^2.8.28
-    "@types/utf8": ^2.1.6
-    "@vitalets/google-translate-api": ^7.0.0
-    axios: ^0.21.1
-    diacritics: ^1.3.0
-    fuse.js: ^6.4.6
-    g-i-s: ^2.1.6
-    html-entities: ^2.3.2
-    husky: ^6.0.0
-    ioredis: ^4.27.2
-    lint-staged: ^11.0.0
-    mathjs: ^9.3.2
-    node-html-parser: ^3.2.0
-    node-telegram-bot-api: ^0.53.0
-    novelcovid: ^3.0.0
-    pinst: ^2.1.6
-    pokedex: ^1.1.0
-    prettier: ^2.2.1
-    redis: ^3.1.2
-    typescript: ^4.2.4
-    utf8: ^3.0.0
+    "@mapbox/mapbox-sdk": 0.12.1
+    "@types/diacritics": 1.3.1
+    "@types/html-entities": 1.2.16
+    "@types/ioredis": 4.26.1
+    "@types/node": 14.14.44
+    "@types/node-telegram-bot-api": 0.51.1
+    "@types/redis": 2.8.28
+    "@types/utf8": 2.1.6
+    "@vitalets/google-translate-api": 7.0.0
+    axios: 0.21.1
+    diacritics: 1.3.0
+    fuse.js: 6.4.6
+    g-i-s: 2.1.6
+    html-entities: 2.3.2
+    husky: 6.0.0
+    ioredis: 4.27.2
+    lint-staged: 11.0.0
+    mathjs: 9.3.2
+    node-html-parser: 3.2.0
+    node-telegram-bot-api: 0.53.0
+    novelcovid: 3.0.0
+    pinst: 2.1.6
+    pokedex: 1.1.0
+    prettier: 2.2.1
+    redis: 3.1.2
+    typescript: 4.2.4
+    utf8: 3.0.0
   languageName: unknown
   linkType: soft
 
@@ -2766,7 +2766,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-typescript@^4.2.4:
+typescript@4.2.4:
   version: 4.2.4
   resolution: "typescript@npm:4.2.4"
   bin:
@@ -2776,7 +2776,7 @@ typescript@^4.2.4:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.2.4#builtin<compat/typescript>":
+"typescript@patch:typescript@4.2.4#builtin<compat/typescript>":
   version: 4.2.4
   resolution: "typescript@patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"
   bin:
@@ -2820,7 +2820,7 @@ typescript@^4.2.4:
   languageName: node
   linkType: hard
 
-"utf8@npm:^3.0.0":
+"utf8@npm:3.0.0":
   version: 3.0.0
   resolution: "utf8@npm:3.0.0"
   checksum: 5a82761c09db35965210fcd10edc92b52a3ed2be7756858856341d5c4cf029a25b2d96b0c79fd1b8cd38a339913d0536e8918130f150e7fe2d9b8e3954bb9dac
