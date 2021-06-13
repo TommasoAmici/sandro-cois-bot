@@ -37,7 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
-            ["@mapbox/mapbox-sdk", "npm:0.12.1"],
+            ["@mapbox/mapbox-sdk", "npm:0.13.0"],
             ["@types/diacritics", "npm:1.3.1"],
             ["@types/html-entities", "npm:1.3.3"],
             ["@types/ioredis", "npm:4.26.4"],
@@ -130,10 +130,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@mapbox/mapbox-sdk", [
-        ["npm:0.12.1", {
-          "packageLocation": "./.yarn/cache/@mapbox-mapbox-sdk-npm-0.12.1-ecc2750e23-c7968e715c.zip/node_modules/@mapbox/mapbox-sdk/",
+        ["npm:0.13.0", {
+          "packageLocation": "./.yarn/cache/@mapbox-mapbox-sdk-npm-0.13.0-8fcecbdcf3-25d2c0a8e3.zip/node_modules/@mapbox/mapbox-sdk/",
           "packageDependencies": [
-            ["@mapbox/mapbox-sdk", "npm:0.12.1"],
+            ["@mapbox/mapbox-sdk", "npm:0.13.0"],
             ["@mapbox/fusspot", "npm:0.4.0"],
             ["@mapbox/parse-mapbox-token", "npm:0.2.0"],
             ["@mapbox/polyline", "npm:1.0.0"],
@@ -2929,7 +2929,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["root-workspace-0b6124", "workspace:."],
-            ["@mapbox/mapbox-sdk", "npm:0.12.1"],
+            ["@mapbox/mapbox-sdk", "npm:0.13.0"],
             ["@types/diacritics", "npm:1.3.1"],
             ["@types/html-entities", "npm:1.3.3"],
             ["@types/ioredis", "npm:4.26.4"],
