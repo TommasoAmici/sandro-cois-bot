@@ -62,7 +62,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["pokedex", "npm:1.1.0"],
             ["prettier", "npm:2.3.1"],
             ["redis", "npm:3.1.2"],
-            ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"],
+            ["typescript", "patch:typescript@npm%3A4.3.2#builtin<compat/typescript>::version=4.3.2&hash=ddfc1b"],
             ["utf8", "npm:3.0.0"]
           ],
           "linkType": "SOFT",
@@ -2954,7 +2954,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["pokedex", "npm:1.1.0"],
             ["prettier", "npm:2.3.1"],
             ["redis", "npm:3.1.2"],
-            ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"],
+            ["typescript", "patch:typescript@npm%3A4.3.2#builtin<compat/typescript>::version=4.3.2&hash=ddfc1b"],
             ["utf8", "npm:3.0.0"]
           ],
           "linkType": "SOFT",
@@ -3333,10 +3333,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["typescript", [
-        ["patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e", {
-          "packageLocation": "./.yarn/cache/typescript-patch-70a7929abf-3be4431759.zip/node_modules/typescript/",
+        ["patch:typescript@npm%3A4.3.2#builtin<compat/typescript>::version=4.3.2&hash=ddfc1b", {
+          "packageLocation": "./.yarn/cache/typescript-patch-4490d00053-68d48dc86d.zip/node_modules/typescript/",
           "packageDependencies": [
-            ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"]
+            ["typescript", "patch:typescript@npm%3A4.3.2#builtin<compat/typescript>::version=4.3.2&hash=ddfc1b"]
           ],
           "linkType": "HARD",
         }]
