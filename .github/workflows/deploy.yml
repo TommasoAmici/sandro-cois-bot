@@ -23,8 +23,8 @@ jobs:
         uses: burnett01/rsync-deployments@4.1
         with:
           switches: -avzr --delete
-          path: built/
-          remote_path: /home/sandro-cois/built/
+          path: ./
+          remote_path: /home/sandro-cois/
           remote_host: ${{ secrets.DEPLOY_HOST }}
           remote_port: ${{ secrets.DEPLOY_PORT }}
           remote_user: ${{ secrets.DEPLOY_USER }}
