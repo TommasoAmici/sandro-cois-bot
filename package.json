@@ -7,7 +7,7 @@
     "fuse.js": "6.4.6",
     "g-i-s": "2.1.6",
     "html-entities": "2.3.2",
-    "ioredis": "4.27.5",
+    "ioredis": "4.27.6",
     "mathjs": "9.4.2",
     "node-html-parser": "3.3.5",
     "node-telegram-bot-api": "0.53.0",
