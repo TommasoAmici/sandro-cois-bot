@@ -22,9 +22,8 @@ jobs:
       - name: rsync deployments
         uses: burnett01/rsync-deployments@4.1
         with:
-          switches: -avzr --delete
-          path: ./
-          remote_path: /home/sandro-cois/
+          switches: -avzr --delete --exclude=".git"
+          remote_path: /home/sandro-cois/app/
           remote_host: ${{ secrets.DEPLOY_HOST }}
           remote_port: ${{ secrets.DEPLOY_PORT }}
           remote_user: ${{ secrets.DEPLOY_USER }}
