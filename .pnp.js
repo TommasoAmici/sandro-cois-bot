@@ -52,7 +52,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["g-i-s", "npm:2.1.6"],
             ["html-entities", "npm:2.3.2"],
             ["husky", "npm:6.0.0"],
-            ["ioredis", "npm:4.27.5"],
+            ["ioredis", "npm:4.27.6"],
             ["lint-staged", "npm:11.0.0"],
             ["mathjs", "npm:9.4.2"],
             ["node-html-parser", "npm:3.3.5"],
@@ -918,10 +918,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:120c88fd6edb642c05689a9e02800b63e5af78c990bfc8ec575257119aa2fd18f1947b7ececa721ff6ab8c98f106a5c37240feff689e33c25f2837c48f3a184b#npm:4.3.2", {
-          "packageLocation": "./.yarn/$$virtual/debug-virtual-54cf708c69/0/cache/debug-npm-4.3.2-f0148b6afe-5543570879.zip/node_modules/debug/",
+        ["virtual:a66826dc35b53a9674f865114f6d4023f7b380fbec9656317e70f8306bfa26929621c1e57f5a0a48a302c68d52f7b8086a3ae5e6d98f52a807fd476d3f08437b#npm:3.2.6", {
+          "packageLocation": "./.yarn/$$virtual/debug-virtual-6c907d9649/0/cache/debug-npm-3.2.6-6214e40f12-619feb53b1.zip/node_modules/debug/",
           "packageDependencies": [
-            ["debug", "virtual:120c88fd6edb642c05689a9e02800b63e5af78c990bfc8ec575257119aa2fd18f1947b7ececa721ff6ab8c98f106a5c37240feff689e33c25f2837c48f3a184b#npm:4.3.2"],
+            ["debug", "virtual:a66826dc35b53a9674f865114f6d4023f7b380fbec9656317e70f8306bfa26929621c1e57f5a0a48a302c68d52f7b8086a3ae5e6d98f52a807fd476d3f08437b#npm:3.2.6"],
             ["ms", "npm:2.1.2"],
             ["supports-color", null]
           ],
@@ -930,10 +930,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:a66826dc35b53a9674f865114f6d4023f7b380fbec9656317e70f8306bfa26929621c1e57f5a0a48a302c68d52f7b8086a3ae5e6d98f52a807fd476d3f08437b#npm:3.2.6", {
-          "packageLocation": "./.yarn/$$virtual/debug-virtual-6c907d9649/0/cache/debug-npm-3.2.6-6214e40f12-619feb53b1.zip/node_modules/debug/",
+        ["virtual:e0f3d1fc5e2e6b22b3a29bfa51a72e6bd190fcb60dde5280f8d6d8771db810a77e4a36e745e509bd7e4fcb84404e739a679e6ea2ca8237157c477cb693d77fc9#npm:4.3.2", {
+          "packageLocation": "./.yarn/$$virtual/debug-virtual-4b2340b792/0/cache/debug-npm-4.3.2-f0148b6afe-5543570879.zip/node_modules/debug/",
           "packageDependencies": [
-            ["debug", "virtual:a66826dc35b53a9674f865114f6d4023f7b380fbec9656317e70f8306bfa26929621c1e57f5a0a48a302c68d52f7b8086a3ae5e6d98f52a807fd476d3f08437b#npm:3.2.6"],
+            ["debug", "virtual:e0f3d1fc5e2e6b22b3a29bfa51a72e6bd190fcb60dde5280f8d6d8771db810a77e4a36e745e509bd7e4fcb84404e739a679e6ea2ca8237157c477cb693d77fc9#npm:4.3.2"],
             ["ms", "npm:2.1.2"],
             ["supports-color", null]
           ],
@@ -1763,12 +1763,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["ioredis", [
-        ["npm:4.27.5", {
-          "packageLocation": "./.yarn/cache/ioredis-npm-4.27.5-120c88fd6e-ee5924ccf4.zip/node_modules/ioredis/",
+        ["npm:4.27.6", {
+          "packageLocation": "./.yarn/cache/ioredis-npm-4.27.6-e0f3d1fc5e-757b8dbd2c.zip/node_modules/ioredis/",
           "packageDependencies": [
-            ["ioredis", "npm:4.27.5"],
+            ["ioredis", "npm:4.27.6"],
             ["cluster-key-slot", "npm:1.1.0"],
-            ["debug", "virtual:120c88fd6edb642c05689a9e02800b63e5af78c990bfc8ec575257119aa2fd18f1947b7ececa721ff6ab8c98f106a5c37240feff689e33c25f2837c48f3a184b#npm:4.3.2"],
+            ["debug", "virtual:e0f3d1fc5e2e6b22b3a29bfa51a72e6bd190fcb60dde5280f8d6d8771db810a77e4a36e745e509bd7e4fcb84404e739a679e6ea2ca8237157c477cb693d77fc9#npm:4.3.2"],
             ["denque", "npm:1.4.1"],
             ["lodash.defaults", "npm:4.2.0"],
             ["lodash.flatten", "npm:4.4.0"],
@@ -2093,7 +2093,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["cli-truncate", "npm:2.1.0"],
             ["commander", "npm:7.2.0"],
             ["cosmiconfig", "npm:7.0.0"],
-            ["debug", "virtual:120c88fd6edb642c05689a9e02800b63e5af78c990bfc8ec575257119aa2fd18f1947b7ececa721ff6ab8c98f106a5c37240feff689e33c25f2837c48f3a184b#npm:4.3.2"],
+            ["debug", "virtual:e0f3d1fc5e2e6b22b3a29bfa51a72e6bd190fcb60dde5280f8d6d8771db810a77e4a36e745e509bd7e4fcb84404e739a679e6ea2ca8237157c477cb693d77fc9#npm:4.3.2"],
             ["dedent", "npm:0.7.0"],
             ["enquirer", "npm:2.3.6"],
             ["execa", "npm:5.0.0"],
@@ -2944,7 +2944,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["g-i-s", "npm:2.1.6"],
             ["html-entities", "npm:2.3.2"],
             ["husky", "npm:6.0.0"],
-            ["ioredis", "npm:4.27.5"],
+            ["ioredis", "npm:4.27.6"],
             ["lint-staged", "npm:11.0.0"],
             ["mathjs", "npm:9.4.2"],
             ["node-html-parser", "npm:3.3.5"],
