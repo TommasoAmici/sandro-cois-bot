@@ -1,4 +1,5 @@
 import * as TelegramBot from "node-telegram-bot-api";
+import utils from "./utils";
 
 const songs = {
   0: `Osteria numero zero
@@ -245,6 +246,13 @@ const osterieList =
     bot.sendMessage(msg.chat.id, Object.keys(songs).join(", "));
   };
 
+const randomOsteria =
+  (bot: TelegramBot) =>
+  (msg: TelegramBot.Message): void => {
+    const randomKey = utils.randomChoice(Object.keys(songs));
+    bot.sendMessage(msg.chat.id, songs[randomKey]);
+  };
+
 const osteria =
   (bot: TelegramBot) =>
   (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
@@ -262,4 +270,4 @@ const osteria =
     }
   };
 
-export default { list: osterieList, detail: osteria };
+export default { list: osterieList, detail: osteria, random: randomOsteria };

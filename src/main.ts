@@ -177,4 +177,5 @@ bot.onText(
 bot.onText(/^[/!]echoid(?:@\w+)?$/i, plugins.echoID(bot));
 // osterie
 bot.onText(/^[/!]osterie$/i, plugins.osteria.list(bot));
+bot.onText(/^[/!]osteria$/i, plugins.osteria.random(bot));
 bot.onText(/^[/!]osteria ([\s\S]+){1}/i, plugins.osteria.detail(bot));
