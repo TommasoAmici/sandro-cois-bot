@@ -255,7 +255,10 @@ const osteria =
         "Questa osteria non esiste, prova con un'altra"
       );
     } else {
-      bot.sendMessage(msg.chat.id, song);
+      bot.sendMessage(
+        msg.chat.id,
+        `${song}\nDammela a me biondina\nDammela a me bionda`
+      );
     }
   };
 
