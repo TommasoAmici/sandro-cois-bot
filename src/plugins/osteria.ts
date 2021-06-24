@@ -259,7 +259,7 @@ const randomOsteria =
 const osteria =
   (bot: TelegramBot) =>
   (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    const song = songs[match[1]];
+    const song = songs[match[1].toLowerCase()];
     if (song === undefined) {
       bot.sendMessage(
         msg.chat.id,
