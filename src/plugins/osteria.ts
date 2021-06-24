@@ -250,7 +250,10 @@ const randomOsteria =
   (bot: TelegramBot) =>
   (msg: TelegramBot.Message): void => {
     const randomKey = utils.randomChoice(Object.keys(songs));
-    bot.sendMessage(msg.chat.id, songs[randomKey]);
+    bot.sendMessage(
+      msg.chat.id,
+      `${songs[randomKey]}\nDammela a me biondina\nDammela a me bionda`
+    );
   };
 
 const osteria =
