@@ -175,3 +175,6 @@ bot.onText(
 );
 
 bot.onText(/^[/!]echoid(?:@\w+)?$/i, plugins.echoID(bot));
+// osterie
+bot.onText(/^[/!]osterie$/i, plugins.osteria.list(bot));
+bot.onText(/^[/!]osteria(?:@\w+)? ([\s\S]*)/i, plugins.osteria.detail(bot));

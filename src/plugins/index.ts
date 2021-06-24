@@ -14,6 +14,7 @@ import loc from "./loc";
 import magic8ball from "./magic8Ball";
 import naziMods from "./naziMods";
 import nsfw from "./nsfw";
+import osteria from "./osteria";
 import pokedex from "./pokedex";
 import quotes from "./quotes";
 import reddit from "./reddit";
@@ -68,4 +69,5 @@ export default {
   weather,
   what,
   naziMods,
+  osteria,
 };
