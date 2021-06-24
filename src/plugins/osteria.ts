@@ -248,7 +248,7 @@ const osterieList =
 const osteria =
   (bot: TelegramBot) =>
   (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    const song = songs[+match[1]];
+    const song = songs[match[1]];
     if (song === undefined) {
       bot.sendMessage(
         msg.chat.id,
