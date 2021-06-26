@@ -60,7 +60,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["novelcovid", "npm:3.0.2"],
             ["pinst", "npm:2.1.6"],
             ["pokedex", "npm:1.1.0"],
-            ["prettier", "npm:2.3.1"],
+            ["prettier", "npm:2.3.2"],
             ["redis", "npm:3.1.2"],
             ["typescript", "patch:typescript@npm%3A4.3.4#builtin<compat/typescript>::version=4.3.4&hash=ddfc1b"],
             ["utf8", "npm:3.0.0"]
@@ -2640,10 +2640,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["prettier", [
-        ["npm:2.3.1", {
-          "packageLocation": "./.yarn/cache/prettier-npm-2.3.1-f8593fac45-9b4a695b87.zip/node_modules/prettier/",
+        ["npm:2.3.2", {
+          "packageLocation": "./.yarn/cache/prettier-npm-2.3.2-4467ec48dc-4fd89a7f6a.zip/node_modules/prettier/",
           "packageDependencies": [
-            ["prettier", "npm:2.3.1"]
+            ["prettier", "npm:2.3.2"]
           ],
           "linkType": "HARD",
         }]
@@ -2952,7 +2952,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["novelcovid", "npm:3.0.2"],
             ["pinst", "npm:2.1.6"],
             ["pokedex", "npm:1.1.0"],
-            ["prettier", "npm:2.3.1"],
+            ["prettier", "npm:2.3.2"],
             ["redis", "npm:3.1.2"],
             ["typescript", "patch:typescript@npm%3A4.3.4#builtin<compat/typescript>::version=4.3.4&hash=ddfc1b"],
             ["utf8", "npm:3.0.0"]
