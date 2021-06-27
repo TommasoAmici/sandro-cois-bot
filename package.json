@@ -33,7 +33,7 @@
   },
   "scripts": {
     "start": "node dist/index.js",
-    "build": "ncc build src/index.ts -o dist",
+    "build": "ncc build src/index.ts --out dist --minify --no-cache",
     "postinstall": "husky install",
     "prettier": "prettier --write ."
   },
