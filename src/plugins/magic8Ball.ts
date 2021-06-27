@@ -24,6 +24,7 @@ const choices = [
   "Molto incerto",
 ];
 
-export default (bot: TelegramBot) => (msg: TelegramBot.Message): void => {
-  bot.sendMessage(msg.chat.id, utils.randomChoice(choices));
-};
+export default (bot: TelegramBot) =>
+  (msg: TelegramBot.Message): void => {
+    bot.sendMessage(msg.chat.id, utils.randomChoice(choices));
+  };

@@ -43,11 +43,10 @@ export const prettyPrint = (users: User[]): string => {
   return message;
 };
 
-export default (bot: TelegramBot) => async (
-  msg: TelegramBot.Message
-): Promise<void> => {
-  const users = await getUsers(msg.chat.id, "stats");
-  const sortedUsers = users.sort((a, b) => b.count - a.count);
-  const message = prettyPrint(sortedUsers);
-  bot.sendMessage(msg.chat.id, message);
-};
+export default (bot: TelegramBot) =>
+  async (msg: TelegramBot.Message): Promise<void> => {
+    const users = await getUsers(msg.chat.id, "stats");
+    const sortedUsers = users.sort((a, b) => b.count - a.count);
+    const message = prettyPrint(sortedUsers);
+    bot.sendMessage(msg.chat.id, message);
+  };

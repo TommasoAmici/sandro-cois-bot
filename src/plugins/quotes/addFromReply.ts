@@ -14,12 +14,11 @@ const makeQuoteString = (msgReply, addDate) => {
   return `${msgReply.text}\n\n– ${author}`;
 };
 
-export default (bot: TelegramBot, addDate = false) => (
-  msg: TelegramBot.Message
-): void => {
-  const msgReply = msg.reply_to_message;
-  if (msgReply.text && msgReply.text.length !== 0) {
-    const quote = makeQuoteString(msgReply, addDate);
-    addQuote(quote, msg.chat.id, bot);
-  }
-};
+export default (bot: TelegramBot, addDate = false) =>
+  (msg: TelegramBot.Message): void => {
+    const msgReply = msg.reply_to_message;
+    if (msgReply.text && msgReply.text.length !== 0) {
+      const quote = makeQuoteString(msgReply, addDate);
+      addQuote(quote, msg.chat.id, bot);
+    }
+  };

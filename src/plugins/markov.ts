@@ -120,20 +120,19 @@ class Markov {
 
 export default {
   Markov: Markov,
-  reply: (bot: TelegramBot, markov: Markov) => (
-    msg: TelegramBot.Message,
-    match: RegExpMatchArray
-  ): void => {
-    const matched = match[1].split(" ");
-    const w2 = matched.pop();
-    const w1 = matched.pop();
-    const message = markov.makeChain(`${w1} ${w2}`);
-    bot.sendMessage(msg.chat.id, `${matched.join(" ")} ${message}`);
-  },
-  random: (bot: TelegramBot, markov: Markov) => (
-    msg: TelegramBot.Message
-  ): void => {
-    const message = markov.makeRandomChain();
-    bot.sendMessage(msg.chat.id, message);
-  },
+  reply:
+    (bot: TelegramBot, markov: Markov) =>
+    (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
+      const matched = match[1].split(" ");
+      const w2 = matched.pop();
+      const w1 = matched.pop();
+      const message = markov.makeChain(`${w1} ${w2}`);
+      bot.sendMessage(msg.chat.id, `${matched.join(" ")} ${message}`);
+    },
+  random:
+    (bot: TelegramBot, markov: Markov) =>
+    (msg: TelegramBot.Message): void => {
+      const message = markov.makeRandomChain();
+      bot.sendMessage(msg.chat.id, message);
+    },
 };

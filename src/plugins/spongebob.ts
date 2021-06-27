@@ -8,19 +8,17 @@ const spongebob = (word) => {
   return output.join("");
 };
 
-export const spongebobInReply = (bot: TelegramBot) => (
-  msg: TelegramBot.Message
-): void => {
-  if (msg.reply_to_message) {
-    const message = spongebob(msg.reply_to_message.text);
-    bot.sendMessage(msg.chat.id, message);
-  }
-};
+export const spongebobInReply =
+  (bot: TelegramBot) =>
+  (msg: TelegramBot.Message): void => {
+    if (msg.reply_to_message) {
+      const message = spongebob(msg.reply_to_message.text);
+      bot.sendMessage(msg.chat.id, message);
+    }
+  };
 
-export default (bot: TelegramBot) => (
-  msg: TelegramBot.Message,
-  match: RegExpMatchArray
-): void => {
-  const message = spongebob(match[1].toLowerCase());
-  bot.sendMessage(msg.chat.id, message);
-};
+export default (bot: TelegramBot) =>
+  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
+    const message = spongebob(match[1].toLowerCase());
+    bot.sendMessage(msg.chat.id, message);
+  };

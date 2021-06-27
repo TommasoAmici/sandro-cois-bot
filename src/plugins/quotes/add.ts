@@ -10,10 +10,8 @@ export const addQuote = (quote, chatId, bot) => {
     .catch((err) => bot.sendMessage(chatId, "Couldn't add quote :("));
 };
 
-export default (bot: TelegramBot) => (
-  msg: TelegramBot.Message,
-  match: RegExpMatchArray
-): void => {
-  const quote = utf8.encode(match[1]);
-  addQuote(quote, msg.chat.id, bot);
-};
+export default (bot: TelegramBot) =>
+  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
+    const quote = utf8.encode(match[1]);
+    addQuote(quote, msg.chat.id, bot);
+  };

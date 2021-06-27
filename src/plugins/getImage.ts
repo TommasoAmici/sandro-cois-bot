@@ -22,14 +22,12 @@ export const getImage = async (
   });
 };
 
-export default (bot: TelegramBot) => (
-  msg: TelegramBot.Message,
-  match: RegExpMatchArray
-): void => {
-  let query = match[1];
+export default (bot: TelegramBot) =>
+  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
+    let query = match[1];
 
-  if (query === undefined && msg.reply_to_message) {
-    query = msg.reply_to_message.text;
-  }
-  getImage(query, bot, msg);
-};
+    if (query === undefined && msg.reply_to_message) {
+      query = msg.reply_to_message.text;
+    }
+    getImage(query, bot, msg);
+  };

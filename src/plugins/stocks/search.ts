@@ -26,14 +26,12 @@ const makeString = (globalQuote: StocksSearch[]) =>
     .map((g) => `${g["1. symbol"]}, ${g["2. name"]}, ${g["4. region"]}`)
     .join("\n");
 
-export default (bot: TelegramBot) => (
-  msg: TelegramBot.Message,
-  match: RegExpMatchArray
-): void => {
-  axios
-    .get(url(match[2].toUpperCase()))
-    .then((res: { data: AlphaVantageResponse }) =>
-      bot.sendMessage(msg.chat.id, makeString(res.data["bestMatches"]))
-    )
-    .catch((err) => console.error(err));
-};
+export default (bot: TelegramBot) =>
+  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
+    axios
+      .get(url(match[2].toUpperCase()))
+      .then((res: { data: AlphaVantageResponse }) =>
+        bot.sendMessage(msg.chat.id, makeString(res.data["bestMatches"]))
+      )
+      .catch((err) => console.error(err));
+  };

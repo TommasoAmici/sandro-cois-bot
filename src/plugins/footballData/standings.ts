@@ -16,22 +16,21 @@ const makeMatchesString = async (currentMatchday: number): Promise<string> => {
   return `*Giornata ${currentMatchday}*\n\n\`${standingsStrings.join("\n")}\``;
 };
 
-export default (bot: TelegramBot) => async (
-  msg: TelegramBot.Message
-): Promise<void> => {
-  const currentMatchday = await getCurrMatchday();
-  if (currentMatchday === 0) bot.sendMessage(msg.chat.id, "Boh 🤷🏻‍♂️");
-  else {
-    try {
-      const matchesString = await makeMatchesString(currentMatchday);
-      bot.sendMessage(msg.chat.id, matchesString, {
-        parse_mode: "Markdown",
-      });
-    } catch (error) {
-      if (error.response && error.response.status >= 400) {
-        bot.sendMessage(msg.chat.id, error.response.status);
+export default (bot: TelegramBot) =>
+  async (msg: TelegramBot.Message): Promise<void> => {
+    const currentMatchday = await getCurrMatchday();
+    if (currentMatchday === 0) bot.sendMessage(msg.chat.id, "Boh 🤷🏻‍♂️");
+    else {
+      try {
+        const matchesString = await makeMatchesString(currentMatchday);
+        bot.sendMessage(msg.chat.id, matchesString, {
+          parse_mode: "Markdown",
+        });
+      } catch (error) {
+        if (error.response && error.response.status >= 400) {
+          bot.sendMessage(msg.chat.id, error.response.status);
+        }
+        console.error(error.response);
       }
-      console.error(error.response);
     }
-  }
-};
+  };

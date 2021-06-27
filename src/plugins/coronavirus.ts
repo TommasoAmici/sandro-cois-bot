@@ -42,43 +42,43 @@ const covidIndex = (): string => {
 };
 
 export default {
-  gago: (bot: TelegramBot) => (
-    msg: TelegramBot.Message,
-    match: RegExpMatchArray
-  ): void => {
-    const gagoIndex = +match[1] <= 1500 ? +match[1] : 1500;
-    const message = gago(gagoIndex);
-    bot.sendMessage(msg.chat.id, message);
-  },
-  percent: (bot: TelegramBot) => (msg: TelegramBot.Message): void => {
-    bot.sendMessage(msg.chat.id, covidIndex());
-  },
-  country: (bot: TelegramBot) => (
-    msg: TelegramBot.Message,
-    match: RegExpMatchArray
-  ) => {
-    if (match[1].toLowerCase() === "all") {
-      covid
-        .getAll()
-        .then((data) =>
-          bot.sendMessage(
-            msg.chat.id,
-            `Casi: ${data.cases}\nMorti: ${data.deaths}\nGuariti: ${
-              data.recovered
-            }\n\nAggiornato ${new Date(data.updated).toISOString()}`
+  gago:
+    (bot: TelegramBot) =>
+    (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
+      const gagoIndex = +match[1] <= 1500 ? +match[1] : 1500;
+      const message = gago(gagoIndex);
+      bot.sendMessage(msg.chat.id, message);
+    },
+  percent:
+    (bot: TelegramBot) =>
+    (msg: TelegramBot.Message): void => {
+      bot.sendMessage(msg.chat.id, covidIndex());
+    },
+  country:
+    (bot: TelegramBot) =>
+    (msg: TelegramBot.Message, match: RegExpMatchArray) => {
+      if (match[1].toLowerCase() === "all") {
+        covid
+          .getAll()
+          .then((data) =>
+            bot.sendMessage(
+              msg.chat.id,
+              `Casi: ${data.cases}\nMorti: ${data.deaths}\nGuariti: ${
+                data.recovered
+              }\n\nAggiornato ${new Date(data.updated).toISOString()}`
+            )
           )
-        )
-        .catch((e) => bot.sendMessage(msg.chat.id, String(e)));
-    } else {
-      covid
-        .getCountry({ country: match[1] })
-        .then((data) =>
-          bot.sendMessage(
-            msg.chat.id,
-            `Casi: ${data.cases}\nCasi oggi: ${data.todayCases}\n\nMorti: ${data.deaths}\nMorti oggi: ${data.todayDeaths}\n\nGuariti: ${data.recovered}`
+          .catch((e) => bot.sendMessage(msg.chat.id, String(e)));
+      } else {
+        covid
+          .getCountry({ country: match[1] })
+          .then((data) =>
+            bot.sendMessage(
+              msg.chat.id,
+              `Casi: ${data.cases}\nCasi oggi: ${data.todayCases}\n\nMorti: ${data.deaths}\nMorti oggi: ${data.todayDeaths}\n\nGuariti: ${data.recovered}`
+            )
           )
-        )
-        .catch((e) => bot.sendMessage(msg.chat.id, String(e)));
-    }
-  },
+          .catch((e) => bot.sendMessage(msg.chat.id, String(e)));
+      }
+    },
 };

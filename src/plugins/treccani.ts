@@ -21,18 +21,16 @@ const getDetailURL = async (word: string) => {
   return detailURL;
 };
 
-export default (bot: TelegramBot) => async (
-  msg: TelegramBot.Message,
-  match: RegExpMatchArray
-): Promise<void> => {
-  const detailURL = await getDetailURL(match[1]);
+export default (bot: TelegramBot) =>
+  async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
+    const detailURL = await getDetailURL(match[1]);
 
-  if (detailURL !== undefined) {
-    const res = await axios.get(detailURL);
-    const root = parse(res.data);
-    const section = root.querySelector("div.text.spiega");
-    utils.paginateMessages(bot, msg, section.rawText);
-  } else {
-    bot.sendMessage(msg.chat.id, "Non ho trovato niente");
-  }
-};
+    if (detailURL !== undefined) {
+      const res = await axios.get(detailURL);
+      const root = parse(res.data);
+      const section = root.querySelector("div.text.spiega");
+      utils.paginateMessages(bot, msg, section.rawText);
+    } else {
+      bot.sendMessage(msg.chat.id, "Non ho trovato niente");
+    }
+  };
