@@ -1,8 +1,8 @@
 import * as TelegramBot from "node-telegram-bot-api";
-import { Media, media } from "../../main";
+import { media } from "../..";
 import client from "../../redisClient";
-import utils from "../utils";
 import { getImage } from "../getImage";
+import utils from "../utils";
 
 export default (bot: TelegramBot, mediaMsg: Media) =>
   async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {

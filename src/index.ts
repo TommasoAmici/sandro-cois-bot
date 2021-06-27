@@ -37,11 +37,6 @@ bot.onText(/^[/!]nsfw(?:@\w+)?/i, plugins.nsfw(bot));
 // [A-Za-z\u00C0-\u017F\0-9\]
 // regex for accented chars https://stackoverflow.com/a/11550799
 
-export interface Media {
-  type: string;
-  ext: string;
-}
-
 export const media = {
   stickers: { type: "stickers", ext: "stk" },
   gifs: { type: "gifs", ext: "gif" },

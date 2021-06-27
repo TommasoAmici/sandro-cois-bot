@@ -1,6 +1,5 @@
 import * as TelegramBot from "node-telegram-bot-api";
 import client from "../../redisClient";
-import { Media } from "../../main";
 
 const set = (
   bot: TelegramBot,

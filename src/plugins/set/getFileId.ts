@@ -1,5 +1,5 @@
 import * as TelegramBot from "node-telegram-bot-api";
-import { media, Media } from "../../main";
+import { media } from "../..";
 
 const getFileId = (msg: TelegramBot.Message, mediaMsg: Media): string => {
   if (msg.photo && mediaMsg === media.photos) return msg.photo[0].file_id;

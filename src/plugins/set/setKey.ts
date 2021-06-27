@@ -1,7 +1,6 @@
 import * as TelegramBot from "node-telegram-bot-api";
 import getFileId from "./getFileId";
 import set from "./set";
-import { Media } from "../../main";
 
 export default (bot: TelegramBot, media: Media) =>
   (msg: TelegramBot.Message, match: RegExpMatchArray): void => {

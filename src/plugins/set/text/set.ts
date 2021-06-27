@@ -1,5 +1,4 @@
 import * as TelegramBot from "node-telegram-bot-api";
-import { Media } from "../../../main";
 import client from "../../../redisClient";
 
 export default (bot: TelegramBot, media: Media) =>
