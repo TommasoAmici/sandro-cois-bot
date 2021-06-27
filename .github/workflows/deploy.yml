@@ -23,6 +23,7 @@ jobs:
         uses: burnett01/rsync-deployments@4.1
         with:
           switches: -avzr --delete --exclude=".git"
+          path: dist/index.js
           remote_path: /apps/sandro-cois/
           remote_host: ${{ secrets.DEPLOY_HOST }}
           remote_port: ${{ secrets.DEPLOY_PORT }}
