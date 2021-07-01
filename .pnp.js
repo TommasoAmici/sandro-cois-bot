@@ -52,7 +52,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fuse.js", "npm:6.4.6"],
             ["g-i-s", "npm:2.1.6"],
             ["html-entities", "npm:2.3.2"],
-            ["husky", "npm:6.0.0"],
+            ["husky", "npm:7.0.0"],
             ["ioredis", "npm:4.27.6"],
             ["lint-staged", "npm:11.0.0"],
             ["mathjs", "npm:9.4.3"],
@@ -2020,10 +2020,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["husky", [
-        ["npm:6.0.0", {
-          "packageLocation": "./.yarn/cache/husky-npm-6.0.0-384872ea98-61e1f7f53f.zip/node_modules/husky/",
+        ["npm:7.0.0", {
+          "packageLocation": "./.yarn/cache/husky-npm-7.0.0-f5b54b1293-56252eeb45.zip/node_modules/husky/",
           "packageDependencies": [
-            ["husky", "npm:6.0.0"]
+            ["husky", "npm:7.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -3587,7 +3587,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fuse.js", "npm:6.4.6"],
             ["g-i-s", "npm:2.1.6"],
             ["html-entities", "npm:2.3.2"],
-            ["husky", "npm:6.0.0"],
+            ["husky", "npm:7.0.0"],
             ["ioredis", "npm:4.27.6"],
             ["lint-staged", "npm:11.0.0"],
             ["mathjs", "npm:9.4.3"],
