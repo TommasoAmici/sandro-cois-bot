@@ -55,7 +55,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["husky", "npm:7.0.1"],
             ["ioredis", "npm:4.27.6"],
             ["lint-staged", "npm:11.0.0"],
-            ["mathjs", "npm:9.4.3"],
+            ["mathjs", "npm:9.4.4"],
             ["node-html-parser", "npm:3.3.6"],
             ["node-telegram-bot-api", "npm:0.53.0"],
             ["novelcovid", "npm:3.0.2"],
@@ -932,10 +932,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["complex.js", [
-        ["npm:2.0.13", {
-          "packageLocation": "./.yarn/cache/complex.js-npm-2.0.13-e0d258e22f-4c4a20da8c.zip/node_modules/complex.js/",
+        ["npm:2.0.15", {
+          "packageLocation": "./.yarn/cache/complex.js-npm-2.0.15-92b02e0853-848def0794.zip/node_modules/complex.js/",
           "packageDependencies": [
-            ["complex.js", "npm:2.0.13"]
+            ["complex.js", "npm:2.0.15"]
           ],
           "linkType": "HARD",
         }]
@@ -1122,10 +1122,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["decimal.js", [
-        ["npm:10.3.0", {
-          "packageLocation": "./.yarn/cache/decimal.js-npm-10.3.0-bbc1ff330f-1e4e48bf3f.zip/node_modules/decimal.js/",
+        ["npm:10.3.1", {
+          "packageLocation": "./.yarn/cache/decimal.js-npm-10.3.1-797c736b6c-e042c676c7.zip/node_modules/decimal.js/",
           "packageDependencies": [
-            ["decimal.js", "npm:10.3.0"]
+            ["decimal.js", "npm:10.3.1"]
           ],
           "linkType": "HARD",
         }]
@@ -2643,13 +2643,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["mathjs", [
-        ["npm:9.4.3", {
-          "packageLocation": "./.yarn/cache/mathjs-npm-9.4.3-2c23599eda-f118f1c44f.zip/node_modules/mathjs/",
+        ["npm:9.4.4", {
+          "packageLocation": "./.yarn/cache/mathjs-npm-9.4.4-6e7221112d-998245e5d9.zip/node_modules/mathjs/",
           "packageDependencies": [
-            ["mathjs", "npm:9.4.3"],
+            ["mathjs", "npm:9.4.4"],
             ["@babel/runtime", "npm:7.14.6"],
-            ["complex.js", "npm:2.0.13"],
-            ["decimal.js", "npm:10.3.0"],
+            ["complex.js", "npm:2.0.15"],
+            ["decimal.js", "npm:10.3.1"],
             ["escape-latex", "npm:1.2.0"],
             ["fraction.js", "npm:4.1.1"],
             ["javascript-natural-sort", "npm:0.7.1"],
@@ -3590,7 +3590,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["husky", "npm:7.0.1"],
             ["ioredis", "npm:4.27.6"],
             ["lint-staged", "npm:11.0.0"],
-            ["mathjs", "npm:9.4.3"],
+            ["mathjs", "npm:9.4.4"],
             ["node-html-parser", "npm:3.3.6"],
             ["node-telegram-bot-api", "npm:0.53.0"],
             ["novelcovid", "npm:3.0.2"],
