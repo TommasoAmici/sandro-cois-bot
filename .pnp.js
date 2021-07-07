@@ -42,7 +42,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/html-entities", "npm:1.3.3"],
             ["@types/ioredis", "npm:4.26.5"],
             ["@types/node", "npm:14.17.5"],
-            ["@types/node-telegram-bot-api", "npm:0.51.3"],
+            ["@types/node-telegram-bot-api", "npm:0.51.4"],
             ["@types/redis", "npm:2.8.30"],
             ["@types/utf8", "npm:3.0.0"],
             ["@vercel/ncc", "npm:0.28.6"],
@@ -287,10 +287,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/node-telegram-bot-api", [
-        ["npm:0.51.3", {
-          "packageLocation": "./.yarn/cache/@types-node-telegram-bot-api-npm-0.51.3-ddd30b5915-a2de1ca553.zip/node_modules/@types/node-telegram-bot-api/",
+        ["npm:0.51.4", {
+          "packageLocation": "./.yarn/cache/@types-node-telegram-bot-api-npm-0.51.4-cc091bcff9-56a5f7e35b.zip/node_modules/@types/node-telegram-bot-api/",
           "packageDependencies": [
-            ["@types/node-telegram-bot-api", "npm:0.51.3"],
+            ["@types/node-telegram-bot-api", "npm:0.51.4"],
             ["@types/node", "npm:11.10.4"],
             ["@types/request", "npm:2.48.1"]
           ],
@@ -3577,7 +3577,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/html-entities", "npm:1.3.3"],
             ["@types/ioredis", "npm:4.26.5"],
             ["@types/node", "npm:14.17.5"],
-            ["@types/node-telegram-bot-api", "npm:0.51.3"],
+            ["@types/node-telegram-bot-api", "npm:0.51.4"],
             ["@types/redis", "npm:2.8.30"],
             ["@types/utf8", "npm:3.0.0"],
             ["@vercel/ncc", "npm:0.28.6"],
