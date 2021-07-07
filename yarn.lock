@@ -213,12 +213,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/redis@npm:2.8.30":
-  version: 2.8.30
-  resolution: "@types/redis@npm:2.8.30"
+"@types/redis@npm:2.8.31":
+  version: 2.8.31
+  resolution: "@types/redis@npm:2.8.31"
   dependencies:
     "@types/node": "*"
-  checksum: c12a5eafae160c7b8c665f8cb91cb8be971612a3b4e8b021c3c27f3bd180045673d876998327670a62b0afb6b7e436b1d92a64cf135994099da4775a7ca5fd04
+  checksum: 01b66179f334b6daef7a4ae2d84046ff65ed50b09eeaeefb96286bda14f5bb5c4f9676526c321d76c33ede63614a394dfa84b80c3e666138db3c4404009c63ee
   languageName: node
   linkType: hard
 
@@ -3055,7 +3055,7 @@ __metadata:
     "@types/ioredis": 4.26.5
     "@types/node": 14.17.5
     "@types/node-telegram-bot-api": 0.51.4
-    "@types/redis": 2.8.30
+    "@types/redis": 2.8.31
     "@types/utf8": 3.0.0
     "@vercel/ncc": 0.28.6
     "@vitalets/google-translate-api": 7.0.0
