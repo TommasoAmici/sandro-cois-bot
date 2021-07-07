@@ -771,10 +771,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"complex.js@npm:^2.0.13":
-  version: 2.0.13
-  resolution: "complex.js@npm:2.0.13"
-  checksum: 4c4a20da8cbd88ef04eda9c93088d2f5408fafd1c28233692cd44b061da84489906a7a71390496b802f1ac65763379dc4858bfd8eff3b57f5c4108f66dc0a68a
+"complex.js@npm:^2.0.15":
+  version: 2.0.15
+  resolution: "complex.js@npm:2.0.15"
+  checksum: 848def0794251de8fd822478265a091426ad18408150ee00ab5cc900ce8d317a812e1b84c97249dcc4f9c7a0773933d40d739df5d04cce5a7862f0ae2e3cfd62
   languageName: node
   linkType: hard
 
@@ -927,10 +927,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"decimal.js@npm:^10.3.0":
-  version: 10.3.0
-  resolution: "decimal.js@npm:10.3.0"
-  checksum: 1e4e48bf3f60a0ddff7572505f50f635a20c7baf3ba9fd983d2053a1558d315b0e1b7a0aff391ab3d45b92c6d31f18ba0e6e7019f036ee2d526d566e869a6120
+"decimal.js@npm:^10.3.1":
+  version: 10.3.1
+  resolution: "decimal.js@npm:10.3.1"
+  checksum: e042c676c7a934e5a2c4e02f2562e0e0d752c6cd8f933f4030f8540dd4c7074ba035e329df46c0cc46f0c9190d1804c366d0be46ea6f94af64e0096d2730b22b
   languageName: node
   linkType: hard
 
@@ -2241,13 +2241,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mathjs@npm:9.4.3":
-  version: 9.4.3
-  resolution: "mathjs@npm:9.4.3"
+"mathjs@npm:9.4.4":
+  version: 9.4.4
+  resolution: "mathjs@npm:9.4.4"
   dependencies:
     "@babel/runtime": ^7.14.6
-    complex.js: ^2.0.13
-    decimal.js: ^10.3.0
+    complex.js: ^2.0.15
+    decimal.js: ^10.3.1
     escape-latex: ^1.2.0
     fraction.js: ^4.1.1
     javascript-natural-sort: ^0.7.1
@@ -2256,7 +2256,7 @@ __metadata:
     typed-function: ^2.0.0
   bin:
     mathjs: bin/cli.js
-  checksum: f118f1c44fc99bae16e0f924f1d0d3fbd7a9051eef7f8599387df68bcf9060f8be893f0309edf3d6f25caf76fed1ae6fe82fb90600f6b319129d67a26ffa302e
+  checksum: 998245e5d93299dd7aa39250c43281410e68f5bb582913ad2db27a3a96708590236fa1abfec0b6b2d17177155c75374f401e4118a8877905c14f3ce1d34b7639
   languageName: node
   linkType: hard
 
@@ -3067,7 +3067,7 @@ __metadata:
     husky: 7.0.1
     ioredis: 4.27.6
     lint-staged: 11.0.0
-    mathjs: 9.4.3
+    mathjs: 9.4.4
     node-html-parser: 3.3.6
     node-telegram-bot-api: 0.53.0
     novelcovid: 3.0.2
