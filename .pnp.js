@@ -56,7 +56,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ioredis", "npm:4.27.6"],
             ["lint-staged", "npm:11.0.0"],
             ["mathjs", "npm:9.4.4"],
-            ["node-html-parser", "npm:3.3.6"],
+            ["node-html-parser", "npm:4.1.0"],
             ["node-telegram-bot-api", "npm:0.53.0"],
             ["novelcovid", "npm:3.0.2"],
             ["pinst", "npm:2.1.6"],
@@ -2855,10 +2855,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["node-html-parser", [
-        ["npm:3.3.6", {
-          "packageLocation": "./.yarn/cache/node-html-parser-npm-3.3.6-9c405e7e9c-6fc07065ad.zip/node_modules/node-html-parser/",
+        ["npm:4.1.0", {
+          "packageLocation": "./.yarn/cache/node-html-parser-npm-4.1.0-d654fff236-4708bd88bc.zip/node_modules/node-html-parser/",
           "packageDependencies": [
-            ["node-html-parser", "npm:3.3.6"],
+            ["node-html-parser", "npm:4.1.0"],
             ["css-select", "npm:4.1.3"],
             ["he", "npm:1.2.0"]
           ],
@@ -3591,7 +3591,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ioredis", "npm:4.27.6"],
             ["lint-staged", "npm:11.0.0"],
             ["mathjs", "npm:9.4.4"],
-            ["node-html-parser", "npm:3.3.6"],
+            ["node-html-parser", "npm:4.1.0"],
             ["node-telegram-bot-api", "npm:0.53.0"],
             ["novelcovid", "npm:3.0.2"],
             ["pinst", "npm:2.1.6"],
