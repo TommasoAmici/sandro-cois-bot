@@ -45,7 +45,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node-telegram-bot-api", "npm:0.51.4"],
             ["@types/redis", "npm:2.8.31"],
             ["@types/utf8", "npm:3.0.0"],
-            ["@vercel/ncc", "npm:0.28.6"],
+            ["@vercel/ncc", "npm:0.29.0"],
             ["@vitalets/google-translate-api", "npm:7.0.0"],
             ["axios", "npm:0.21.1"],
             ["diacritics", "npm:1.3.0"],
@@ -358,10 +358,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@vercel/ncc", [
-        ["npm:0.28.6", {
-          "packageLocation": "./.yarn/cache/@vercel-ncc-npm-0.28.6-e625364932-e88d74dba4.zip/node_modules/@vercel/ncc/",
+        ["npm:0.29.0", {
+          "packageLocation": "./.yarn/cache/@vercel-ncc-npm-0.29.0-2be7cec266-a5f2e0b716.zip/node_modules/@vercel/ncc/",
           "packageDependencies": [
-            ["@vercel/ncc", "npm:0.28.6"],
+            ["@vercel/ncc", "npm:0.29.0"],
             ["node-gyp", "npm:8.1.0"]
           ],
           "linkType": "HARD",
@@ -3580,7 +3580,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node-telegram-bot-api", "npm:0.51.4"],
             ["@types/redis", "npm:2.8.31"],
             ["@types/utf8", "npm:3.0.0"],
-            ["@vercel/ncc", "npm:0.28.6"],
+            ["@vercel/ncc", "npm:0.29.0"],
             ["@vitalets/google-translate-api", "npm:7.0.0"],
             ["axios", "npm:0.21.1"],
             ["diacritics", "npm:1.3.0"],
