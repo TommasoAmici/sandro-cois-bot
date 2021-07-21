@@ -2448,9 +2448,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-telegram-bot-api@npm:0.53.0":
-  version: 0.53.0
-  resolution: "node-telegram-bot-api@npm:0.53.0"
+"node-telegram-bot-api@npm:0.54.0":
+  version: 0.54.0
+  resolution: "node-telegram-bot-api@npm:0.54.0"
   dependencies:
     array.prototype.findindex: ^2.0.2
     bl: ^1.2.3
@@ -2463,7 +2463,7 @@ __metadata:
     pump: ^2.0.0
     request: ^2.83.0
     request-promise: ^4.2.2
-  checksum: 77e237daa1398dd18f625b89a83e2355d21817f184bdec4ccd13de05be2a49f85da819ab8a9064dd2da2b3156db1ffb6f57ebee5fa6614723d8eda4136cb94c2
+  checksum: b3ba584ca4176dd98b9781f299ffcc51f9f3fb864ffa83fb6fa7f2316d9a319fc69ba21de04b838ae26df58911c1947327a8d744d041eb3c13ab1ef2c0355fb6
   languageName: node
   linkType: hard
 
@@ -3069,7 +3069,7 @@ __metadata:
     lint-staged: 11.0.1
     mathjs: 9.4.4
     node-html-parser: 3.3.6
-    node-telegram-bot-api: 0.53.0
+    node-telegram-bot-api: 0.54.0
     novelcovid: 3.0.2
     pinst: 2.1.6
     pokedex: 1.1.0

@@ -57,7 +57,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:11.0.1"],
             ["mathjs", "npm:9.4.4"],
             ["node-html-parser", "npm:3.3.6"],
-            ["node-telegram-bot-api", "npm:0.53.0"],
+            ["node-telegram-bot-api", "npm:0.54.0"],
             ["novelcovid", "npm:3.0.2"],
             ["pinst", "npm:2.1.6"],
             ["pokedex", "npm:1.1.0"],
@@ -1096,10 +1096,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2", {
-          "packageLocation": "./.yarn/$$virtual/debug-virtual-e152771b72/0/cache/debug-npm-4.3.2-f0148b6afe-5543570879.zip/node_modules/debug/",
+        ["virtual:0194c3f82db1be8c24ae796001e9ed49112d1160ba36e4d8bac7e5dc63fab395d74411ae9115c8452837f5b62a96accdec10c967644e4ae159b1d91910554571#npm:3.2.6", {
+          "packageLocation": "./.yarn/$$virtual/debug-virtual-15cec2c6e5/0/cache/debug-npm-3.2.6-6214e40f12-619feb53b1.zip/node_modules/debug/",
           "packageDependencies": [
-            ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],
+            ["debug", "virtual:0194c3f82db1be8c24ae796001e9ed49112d1160ba36e4d8bac7e5dc63fab395d74411ae9115c8452837f5b62a96accdec10c967644e4ae159b1d91910554571#npm:3.2.6"],
             ["ms", "npm:2.1.2"],
             ["supports-color", null]
           ],
@@ -1108,10 +1108,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:a66826dc35b53a9674f865114f6d4023f7b380fbec9656317e70f8306bfa26929621c1e57f5a0a48a302c68d52f7b8086a3ae5e6d98f52a807fd476d3f08437b#npm:3.2.6", {
-          "packageLocation": "./.yarn/$$virtual/debug-virtual-6c907d9649/0/cache/debug-npm-3.2.6-6214e40f12-619feb53b1.zip/node_modules/debug/",
+        ["virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2", {
+          "packageLocation": "./.yarn/$$virtual/debug-virtual-e152771b72/0/cache/debug-npm-4.3.2-f0148b6afe-5543570879.zip/node_modules/debug/",
           "packageDependencies": [
-            ["debug", "virtual:a66826dc35b53a9674f865114f6d4023f7b380fbec9656317e70f8306bfa26929621c1e57f5a0a48a302c68d52f7b8086a3ae5e6d98f52a807fd476d3f08437b#npm:3.2.6"],
+            ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],
             ["ms", "npm:2.1.2"],
             ["supports-color", null]
           ],
@@ -2866,21 +2866,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["node-telegram-bot-api", [
-        ["npm:0.53.0", {
-          "packageLocation": "./.yarn/cache/node-telegram-bot-api-npm-0.53.0-a66826dc35-77e237daa1.zip/node_modules/node-telegram-bot-api/",
+        ["npm:0.54.0", {
+          "packageLocation": "./.yarn/cache/node-telegram-bot-api-npm-0.54.0-0194c3f82d-b3ba584ca4.zip/node_modules/node-telegram-bot-api/",
           "packageDependencies": [
-            ["node-telegram-bot-api", "npm:0.53.0"],
+            ["node-telegram-bot-api", "npm:0.54.0"],
             ["array.prototype.findindex", "npm:2.0.2"],
             ["bl", "npm:1.2.3"],
             ["bluebird", "npm:3.5.3"],
-            ["debug", "virtual:a66826dc35b53a9674f865114f6d4023f7b380fbec9656317e70f8306bfa26929621c1e57f5a0a48a302c68d52f7b8086a3ae5e6d98f52a807fd476d3f08437b#npm:3.2.6"],
+            ["debug", "virtual:0194c3f82db1be8c24ae796001e9ed49112d1160ba36e4d8bac7e5dc63fab395d74411ae9115c8452837f5b62a96accdec10c967644e4ae159b1d91910554571#npm:3.2.6"],
             ["depd", "npm:1.1.2"],
             ["eventemitter3", "npm:3.1.0"],
             ["file-type", "npm:3.9.0"],
             ["mime", "npm:1.6.0"],
             ["pump", "npm:2.0.1"],
             ["request", "npm:2.88.0"],
-            ["request-promise", "virtual:a66826dc35b53a9674f865114f6d4023f7b380fbec9656317e70f8306bfa26929621c1e57f5a0a48a302c68d52f7b8086a3ae5e6d98f52a807fd476d3f08437b#npm:4.2.4"]
+            ["request-promise", "virtual:0194c3f82db1be8c24ae796001e9ed49112d1160ba36e4d8bac7e5dc63fab395d74411ae9115c8452837f5b62a96accdec10c967644e4ae159b1d91910554571#npm:4.2.4"]
           ],
           "linkType": "HARD",
         }]
@@ -3477,14 +3477,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:a66826dc35b53a9674f865114f6d4023f7b380fbec9656317e70f8306bfa26929621c1e57f5a0a48a302c68d52f7b8086a3ae5e6d98f52a807fd476d3f08437b#npm:4.2.4", {
-          "packageLocation": "./.yarn/$$virtual/request-promise-virtual-4580684ca5/0/cache/request-promise-npm-4.2.4-1de5915537-c76e1472b2.zip/node_modules/request-promise/",
+        ["virtual:0194c3f82db1be8c24ae796001e9ed49112d1160ba36e4d8bac7e5dc63fab395d74411ae9115c8452837f5b62a96accdec10c967644e4ae159b1d91910554571#npm:4.2.4", {
+          "packageLocation": "./.yarn/$$virtual/request-promise-virtual-716b903e2b/0/cache/request-promise-npm-4.2.4-1de5915537-c76e1472b2.zip/node_modules/request-promise/",
           "packageDependencies": [
-            ["request-promise", "virtual:a66826dc35b53a9674f865114f6d4023f7b380fbec9656317e70f8306bfa26929621c1e57f5a0a48a302c68d52f7b8086a3ae5e6d98f52a807fd476d3f08437b#npm:4.2.4"],
+            ["request-promise", "virtual:0194c3f82db1be8c24ae796001e9ed49112d1160ba36e4d8bac7e5dc63fab395d74411ae9115c8452837f5b62a96accdec10c967644e4ae159b1d91910554571#npm:4.2.4"],
             ["@types/request", null],
             ["bluebird", "npm:3.5.3"],
             ["request", "npm:2.88.0"],
-            ["request-promise-core", "virtual:4580684ca59b195f4ed44a2fa55ca29475b8bb7994ccea28c6c1a06e9358be50e030c1ad80bb9b8a343fd857518a806370e1e6434cef6d81c02156928f8a4f35#npm:1.1.2"],
+            ["request-promise-core", "virtual:716b903e2bacad5b66a616dc78cc4a16eee1afe2362ef142c1a03a89afe117e8b70fd6d1f94c859c46b80caedbb7a157aeed514f12df3b5f29002f1b08acd472#npm:1.1.2"],
             ["stealthy-require", "npm:1.1.1"],
             ["tough-cookie", "npm:2.5.0"]
           ],
@@ -3503,10 +3503,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:4580684ca59b195f4ed44a2fa55ca29475b8bb7994ccea28c6c1a06e9358be50e030c1ad80bb9b8a343fd857518a806370e1e6434cef6d81c02156928f8a4f35#npm:1.1.2", {
-          "packageLocation": "./.yarn/$$virtual/request-promise-core-virtual-7bf82bc092/0/cache/request-promise-core-npm-1.1.2-380298170c-eb329090e1.zip/node_modules/request-promise-core/",
+        ["virtual:716b903e2bacad5b66a616dc78cc4a16eee1afe2362ef142c1a03a89afe117e8b70fd6d1f94c859c46b80caedbb7a157aeed514f12df3b5f29002f1b08acd472#npm:1.1.2", {
+          "packageLocation": "./.yarn/$$virtual/request-promise-core-virtual-f25786f828/0/cache/request-promise-core-npm-1.1.2-380298170c-eb329090e1.zip/node_modules/request-promise-core/",
           "packageDependencies": [
-            ["request-promise-core", "virtual:4580684ca59b195f4ed44a2fa55ca29475b8bb7994ccea28c6c1a06e9358be50e030c1ad80bb9b8a343fd857518a806370e1e6434cef6d81c02156928f8a4f35#npm:1.1.2"],
+            ["request-promise-core", "virtual:716b903e2bacad5b66a616dc78cc4a16eee1afe2362ef142c1a03a89afe117e8b70fd6d1f94c859c46b80caedbb7a157aeed514f12df3b5f29002f1b08acd472#npm:1.1.2"],
             ["@types/request", null],
             ["lodash", "npm:4.17.19"],
             ["request", "npm:2.88.0"]
@@ -3592,7 +3592,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:11.0.1"],
             ["mathjs", "npm:9.4.4"],
             ["node-html-parser", "npm:3.3.6"],
-            ["node-telegram-bot-api", "npm:0.53.0"],
+            ["node-telegram-bot-api", "npm:0.54.0"],
             ["novelcovid", "npm:3.0.2"],
             ["pinst", "npm:2.1.6"],
             ["pokedex", "npm:1.1.0"],
