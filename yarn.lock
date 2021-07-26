@@ -2438,13 +2438,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-html-parser@npm:4.1.1":
-  version: 4.1.1
-  resolution: "node-html-parser@npm:4.1.1"
+"node-html-parser@npm:4.1.2":
+  version: 4.1.2
+  resolution: "node-html-parser@npm:4.1.2"
   dependencies:
     css-select: ^4.1.3
     he: 1.2.0
-  checksum: f9a1d3b15bf5401b5e0e6defcdce8dd00ae392f351573918170b2fc6c442bac8f8f7c21007bb9ac1ca96947998d1300454da3700da7b7cf449d1438898b434c0
+  checksum: 4c1f94bf919ed09fae4aff5fe9c96af49843268ba4c589f90235b2b7f13b90168cd75996040be843567043255f31a4110fd544400754f59e4bd16e46bdafaba1
   languageName: node
   linkType: hard
 
@@ -3068,7 +3068,7 @@ __metadata:
     ioredis: 4.27.6
     lint-staged: 11.1.1
     mathjs: 9.4.4
-    node-html-parser: 4.1.1
+    node-html-parser: 4.1.2
     node-telegram-bot-api: 0.54.0
     novelcovid: 3.0.2
     pinst: 2.1.6
