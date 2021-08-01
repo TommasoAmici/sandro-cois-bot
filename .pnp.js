@@ -53,7 +53,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["g-i-s", "npm:2.1.6"],
             ["html-entities", "npm:2.3.2"],
             ["husky", "npm:7.0.1"],
-            ["ioredis", "npm:4.27.6"],
+            ["ioredis", "npm:4.27.7"],
             ["lint-staged", "npm:11.1.1"],
             ["mathjs", "npm:9.4.4"],
             ["node-html-parser", "npm:4.1.2"],
@@ -2115,15 +2115,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["ioredis", [
-        ["npm:4.27.6", {
-          "packageLocation": "./.yarn/cache/ioredis-npm-4.27.6-e0f3d1fc5e-757b8dbd2c.zip/node_modules/ioredis/",
+        ["npm:4.27.7", {
+          "packageLocation": "./.yarn/cache/ioredis-npm-4.27.7-6d297b6f00-08d1cd4984.zip/node_modules/ioredis/",
           "packageDependencies": [
-            ["ioredis", "npm:4.27.6"],
+            ["ioredis", "npm:4.27.7"],
             ["cluster-key-slot", "npm:1.1.0"],
             ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],
             ["denque", "npm:1.4.1"],
             ["lodash.defaults", "npm:4.2.0"],
             ["lodash.flatten", "npm:4.4.0"],
+            ["lodash.isarguments", "npm:3.1.0"],
             ["p-map", "npm:2.1.0"],
             ["redis-commands", "npm:1.7.0"],
             ["redis-errors", "npm:1.2.0"],
@@ -2547,6 +2548,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/lodash.flatten-npm-4.4.0-495935e617-f22a7f6f16.zip/node_modules/lodash.flatten/",
           "packageDependencies": [
             ["lodash.flatten", "npm:4.4.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["lodash.isarguments", [
+        ["npm:3.1.0", {
+          "packageLocation": "./.yarn/cache/lodash.isarguments-npm-3.1.0-9e74d350b8-9ba5e1bba6.zip/node_modules/lodash.isarguments/",
+          "packageDependencies": [
+            ["lodash.isarguments", "npm:3.1.0"]
           ],
           "linkType": "HARD",
         }]
@@ -3588,7 +3598,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["g-i-s", "npm:2.1.6"],
             ["html-entities", "npm:2.3.2"],
             ["husky", "npm:7.0.1"],
-            ["ioredis", "npm:4.27.6"],
+            ["ioredis", "npm:4.27.7"],
             ["lint-staged", "npm:11.1.1"],
             ["mathjs", "npm:9.4.4"],
             ["node-html-parser", "npm:4.1.2"],
