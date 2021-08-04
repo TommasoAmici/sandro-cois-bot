@@ -41,7 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/diacritics", "npm:1.3.1"],
             ["@types/html-entities", "npm:1.3.3"],
             ["@types/ioredis", "npm:4.26.6"],
-            ["@types/node", "npm:14.17.8"],
+            ["@types/node", "npm:14.17.9"],
             ["@types/node-telegram-bot-api", "npm:0.51.4"],
             ["@types/redis", "npm:2.8.31"],
             ["@types/utf8", "npm:3.0.0"],
@@ -278,10 +278,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["npm:14.17.8", {
-          "packageLocation": "./.yarn/cache/@types-node-npm-14.17.8-1518e81eed-681c0d64be.zip/node_modules/@types/node/",
+        ["npm:14.17.9", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-14.17.9-a08e8ecb07-b1d145b37d.zip/node_modules/@types/node/",
           "packageDependencies": [
-            ["@types/node", "npm:14.17.8"]
+            ["@types/node", "npm:14.17.9"]
           ],
           "linkType": "HARD",
         }]
@@ -3586,7 +3586,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/diacritics", "npm:1.3.1"],
             ["@types/html-entities", "npm:1.3.3"],
             ["@types/ioredis", "npm:4.26.6"],
-            ["@types/node", "npm:14.17.8"],
+            ["@types/node", "npm:14.17.9"],
             ["@types/node-telegram-bot-api", "npm:0.51.4"],
             ["@types/redis", "npm:2.8.31"],
             ["@types/utf8", "npm:3.0.0"],
