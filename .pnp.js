@@ -40,7 +40,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mapbox/mapbox-sdk", "npm:0.13.0"],
             ["@types/diacritics", "npm:1.3.1"],
             ["@types/html-entities", "npm:1.3.3"],
-            ["@types/ioredis", "npm:4.26.6"],
+            ["@types/ioredis", "npm:4.26.7"],
             ["@types/node", "npm:14.17.9"],
             ["@types/node-telegram-bot-api", "npm:0.51.4"],
             ["@types/redis", "npm:2.8.31"],
@@ -251,10 +251,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/ioredis", [
-        ["npm:4.26.6", {
-          "packageLocation": "./.yarn/cache/@types-ioredis-npm-4.26.6-5d6ef76f2c-caaae6865e.zip/node_modules/@types/ioredis/",
+        ["npm:4.26.7", {
+          "packageLocation": "./.yarn/cache/@types-ioredis-npm-4.26.7-cf43807bbd-af4e2a0abc.zip/node_modules/@types/ioredis/",
           "packageDependencies": [
-            ["@types/ioredis", "npm:4.26.6"],
+            ["@types/ioredis", "npm:4.26.7"],
             ["@types/node", "npm:11.10.4"]
           ],
           "linkType": "HARD",
@@ -3575,7 +3575,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mapbox/mapbox-sdk", "npm:0.13.0"],
             ["@types/diacritics", "npm:1.3.1"],
             ["@types/html-entities", "npm:1.3.3"],
-            ["@types/ioredis", "npm:4.26.6"],
+            ["@types/ioredis", "npm:4.26.7"],
             ["@types/node", "npm:14.17.9"],
             ["@types/node-telegram-bot-api", "npm:0.51.4"],
             ["@types/redis", "npm:2.8.31"],
