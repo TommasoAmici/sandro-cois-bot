@@ -54,7 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["html-entities", "npm:2.3.2"],
             ["husky", "npm:7.0.1"],
             ["ioredis", "npm:4.27.7"],
-            ["lint-staged", "npm:11.1.1"],
+            ["lint-staged", "npm:11.1.2"],
             ["mathjs", "npm:9.4.4"],
             ["node-html-parser", "npm:4.1.3"],
             ["node-telegram-bot-api", "npm:0.54.0"],
@@ -1145,15 +1145,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["decompress-response", "npm:3.3.0"],
             ["mimic-response", "npm:1.0.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["dedent", [
-        ["npm:0.7.0", {
-          "packageLocation": "./.yarn/cache/dedent-npm-0.7.0-2dbb45a4c5-05c18541a4.zip/node_modules/dedent/",
-          "packageDependencies": [
-            ["dedent", "npm:0.7.0"]
           ],
           "linkType": "HARD",
         }]
@@ -2471,19 +2462,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["lint-staged", [
-        ["npm:11.1.1", {
-          "packageLocation": "./.yarn/cache/lint-staged-npm-11.1.1-bd7b64720f-1a3100748c.zip/node_modules/lint-staged/",
+        ["npm:11.1.2", {
+          "packageLocation": "./.yarn/cache/lint-staged-npm-11.1.2-a47d5d9f47-0c44f4fbd9.zip/node_modules/lint-staged/",
           "packageDependencies": [
-            ["lint-staged", "npm:11.1.1"],
+            ["lint-staged", "npm:11.1.2"],
             ["chalk", "npm:4.1.1"],
             ["cli-truncate", "npm:2.1.0"],
             ["commander", "npm:7.2.0"],
             ["cosmiconfig", "npm:7.0.0"],
             ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],
-            ["dedent", "npm:0.7.0"],
             ["enquirer", "npm:2.3.6"],
             ["execa", "npm:5.0.0"],
-            ["listr2", "virtual:bd7b64720f835e9a39ff4a5134896f2c7ed11631ce875288d1ef72e10145627658f8aa6230529c5f376a516faba14d37c09875326d713ba38964882f10e5260f#npm:3.8.2"],
+            ["listr2", "virtual:a47d5d9f47c76114e7540aa654233431e377dbaddfa8a838d697f88bcc3549c436645703ccf55780fa4233345b3aa0463da5073333450f69aba0b2cc3fd9ff27#npm:3.8.2"],
             ["log-symbols", "npm:4.1.0"],
             ["micromatch", "npm:4.0.4"],
             ["normalize-path", "npm:3.0.0"],
@@ -2502,10 +2492,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:bd7b64720f835e9a39ff4a5134896f2c7ed11631ce875288d1ef72e10145627658f8aa6230529c5f376a516faba14d37c09875326d713ba38964882f10e5260f#npm:3.8.2", {
-          "packageLocation": "./.yarn/$$virtual/listr2-virtual-c8dd271bf9/0/cache/listr2-npm-3.8.2-3f54378120-ecc039103c.zip/node_modules/listr2/",
+        ["virtual:a47d5d9f47c76114e7540aa654233431e377dbaddfa8a838d697f88bcc3549c436645703ccf55780fa4233345b3aa0463da5073333450f69aba0b2cc3fd9ff27#npm:3.8.2", {
+          "packageLocation": "./.yarn/$$virtual/listr2-virtual-44f7747308/0/cache/listr2-npm-3.8.2-3f54378120-ecc039103c.zip/node_modules/listr2/",
           "packageDependencies": [
-            ["listr2", "virtual:bd7b64720f835e9a39ff4a5134896f2c7ed11631ce875288d1ef72e10145627658f8aa6230529c5f376a516faba14d37c09875326d713ba38964882f10e5260f#npm:3.8.2"],
+            ["listr2", "virtual:a47d5d9f47c76114e7540aa654233431e377dbaddfa8a838d697f88bcc3549c436645703ccf55780fa4233345b3aa0463da5073333450f69aba0b2cc3fd9ff27#npm:3.8.2"],
             ["@types/enquirer", null],
             ["chalk", "npm:4.1.1"],
             ["cli-truncate", "npm:2.1.0"],
@@ -3599,7 +3589,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["html-entities", "npm:2.3.2"],
             ["husky", "npm:7.0.1"],
             ["ioredis", "npm:4.27.7"],
-            ["lint-staged", "npm:11.1.1"],
+            ["lint-staged", "npm:11.1.2"],
             ["mathjs", "npm:9.4.4"],
             ["node-html-parser", "npm:4.1.3"],
             ["node-telegram-bot-api", "npm:0.54.0"],
