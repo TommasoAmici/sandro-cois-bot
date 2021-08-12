@@ -20,7 +20,7 @@ jobs:
         run: yarn build
 
       - name: rsync deployments
-        uses: burnett01/rsync-deployments@5.0
+        uses: burnett01/rsync-deployments@5.1
         with:
           switches: -avzr --delete --exclude=".git"
           path: dist/index.js
