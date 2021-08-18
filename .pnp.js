@@ -53,7 +53,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["g-i-s", "npm:2.1.6"],
             ["html-entities", "npm:2.3.2"],
             ["husky", "npm:7.0.1"],
-            ["ioredis", "npm:4.27.7"],
+            ["ioredis", "npm:4.27.8"],
             ["lint-staged", "npm:11.1.2"],
             ["mathjs", "npm:9.4.4"],
             ["node-html-parser", "npm:4.1.3"],
@@ -2112,10 +2112,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["ioredis", [
-        ["npm:4.27.7", {
-          "packageLocation": "./.yarn/cache/ioredis-npm-4.27.7-6d297b6f00-08d1cd4984.zip/node_modules/ioredis/",
+        ["npm:4.27.8", {
+          "packageLocation": "./.yarn/cache/ioredis-npm-4.27.8-b23bc6662e-9ca9c9652e.zip/node_modules/ioredis/",
           "packageDependencies": [
-            ["ioredis", "npm:4.27.7"],
+            ["ioredis", "npm:4.27.8"],
             ["cluster-key-slot", "npm:1.1.0"],
             ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],
             ["denque", "npm:1.4.1"],
@@ -3557,7 +3557,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["g-i-s", "npm:2.1.6"],
             ["html-entities", "npm:2.3.2"],
             ["husky", "npm:7.0.1"],
-            ["ioredis", "npm:4.27.7"],
+            ["ioredis", "npm:4.27.8"],
             ["lint-staged", "npm:11.1.2"],
             ["mathjs", "npm:9.4.4"],
             ["node-html-parser", "npm:4.1.3"],
