@@ -192,12 +192,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ioredis@npm:4.26.7":
-  version: 4.26.7
-  resolution: "@types/ioredis@npm:4.26.7"
+"@types/ioredis@npm:4.27.0":
+  version: 4.27.0
+  resolution: "@types/ioredis@npm:4.27.0"
   dependencies:
     "@types/node": "*"
-  checksum: af4e2a0abc55f905d2f80ba729d271b741c6f3669ad4e8d27de87fc433865430ea81c11a05d1aa42ba1e9d07cfa76581bba4cd0e62c0349f8939e37a28992d78
+  checksum: 2e4891aa7f22dc9e7f0a530700e869a13bf96d247607e43635544a808277684fd16b1d55ac7aee4784b21a9d324daf55819cd39cc0ac9cb76bbb18beae27bb0c
   languageName: node
   linkType: hard
 
@@ -3037,7 +3037,7 @@ __metadata:
     "@mapbox/mapbox-sdk": 0.13.1
     "@types/diacritics": 1.3.1
     "@types/html-entities": 1.3.3
-    "@types/ioredis": 4.26.7
+    "@types/ioredis": 4.27.0
     "@types/node": 14.17.11
     "@types/node-telegram-bot-api": 0.51.4
     "@types/redis": 2.8.31
