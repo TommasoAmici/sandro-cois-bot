@@ -25,7 +25,7 @@
     "@types/redis": "2.8.31",
     "@types/utf8": "3.0.0",
     "@vercel/ncc": "0.29.2",
-    "husky": "7.0.1",
+    "husky": "7.0.2",
     "lint-staged": "11.1.2",
     "pinst": "2.1.6",
     "prettier": "2.3.2",
