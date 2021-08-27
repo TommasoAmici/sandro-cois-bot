@@ -24,7 +24,7 @@
     "@types/node-telegram-bot-api": "0.51.4",
     "@types/redis": "2.8.31",
     "@types/utf8": "3.0.0",
-    "@vercel/ncc": "0.29.2",
+    "@vercel/ncc": "0.30.0",
     "husky": "7.0.2",
     "lint-staged": "11.1.2",
     "pinst": "2.1.6",
