@@ -1803,9 +1803,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:4.27.8":
-  version: 4.27.8
-  resolution: "ioredis@npm:4.27.8"
+"ioredis@npm:4.27.9":
+  version: 4.27.9
+  resolution: "ioredis@npm:4.27.9"
   dependencies:
     cluster-key-slot: ^1.1.0
     debug: ^4.3.1
@@ -1818,7 +1818,7 @@ __metadata:
     redis-errors: ^1.2.0
     redis-parser: ^3.0.0
     standard-as-callback: ^2.1.0
-  checksum: 9ca9c9652e8f62a4501a88089c890806ee429bcfdaa00091efcf579cbe1ad0b48cadd33f16fcea827070ea2ead8af516568f5004050728b51b46b4050780702f
+  checksum: 3b33cf9b5e3ba531468722e6c24bcf61afb342ec087fc2a70ea9c06e3095076341898ca36e6b860699346b5611b528651769d3815483bcaab4fbf877dc311059
   languageName: node
   linkType: hard
 
@@ -3050,7 +3050,7 @@ __metadata:
     g-i-s: 2.1.6
     html-entities: 2.3.2
     husky: 7.0.2
-    ioredis: 4.27.8
+    ioredis: 4.27.9
     lint-staged: 11.1.2
     mathjs: 9.4.4
     node-html-parser: 4.1.4
