@@ -288,10 +288,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/node", [
-        ["npm:14.17.12", {
-          "packageLocation": "./.yarn/cache/@types-node-npm-14.17.12-6f997aabe9-5fdad55934.zip/node_modules/@types/node/",
+        ["npm:14.17.13", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-14.17.13-a1412e4727-fd38d5d47a.zip/node_modules/@types/node/",
           "packageDependencies": [
-            ["@types/node", "npm:14.17.12"]
+            ["@types/node", "npm:14.17.13"]
           ],
           "linkType": "HARD",
         }],
@@ -662,7 +662,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/diacritics", "npm:1.3.1"],
             ["@types/html-entities", "npm:1.3.3"],
             ["@types/ioredis", "npm:4.27.1"],
-            ["@types/node", "npm:14.17.12"],
+            ["@types/node", "npm:14.17.13"],
             ["@types/node-telegram-bot-api", "npm:0.51.4"],
             ["@types/utf8", "npm:3.0.0"],
             ["@vercel/ncc", "npm:0.30.0"],
