@@ -11,14 +11,8 @@ export const getUsers = async (
   category: string
 ): Promise<User[]> => {
   let users: User[] = [];
-  const keys = await client.scan(
-    0,
-    "COUNT",
-    1000,
-    "MATCH",
-    `chat:${chatId}:user:*`
-  );
-  for (let key of keys[1]) {
+  const keys = await client.keys(`chat:${chatId}:user:*`);
+  for (let key of keys) {
     let user = await client.hmget(key, "name", category);
     users.push({ name: user[0], count: +user[1] });
   }
