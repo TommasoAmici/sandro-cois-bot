@@ -257,15 +257,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/redis@npm:2.8.31":
-  version: 2.8.31
-  resolution: "@types/redis@npm:2.8.31"
-  dependencies:
-    "@types/node": "*"
-  checksum: 01b66179f334b6daef7a4ae2d84046ff65ed50b09eeaeefb96286bda14f5bb5c4f9676526c321d76c33ede63614a394dfa84b80c3e666138db3c4404009c63ee
-  languageName: node
-  linkType: hard
-
 "@types/request@npm:*":
   version: 2.48.1
   resolution: "@types/request@npm:2.48.1"
@@ -575,7 +566,6 @@ __metadata:
     "@types/ioredis": 4.27.1
     "@types/node": 14.17.12
     "@types/node-telegram-bot-api": 0.51.4
-    "@types/redis": 2.8.31
     "@types/utf8": 3.0.0
     "@vercel/ncc": 0.30.0
     "@vitalets/google-translate-api": 7.0.0
@@ -590,7 +580,6 @@ __metadata:
     node-telegram-bot-api: 0.54.0
     novelcovid: 3.0.2
     pokedex: 1.1.0
-    redis: 3.1.2
     typescript: 4.3.5
     utf8: 3.0.0
   languageName: unknown
@@ -1078,13 +1067,6 @@ __metadata:
   version: 1.4.1
   resolution: "denque@npm:1.4.1"
   checksum: 174e81b3c9407b2149216d9e793fb91d901c19b1225dceefdafe32d5abeca243382ffee9bb111a1f60e42d2791b457d029bb57379d48404b2fb351bf700b6a8c
-  languageName: node
-  linkType: hard
-
-"denque@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "denque@npm:1.5.0"
-  checksum: 3564778cda60c7dee3f1d71e397e50e6b39a8c06118aab9843b9396cb621b3191ab56d13de5237b8beee2b87bec485e8239c58ca3133472d2d1eaa3d2d518022
   languageName: node
   linkType: hard
 
@@ -2923,7 +2905,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redis-commands@npm:1.7.0, redis-commands@npm:^1.7.0":
+"redis-commands@npm:1.7.0":
   version: 1.7.0
   resolution: "redis-commands@npm:1.7.0"
   checksum: cbf5d33768b1c8e1001e2a7ffdaeb6ef830c538ef812d803a1c5e6038cf03482cf0a22b29eadf1182aa02a522331826e3af0967ae75fa7883da8a139ad2fc77b
@@ -2943,18 +2925,6 @@ __metadata:
   dependencies:
     redis-errors: ^1.0.0
   checksum: 45dbcb05bed2c80a4aac288bbefed2347ecf3508c24d542ab42efa21fd63b5aaca4208b206f05818835a2ac43abe09250c2638c11c3b0b66a5d67e83985e350f
-  languageName: node
-  linkType: hard
-
-"redis@npm:3.1.2":
-  version: 3.1.2
-  resolution: "redis@npm:3.1.2"
-  dependencies:
-    denque: ^1.5.0
-    redis-commands: ^1.7.0
-    redis-errors: ^1.2.0
-    redis-parser: ^3.0.0
-  checksum: af9b5162aa98e3894fab9914e622019ba3e557c6e2285db419354b83fad30e971defb84600191c48985657d2c33d0c0549990fa4efdb9352e81c9727a309f691
   languageName: node
   linkType: hard
 

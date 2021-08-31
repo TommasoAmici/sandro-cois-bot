@@ -338,16 +338,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["@types/redis", [
-        ["npm:2.8.31", {
-          "packageLocation": "./.yarn/cache/@types-redis-npm-2.8.31-198c5034ba-01b66179f3.zip/node_modules/@types/redis/",
-          "packageDependencies": [
-            ["@types/redis", "npm:2.8.31"],
-            ["@types/node", "npm:11.10.4"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["@types/request", [
         ["npm:2.48.1", {
           "packageLocation": "./.yarn/cache/@types-request-npm-2.48.1-98dc7e23db-01066b1c88.zip/node_modules/@types/request/",
@@ -700,7 +690,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ioredis", "npm:4.27.1"],
             ["@types/node", "npm:14.17.12"],
             ["@types/node-telegram-bot-api", "npm:0.51.4"],
-            ["@types/redis", "npm:2.8.31"],
             ["@types/utf8", "npm:3.0.0"],
             ["@vercel/ncc", "npm:0.30.0"],
             ["@vitalets/google-translate-api", "npm:7.0.0"],
@@ -715,7 +704,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["node-telegram-bot-api", "npm:0.54.0"],
             ["novelcovid", "npm:3.0.2"],
             ["pokedex", "npm:1.1.0"],
-            ["redis", "npm:3.1.2"],
             ["typescript", "patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=ddfc1b"],
             ["utf8", "npm:3.0.0"]
           ],
@@ -1273,13 +1261,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/denque-npm-1.4.1-91d454774e-174e81b3c9.zip/node_modules/denque/",
           "packageDependencies": [
             ["denque", "npm:1.4.1"]
-          ],
-          "linkType": "HARD",
-        }],
-        ["npm:1.5.0", {
-          "packageLocation": "./.yarn/cache/denque-npm-1.5.0-fd3ca7b46a-3564778cda.zip/node_modules/denque/",
-          "packageDependencies": [
-            ["denque", "npm:1.5.0"]
           ],
           "linkType": "HARD",
         }]
@@ -3379,19 +3360,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["safe-buffer", "npm:5.1.2"],
             ["string_decoder", "npm:1.1.1"],
             ["util-deprecate", "npm:1.0.2"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["redis", [
-        ["npm:3.1.2", {
-          "packageLocation": "./.yarn/cache/redis-npm-3.1.2-0dbc9973a0-af9b5162aa.zip/node_modules/redis/",
-          "packageDependencies": [
-            ["redis", "npm:3.1.2"],
-            ["denque", "npm:1.5.0"],
-            ["redis-commands", "npm:1.7.0"],
-            ["redis-errors", "npm:1.2.0"],
-            ["redis-parser", "npm:3.0.0"]
           ],
           "linkType": "HARD",
         }]
