@@ -1,0 +1,17 @@
+{
+  "name": "migrations",
+  "type": "module",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "ncc build src/0001_redisearch.ts --out dist --minify --no-cache"
+  },
+  "dependencies": {
+    "ioredis": "^4.27.9",
+    "typescript": "4.3.5"
+  },
+  "devDependencies": {
+    "@types/ioredis": "^4.27.1",
+    "@types/node": "^16.7.8",
+    "@vercel/ncc": "^0.30.0"
+  }
+}

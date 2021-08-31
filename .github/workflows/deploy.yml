@@ -17,13 +17,13 @@ jobs:
         run: yarn --immutable --immutable-cache
 
       - name: Build
-        run: yarn build
+        run: yarn workspace bot build
 
       - name: rsync deployments
         uses: burnett01/rsync-deployments@5.1
         with:
           switches: -avzr --delete --exclude=".git"
-          path: dist/index.js
+          path: packages/bot/dist/index.js
           remote_path: /apps/sandro-cois/
           remote_host: ${{ secrets.DEPLOY_HOST }}
           remote_port: ${{ secrets.DEPLOY_PORT }}

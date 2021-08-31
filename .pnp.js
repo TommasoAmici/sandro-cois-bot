@@ -21,11 +21,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {
         "name": "root-workspace-0b6124",
         "reference": "workspace:."
+      },
+      {
+        "name": "bot",
+        "reference": "workspace:packages/bot"
+      },
+      {
+        "name": "migrations",
+        "reference": "workspace:packages/migrations"
       }
     ],
     "enableTopLevelFallback": true,
     "ignorePatternData": "(^(?:\\.yarn\\/sdks(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)|$))$)",
     "fallbackExclusionList": [
+      ["bot", ["workspace:packages/bot"]],
+      ["migrations", ["workspace:packages/migrations"]],
       ["root-workspace-0b6124", ["workspace:."]]
     ],
     "fallbackPool": [
@@ -37,34 +47,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
-            ["@mapbox/mapbox-sdk", "npm:0.13.1"],
-            ["@types/diacritics", "npm:1.3.1"],
-            ["@types/html-entities", "npm:1.3.3"],
-            ["@types/ioredis", "npm:4.27.1"],
-            ["@types/node", "npm:14.17.12"],
-            ["@types/node-telegram-bot-api", "npm:0.51.4"],
-            ["@types/redis", "npm:2.8.31"],
-            ["@types/utf8", "npm:3.0.0"],
-            ["@vercel/ncc", "npm:0.30.0"],
-            ["@vitalets/google-translate-api", "npm:7.0.0"],
-            ["axios", "npm:0.21.1"],
-            ["diacritics", "npm:1.3.0"],
-            ["fuse.js", "npm:6.4.6"],
-            ["g-i-s", "npm:2.1.6"],
-            ["html-entities", "npm:2.3.2"],
             ["husky", "npm:7.0.2"],
-            ["ioredis", "npm:4.27.9"],
             ["lint-staged", "npm:11.1.2"],
-            ["mathjs", "npm:9.4.4"],
-            ["node-html-parser", "npm:4.1.4"],
-            ["node-telegram-bot-api", "npm:0.54.0"],
-            ["novelcovid", "npm:3.0.2"],
             ["pinst", "npm:2.1.6"],
-            ["pokedex", "npm:1.1.0"],
             ["prettier", "npm:2.3.2"],
-            ["redis", "npm:3.1.2"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=ddfc1b"],
-            ["utf8", "npm:3.0.0"]
+            ["typescript", "patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=ddfc1b"]
           ],
           "linkType": "SOFT",
         }]
@@ -322,6 +309,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:14.17.12"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:16.7.8", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-16.7.8-c602e936a8-393a93639c.zip/node_modules/@types/node/",
+          "packageDependencies": [
+            ["@types/node", "npm:16.7.8"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["@types/node-telegram-bot-api", [
@@ -430,7 +424,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/agent-base-npm-6.0.2-428f325a93-e77eff83e1.zip/node_modules/agent-base/",
           "packageDependencies": [
             ["agent-base", "npm:6.0.2"],
-            ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"]
+            ["debug", "virtual:a47d5d9f47c76114e7540aa654233431e377dbaddfa8a838d697f88bcc3549c436645703ccf55780fa4233345b3aa0463da5073333450f69aba0b2cc3fd9ff27#npm:4.3.2"]
           ],
           "linkType": "HARD",
         }]
@@ -440,7 +434,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/agentkeepalive-npm-4.1.4-4d5b41b4c1-c58f69d05c.zip/node_modules/agentkeepalive/",
           "packageDependencies": [
             ["agentkeepalive", "npm:4.1.4"],
-            ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],
+            ["debug", "virtual:a47d5d9f47c76114e7540aa654233431e377dbaddfa8a838d697f88bcc3549c436645703ccf55780fa4233345b3aa0463da5073333450f69aba0b2cc3fd9ff27#npm:4.3.2"],
             ["depd", "npm:1.1.2"],
             ["humanize-ms", "npm:1.2.1"]
           ],
@@ -693,6 +687,39 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["boolbase", "npm:1.0.0"]
           ],
           "linkType": "HARD",
+        }]
+      ]],
+      ["bot", [
+        ["workspace:packages/bot", {
+          "packageLocation": "./packages/bot/",
+          "packageDependencies": [
+            ["bot", "workspace:packages/bot"],
+            ["@mapbox/mapbox-sdk", "npm:0.13.1"],
+            ["@types/diacritics", "npm:1.3.1"],
+            ["@types/html-entities", "npm:1.3.3"],
+            ["@types/ioredis", "npm:4.27.1"],
+            ["@types/node", "npm:14.17.12"],
+            ["@types/node-telegram-bot-api", "npm:0.51.4"],
+            ["@types/redis", "npm:2.8.31"],
+            ["@types/utf8", "npm:3.0.0"],
+            ["@vercel/ncc", "npm:0.30.0"],
+            ["@vitalets/google-translate-api", "npm:7.0.0"],
+            ["axios", "npm:0.21.1"],
+            ["diacritics", "npm:1.3.0"],
+            ["fuse.js", "npm:6.4.6"],
+            ["g-i-s", "npm:2.1.6"],
+            ["html-entities", "npm:2.3.2"],
+            ["ioredis", "npm:4.27.8"],
+            ["mathjs", "npm:9.4.4"],
+            ["node-html-parser", "npm:4.1.4"],
+            ["node-telegram-bot-api", "npm:0.54.0"],
+            ["novelcovid", "npm:3.0.2"],
+            ["pokedex", "npm:1.1.0"],
+            ["redis", "npm:3.1.2"],
+            ["typescript", "patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=ddfc1b"],
+            ["utf8", "npm:3.0.0"]
+          ],
+          "linkType": "SOFT",
         }]
       ]],
       ["brace-expansion", [
@@ -1157,10 +1184,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2", {
-          "packageLocation": "./.yarn/$$virtual/debug-virtual-e152771b72/0/cache/debug-npm-4.3.2-f0148b6afe-5543570879.zip/node_modules/debug/",
+        ["virtual:a47d5d9f47c76114e7540aa654233431e377dbaddfa8a838d697f88bcc3549c436645703ccf55780fa4233345b3aa0463da5073333450f69aba0b2cc3fd9ff27#npm:4.3.2", {
+          "packageLocation": "./.yarn/$$virtual/debug-virtual-c417cb57a7/0/cache/debug-npm-4.3.2-f0148b6afe-5543570879.zip/node_modules/debug/",
           "packageDependencies": [
-            ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],
+            ["debug", "virtual:a47d5d9f47c76114e7540aa654233431e377dbaddfa8a838d697f88bcc3549c436645703ccf55780fa4233345b3aa0463da5073333450f69aba0b2cc3fd9ff27#npm:4.3.2"],
             ["ms", "npm:2.1.2"],
             ["supports-color", null]
           ],
@@ -1980,7 +2007,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["http-proxy-agent", "npm:4.0.1"],
             ["@tootallnate/once", "npm:1.1.2"],
             ["agent-base", "npm:6.0.2"],
-            ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"]
+            ["debug", "virtual:a47d5d9f47c76114e7540aa654233431e377dbaddfa8a838d697f88bcc3549c436645703ccf55780fa4233345b3aa0463da5073333450f69aba0b2cc3fd9ff27#npm:4.3.2"]
           ],
           "linkType": "HARD",
         }]
@@ -2003,7 +2030,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["https-proxy-agent", "npm:5.0.0"],
             ["agent-base", "npm:6.0.2"],
-            ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"]
+            ["debug", "virtual:a47d5d9f47c76114e7540aa654233431e377dbaddfa8a838d697f88bcc3549c436645703ccf55780fa4233345b3aa0463da5073333450f69aba0b2cc3fd9ff27#npm:4.3.2"]
           ],
           "linkType": "HARD",
         }]
@@ -2112,12 +2139,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["ioredis", [
+        ["npm:4.27.8", {
+          "packageLocation": "./.yarn/cache/ioredis-npm-4.27.8-b23bc6662e-9ca9c9652e.zip/node_modules/ioredis/",
+          "packageDependencies": [
+            ["ioredis", "npm:4.27.8"],
+            ["cluster-key-slot", "npm:1.1.0"],
+            ["debug", "virtual:a47d5d9f47c76114e7540aa654233431e377dbaddfa8a838d697f88bcc3549c436645703ccf55780fa4233345b3aa0463da5073333450f69aba0b2cc3fd9ff27#npm:4.3.2"],
+            ["denque", "npm:1.4.1"],
+            ["lodash.defaults", "npm:4.2.0"],
+            ["lodash.flatten", "npm:4.4.0"],
+            ["lodash.isarguments", "npm:3.1.0"],
+            ["p-map", "npm:2.1.0"],
+            ["redis-commands", "npm:1.7.0"],
+            ["redis-errors", "npm:1.2.0"],
+            ["redis-parser", "npm:3.0.0"],
+            ["standard-as-callback", "npm:2.1.0"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:4.27.9", {
           "packageLocation": "./.yarn/cache/ioredis-npm-4.27.9-f47c6ecf1a-3b33cf9b5e.zip/node_modules/ioredis/",
           "packageDependencies": [
             ["ioredis", "npm:4.27.9"],
             ["cluster-key-slot", "npm:1.1.0"],
-            ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],
+            ["debug", "virtual:a47d5d9f47c76114e7540aa654233431e377dbaddfa8a838d697f88bcc3549c436645703ccf55780fa4233345b3aa0463da5073333450f69aba0b2cc3fd9ff27#npm:4.3.2"],
             ["denque", "npm:1.4.1"],
             ["lodash.defaults", "npm:4.2.0"],
             ["lodash.flatten", "npm:4.4.0"],
@@ -2454,7 +2499,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["cli-truncate", "npm:2.1.0"],
             ["commander", "npm:7.2.0"],
             ["cosmiconfig", "npm:7.0.0"],
-            ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],
+            ["debug", "virtual:a47d5d9f47c76114e7540aa654233431e377dbaddfa8a838d697f88bcc3549c436645703ccf55780fa4233345b3aa0463da5073333450f69aba0b2cc3fd9ff27#npm:4.3.2"],
             ["enquirer", "npm:2.3.6"],
             ["execa", "npm:5.0.0"],
             ["listr2", "virtual:a47d5d9f47c76114e7540aa654233431e377dbaddfa8a838d697f88bcc3549c436645703ccf55780fa4233345b3aa0463da5073333450f69aba0b2cc3fd9ff27#npm:3.8.2"],
@@ -2655,6 +2700,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["picomatch", "npm:2.2.3"]
           ],
           "linkType": "HARD",
+        }]
+      ]],
+      ["migrations", [
+        ["workspace:packages/migrations", {
+          "packageLocation": "./packages/migrations/",
+          "packageDependencies": [
+            ["migrations", "workspace:packages/migrations"],
+            ["@types/ioredis", "npm:4.27.1"],
+            ["@types/node", "npm:16.7.8"],
+            ["@vercel/ncc", "npm:0.30.0"],
+            ["ioredis", "npm:4.27.9"],
+            ["typescript", "patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=ddfc1b"]
+          ],
+          "linkType": "SOFT",
         }]
       ]],
       ["mime", [
@@ -3541,34 +3600,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["root-workspace-0b6124", "workspace:."],
-            ["@mapbox/mapbox-sdk", "npm:0.13.1"],
-            ["@types/diacritics", "npm:1.3.1"],
-            ["@types/html-entities", "npm:1.3.3"],
-            ["@types/ioredis", "npm:4.27.1"],
-            ["@types/node", "npm:14.17.12"],
-            ["@types/node-telegram-bot-api", "npm:0.51.4"],
-            ["@types/redis", "npm:2.8.31"],
-            ["@types/utf8", "npm:3.0.0"],
-            ["@vercel/ncc", "npm:0.30.0"],
-            ["@vitalets/google-translate-api", "npm:7.0.0"],
-            ["axios", "npm:0.21.1"],
-            ["diacritics", "npm:1.3.0"],
-            ["fuse.js", "npm:6.4.6"],
-            ["g-i-s", "npm:2.1.6"],
-            ["html-entities", "npm:2.3.2"],
             ["husky", "npm:7.0.2"],
-            ["ioredis", "npm:4.27.9"],
             ["lint-staged", "npm:11.1.2"],
-            ["mathjs", "npm:9.4.4"],
-            ["node-html-parser", "npm:4.1.4"],
-            ["node-telegram-bot-api", "npm:0.54.0"],
-            ["novelcovid", "npm:3.0.2"],
             ["pinst", "npm:2.1.6"],
-            ["pokedex", "npm:1.1.0"],
             ["prettier", "npm:2.3.2"],
-            ["redis", "npm:3.1.2"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=ddfc1b"],
-            ["utf8", "npm:3.0.0"]
+            ["typescript", "patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=ddfc1b"]
           ],
           "linkType": "SOFT",
         }]
@@ -3721,7 +3757,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["socks-proxy-agent", "npm:5.0.1"],
             ["agent-base", "npm:6.0.2"],
-            ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],
+            ["debug", "virtual:a47d5d9f47c76114e7540aa654233431e377dbaddfa8a838d697f88bcc3549c436645703ccf55780fa4233345b3aa0463da5073333450f69aba0b2cc3fd9ff27#npm:4.3.2"],
             ["socks", "npm:2.6.1"]
           ],
           "linkType": "HARD",

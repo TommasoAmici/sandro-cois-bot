@@ -16,4 +16,4 @@ jobs:
         run: yarn --immutable --immutable-cache
 
       - name: Build
-        run: yarn build
+        run: yarn workspace bot build
