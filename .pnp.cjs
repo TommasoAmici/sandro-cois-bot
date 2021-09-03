@@ -670,7 +670,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fuse.js", "npm:6.4.6"],
             ["g-i-s", "npm:2.1.6"],
             ["html-entities", "npm:2.3.2"],
-            ["ioredis", "npm:4.27.8"],
+            ["ioredis", "npm:4.27.9"],
             ["mathjs", "npm:9.4.4"],
             ["node-html-parser", "npm:4.1.4"],
             ["node-telegram-bot-api", "npm:0.54.0"],
@@ -2021,24 +2021,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["ioredis", [
-        ["npm:4.27.8", {
-          "packageLocation": "./.yarn/cache/ioredis-npm-4.27.8-b23bc6662e-5c30e3c411.zip/node_modules/ioredis/",
-          "packageDependencies": [
-            ["ioredis", "npm:4.27.8"],
-            ["cluster-key-slot", "npm:1.1.0"],
-            ["debug", "virtual:a47d5d9f47c76114e7540aa654233431e377dbaddfa8a838d697f88bcc3549c436645703ccf55780fa4233345b3aa0463da5073333450f69aba0b2cc3fd9ff27#npm:4.3.2"],
-            ["denque", "npm:1.4.1"],
-            ["lodash.defaults", "npm:4.2.0"],
-            ["lodash.flatten", "npm:4.4.0"],
-            ["lodash.isarguments", "npm:3.1.0"],
-            ["p-map", "npm:2.1.0"],
-            ["redis-commands", "npm:1.7.0"],
-            ["redis-errors", "npm:1.2.0"],
-            ["redis-parser", "npm:3.0.0"],
-            ["standard-as-callback", "npm:2.1.0"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:4.27.9", {
           "packageLocation": "./.yarn/cache/ioredis-npm-4.27.9-f47c6ecf1a-0472f20366.zip/node_modules/ioredis/",
           "packageDependencies": [
