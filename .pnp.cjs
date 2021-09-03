@@ -247,10 +247,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/html-entities", [
-        ["npm:1.3.3", {
-          "packageLocation": "./.yarn/cache/@types-html-entities-npm-1.3.3-b1a14673fd-a4ae3ff5f5.zip/node_modules/@types/html-entities/",
+        ["npm:1.3.4", {
+          "packageLocation": "./.yarn/cache/@types-html-entities-npm-1.3.4-bd549ce3fd-e4fed91854.zip/node_modules/@types/html-entities/",
           "packageDependencies": [
-            ["@types/html-entities", "npm:1.3.3"],
+            ["@types/html-entities", "npm:1.3.4"],
             ["html-entities", "npm:2.3.2"]
           ],
           "linkType": "HARD",
@@ -286,10 +286,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/node", [
-        ["npm:14.17.13", {
-          "packageLocation": "./.yarn/cache/@types-node-npm-14.17.13-a1412e4727-4b85755aa9.zip/node_modules/@types/node/",
+        ["npm:16.7.10", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-16.7.10-4e2e60d5a6-0518803caa.zip/node_modules/@types/node/",
           "packageDependencies": [
-            ["@types/node", "npm:14.17.13"]
+            ["@types/node", "npm:16.7.10"]
           ],
           "linkType": "HARD",
         }],
@@ -658,9 +658,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["bot", "workspace:packages/bot"],
             ["@mapbox/mapbox-sdk", "npm:0.13.1"],
             ["@types/diacritics", "npm:1.3.1"],
-            ["@types/html-entities", "npm:1.3.3"],
+            ["@types/html-entities", "npm:1.3.4"],
             ["@types/ioredis", "npm:4.27.1"],
-            ["@types/node", "npm:14.17.13"],
+            ["@types/node", "npm:16.7.10"],
             ["@types/node-telegram-bot-api", "npm:0.51.4"],
             ["@types/utf8", "npm:3.0.0"],
             ["@vercel/ncc", "npm:0.30.0"],
@@ -2590,7 +2590,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["migrations", "workspace:packages/migrations"],
             ["@types/ioredis", "npm:4.27.1"],
-            ["@types/node", "npm:16.7.8"],
+            ["@types/node", "npm:16.7.10"],
             ["@vercel/ncc", "npm:0.30.0"],
             ["ioredis", "npm:4.27.9"],
             ["typescript", "patch:typescript@npm%3A4.4.2#~builtin<compat/typescript>::version=4.4.2&hash=32657b"]
