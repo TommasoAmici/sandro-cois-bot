@@ -585,11 +585,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["axios", [
-        ["npm:0.21.3", {
-          "packageLocation": "./.yarn/cache/axios-npm-0.21.3-2569322ed6-fdcac33adb.zip/node_modules/axios/",
+        ["npm:0.21.4", {
+          "packageLocation": "./.yarn/cache/axios-npm-0.21.4-e278873748-44245f24ac.zip/node_modules/axios/",
           "packageDependencies": [
-            ["axios", "npm:0.21.3"],
-            ["follow-redirects", "virtual:2569322ed65da281e16cb9d2b8e8d22af90abb36fa4376414672fbf6d61aaf22ac6c3a266b47c2252109463dcfbe4f0bb0711852433cd931f1b602f385fa83eb#npm:1.14.3"]
+            ["axios", "npm:0.21.4"],
+            ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.14.3"]
           ],
           "linkType": "HARD",
         }]
@@ -665,7 +665,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/utf8", "npm:3.0.0"],
             ["@vercel/ncc", "npm:0.30.0"],
             ["@vitalets/google-translate-api", "npm:7.0.0"],
-            ["axios", "npm:0.21.3"],
+            ["axios", "npm:0.21.4"],
             ["diacritics", "npm:1.3.0"],
             ["fuse.js", "npm:6.4.6"],
             ["g-i-s", "npm:2.1.6"],
@@ -1555,10 +1555,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:2569322ed65da281e16cb9d2b8e8d22af90abb36fa4376414672fbf6d61aaf22ac6c3a266b47c2252109463dcfbe4f0bb0711852433cd931f1b602f385fa83eb#npm:1.14.3", {
-          "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-4c46e1d6bd/0/cache/follow-redirects-npm-1.14.3-37aea15e53-b4d89339af.zip/node_modules/follow-redirects/",
+        ["virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.14.3", {
+          "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-a24f58a86d/0/cache/follow-redirects-npm-1.14.3-37aea15e53-b4d89339af.zip/node_modules/follow-redirects/",
           "packageDependencies": [
-            ["follow-redirects", "virtual:2569322ed65da281e16cb9d2b8e8d22af90abb36fa4376414672fbf6d61aaf22ac6c3a266b47c2252109463dcfbe4f0bb0711852433cd931f1b602f385fa83eb#npm:1.14.3"],
+            ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.14.3"],
             ["debug", null]
           ],
           "packagePeers": [
