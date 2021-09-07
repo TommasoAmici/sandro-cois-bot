@@ -58,9 +58,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mapbox/mapbox-sdk@npm:0.13.1":
-  version: 0.13.1
-  resolution: "@mapbox/mapbox-sdk@npm:0.13.1"
+"@mapbox/mapbox-sdk@npm:0.13.2":
+  version: 0.13.2
+  resolution: "@mapbox/mapbox-sdk@npm:0.13.2"
   dependencies:
     "@mapbox/fusspot": ^0.4.0
     "@mapbox/parse-mapbox-token": ^0.2.0
@@ -70,7 +70,7 @@ __metadata:
     got: ^10.7.0
     is-plain-obj: ^1.1.0
     xtend: ^4.0.1
-  checksum: 0ba933a8a83b3504c440a1d46dec3bca00db2f18040735fa77d9b6c19b54490352aeb20647def10e0891e0d552addbf02058e8f0c8c7ed2d7e4d3b3d55c12255
+  checksum: cd5566eafd205ff14602f7081d328a8dfe347cb0957e93be06f44a2c5e97c6b332fd6d3dd0b1aa8064a668fca24588a5cb818207a8dbd6530da0d5c15a815579
   languageName: node
   linkType: hard
 
@@ -532,7 +532,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bot@workspace:packages/bot"
   dependencies:
-    "@mapbox/mapbox-sdk": 0.13.1
+    "@mapbox/mapbox-sdk": 0.13.2
     "@types/diacritics": 1.3.1
     "@types/html-entities": 1.3.4
     "@types/ioredis": 4.27.2
