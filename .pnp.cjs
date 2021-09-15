@@ -95,10 +95,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@babel/runtime", [
-        ["npm:7.14.6", {
-          "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.14.6-3272013297-927ffed787.zip/node_modules/@babel/runtime/",
+        ["npm:7.15.4", {
+          "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.15.4-52ce5bf6ea-c408254304.zip/node_modules/@babel/runtime/",
           "packageDependencies": [
-            ["@babel/runtime", "npm:7.14.6"],
+            ["@babel/runtime", "npm:7.15.4"],
             ["regenerator-runtime", "npm:0.13.8"]
           ],
           "linkType": "HARD",
@@ -671,7 +671,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["g-i-s", "npm:2.1.6"],
             ["html-entities", "npm:2.3.2"],
             ["ioredis", "npm:4.27.9"],
-            ["mathjs", "npm:9.4.4"],
+            ["mathjs", "npm:9.4.5"],
             ["node-html-parser", "npm:4.1.4"],
             ["node-telegram-bot-api", "npm:0.54.0"],
             ["novelcovid", "npm:3.0.2"],
@@ -2540,11 +2540,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["mathjs", [
-        ["npm:9.4.4", {
-          "packageLocation": "./.yarn/cache/mathjs-npm-9.4.4-6e7221112d-3fdaca4d0e.zip/node_modules/mathjs/",
+        ["npm:9.4.5", {
+          "packageLocation": "./.yarn/cache/mathjs-npm-9.4.5-0fd3d5d45b-ce29106d53.zip/node_modules/mathjs/",
           "packageDependencies": [
-            ["mathjs", "npm:9.4.4"],
-            ["@babel/runtime", "npm:7.14.6"],
+            ["mathjs", "npm:9.4.5"],
+            ["@babel/runtime", "npm:7.15.4"],
             ["complex.js", "npm:2.0.15"],
             ["decimal.js", "npm:10.3.1"],
             ["escape-latex", "npm:1.2.0"],
