@@ -39,12 +39,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.14.6":
-  version: 7.14.6
-  resolution: "@babel/runtime@npm:7.14.6"
+"@babel/runtime@npm:^7.15.4":
+  version: 7.15.4
+  resolution: "@babel/runtime@npm:7.15.4"
   dependencies:
     regenerator-runtime: ^0.13.4
-  checksum: 927ffed7871f2ed29f967a8dad7a72aa10662f93b6735a89d664a161fa4dc2074b8947ca159a8a0a49cec9a71c8de473d7c2b22d3de0ee4d7dd06d24a7f98018
+  checksum: c40825430400e47c19b97e4142d5315d2910305b9714d44a711472587ee2fd4521fdba5f02ddd9df3902f5e988d9854fa83f4da1e0c091f70f6983fa52480606
   languageName: node
   linkType: hard
 
@@ -547,7 +547,7 @@ __metadata:
     g-i-s: 2.1.6
     html-entities: 2.3.2
     ioredis: 4.27.9
-    mathjs: 9.4.4
+    mathjs: 9.4.5
     node-html-parser: 4.1.4
     node-telegram-bot-api: 0.54.0
     novelcovid: 3.0.2
@@ -2149,11 +2149,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mathjs@npm:9.4.4":
-  version: 9.4.4
-  resolution: "mathjs@npm:9.4.4"
+"mathjs@npm:9.4.5":
+  version: 9.4.5
+  resolution: "mathjs@npm:9.4.5"
   dependencies:
-    "@babel/runtime": ^7.14.6
+    "@babel/runtime": ^7.15.4
     complex.js: ^2.0.15
     decimal.js: ^10.3.1
     escape-latex: ^1.2.0
@@ -2164,7 +2164,7 @@ __metadata:
     typed-function: ^2.0.0
   bin:
     mathjs: bin/cli.js
-  checksum: 3fdaca4d0e8b73c1e75c87023101d8d047ccec395743c80f24031b7523fc8f2209f8bc572c603d8a8ba4e8b977f240e987f72902e48cce6ff261b3f904fefd5b
+  checksum: ce29106d5317e864e798ab303ba1ade04ea6c6f3e08c64aed8f3e99e6ad5d5c4012d14ddda953d6735c13d9bcdae7f19301ecf25932a1430d14e6f1d7d481e31
   languageName: node
   linkType: hard
 
