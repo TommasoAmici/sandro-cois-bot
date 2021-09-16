@@ -192,12 +192,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ioredis@npm:4.27.2":
-  version: 4.27.2
-  resolution: "@types/ioredis@npm:4.27.2"
+"@types/ioredis@npm:4.27.3":
+  version: 4.27.3
+  resolution: "@types/ioredis@npm:4.27.3"
   dependencies:
     "@types/node": "*"
-  checksum: fce3daa5486af9dc86f4722fed811c44a89ffe833e17cda1361022debdcf54609d63a0a219488c86807723d9e62e5fbf8d300bf271174c324e56d58fa02b6859
+  checksum: 19789ea0f9c6f4780b8589fca256e5850f04b2a3fb6ad2391bbd827b673c97fcd7c0a9dd0aa88506114de373f9cb6182d2552dd4b51477e3ac6266265d466667
   languageName: node
   linkType: hard
 
@@ -535,7 +535,7 @@ __metadata:
     "@mapbox/mapbox-sdk": 0.13.2
     "@types/diacritics": 1.3.1
     "@types/html-entities": 1.3.4
-    "@types/ioredis": 4.27.2
+    "@types/ioredis": 4.27.3
     "@types/node": 16.7.10
     "@types/node-telegram-bot-api": 0.51.4
     "@types/utf8": 3.0.0
@@ -2189,7 +2189,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "migrations@workspace:packages/migrations"
   dependencies:
-    "@types/ioredis": 4.27.2
+    "@types/ioredis": 4.27.3
     "@types/node": 16.7.10
     "@vercel/ncc": 0.31.1
     ioredis: 4.27.9
