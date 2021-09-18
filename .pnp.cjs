@@ -672,7 +672,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["html-entities", "npm:2.3.2"],
             ["ioredis", "npm:4.27.9"],
             ["mathjs", "npm:9.4.5"],
-            ["node-html-parser", "npm:4.1.4"],
+            ["node-html-parser", "npm:4.1.5"],
             ["node-telegram-bot-api", "npm:0.54.0"],
             ["novelcovid", "npm:3.0.2"],
             ["pokedex", "npm:1.1.0"],
@@ -2773,10 +2773,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["node-html-parser", [
-        ["npm:4.1.4", {
-          "packageLocation": "./.yarn/cache/node-html-parser-npm-4.1.4-3ec547e3be-08209ce3c9.zip/node_modules/node-html-parser/",
+        ["npm:4.1.5", {
+          "packageLocation": "./.yarn/cache/node-html-parser-npm-4.1.5-9be29f49d4-1b9e330e09.zip/node_modules/node-html-parser/",
           "packageDependencies": [
-            ["node-html-parser", "npm:4.1.4"],
+            ["node-html-parser", "npm:4.1.5"],
             ["css-select", "npm:4.1.3"],
             ["he", "npm:1.2.0"]
           ],
