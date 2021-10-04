@@ -266,10 +266,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/ioredis", [
-        ["npm:4.27.5", {
-          "packageLocation": "./.yarn/cache/@types-ioredis-npm-4.27.5-7693bd18f6-d451e1327a.zip/node_modules/@types/ioredis/",
+        ["npm:4.27.6", {
+          "packageLocation": "./.yarn/cache/@types-ioredis-npm-4.27.6-5f0f0cbf31-d8ad393080.zip/node_modules/@types/ioredis/",
           "packageDependencies": [
-            ["@types/ioredis", "npm:4.27.5"],
+            ["@types/ioredis", "npm:4.27.6"],
             ["@types/node", "npm:16.7.8"]
           ],
           "linkType": "HARD",
@@ -659,7 +659,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mapbox/mapbox-sdk", "npm:0.13.2"],
             ["@types/diacritics", "npm:1.3.1"],
             ["@types/html-entities", "npm:1.3.4"],
-            ["@types/ioredis", "npm:4.27.5"],
+            ["@types/ioredis", "npm:4.27.6"],
             ["@types/node", "npm:16.7.10"],
             ["@types/node-telegram-bot-api", "npm:0.53.0"],
             ["@types/utf8", "npm:3.0.0"],
@@ -670,7 +670,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fuse.js", "npm:6.4.6"],
             ["g-i-s", "npm:2.1.6"],
             ["html-entities", "npm:2.3.2"],
-            ["ioredis", "npm:4.27.9"],
+            ["ioredis", "npm:4.27.10"],
             ["mathjs", "npm:9.5.0"],
             ["node-html-parser", "npm:4.1.5"],
             ["node-telegram-bot-api", "npm:0.54.0"],
@@ -2032,10 +2032,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["ioredis", [
-        ["npm:4.27.9", {
-          "packageLocation": "./.yarn/cache/ioredis-npm-4.27.9-f47c6ecf1a-0472f20366.zip/node_modules/ioredis/",
+        ["npm:4.27.10", {
+          "packageLocation": "./.yarn/cache/ioredis-npm-4.27.10-87a87e4783-798f57bbf6.zip/node_modules/ioredis/",
           "packageDependencies": [
-            ["ioredis", "npm:4.27.9"],
+            ["ioredis", "npm:4.27.10"],
             ["cluster-key-slot", "npm:1.1.0"],
             ["debug", "virtual:a47d5d9f47c76114e7540aa654233431e377dbaddfa8a838d697f88bcc3549c436645703ccf55780fa4233345b3aa0463da5073333450f69aba0b2cc3fd9ff27#npm:4.3.2"],
             ["denque", "npm:1.4.1"],
@@ -2582,10 +2582,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/migrations/",
           "packageDependencies": [
             ["migrations", "workspace:packages/migrations"],
-            ["@types/ioredis", "npm:4.27.5"],
+            ["@types/ioredis", "npm:4.27.6"],
             ["@types/node", "npm:16.7.10"],
             ["@vercel/ncc", "npm:0.31.1"],
-            ["ioredis", "npm:4.27.9"],
+            ["ioredis", "npm:4.27.10"],
             ["typescript", "patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=32657b"]
           ],
           "linkType": "SOFT",
