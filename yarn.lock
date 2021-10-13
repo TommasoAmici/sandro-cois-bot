@@ -547,7 +547,7 @@ __metadata:
     g-i-s: 2.1.6
     html-entities: 2.3.2
     ioredis: 4.27.11
-    mathjs: 9.5.0
+    mathjs: 9.5.1
     node-html-parser: 5.0.0
     node-telegram-bot-api: 0.54.0
     novelcovid: 3.0.2
@@ -2118,9 +2118,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mathjs@npm:9.5.0":
-  version: 9.5.0
-  resolution: "mathjs@npm:9.5.0"
+"mathjs@npm:9.5.1":
+  version: 9.5.1
+  resolution: "mathjs@npm:9.5.1"
   dependencies:
     "@babel/runtime": ^7.15.4
     complex.js: ^2.0.15
@@ -2133,7 +2133,7 @@ __metadata:
     typed-function: ^2.0.0
   bin:
     mathjs: bin/cli.js
-  checksum: 11ff735c5a000885f2aff09404a5fce586ccd0f04f77395495bbaff534ae900bb56fa2cedb847aac3648cdba90f009decf9b498e2a30b0131347757e13d4d4ed
+  checksum: 1b1c96983c513f1ccfd3c0a653ff0e60c603d318c5619072087b67432b6741cc3a192991906d756f3d7372d2a36f3d1c02da443c985171041ec53664c01dfa87
   languageName: node
   linkType: hard
 
