@@ -546,7 +546,7 @@ __metadata:
     fuse.js: 6.4.6
     g-i-s: 2.1.6
     html-entities: 2.3.2
-    ioredis: 4.27.11
+    ioredis: 4.28.0
     mathjs: 9.5.1
     node-html-parser: 5.0.0
     node-telegram-bot-api: 0.54.0
@@ -1710,9 +1710,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:4.27.11":
-  version: 4.27.11
-  resolution: "ioredis@npm:4.27.11"
+"ioredis@npm:4.28.0":
+  version: 4.28.0
+  resolution: "ioredis@npm:4.28.0"
   dependencies:
     cluster-key-slot: ^1.1.0
     debug: ^4.3.1
@@ -1725,7 +1725,7 @@ __metadata:
     redis-errors: ^1.2.0
     redis-parser: ^3.0.0
     standard-as-callback: ^2.1.0
-  checksum: 0df459f7ab997398e1a6410e0d45e71e48f92babe2c4de310a2d018e56dde34f531e051f26b3baf05f6709e89a407c740017a4ef18e421486dfa5df2b4faf555
+  checksum: d6951d3df93b94a8716090f233ccc9124fe82a244965ac695835a7d4d1795ca28025ef91abfbc014cce63b96112badfc216b8d91827722ddc406f10bd221b6ab
   languageName: node
   linkType: hard
 
@@ -2161,7 +2161,7 @@ __metadata:
     "@types/ioredis": 4.27.7
     "@types/node": 16.7.10
     "@vercel/ncc": 0.31.1
-    ioredis: 4.27.11
+    ioredis: 4.28.0
     typescript: 4.4.4
   languageName: unknown
   linkType: soft
