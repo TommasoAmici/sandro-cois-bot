@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.2] - 2021-10-14
+
+### Fixed
+
+- giphy: if no mp4 exists, send url of original
+- updated axios to v0.23.0
+
 ## [2.0.1] - 2021-08-31
 
 ### Fixed
