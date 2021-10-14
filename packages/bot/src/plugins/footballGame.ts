@@ -42,12 +42,11 @@ const fullURL = endpointUrl + "?query=" + encodeURIComponent(sparqlQuery);
 const build = (bot: TelegramBot) => (msg: TelegramBot.Message) => {
   client.del(redisKey);
   axios
-    .get(fullURL, {
+    .get<WikiFootballData>(fullURL, {
       headers: { Accept: "application/sparql-results+json" },
     })
     .then((res) => {
-      const data: WikiFootballData = res.data;
-      console.log(data.results.bindings[0]);
+      const data = res.data;
       data.results.bindings.forEach((b) => {
         const ID = b.item.value.replace("http://www.wikidata.org/entity/", "");
         client.sadd(redisKey, `${utf8.encode(b.itemLabel.value)}:${ID}`);
@@ -73,8 +72,8 @@ const getTeamName = async (teamID: string) => {
   const teamNameCache = await client.hget(redisKeyTeams, teamID);
   if (teamNameCache !== null) return teamNameCache;
 
-  const res = await axios.get(queryURL(teamID));
-  const data: WikiFootballDataTeam = res.data;
+  const res = await axios.get<WikiFootballDataTeam>(queryURL(teamID));
+  const data = res.data;
   const teamName = data.entities[teamID].labels.en.value;
   // store in cache
   client.hset(redisKeyTeams, teamID, teamName);
@@ -133,7 +132,7 @@ const play = (bot: TelegramBot) => async (msg: TelegramBot.Message) => {
   const randomPlayerName = utf8.decode(randomPlayer.split(":")[0]);
   const randomPlayerID = randomPlayer.split(":")[1];
 
-  const res = await axios.get(queryURL(randomPlayerID));
+  const res = await axios.get<any>(queryURL(randomPlayerID));
   const data = res.data;
   const teams = data.entities[randomPlayerID].claims["P54"];
   const teamsFormatted = await allTeams(teams);

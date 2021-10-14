@@ -1,6 +1,6 @@
 import axios from "axios";
-import cfg from "../config";
 import * as TelegramBot from "node-telegram-bot-api";
+import cfg from "../config";
 
 const kToC = (temp: number): string => (temp - 273.15).toFixed(1);
 
@@ -31,7 +31,7 @@ export default (bot: TelegramBot) =>
     const params = { q: query, APPID: cfg.openWeatherToken };
 
     try {
-      const response = await axios.get(baseApi, { params });
+      const response = await axios.get<any>(baseApi, { params });
 
       if (!response.data.weather || response.data.weather.length === 0) {
         bot.sendMessage(msg.chat.id, `Couldn't find the weather for ${query}`);

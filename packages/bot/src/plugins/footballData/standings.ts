@@ -4,8 +4,10 @@ import { api, getCurrMatchday, teams } from "./utils";
 
 const makeMatchesString = async (currentMatchday: number): Promise<string> => {
   const params = { matchday: currentMatchday };
-  const data = await api.get("/competitions/SA/standings/", { params });
-  const standings: Standings = data.data;
+  const data = await api.get<Standings>("/competitions/SA/standings/", {
+    params,
+  });
+  const standings = data.data;
   const standingsStrings = standings.standings[0].table.map(
     (t) =>
       `${String(t.position).padStart(2, " ")} ${teams[t.team.id].padEnd(

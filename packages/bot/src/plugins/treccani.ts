@@ -7,7 +7,7 @@ const baseURL = "http://www.treccani.it";
 
 const getDetailURL = async (word: string) => {
   const listURL = `${baseURL}/vocabolario/ricerca/${word}`;
-  const res = await axios.get(listURL);
+  const res = await axios.get<string>(listURL);
   if (res.status === 404) return undefined;
   const root = parse(res.data);
   const firstDefinition = root.querySelector(
@@ -26,7 +26,7 @@ export default (bot: TelegramBot) =>
     const detailURL = await getDetailURL(match[1]);
 
     if (detailURL !== undefined) {
-      const res = await axios.get(detailURL);
+      const res = await axios.get<string>(detailURL);
       const root = parse(res.data);
       const section = root.querySelector("div.text.spiega");
       utils.paginateMessages(bot, msg, section.rawText);

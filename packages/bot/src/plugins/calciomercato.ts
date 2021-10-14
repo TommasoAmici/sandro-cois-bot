@@ -9,7 +9,7 @@ const url =
 
 const calcioMercato = (bot: TelegramBot, msg: TelegramBot.Message) =>
   axios
-    .get(url)
+    .get<any>(url)
     .then((res) => {
       const article = utils.randomChoice(
         (parse(res.data).childNodes as any[]).filter(
@@ -51,7 +51,7 @@ const prepareString = (article: Article): string =>
 
 const gazzetta = (bot: TelegramBot, msg: TelegramBot.Message) =>
   axios
-    .get(gazzettaUrl)
+    .get<any>(gazzettaUrl)
     .then((res) => {
       const calcioArticles = res.data.response.docs.filter((d: Article) =>
         includesCalcio(d.section)

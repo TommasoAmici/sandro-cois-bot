@@ -1,5 +1,5 @@
-import * as TelegramBot from "node-telegram-bot-api";
 import axios from "axios";
+import * as TelegramBot from "node-telegram-bot-api";
 import config from "../../config";
 
 interface StocksSearch {
@@ -29,8 +29,8 @@ const makeString = (globalQuote: StocksSearch[]) =>
 export default (bot: TelegramBot) =>
   (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
     axios
-      .get(url(match[2].toUpperCase()))
-      .then((res: { data: AlphaVantageResponse }) =>
+      .get<AlphaVantageResponse>(url(match[2].toUpperCase()))
+      .then((res) =>
         bot.sendMessage(msg.chat.id, makeString(res.data["bestMatches"]))
       )
       .catch((err) => console.error(err));

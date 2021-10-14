@@ -32,8 +32,8 @@ const makeString = (globalQuote: GlobalQuote) =>
 export default (bot: TelegramBot) =>
   (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
     axios
-      .get(url(match[2].toUpperCase()))
-      .then((res: { data: AlphaVantageResponse }) =>
+      .get<AlphaVantageResponse>(url(match[2].toUpperCase()))
+      .then((res) =>
         bot.sendMessage(msg.chat.id, makeString(res.data["Global Quote"]))
       )
       .catch((err) => console.error(err));

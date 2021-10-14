@@ -10,8 +10,8 @@ export const api = axios.create({
 
 export const getCurrMatchday = async (): Promise<number> => {
   try {
-    const data = await api.get("/competitions/SA/");
-    const competition: Competition = data.data;
+    const res = await api.get<Competition>("/competitions/SA/");
+    const competition = res.data;
     return competition.currentSeason.currentMatchday;
   } catch (error) {
     console.error(error);
