@@ -137,8 +137,11 @@ const sendGif = (
   if (!response.data.data || response.data.data.length === 0) {
     bot.sendMessage(msg.chat.id, "No gif found.");
   } else {
-    const item = randomChoice(response.data.data as Gif[]);
-    bot.sendVideo(msg.chat.id, item.images.original.mp4);
+    const item = randomChoice(response.data.data);
+    bot.sendVideo(
+      msg.chat.id,
+      item.images.original.mp4 || item.images.original.url
+    );
   }
 };
 
