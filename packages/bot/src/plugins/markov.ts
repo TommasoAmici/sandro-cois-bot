@@ -1,5 +1,5 @@
 import * as fs from "fs";
-import * as TelegramBot from "node-telegram-bot-api";
+import TelegramBot from "node-telegram-bot-api";
 import { randomChoice } from "./utils/random";
 
 class Markov {

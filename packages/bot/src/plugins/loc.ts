@@ -1,5 +1,5 @@
 const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
-import * as TelegramBot from "node-telegram-bot-api";
+import TelegramBot from "node-telegram-bot-api";
 import cfg from "../config";
 
 const geocodingClient = mbxGeocoding({ accessToken: cfg.mapboxToken });

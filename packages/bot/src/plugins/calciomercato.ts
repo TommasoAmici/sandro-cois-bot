@@ -1,7 +1,7 @@
 import axios from "axios";
 import { decode } from "html-entities";
 import { parse } from "node-html-parser";
-import * as TelegramBot from "node-telegram-bot-api";
+import TelegramBot from "node-telegram-bot-api";
 import { randomChoice } from "./utils/random";
 
 const url =

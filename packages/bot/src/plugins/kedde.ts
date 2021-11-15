@@ -1,4 +1,4 @@
-import * as TelegramBot from "node-telegram-bot-api";
+import TelegramBot from "node-telegram-bot-api";
 
 const translationTable = [
   { find: /c(a|i|o)/gi, replace: "ghe" },

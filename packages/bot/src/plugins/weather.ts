@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as TelegramBot from "node-telegram-bot-api";
+import TelegramBot from "node-telegram-bot-api";
 import cfg from "../config";
 
 const kToC = (temp: number): string => (temp - 273.15).toFixed(1);

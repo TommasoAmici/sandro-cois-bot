@@ -1,4 +1,4 @@
-import * as TelegramBot from "node-telegram-bot-api";
+import TelegramBot from "node-telegram-bot-api";
 import client from "../../redisClient";
 import { prettyPrint } from "../utils/printStandings";
 

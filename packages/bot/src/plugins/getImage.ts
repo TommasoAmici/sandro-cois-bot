@@ -1,4 +1,4 @@
-import * as TelegramBot from "node-telegram-bot-api";
+import TelegramBot from "node-telegram-bot-api";
 import { randomChoice } from "./utils/random";
 
 var gis = require("g-i-s");

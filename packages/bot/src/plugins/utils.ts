@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import * as TelegramBot from "node-telegram-bot-api";
+import TelegramBot from "node-telegram-bot-api";
 import cfg from "../config";
 import { randomChoice } from "./utils/random";
 

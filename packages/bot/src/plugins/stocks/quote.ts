@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as TelegramBot from "node-telegram-bot-api";
+import TelegramBot from "node-telegram-bot-api";
 import config from "../../config";
 
 interface GlobalQuote {

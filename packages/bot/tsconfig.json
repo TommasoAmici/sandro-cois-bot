@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
     "outDir": "./built",
-    "allowJs": true,
-    "target": "es2015",
-    "moduleResolution": "node",
-    "lib": ["es2018"]
+    "allowJs": false,
+    "target": "ESNext",
+    "moduleResolution": "Node",
+    "lib": ["ESNext"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["./src/**/*"]
 }

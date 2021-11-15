@@ -1,4 +1,4 @@
-import * as TelegramBot from "node-telegram-bot-api";
+import TelegramBot from "node-telegram-bot-api";
 import { addQuote } from "./add";
 
 export default (bot: TelegramBot, addDate = false) =>

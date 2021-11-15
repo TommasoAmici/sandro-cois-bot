@@ -1,4 +1,4 @@
-import * as TelegramBot from "node-telegram-bot-api";
+import TelegramBot from "node-telegram-bot-api";
 import { Standings } from "./types";
 import { api, getCurrMatchday, teams } from "./utils";
 

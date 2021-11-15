@@ -1,5 +1,5 @@
 import { evaluate } from "mathjs";
-import * as TelegramBot from "node-telegram-bot-api";
+import TelegramBot from "node-telegram-bot-api";
 
 export default (bot: TelegramBot) =>
   (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
