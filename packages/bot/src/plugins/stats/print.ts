@@ -1,5 +1,6 @@
 import * as TelegramBot from "node-telegram-bot-api";
 import client from "../../redisClient";
+import { prettyPrint } from "../utils/printStandings";
 
 interface User {
   count: number;
@@ -17,24 +18,6 @@ export const getUsers = async (
     users.push({ name: user[0], count: +user[1] });
   }
   return users.filter((u) => u.count > 0);
-};
-
-export const prettyPrint = (users: User[]): string => {
-  let message = `STATS DELL'ERA SANDRO COIS\n\n`;
-  for (let u in users) {
-    let emojiMedal = "";
-    if (u === "0") {
-      emojiMedal = "🥇";
-    }
-    if (u === "1") {
-      emojiMedal = "🥈";
-    }
-    if (u === "2") {
-      emojiMedal = "🥉";
-    }
-    message += `${emojiMedal} ${users[u].name} - ${users[u].count}\n`;
-  }
-  return message;
 };
 
 export default (bot: TelegramBot) =>

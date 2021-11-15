@@ -1,5 +1,6 @@
 // plugins
 import gago from "./9gago";
+import amoreMerda from "./amoreMerda";
 import calc from "./calc";
 import calciomercato from "./calciomercato";
 import coronavirus from "./coronavirus";
@@ -70,4 +71,5 @@ export default {
   what,
   naziMods,
   osteria,
+  amoreMerda,
 };

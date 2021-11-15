@@ -27,6 +27,11 @@ bot.onText(
   /^[/!]covid(?:@\w+)? ([a-zA-Z -]+)/i,
   plugins.coronavirus.country(bot)
 );
+// AMORE-MERDA
+bot.onText(/^(.+) amore$/gi, plugins.amoreMerda.amore());
+bot.onText(/^[/!]amore$/gi, plugins.amoreMerda.summaryAmore(bot));
+bot.onText(/^(.+) merda$/gi, plugins.amoreMerda.merda());
+bot.onText(/^[/!]merda$/gi, plugins.amoreMerda.summaryMerda(bot));
 
 // GAGO
 bot.onText(/^[/!](\d+)gago/i, plugins.gago.numeric(bot));
