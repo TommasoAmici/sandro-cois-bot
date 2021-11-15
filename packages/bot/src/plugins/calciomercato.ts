@@ -2,7 +2,7 @@ import axios from "axios";
 import { decode } from "html-entities";
 import { parse } from "node-html-parser";
 import * as TelegramBot from "node-telegram-bot-api";
-import utils from "./utils";
+import { randomChoice } from "./utils/random";
 
 const url =
   "https://www.calciomercato.com/api/articles.html?limit=36&favourite_team=mercato&articleType=categoryNews";
@@ -11,7 +11,7 @@ const calcioMercato = (bot: TelegramBot, msg: TelegramBot.Message) =>
   axios
     .get<any>(url)
     .then((res) => {
-      const article = utils.randomChoice(
+      const article = randomChoice(
         (parse(res.data).childNodes as any[]).filter(
           (a: any) => a.tagName === "article"
         )
@@ -56,7 +56,7 @@ const gazzetta = (bot: TelegramBot, msg: TelegramBot.Message) =>
       const calcioArticles = res.data.response.docs.filter((d: Article) =>
         includesCalcio(d.section)
       ) as Article[];
-      const article = utils.randomChoice(calcioArticles);
+      const article = randomChoice(calcioArticles);
       const articleString = prepareString(article);
       bot.sendMessage(msg.chat.id, articleString, {
         parse_mode: "Markdown",
@@ -67,6 +67,6 @@ const gazzetta = (bot: TelegramBot, msg: TelegramBot.Message) =>
 const providers = [gazzetta, calcioMercato];
 
 export default (bot: TelegramBot) => (msg: TelegramBot.Message) => {
-  const provider = utils.randomChoice(providers);
+  const provider = randomChoice(providers);
   provider(bot, msg);
 };

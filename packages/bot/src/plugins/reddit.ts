@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as TelegramBot from "node-telegram-bot-api";
-import utils from "./utils";
+import { randomChoice, shuffle } from "./utils/random";
 
 interface IRedditPost {
   kind: "t3" | string;
@@ -185,9 +185,7 @@ export default (bot: TelegramBot) =>
       if (!response.data.data) {
         bot.sendMessage(msg.chat.id, "Nothing found.");
       } else {
-        const item = utils.randomChoice(
-          utils.shuffle(response.data.data.children)
-        );
+        const item = randomChoice(shuffle(response.data.data.children));
         // find correct api method
         if (
           item.data.domain === "gfycat.com" ||

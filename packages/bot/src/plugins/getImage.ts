@@ -1,5 +1,5 @@
 import * as TelegramBot from "node-telegram-bot-api";
-import utils from "./utils";
+import { randomChoice } from "./utils/random";
 
 var gis = require("g-i-s");
 
@@ -15,7 +15,7 @@ export const getImage = async (
       if (!results || results.length === 0) {
         bot.sendMessage(msg.chat.id, "No photo found.");
       } else {
-        const item = utils.randomChoice(results as ImageItem[]);
+        const item = randomChoice(results as ImageItem[]);
         bot.sendPhoto(msg.chat.id, item.url);
       }
     }

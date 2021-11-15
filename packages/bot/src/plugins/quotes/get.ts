@@ -1,7 +1,7 @@
 import * as TelegramBot from "node-telegram-bot-api";
 import * as utf8 from "utf8";
 import client from "../../redisClient";
-import utils from "../utils";
+import { randomChoice } from "../utils/random";
 import random from "./random";
 
 export interface IQuote {
@@ -60,7 +60,7 @@ export default (bot: TelegramBot) =>
       if (quotes.length === 0) {
         bot.sendMessage(msg.chat.id, "No quote found :(");
       }
-      const quote = utils.randomChoice(quotes);
+      const quote = randomChoice(quotes);
       bot.sendMessage(msg.chat.id, formatQuote(quote));
     }
   };

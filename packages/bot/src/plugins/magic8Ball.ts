@@ -1,5 +1,5 @@
-import utils from "./utils";
 import * as TelegramBot from "node-telegram-bot-api";
+import { randomChoice } from "./utils/random";
 
 const choices = [
   "Per quanto posso vedere, sì",
@@ -26,5 +26,5 @@ const choices = [
 
 export default (bot: TelegramBot) =>
   (msg: TelegramBot.Message): void => {
-    bot.sendMessage(msg.chat.id, utils.randomChoice(choices));
+    bot.sendMessage(msg.chat.id, randomChoice(choices));
   };

@@ -1,6 +1,6 @@
 import * as fs from "fs";
-import utils from "./utils";
 import * as TelegramBot from "node-telegram-bot-api";
+import { randomChoice } from "./utils/random";
 
 class Markov {
   path: string;
@@ -110,7 +110,7 @@ class Markov {
   }
 
   get randomKey(): string {
-    return utils.randomChoice(Object.keys(this.corpus));
+    return randomChoice(Object.keys(this.corpus));
   }
 
   makeRandomChain(): string {

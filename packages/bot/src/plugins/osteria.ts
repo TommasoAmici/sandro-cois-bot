@@ -1,5 +1,5 @@
 import * as TelegramBot from "node-telegram-bot-api";
-import utils from "./utils";
+import { randomChoice } from "./utils/random";
 
 const songs = {
   0: `Osteria numero zero
@@ -249,7 +249,7 @@ const osterieList =
 const randomOsteria =
   (bot: TelegramBot) =>
   (msg: TelegramBot.Message): void => {
-    const randomKey = utils.randomChoice(Object.keys(songs));
+    const randomKey = randomChoice(Object.keys(songs));
     bot.sendMessage(
       msg.chat.id,
       `${songs[randomKey]}\nDammela a me biondina\nDammela a me bionda`

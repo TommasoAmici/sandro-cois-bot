@@ -1,5 +1,5 @@
-import utils from "./utils";
 import * as TelegramBot from "node-telegram-bot-api";
+import { randInt } from "./utils/random";
 
 export default (bot: TelegramBot) =>
   (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
@@ -18,7 +18,7 @@ export default (bot: TelegramBot) =>
     let total = 0;
     let throws = [];
     for (let i = 0; i < count; i++) {
-      let val = utils.randInt(1, sides);
+      let val = randInt(1, sides);
       total += val;
       throws.push(val);
     }

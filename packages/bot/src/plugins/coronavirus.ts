@@ -1,5 +1,5 @@
 import * as TelegramBot from "node-telegram-bot-api";
-import utils from "./utils";
+import { randomChoice } from "./utils/random";
 
 const covid = require("novelcovid");
 
@@ -31,7 +31,7 @@ const choices = [
 const gago = (k: number): string => {
   let elements = [];
   for (let i = 0; i < k; i++) {
-    elements.push(utils.randomChoice(choices));
+    elements.push(randomChoice(choices));
   }
   return elements.join("");
 };

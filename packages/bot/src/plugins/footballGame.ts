@@ -3,7 +3,8 @@ import { remove as removeDiacritics } from "diacritics";
 import * as TelegramBot from "node-telegram-bot-api";
 import * as utf8 from "utf8";
 import client from "../redisClient";
-import { getUsers, prettyPrint } from "./stats/print";
+import { getUsers } from "./stats/print";
+import { prettyPrint } from "./utils/printStandings";
 
 const Fuse = require("fuse.js");
 //   {
