@@ -3,12 +3,8 @@ import TelegramBot from "node-telegram-bot-api";
 import client from "../redisClient";
 import { prettyPrint } from "./utils/printStandings";
 
-const init = (keySuffix: string) => {
-  return () => (msg: TelegramBot.Message, match: RegExpMatchArray) => {
-    const key = `chat:${msg.chat.id}:${keySuffix}`;
-    const message = removeDiacritics(match[1]).toLowerCase();
-    client.hincrby(key, message, 1);
-  };
+export const cleanKey = (word: string): string => {
+  return word.toLowerCase().trim().replace("@", "");
 };
 
 /**
@@ -16,14 +12,46 @@ const init = (keySuffix: string) => {
  * @param bot
  * @returns void
  */
-export const amore = init("amore");
+export const amore =
+  () => (msg: TelegramBot.Message, match: RegExpMatchArray) => {
+    if (match[1] === "/") return;
+    const key = `chat:${msg.chat.id}:amore`;
+    const message = cleanKey(removeDiacritics(match[1]));
+    client.hincrby(key, message, 1);
+  };
+
+export const recursivelyRemoveMerda = (word: string): string => {
+  const replaced = word.replace("mmerda", "merda");
+  if (replaced === word) {
+    return word.replace("merda", " merda");
+  }
+  return recursivelyRemoveMerda(replaced);
+};
+
+export const cleanMerda = (word: string): string => {
+  const sanitized = recursivelyRemoveMerda(removeDiacritics(word));
+  const match = /^(.+)\s*merda$/gi.exec(sanitized);
+  return cleanKey(match[1]);
+};
 
 /**
  * Records a user's expression of displeasure
  * @param bot
  * @returns void
  */
-export const merda = init("merda");
+export const merda =
+  () => (msg: TelegramBot.Message, match: RegExpMatchArray) => {
+    if (match[1] === "/") return;
+    const key = `chat:${msg.chat.id}:merda`;
+    if (match[1].toLowerCase().includes("mmerda")) {
+      const message = match[0].toLowerCase();
+      const clean = cleanMerda(message);
+      client.hincrby(key, clean, 1);
+    } else {
+      const message = cleanKey(removeDiacritics(match[1]));
+      client.hincrby(key, message.trim(), 1);
+    }
+  };
 
 /**
  * Prints a summary of the pleasures/displeasures recorded

@@ -28,9 +28,9 @@ bot.onText(
   plugins.coronavirus.country(bot)
 );
 // AMORE-MERDA
-bot.onText(/^(.+) amore$/gi, plugins.amoreMerda.amore());
+bot.onText(/^(.+)\s*amore$/gi, plugins.amoreMerda.amore());
 bot.onText(/^[/!]amore$/gi, plugins.amoreMerda.summaryAmore(bot));
-bot.onText(/^(.+)( m)?merda$/gi, plugins.amoreMerda.merda());
+bot.onText(/^(.+)\s*merda$/gi, plugins.amoreMerda.merda());
 bot.onText(/^[/!]merda$/gi, plugins.amoreMerda.summaryMerda(bot));
 
 // GAGO
