@@ -1398,6 +1398,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:16.11.7"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:16.11.8", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-16.11.8-0997b2bf26-c60418498f.zip/node_modules/@types/node/",
+          "packageDependencies": [
+            ["@types/node", "npm:16.11.8"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["@types/node-telegram-bot-api", [
@@ -2008,7 +2015,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/html-entities", "npm:1.3.4"],
             ["@types/ioredis", "npm:4.28.1"],
             ["@types/jest", "npm:27.0.3"],
-            ["@types/node", "npm:16.11.7"],
+            ["@types/node", "npm:16.11.8"],
             ["@types/node-telegram-bot-api", "npm:0.53.2"],
             ["@types/utf8", "npm:3.0.0"],
             ["@vercel/ncc", "npm:0.32.0"],
@@ -5183,7 +5190,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["migrations", "workspace:packages/migrations"],
             ["@types/ioredis", "npm:4.28.1"],
-            ["@types/node", "npm:16.11.7"],
+            ["@types/node", "npm:16.11.8"],
             ["@vercel/ncc", "npm:0.32.0"],
             ["ioredis", "npm:4.28.0"],
             ["typescript", "patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=32657b"]
