@@ -125,6 +125,8 @@ bot.onText(/^[/!]unquote(?:@\w+)?$/i, plugins.quotes.remove(bot));
 bot.onText(/^[/!]quote(?:@\w+)? (.+)/i, plugins.quotes.get(bot));
 bot.onText(/^[/!]quote(?:@\w+)?$/i, plugins.quotes.random(bot));
 
+bot.onText(/^[/!]ieri(?:@\w+)?$/i, plugins.footballData.matches(bot, -1));
+bot.onText(/^[/!]oggi(?:@\w+)?$/i, plugins.footballData.matches(bot, 0));
 bot.onText(/^[/!]domani(?:@\w+)?$/i, plugins.footballData.matches(bot, 1));
 bot.onText(/^[/!]classifica(?:@\w+)?$/i, plugins.footballData.standings(bot));
 bot.onText(/^[/!]spongebob(?:@\w+)? (.+)/i, plugins.spongebob(bot));

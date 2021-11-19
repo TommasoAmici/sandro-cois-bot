@@ -1,6 +1,6 @@
 import TelegramBot from "node-telegram-bot-api";
 import { Standings } from "./types";
-import { api, getCurrMatchday, teams } from "./utils";
+import { api, getCurrMatchday, overrideTeamNames } from "./utils";
 
 const makeMatchesString = async (currentMatchday: number): Promise<string> => {
   const params = { matchday: currentMatchday };
@@ -10,10 +10,9 @@ const makeMatchesString = async (currentMatchday: number): Promise<string> => {
   const standings = data.data;
   const standingsStrings = standings.standings[0].table.map(
     (t) =>
-      `${String(t.position).padStart(2, " ")} ${teams[t.team.id].padEnd(
-        15,
-        " "
-      )} ${String(t.points).padStart(2, " ")}`
+      `${String(t.position).padStart(2, " ")} ${(
+        overrideTeamNames[t.team.id] ?? t.team.name
+      ).padEnd(15, " ")} ${String(t.points).padStart(2, " ")}`
   );
   return `*Giornata ${currentMatchday}*\n\n\`${standingsStrings.join("\n")}\``;
 };

@@ -19,7 +19,7 @@ export const getCurrMatchday = async (): Promise<number> => {
   }
 };
 
-export const teams = {
+export const overrideTeamNames = {
   108: "Inter",
   586: "Torino",
   1107: "SPAL",
@@ -40,4 +40,17 @@ export const teams = {
   107: "Genoa",
   110: "Lazio",
   98: "Milan",
+  455: "Salernitana",
+  450: "Verona",
+  488: "Spezia",
+  454: "Venezia",
+};
+
+export const refereeRoles = {
+  ASSISTANT_REFEREE_N1: "Assistente",
+  ASSISTANT_REFEREE_N2: "Assistente",
+  FOURTH_OFFICIAL: "Quarto uomo",
+  REFEREE: "Arbitro",
+  VIDEO_ASSISANT_REFEREE_N1: "AVAR",
+  VIDEO_ASSISANT_REFEREE_N2: "AVAR",
 };

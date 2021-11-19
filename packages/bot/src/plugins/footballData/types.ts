@@ -24,10 +24,20 @@ export interface Match {
   readonly referees: Referee[];
 }
 
+type RefereeRole =
+  | "ASSISTANT_REFEREE_N1"
+  | "ASSISTANT_REFEREE_N2"
+  | "FOURTH_OFFICIAL"
+  | "REFEREE"
+  | "VIDEO_ASSISANT_REFEREE_N1"
+  | "VIDEO_ASSISANT_REFEREE_N2"
+  | string;
+
 export interface Referee {
   readonly id: number;
   readonly name: string;
   readonly nationality?: string;
+  readonly role: RefereeRole;
 }
 
 export interface Substitution {
