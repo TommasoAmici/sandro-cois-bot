@@ -1,4 +1,5 @@
 import TelegramBot from "node-telegram-bot-api";
+import { randomChoice } from "../utils/random";
 import { Match, Matches, Team } from "./types";
 import { api, getCurrMatchday, overrideTeamNames, refereeRoles } from "./utils";
 
@@ -8,6 +9,8 @@ const longestTeamName = (matches: Match[], key: "homeTeam" | "awayTeam") =>
   Math.max(...matches.map((m) => getTeamName(m[key]).length));
 
 const formatTeam = (t: Team, pad = 11) => getTeamName(t).padEnd(pad, " ");
+
+const randomRefereeEmoji = () => randomChoice(["🧛‍♂️", "👮‍♂️", "👨‍🦯"]);
 
 const makeMatchesString = async (currentMatchday: number): Promise<string> => {
   const params = { matchday: currentMatchday };
@@ -22,12 +25,14 @@ const makeMatchesString = async (currentMatchday: number): Promise<string> => {
     const homeTeam = formatTeam(m.homeTeam, padHomeTeam);
     const awayTeam = formatTeam(m.awayTeam, padAwayTeam);
     const homeTeamScore =
-      m.score.fullTime.homeTeam === null ? 0 : m.score.fullTime.homeTeam;
+      m.score.fullTime.homeTeam === null ? " " : m.score.fullTime.homeTeam;
     const awayTeamScore =
-      m.score.fullTime.awayTeam === null ? 0 : m.score.fullTime.awayTeam;
+      m.score.fullTime.awayTeam === null ? " " : m.score.fullTime.awayTeam;
     const match = `${homeTeam} ${homeTeamScore}-${awayTeamScore} ${awayTeam}`;
     const date = new Date(m.utcDate).toLocaleString("it-IT");
-    return `\`${match} ${date}\`${refs !== "" ? "\n" : ""}${refs}\n`;
+    return `\`${match} ${date}\`${
+      refs !== "" ? `\n${randomRefereeEmoji()} Arbitri: ${refs}` : ""
+    }\n`;
   });
   return `*Giornata ${currentMatchday}*\n\n${matchesStrings.join("\n")}`;
 };
