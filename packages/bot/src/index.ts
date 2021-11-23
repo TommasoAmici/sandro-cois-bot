@@ -1,6 +1,11 @@
 import TelegramBot from "node-telegram-bot-api";
 import cfg from "./config";
 import plugins from "./plugins";
+import {
+  countBestemmia,
+  printBestemmiatori,
+  printUserBestemmie,
+} from "./plugins/bestemmie";
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(cfg.telegramToken, { polling: true });
@@ -124,6 +129,14 @@ bot.onText(
 bot.onText(/^[/!]unquote(?:@\w+)?$/i, plugins.quotes.remove(bot));
 bot.onText(/^[/!]quote(?:@\w+)? (.+)/i, plugins.quotes.get(bot));
 bot.onText(/^[/!]quote(?:@\w+)?$/i, plugins.quotes.random(bot));
+
+// bestemmie
+bot.onText(
+  /(porco |porca )?(dio|gesù|cristo|madonna|padre pio|san(ta |to |t')?)(.+)$/i,
+  countBestemmia()
+);
+bot.onText(/^[/!]le_mie_bestemmie$/i, printUserBestemmie(bot));
+bot.onText(/^[/!]bestemmiatori$/i, printBestemmiatori(bot));
 
 bot.onText(/^[/!]ieri(?:@\w+)?$/i, plugins.footballData.matches(bot, -1));
 bot.onText(/^[/!]oggi(?:@\w+)?$/i, plugins.footballData.matches(bot, 0));

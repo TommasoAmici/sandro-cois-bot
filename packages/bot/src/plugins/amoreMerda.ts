@@ -2,6 +2,7 @@ import { remove as removeDiacritics } from "diacritics";
 import TelegramBot from "node-telegram-bot-api";
 import client from "../redisClient";
 import { prettyPrint } from "./utils/printStandings";
+import { sortRecord } from "./utils/sortRecord";
 
 export const cleanKey = (word: string): string => {
   return word.toLowerCase().trim().replace("@", "");
@@ -67,11 +68,7 @@ const summary = (keySuffix: string, header: string) => {
           console.error(err);
           bot.sendMessage(msg.chat.id, "Something went wrong :(");
         } else {
-          const items = Object.keys(record).map((key) => ({
-            name: key,
-            count: parseInt(record[key]),
-          }));
-          const itemsSorted = items.sort((a, b) => b.count - a.count);
+          const itemsSorted = sortRecord(record);
           const message = prettyPrint(itemsSorted, header);
           bot.sendMessage(msg.chat.id, message);
         }
