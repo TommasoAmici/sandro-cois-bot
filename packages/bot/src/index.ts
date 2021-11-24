@@ -65,8 +65,14 @@ bot.onText(
   plugins.unset(bot, media.stickers)
 );
 bot.onText(/^(?!.*http)(.+)\.stk$/i, plugins.get(bot, media.stickers));
-const regexStk = new RegExp(/([A-Za-z\u00C0-\u017F\0-9\_]+)\.(stk)/i);
-bot.on("sticker", plugins.setValue(bot, regexStk, media.stickers));
+bot.on(
+  "sticker",
+  plugins.setValue(
+    bot,
+    /([A-Za-z\u00C0-\u017F\0-9\_]+)\.(stk)/i,
+    media.stickers
+  )
+);
 
 // IMAGES
 bot.onText(/^[/!]i(?:@\w+)? (.+)/i, plugins.getImage(bot));
@@ -84,10 +90,14 @@ bot.onText(
   /^[/!]unsetpic(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
   plugins.unset(bot, media.photos)
 );
-const regexPic = new RegExp(
-  /([A-Za-z\u00C0-\u017F\0-9\_]+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)/i
+bot.on(
+  "photo",
+  plugins.setValue(
+    bot,
+    /([A-Za-z\u00C0-\u017F\0-9\_]+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)/i,
+    media.photos
+  )
 );
-bot.on("photo", plugins.setValue(bot, regexPic, media.photos));
 
 // GIFS
 bot.onText(
@@ -104,11 +114,22 @@ bot.onText(
   plugins.get(bot, media.gifs)
 );
 
-const regexGif = new RegExp(
-  /([A-Za-z\u00C0-\u017F\0-9\_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i
+bot.on(
+  "document",
+  plugins.setValue(
+    bot,
+    /([A-Za-z\u00C0-\u017F\0-9\_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i,
+    media.gifs
+  )
 );
-bot.on("document", plugins.setValue(bot, regexGif, media.gifs));
-bot.on("video", plugins.setValue(bot, regexGif, media.gifs));
+bot.on(
+  "video",
+  plugins.setValue(
+    bot,
+    /([A-Za-z\u00C0-\u017F\0-9\_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i,
+    media.gifs
+  )
+);
 
 // TEXT
 bot.onText(/^[/!]setlist(?:@\w+)?$/i, plugins.list(bot, media.text));
