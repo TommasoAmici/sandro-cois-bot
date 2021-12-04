@@ -48,7 +48,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["husky", "npm:7.0.4"],
             ["lint-staged", "npm:11.2.6"],
             ["pinst", "npm:2.1.6"],
-            ["prettier", "npm:2.5.0"],
+            ["prettier", "npm:2.5.1"],
             ["typescript", "patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=32657b"]
           ],
           "linkType": "SOFT",
@@ -5938,10 +5938,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["prettier", [
-        ["npm:2.5.0", {
-          "packageLocation": "./.yarn/cache/prettier-npm-2.5.0-f1121aaab1-aad1b35b73.zip/node_modules/prettier/",
+        ["npm:2.5.1", {
+          "packageLocation": "./.yarn/cache/prettier-npm-2.5.1-58b195b509-21b9408476.zip/node_modules/prettier/",
           "packageDependencies": [
-            ["prettier", "npm:2.5.0"]
+            ["prettier", "npm:2.5.1"]
           ],
           "linkType": "HARD",
         }]
@@ -6319,7 +6319,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["husky", "npm:7.0.4"],
             ["lint-staged", "npm:11.2.6"],
             ["pinst", "npm:2.1.6"],
-            ["prettier", "npm:2.5.0"],
+            ["prettier", "npm:2.5.1"],
             ["typescript", "patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=32657b"]
           ],
           "linkType": "SOFT",
