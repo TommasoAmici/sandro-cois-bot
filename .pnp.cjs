@@ -1344,10 +1344,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/ioredis", [
-        ["npm:4.28.3", {
-          "packageLocation": "./.yarn/cache/@types-ioredis-npm-4.28.3-8575a66507-aa3080dafd.zip/node_modules/@types/ioredis/",
+        ["npm:4.28.4", {
+          "packageLocation": "./.yarn/cache/@types-ioredis-npm-4.28.4-f845881285-a411adec37.zip/node_modules/@types/ioredis/",
           "packageDependencies": [
-            ["@types/ioredis", "npm:4.28.3"],
+            ["@types/ioredis", "npm:4.28.4"],
             ["@types/node", "npm:16.11.7"]
           ],
           "linkType": "HARD",
@@ -2025,7 +2025,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mapbox/mapbox-sdk", "npm:0.13.2"],
             ["@types/diacritics", "npm:1.3.1"],
             ["@types/html-entities", "npm:1.3.4"],
-            ["@types/ioredis", "npm:4.28.3"],
+            ["@types/ioredis", "npm:4.28.4"],
             ["@types/jest", "npm:27.0.3"],
             ["@types/node", "npm:16.11.12"],
             ["@types/node-telegram-bot-api", "npm:0.53.2"],
@@ -5240,7 +5240,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/migrations/",
           "packageDependencies": [
             ["migrations", "workspace:packages/migrations"],
-            ["@types/ioredis", "npm:4.28.3"],
+            ["@types/ioredis", "npm:4.28.4"],
             ["@types/node", "npm:16.11.12"],
             ["@vercel/ncc", "npm:0.33.0"],
             ["ioredis", "npm:4.28.2"],
