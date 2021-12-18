@@ -1518,10 +1518,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@vercel/ncc", [
-        ["npm:0.33.0", {
-          "packageLocation": "./.yarn/cache/@vercel-ncc-npm-0.33.0-a88d16adbd-effe4c3b3a.zip/node_modules/@vercel/ncc/",
+        ["npm:0.33.1", {
+          "packageLocation": "./.yarn/cache/@vercel-ncc-npm-0.33.1-63d0761dde-62af9ce257.zip/node_modules/@vercel/ncc/",
           "packageDependencies": [
-            ["@vercel/ncc", "npm:0.33.0"],
+            ["@vercel/ncc", "npm:0.33.1"],
             ["node-gyp", "npm:8.1.0"]
           ],
           "linkType": "HARD",
@@ -2030,7 +2030,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:16.11.14"],
             ["@types/node-telegram-bot-api", "npm:0.53.2"],
             ["@types/utf8", "npm:3.0.0"],
-            ["@vercel/ncc", "npm:0.33.0"],
+            ["@vercel/ncc", "npm:0.33.1"],
             ["@vitalets/google-translate-api", "npm:7.0.0"],
             ["axios", "npm:0.24.0"],
             ["diacritics", "npm:1.3.0"],
@@ -5242,7 +5242,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["migrations", "workspace:packages/migrations"],
             ["@types/ioredis", "npm:4.28.5"],
             ["@types/node", "npm:16.11.14"],
-            ["@vercel/ncc", "npm:0.33.0"],
+            ["@vercel/ncc", "npm:0.33.1"],
             ["ioredis", "npm:4.28.2"],
             ["typescript", "patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=32657b"]
           ],
