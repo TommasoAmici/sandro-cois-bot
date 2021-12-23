@@ -2034,7 +2034,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vitalets/google-translate-api", "npm:7.0.0"],
             ["axios", "npm:0.24.0"],
             ["diacritics", "npm:1.3.0"],
-            ["fuse.js", "npm:6.5.0"],
+            ["fuse.js", "npm:6.5.2"],
             ["g-i-s", "npm:2.1.6"],
             ["html-entities", "npm:2.3.2"],
             ["ioredis", "npm:4.28.2"],
@@ -3424,10 +3424,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["fuse.js", [
-        ["npm:6.5.0", {
-          "packageLocation": "./.yarn/cache/fuse.js-npm-6.5.0-cfe0d3a502-4d3d5c96b5.zip/node_modules/fuse.js/",
+        ["npm:6.5.2", {
+          "packageLocation": "./.yarn/cache/fuse.js-npm-6.5.2-e6701c6cf1-e39255182d.zip/node_modules/fuse.js/",
           "packageDependencies": [
-            ["fuse.js", "npm:6.5.0"]
+            ["fuse.js", "npm:6.5.2"]
           ],
           "linkType": "HARD",
         }]
