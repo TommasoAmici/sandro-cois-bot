@@ -999,10 +999,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/utf8@npm:3.0.0":
-  version: 3.0.0
-  resolution: "@types/utf8@npm:3.0.0"
-  checksum: f016d80bc4e0146510681c1137e7fcc84dff2d353f31e73349d18c6c6abf1b9ca3476fbbcfc8274b57fd3670539ab6c76b0d4541ebb199db9d70e874f52c8fd8
+"@types/utf8@npm:3.0.1":
+  version: 3.0.1
+  resolution: "@types/utf8@npm:3.0.1"
+  checksum: d6f0de86a1bb025e876d896fc0c1120aea2989986c862c979968558ee4c668c0c785e574bff59348afc060c8860d621bbe8c6d81c4a71782fc5044de9025aa6b
   languageName: node
   linkType: hard
 
@@ -1430,7 +1430,7 @@ __metadata:
     "@types/jest": 27.0.3
     "@types/node": 16.11.17
     "@types/node-telegram-bot-api": 0.53.3
-    "@types/utf8": 3.0.0
+    "@types/utf8": 3.0.1
     "@vercel/ncc": 0.33.1
     "@vitalets/google-translate-api": 7.0.0
     axios: 0.24.0

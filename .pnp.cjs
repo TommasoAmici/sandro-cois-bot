@@ -1490,10 +1490,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/utf8", [
-        ["npm:3.0.0", {
-          "packageLocation": "./.yarn/cache/@types-utf8-npm-3.0.0-e4107e61f5-f016d80bc4.zip/node_modules/@types/utf8/",
+        ["npm:3.0.1", {
+          "packageLocation": "./.yarn/cache/@types-utf8-npm-3.0.1-a20c57db1a-d6f0de86a1.zip/node_modules/@types/utf8/",
           "packageDependencies": [
-            ["@types/utf8", "npm:3.0.0"]
+            ["@types/utf8", "npm:3.0.1"]
           ],
           "linkType": "HARD",
         }]
@@ -2029,7 +2029,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:27.0.3"],
             ["@types/node", "npm:16.11.17"],
             ["@types/node-telegram-bot-api", "npm:0.53.3"],
-            ["@types/utf8", "npm:3.0.0"],
+            ["@types/utf8", "npm:3.0.1"],
             ["@vercel/ncc", "npm:0.33.1"],
             ["@vitalets/google-translate-api", "npm:7.0.0"],
             ["axios", "npm:0.24.0"],
