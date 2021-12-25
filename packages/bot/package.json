@@ -10,7 +10,7 @@
     "html-entities": "2.3.2",
     "ioredis": "4.28.2",
     "mathjs": "10.0.1",
-    "node-html-parser": "5.1.0",
+    "node-html-parser": "5.2.0",
     "node-telegram-bot-api": "0.56.0",
     "novelcovid": "3.0.2",
     "pokedex": "1.1.0",
