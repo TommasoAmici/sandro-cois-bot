@@ -373,12 +373,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.16.0":
-  version: 7.16.0
-  resolution: "@babel/runtime@npm:7.16.0"
+"@babel/runtime@npm:^7.16.5":
+  version: 7.16.5
+  resolution: "@babel/runtime@npm:7.16.5"
   dependencies:
     regenerator-runtime: ^0.13.4
-  checksum: bfbca3ec52c94de262a3932473bceeead1a088b50194108fa1ff6eda447333f0f7d43fa4e9c5937c6e5d45bf838da8480905d0a227589b257c51f954ea060bac
+  checksum: b96e67280efe581c6147b4fe984dfe08a8fbea048934a092f3cbf4dcf61725f6b221cb0c879b6e6e98671f83a104c9e8cfbd24c683e5ebcc886a731aa8984ad0
   languageName: node
   linkType: hard
 
@@ -1440,7 +1440,7 @@ __metadata:
     html-entities: 2.3.2
     ioredis: 4.28.2
     jest: 27.4.5
-    mathjs: 10.0.1
+    mathjs: 10.0.2
     node-html-parser: 5.2.0
     node-telegram-bot-api: 0.56.0
     novelcovid: 3.0.2
@@ -2576,10 +2576,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fraction.js@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "fraction.js@npm:4.1.1"
-  checksum: e5a1f81d73e32aabf4fbd6581a7b3dfabd9a449ceb97c7e71ed2931dd0607095622341100d7819741eb9b435eb4e0d4a040a69e411dc943fa9b3a3872f3a2e0f
+"fraction.js@npm:^4.1.2":
+  version: 4.1.2
+  resolution: "fraction.js@npm:4.1.2"
+  checksum: a67eff2b599cb6546b77ce9c913bd0cccd646e1a525c793ba4e0bf5a399fc403f379227fca83423a6ea79d01e35c2f2b0f141ffa1d09e41377041268a53fb150
   languageName: node
   linkType: hard
 
@@ -4189,22 +4189,22 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"mathjs@npm:10.0.1":
-  version: 10.0.1
-  resolution: "mathjs@npm:10.0.1"
+"mathjs@npm:10.0.2":
+  version: 10.0.2
+  resolution: "mathjs@npm:10.0.2"
   dependencies:
-    "@babel/runtime": ^7.16.0
+    "@babel/runtime": ^7.16.5
     complex.js: ^2.0.15
     decimal.js: ^10.3.1
     escape-latex: ^1.2.0
-    fraction.js: ^4.1.1
+    fraction.js: ^4.1.2
     javascript-natural-sort: ^0.7.1
     seedrandom: ^3.0.5
     tiny-emitter: ^2.1.0
     typed-function: ^2.0.0
   bin:
     mathjs: bin/cli.js
-  checksum: 0665088f28e420d4025e1f8c7413b3735184816496dd57487c7121eb788a056186a960bb78ec282eda59e860a214af70ff5e54783ab0600acdcd35ab841b1a42
+  checksum: 1ea053208b015999bcf1367a8d97fde6c34facd5b42809e4cb45c50660381e081a4aa5cc5790fc141ea1afd3862e1d5f931bdbcb656530eab71c80739bc71f0a
   languageName: node
   linkType: hard
 
