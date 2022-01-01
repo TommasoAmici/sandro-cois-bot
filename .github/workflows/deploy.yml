@@ -25,7 +25,7 @@ jobs:
         run: yarn workspace bot build
 
       - name: rsync deployments
-        uses: burnett01/rsync-deployments@5.1
+        uses: burnett01/rsync-deployments@5.2
         with:
           switches: -avzr --delete --exclude=".git"
           path: packages/bot/dist/index.js
