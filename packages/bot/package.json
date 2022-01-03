@@ -22,7 +22,7 @@
     "@types/ioredis": "4.28.6",
     "@types/jest": "27.4.0",
     "@types/node": "16.11.18",
-    "@types/node-telegram-bot-api": "0.53.3",
+    "@types/node-telegram-bot-api": "0.53.4",
     "@types/utf8": "3.0.1",
     "@vercel/ncc": "0.33.1",
     "jest": "27.4.5",
