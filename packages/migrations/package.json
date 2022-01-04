@@ -10,7 +10,7 @@
     "typescript": "4.4.4"
   },
   "devDependencies": {
-    "@types/ioredis": "4.28.6",
+    "@types/ioredis": "4.28.7",
     "@types/node": "16.11.18",
     "@vercel/ncc": "0.33.1"
   }
