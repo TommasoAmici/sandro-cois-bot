@@ -1155,13 +1155,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node-telegram-bot-api@npm:0.53.5":
-  version: 0.53.5
-  resolution: "@types/node-telegram-bot-api@npm:0.53.5"
+"@types/node-telegram-bot-api@npm:0.53.6":
+  version: 0.53.6
+  resolution: "@types/node-telegram-bot-api@npm:0.53.6"
   dependencies:
     "@types/node": "*"
     "@types/request": "*"
-  checksum: cc550e3819c63a38197f24957daf127f200f6600fa543626819bf97c97aed87824a78271a013cca2f40f3d6112bcbda95198e653b60e1023723ba8c48992b02d
+  checksum: 47a3edb7b118f6f84da92b8c160046a0a20fb25142854b564138b5f62c1b342e0973000f448490ea0b5e78124cf29509fa57239cf90b89a3b683e3406e0fc270
   languageName: node
   linkType: hard
 
@@ -1658,7 +1658,7 @@ __metadata:
     "@types/ioredis": 4.28.7
     "@types/jest": 27.4.0
     "@types/node": 16.11.19
-    "@types/node-telegram-bot-api": 0.53.5
+    "@types/node-telegram-bot-api": 0.53.6
     "@types/utf8": 3.0.1
     "@vercel/ncc": 0.33.1
     "@vitalets/google-translate-api": 7.0.0
