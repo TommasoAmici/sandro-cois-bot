@@ -1172,10 +1172,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:16.11.19":
-  version: 16.11.19
-  resolution: "@types/node@npm:16.11.19"
-  checksum: a9ba0cd1e61c8ad50f3fc9c2b37b795bf0286dacb39dcc985da90328abf0c5151dffe9932d20bc9a6a52c3ce7bfc1e5a7c2dc1416480fb84f1c2d70e25caeba0
+"@types/node@npm:16.11.20":
+  version: 16.11.20
+  resolution: "@types/node@npm:16.11.20"
+  checksum: 3ee33be142e58687ae3a158e4d542efb1e335441d81af46e115875d38c06961826fc4cca407add4540b8fd3b35eae087167b5ec792711c26aecd69debff02f56
   languageName: node
   linkType: hard
 
@@ -1657,7 +1657,7 @@ __metadata:
     "@types/html-entities": 1.3.4
     "@types/ioredis": 4.28.7
     "@types/jest": 27.4.0
-    "@types/node": 16.11.19
+    "@types/node": 16.11.20
     "@types/node-telegram-bot-api": 0.53.6
     "@types/utf8": 3.0.1
     "@vercel/ncc": 0.33.1
@@ -4438,7 +4438,7 @@ fsevents@^2.3.2:
   resolution: "migrations@workspace:packages/migrations"
   dependencies:
     "@types/ioredis": 4.28.7
-    "@types/node": 16.11.19
+    "@types/node": 16.11.20
     "@vercel/ncc": 0.33.1
     ioredis: 4.28.3
     typescript: 4.4.4
