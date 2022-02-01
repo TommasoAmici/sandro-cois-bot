@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@types/ioredis": "4.28.7",
-    "@types/node": "16.11.21",
+    "@types/node": "16.11.22",
     "@vercel/ncc": "0.33.1"
   }
 }
