@@ -563,12 +563,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.16.5":
-  version: 7.16.5
-  resolution: "@babel/runtime@npm:7.16.5"
+"@babel/runtime@npm:^7.16.7":
+  version: 7.16.7
+  resolution: "@babel/runtime@npm:7.16.7"
   dependencies:
     regenerator-runtime: ^0.13.4
-  checksum: b96e67280efe581c6147b4fe984dfe08a8fbea048934a092f3cbf4dcf61725f6b221cb0c879b6e6e98671f83a104c9e8cfbd24c683e5ebcc886a731aa8984ad0
+  checksum: 47912f0aaacd1cab2e2552aaf3e6eaffbcaf2d5ac9b07a89a12ac0d42029cb92c070b0d16f825e4277c4a34677c54d8ffe85e1f7c6feb57de58f700eec67ce2f
   languageName: node
   linkType: hard
 
@@ -1669,7 +1669,7 @@ __metadata:
     html-entities: 2.3.2
     ioredis: 4.28.3
     jest: 27.4.7
-    mathjs: 10.1.0
+    mathjs: 10.1.1
     node-html-parser: 5.2.0
     node-telegram-bot-api: 0.56.0
     novelcovid: 3.0.2
@@ -4397,11 +4397,11 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"mathjs@npm:10.1.0":
-  version: 10.1.0
-  resolution: "mathjs@npm:10.1.0"
+"mathjs@npm:10.1.1":
+  version: 10.1.1
+  resolution: "mathjs@npm:10.1.1"
   dependencies:
-    "@babel/runtime": ^7.16.5
+    "@babel/runtime": ^7.16.7
     complex.js: ^2.0.15
     decimal.js: ^10.3.1
     escape-latex: ^1.2.0
@@ -4412,7 +4412,7 @@ fsevents@^2.3.2:
     typed-function: ^2.0.0
   bin:
     mathjs: bin/cli.js
-  checksum: 4a59ccf5ad1c9a536d71287c1f967086644baab83748c7151ad650e0e11fc0778ff132e4269f70c49921867903c020e35be2e9af2e839fd27363843468ec6861
+  checksum: 048544208a1e7054314a0ba83fcfd359dcead7875d58799b01f0d39d822fae95aed65d98c2c7b2dc0ca47c15ed2d3171bcae79036ab6b4e4d76ee6ca5b927b4d
   languageName: node
   linkType: hard
 
