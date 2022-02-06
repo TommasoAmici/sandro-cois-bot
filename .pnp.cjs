@@ -2261,7 +2261,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fuse.js", "npm:6.5.3"],
             ["g-i-s", "npm:2.1.6"],
             ["html-entities", "npm:2.3.2"],
-            ["ioredis", "npm:4.28.4"],
+            ["ioredis", "npm:4.28.5"],
             ["jest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:27.5.0"],
             ["mathjs", "npm:10.1.1"],
             ["node-html-parser", "npm:5.2.0"],
@@ -4114,10 +4114,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["ioredis", [
-        ["npm:4.28.4", {
-          "packageLocation": "./.yarn/cache/ioredis-npm-4.28.4-39d8de8cea-cedf494a12.zip/node_modules/ioredis/",
+        ["npm:4.28.5", {
+          "packageLocation": "./.yarn/cache/ioredis-npm-4.28.5-74671f2fa3-a8793c3324.zip/node_modules/ioredis/",
           "packageDependencies": [
-            ["ioredis", "npm:4.28.4"],
+            ["ioredis", "npm:4.28.5"],
             ["cluster-key-slot", "npm:1.1.0"],
             ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],
             ["denque", "npm:1.4.1"],
@@ -5453,7 +5453,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ioredis", "npm:4.28.7"],
             ["@types/node", "npm:16.11.22"],
             ["@vercel/ncc", "npm:0.33.1"],
-            ["ioredis", "npm:4.28.4"],
+            ["ioredis", "npm:4.28.5"],
             ["typescript", "patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=32657b"]
           ],
           "linkType": "SOFT",
