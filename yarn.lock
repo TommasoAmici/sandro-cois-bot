@@ -1262,13 +1262,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitalets/google-translate-api@npm:7.0.0":
-  version: 7.0.0
-  resolution: "@vitalets/google-translate-api@npm:7.0.0"
+"@vitalets/google-translate-api@npm:8.0.0":
+  version: 8.0.0
+  resolution: "@vitalets/google-translate-api@npm:8.0.0"
   dependencies:
     configstore: ^5.0.1
     got: ^9.6.0
-  checksum: 5504c438bc06991ea0cca53a9fdf59c480589548f315dfd69f34382496c64808c8c88196172c5791923c98ebe77a28301dea3728609205b89a1a21dfe633933d
+  checksum: 0b892d757b95061c66a95dac2e651dd5fe4ded0addf58450276118f468d7e118fd7bdcdf11750b880162860ad6f89847ad5650e3ece335dfed19e38b2565a794
   languageName: node
   linkType: hard
 
@@ -1661,7 +1661,7 @@ __metadata:
     "@types/node-telegram-bot-api": 0.56.0
     "@types/utf8": 3.0.1
     "@vercel/ncc": 0.33.3
-    "@vitalets/google-translate-api": 7.0.0
+    "@vitalets/google-translate-api": 8.0.0
     axios: 0.26.0
     diacritics: 1.3.0
     fuse.js: 6.5.3
