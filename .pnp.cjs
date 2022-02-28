@@ -1752,10 +1752,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@vitalets/google-translate-api", [
-        ["npm:7.0.0", {
-          "packageLocation": "./.yarn/cache/@vitalets-google-translate-api-npm-7.0.0-9cbd86c300-5504c438bc.zip/node_modules/@vitalets/google-translate-api/",
+        ["npm:8.0.0", {
+          "packageLocation": "./.yarn/cache/@vitalets-google-translate-api-npm-8.0.0-3cb3c12101-0b892d757b.zip/node_modules/@vitalets/google-translate-api/",
           "packageDependencies": [
-            ["@vitalets/google-translate-api", "npm:7.0.0"],
+            ["@vitalets/google-translate-api", "npm:8.0.0"],
             ["configstore", "npm:5.0.1"],
             ["got", "npm:9.6.0"]
           ],
@@ -2255,7 +2255,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node-telegram-bot-api", "npm:0.56.0"],
             ["@types/utf8", "npm:3.0.1"],
             ["@vercel/ncc", "npm:0.33.3"],
-            ["@vitalets/google-translate-api", "npm:7.0.0"],
+            ["@vitalets/google-translate-api", "npm:8.0.0"],
             ["axios", "npm:0.26.0"],
             ["diacritics", "npm:1.3.0"],
             ["fuse.js", "npm:6.5.3"],
