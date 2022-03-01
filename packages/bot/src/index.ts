@@ -163,6 +163,10 @@ bot.onText(
 bot.onText(/^[/!]le_mie_bestemmie$/i, printUserBestemmie(bot));
 bot.onText(/^[/!]bestemmiatori$/i, printBestemmiatori(bot));
 
+bot.onText(
+  /^[/!](campionati|tornei|competitions)$/i,
+  plugins.footballData.competitions(bot)
+);
 bot.onText(/^[/!]ieri(?:@\w+)?$/i, plugins.footballData.matches(bot, -1));
 bot.onText(/^[/!]oggi(?:@\w+)?$/i, plugins.footballData.matches(bot, 0));
 bot.onText(/^[/!]domani(?:@\w+)?$/i, plugins.footballData.matches(bot, 1));
