@@ -15,7 +15,10 @@ export default (bot: TelegramBot) =>
     const competitions = res.data.competitions;
     bot.sendMessage(
       msg.chat.id,
-      competitions.map((c) => `${c.code} - ${c.name}`).join("\n"),
+      competitions
+        .filter((c) => c.plan === "TIER_ONE")
+        .map((c) => `${c.code} - ${c.name}`)
+        .join("\n"),
       {
         parse_mode: "Markdown",
       }
