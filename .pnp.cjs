@@ -45,7 +45,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["husky", "npm:7.0.4"],\
             ["lint-staged", "npm:11.2.6"],\
-            ["pinst", "npm:2.1.6"],\
+            ["pinst", "npm:3.0.0"],\
             ["prettier", "npm:2.5.1"],\
             ["typescript", "patch:typescript@npm%3A4.6.2#~builtin<compat/typescript>::version=4.6.2&hash=bda367"]\
           ],\
@@ -3332,15 +3332,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["fromentries", [\
-        ["npm:1.3.2", {\
-          "packageLocation": "./.yarn/cache/fromentries-npm-1.3.2-f5392090b8-33729c529c.zip/node_modules/fromentries/",\
-          "packageDependencies": [\
-            ["fromentries", "npm:1.3.2"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["fs-minipass", [\
         ["npm:2.1.0", {\
           "packageLocation": "./.yarn/cache/fs-minipass-npm-2.1.0-501ef87306-1b8d128dae.zip/node_modules/fs-minipass/",\
@@ -5769,11 +5760,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["pinst", [\
-        ["npm:2.1.6", {\
-          "packageLocation": "./.yarn/cache/pinst-npm-2.1.6-750cbdedeb-3644c352a7.zip/node_modules/pinst/",\
+        ["npm:3.0.0", {\
+          "packageLocation": "./.yarn/cache/pinst-npm-3.0.0-5d2b6c1dda-4ae48a6a60.zip/node_modules/pinst/",\
           "packageDependencies": [\
-            ["pinst", "npm:2.1.6"],\
-            ["fromentries", "npm:1.3.2"]\
+            ["pinst", "npm:3.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6206,7 +6196,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["root-workspace-0b6124", "workspace:."],\
             ["husky", "npm:7.0.4"],\
             ["lint-staged", "npm:11.2.6"],\
-            ["pinst", "npm:2.1.6"],\
+            ["pinst", "npm:3.0.0"],\
             ["prettier", "npm:2.5.1"],\
             ["typescript", "patch:typescript@npm%3A4.6.2#~builtin<compat/typescript>::version=4.6.2&hash=bda367"]\
           ],\
