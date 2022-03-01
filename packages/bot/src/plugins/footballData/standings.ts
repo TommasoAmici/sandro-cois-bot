@@ -12,11 +12,14 @@ const makeMatchesString = async (
     { params }
   );
   const standings = data.data;
+  const padEnd = standings.standings[0].table
+    .map((t) => overrideTeamNames[t.team.id] ?? t.team.name)
+    .sort((a, b) => b.length - a.length)[0].length;
   const standingsStrings = standings.standings[0].table.map(
     (t) =>
       `${String(t.position).padStart(2, " ")} ${(
         overrideTeamNames[t.team.id] ?? t.team.name
-      ).padEnd(15, " ")} ${String(t.points).padStart(2, " ")}`
+      ).padEnd(Math.max(15, padEnd), " ")} ${String(t.points).padStart(2, " ")}`
   );
   return `*Giornata ${currentMatchday}*\n\n\`${standingsStrings.join("\n")}\``;
 };
