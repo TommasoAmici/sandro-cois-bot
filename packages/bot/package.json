@@ -31,6 +31,7 @@
   },
   "scripts": {
     "start": "node dist/index.js",
+    "build:dev": "ncc build src/index.ts --out dist",
     "build": "ncc build src/index.ts --out dist --minify --no-cache",
     "test": "jest --watch",
     "test:ci": "jest --ci"
