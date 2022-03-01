@@ -12,9 +12,15 @@ const formatTeam = (t: Team, pad = 11) => getTeamName(t).padEnd(pad, " ");
 
 const randomRefereeEmoji = () => randomChoice(["🧛‍♂️", "👮‍♂️", "👨‍🦯"]);
 
-const makeMatchesString = async (currentMatchday: number): Promise<string> => {
+const makeMatchesString = async (
+  currentMatchday: number,
+  competitionCode: string
+): Promise<string> => {
   const params = { matchday: currentMatchday };
-  const res = await api.get<Matches>("/competitions/SA/matches/", { params });
+  const res = await api.get<Matches>(
+    `/competitions/${competitionCode}/matches/`,
+    { params }
+  );
   const data = res.data;
   const padHomeTeam = longestTeamName(data.matches, "homeTeam");
   const padAwayTeam = longestTeamName(data.matches, "awayTeam");
@@ -38,12 +44,16 @@ const makeMatchesString = async (currentMatchday: number): Promise<string> => {
 };
 
 export default (bot: TelegramBot, offset = 0) =>
-  async (msg: TelegramBot.Message): Promise<void> => {
-    const currentMatchday = await getCurrMatchday();
+  async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
+    const competitionCode = (match[1] ?? "SA").toUpperCase();
+    const currentMatchday = await getCurrMatchday(competitionCode);
     if (currentMatchday === 0) bot.sendMessage(msg.chat.id, "Boh 🤷🏻‍♂️");
     else {
       try {
-        const matchesString = await makeMatchesString(currentMatchday + offset);
+        const matchesString = await makeMatchesString(
+          currentMatchday + offset,
+          competitionCode
+        );
         bot.sendMessage(msg.chat.id, matchesString, {
           parse_mode: "Markdown",
         });

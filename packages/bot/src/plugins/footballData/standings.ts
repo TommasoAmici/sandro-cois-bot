@@ -2,11 +2,15 @@ import TelegramBot from "node-telegram-bot-api";
 import { Standings } from "./types";
 import { api, getCurrMatchday, overrideTeamNames } from "./utils";
 
-const makeMatchesString = async (currentMatchday: number): Promise<string> => {
+const makeMatchesString = async (
+  currentMatchday: number,
+  competitionCode: string
+): Promise<string> => {
   const params = { matchday: currentMatchday };
-  const data = await api.get<Standings>("/competitions/SA/standings/", {
-    params,
-  });
+  const data = await api.get<Standings>(
+    `/competitions/${competitionCode}/standings/`,
+    { params }
+  );
   const standings = data.data;
   const standingsStrings = standings.standings[0].table.map(
     (t) =>
@@ -18,12 +22,16 @@ const makeMatchesString = async (currentMatchday: number): Promise<string> => {
 };
 
 export default (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message): Promise<void> => {
-    const currentMatchday = await getCurrMatchday();
+  async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
+    const competitionCode = (match[1] ?? "SA").toUpperCase();
+    const currentMatchday = await getCurrMatchday(competitionCode);
     if (currentMatchday === 0) bot.sendMessage(msg.chat.id, "Boh 🤷🏻‍♂️");
     else {
       try {
-        const matchesString = await makeMatchesString(currentMatchday);
+        const matchesString = await makeMatchesString(
+          currentMatchday,
+          competitionCode
+        );
         bot.sendMessage(msg.chat.id, matchesString, {
           parse_mode: "Markdown",
         });

@@ -8,9 +8,11 @@ export const api = axios.create({
   headers: { "X-Auth-Token": cfg.footballDataToken },
 });
 
-export const getCurrMatchday = async (): Promise<number> => {
+export const getCurrMatchday = async (
+  competitionCode: string
+): Promise<number> => {
   try {
-    const res = await api.get<Competition>("/competitions/SA/");
+    const res = await api.get<Competition>(`/competitions/${competitionCode}/`);
     const competition = res.data;
     return competition.currentSeason.currentMatchday;
   } catch (error) {

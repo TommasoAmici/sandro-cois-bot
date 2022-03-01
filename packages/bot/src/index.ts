@@ -167,10 +167,10 @@ bot.onText(
   /^[/!](campionati|tornei|competitions)$/i,
   plugins.footballData.competitions(bot)
 );
-bot.onText(/^[/!]ieri(?:@\w+)?$/i, plugins.footballData.matches(bot, -1));
-bot.onText(/^[/!]oggi(?:@\w+)?$/i, plugins.footballData.matches(bot, 0));
-bot.onText(/^[/!]domani(?:@\w+)?$/i, plugins.footballData.matches(bot, 1));
-bot.onText(/^[/!]classifica(?:@\w+)?$/i, plugins.footballData.standings(bot));
+bot.onText(/^[/!]ieri ?(\w+)?$$/i, plugins.footballData.matches(bot, -1));
+bot.onText(/^[/!]oggi ?(\w+)?$$/i, plugins.footballData.matches(bot, 0));
+bot.onText(/^[/!]domani ?(\w+)?$/i, plugins.footballData.matches(bot, 1));
+bot.onText(/^[/!]classifica ?(\w+)?$/i, plugins.footballData.standings(bot));
 bot.onText(/^[/!]spongebob(?:@\w+)? (.+)/i, plugins.spongebob(bot));
 bot.onText(/^[/!]spongebob(?:@\w+)?$/i, plugins.spongebobInReply(bot));
 bot.onText(/^[/!]roll(?:@\w+)? (\d+)d(\d+)$/i, plugins.roll(bot));
