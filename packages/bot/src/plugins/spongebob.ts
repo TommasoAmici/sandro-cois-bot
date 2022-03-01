@@ -1,6 +1,6 @@
 import TelegramBot from "node-telegram-bot-api";
 
-const spongebob = (word) => {
+const spongebob = word => {
   let output = [];
   for (let char of word) {
     output.push(Math.random() > 0.5 ? char.toUpperCase() : char);

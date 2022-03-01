@@ -11,7 +11,7 @@ const getDetailURL = async (word: string) => {
   if (res.status === 404) return undefined;
   const root = parse(res.data);
   const firstDefinition = root.querySelector(
-    "section.module-article-search_preview"
+    "section.module-article-search_preview",
   );
   const wordURL = firstDefinition
     .querySelector("h2 a")

@@ -14,7 +14,7 @@ export default (bot: TelegramBot) =>
     geocodingClient
       .forwardGeocode({ query: query, limit: 1 })
       .send()
-      .then((response) => {
+      .then(response => {
         const coord = response.body.features[0].center;
         bot.sendPhoto(msg.chat.id, makeMapboxScreenshot(coord));
         bot.sendLocation(msg.chat.id, coord[1], coord[0]);

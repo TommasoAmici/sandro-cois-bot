@@ -16,11 +16,11 @@ export default (bot: TelegramBot) =>
     bot.sendMessage(
       msg.chat.id,
       competitions
-        .filter((c) => c.plan === "TIER_ONE")
-        .map((c) => `${c.code} - ${c.name}`)
+        .filter(c => c.plan === "TIER_ONE")
+        .map(c => `${c.code} - ${c.name}`)
         .join("\n"),
       {
         parse_mode: "Markdown",
-      }
+      },
     );
   };

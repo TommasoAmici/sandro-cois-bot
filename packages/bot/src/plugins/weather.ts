@@ -38,7 +38,7 @@ export default (bot: TelegramBot) =>
       } else {
         const conditionsEmoji = getEmoji(response.data.weather[0].main);
         const message = `The temperature in ${response.data.name} is ${kToC(
-          response.data.main.temp
+          response.data.main.temp,
         )}°C\nCurrent conditions are: ${
           response.data.weather[0].description
         } ${conditionsEmoji}`;

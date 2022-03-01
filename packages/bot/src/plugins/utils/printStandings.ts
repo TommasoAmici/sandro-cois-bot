@@ -5,7 +5,7 @@ interface Item {
 
 export const prettyPrint = (
   items: Item[],
-  header = `STATS DELL'ERA SANDRO COIS`
+  header = `STATS DELL'ERA SANDRO COIS`,
 ): string => {
   let message = `${header}\n\n`;
   for (let i in items) {

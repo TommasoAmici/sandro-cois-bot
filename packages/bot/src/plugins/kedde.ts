@@ -12,7 +12,7 @@ const translationTable = [
 const ghenverde = (msg: string) => {
   let convertedMessage = msg;
   translationTable.forEach(
-    (t) => (convertedMessage = convertedMessage.replace(t.find, t.replace))
+    t => (convertedMessage = convertedMessage.replace(t.find, t.replace)),
   );
   return `hehehe ${convertedMessage} hehehe`;
 };

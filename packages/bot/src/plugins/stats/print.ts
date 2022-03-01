@@ -9,7 +9,7 @@ interface User {
 
 export const getUsers = async (
   chatId: Number,
-  category: string
+  category: string,
 ): Promise<User[]> => {
   let users: User[] = [];
   const keys = await client.keys(`chat:${chatId}:user:*`);
@@ -17,7 +17,7 @@ export const getUsers = async (
     let user = await client.hmget(key, "name", category);
     users.push({ name: user[0], count: +user[1] });
   }
-  return users.filter((u) => u.count > 0);
+  return users.filter(u => u.count > 0);
 };
 
 export default (bot: TelegramBot) =>

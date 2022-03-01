@@ -33,8 +33,8 @@ export default (bot: TelegramBot) =>
   (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
     axios
       .get<AlphaVantageResponse>(url(match[2].toUpperCase()))
-      .then((res) =>
-        bot.sendMessage(msg.chat.id, makeString(res.data["Global Quote"]))
+      .then(res =>
+        bot.sendMessage(msg.chat.id, makeString(res.data["Global Quote"])),
       )
-      .catch((err) => console.error(err));
+      .catch(err => console.error(err));
   };

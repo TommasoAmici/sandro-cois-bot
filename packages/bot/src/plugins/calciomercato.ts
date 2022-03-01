@@ -10,11 +10,11 @@ const url =
 const calcioMercato = (bot: TelegramBot, msg: TelegramBot.Message) =>
   axios
     .get<any>(url)
-    .then((res) => {
+    .then(res => {
       const article = randomChoice(
         (parse(res.data).childNodes as any[]).filter(
-          (a: any) => a.tagName === "article"
-        )
+          (a: any) => a.tagName === "article",
+        ),
       );
       const item = article
         .querySelector(".news-item__extract")
@@ -25,7 +25,7 @@ const calcioMercato = (bot: TelegramBot, msg: TelegramBot.Message) =>
         parse_mode: "HTML",
       });
     })
-    .catch((e) => bot.sendMessage(msg.chat.id, "🤷🏻‍♂️"));
+    .catch(e => bot.sendMessage(msg.chat.id, "🤷🏻‍♂️"));
 
 const gazzettaUrl =
   "https://components2.gazzettaobjects.it/rcs_gaz_searchapi/v1/latest.json";
@@ -52,9 +52,9 @@ const prepareString = (article: Article): string =>
 const gazzetta = (bot: TelegramBot, msg: TelegramBot.Message) =>
   axios
     .get<any>(gazzettaUrl)
-    .then((res) => {
+    .then(res => {
       const calcioArticles = res.data.response.docs.filter((d: Article) =>
-        includesCalcio(d.section)
+        includesCalcio(d.section),
       ) as Article[];
       const article = randomChoice(calcioArticles);
       const articleString = prepareString(article);
@@ -62,7 +62,7 @@ const gazzetta = (bot: TelegramBot, msg: TelegramBot.Message) =>
         parse_mode: "Markdown",
       });
     })
-    .catch((e) => bot.sendMessage(msg.chat.id, "🤷🏻‍♂️"));
+    .catch(e => bot.sendMessage(msg.chat.id, "🤷🏻‍♂️"));
 
 const providers = [gazzetta, calcioMercato];
 

@@ -12,7 +12,7 @@ export default (bot: TelegramBot) =>
             msg.chat.id,
             `${evaluated.value / evaluated.units[0].unit.value} ${
               evaluated.units[0].unit.name
-            }`
+            }`,
           );
         }
         // handle calcs with different units
@@ -21,7 +21,7 @@ export default (bot: TelegramBot) =>
             msg.chat.id,
             `${evaluated.value / evaluated.units[0].prefix.value} ${
               evaluated.units[0].prefix.name
-            }${evaluated.units[0].unit.name}`
+            }${evaluated.units[0].unit.name}`,
           );
         }
       }

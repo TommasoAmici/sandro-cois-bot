@@ -12,10 +12,10 @@ export default (bot: TelegramBot, to: string, from = "it") =>
         "Mozilla/5.0 (Windows NT 10.0; ...",
       ],
     })
-      .then((res) => {
+      .then(res => {
         bot.sendMessage(msg.chat.id, res.text);
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err);
       });
   };

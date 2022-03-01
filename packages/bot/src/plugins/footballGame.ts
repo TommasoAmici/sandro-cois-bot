@@ -46,15 +46,15 @@ const build = (bot: TelegramBot) => (msg: TelegramBot.Message) => {
     .get<WikiFootballData>(fullURL, {
       headers: { Accept: "application/sparql-results+json" },
     })
-    .then((res) => {
+    .then(res => {
       const data = res.data;
-      data.results.bindings.forEach((b) => {
+      data.results.bindings.forEach(b => {
         const ID = b.item.value.replace("http://www.wikidata.org/entity/", "");
         client.sadd(redisKey, `${utf8.encode(b.itemLabel.value)}:${ID}`);
       });
       bot.sendMessage(msg.chat.id, "Il gioco è pronto");
     })
-    .catch((err) => bot.sendMessage(msg.chat.id, err));
+    .catch(err => bot.sendMessage(msg.chat.id, err));
 };
 
 interface WikiFootballDataTeam {
@@ -83,22 +83,22 @@ const getTeamName = async (teamID: string) => {
 
 const queryURL = (id: string) => `http://www.wikidata.org/entity/${id}.json`;
 
-const getYear = (prop) => {
+const getYear = prop => {
   if (prop === undefined || prop.length === 0) return "?";
   if (prop[0].datavalue === undefined) return "?";
   const year = new Date(
-    prop[0].datavalue.value.time.replace("+", "")
+    prop[0].datavalue.value.time.replace("+", ""),
   ).getFullYear();
   if (isNaN(year)) return "?";
   return year;
 };
 
-const getAmount = (prop) => {
+const getAmount = prop => {
   if (prop === undefined || prop.length === 0) return "?";
   return parseInt(prop[0].datavalue.value.amount);
 };
 
-const allTeams = async (teams) => {
+const allTeams = async teams => {
   let clubObjects = [];
   let nationalObjects = [];
   for (const t of teams) {
@@ -118,12 +118,12 @@ const allTeams = async (teams) => {
   }
   const clubsSorted = clubObjects.sort((a, b) => a.startDate - b.startDate);
   const nationalSorted = nationalObjects.sort(
-    (a, b) => a.startDate - b.startDate
+    (a, b) => a.startDate - b.startDate,
   );
   return [
-    ...clubsSorted.map((s) => s.teamString),
+    ...clubsSorted.map(s => s.teamString),
     "\n",
-    ...nationalSorted.map((s) => s.teamString),
+    ...nationalSorted.map(s => s.teamString),
   ];
 };
 
@@ -165,7 +165,7 @@ const winner =
     if (result[0] === undefined) {
       if (
         ["smith", "inho", "sson", "escu", "mohamed", "chenko"].includes(
-          match[1].toLowerCase()
+          match[1].toLowerCase(),
         )
       ) {
         bot.sendMessage(msg.chat.id, "Vergognati!");
@@ -179,7 +179,7 @@ const winner =
         client.set(`${msg.chat.id}:solution`, null);
         bot.sendMessage(
           msg.chat.id,
-          `@${msg.from.username} ha indovinato: ${solution}`
+          `@${msg.from.username} ha indovinato: ${solution}`,
         );
       }
     }

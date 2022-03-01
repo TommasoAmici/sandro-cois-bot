@@ -1,5 +1,5 @@
-export const sortRecord = (record) => {
-  const items = Object.keys(record).map((key) => ({
+export const sortRecord = record => {
+  const items = Object.keys(record).map(key => ({
     name: key,
     count: parseInt(record[key]),
   }));

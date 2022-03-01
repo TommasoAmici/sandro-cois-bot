@@ -13,7 +13,7 @@ export default (bot: TelegramBot, media: Media) =>
         msg.chat.id,
         `Reply to this message with the ${
           media.type
-        } for ${match[1].toLowerCase()}.${media.ext}`
+        } for ${match[1].toLowerCase()}.${media.ext}`,
       );
     }
   };

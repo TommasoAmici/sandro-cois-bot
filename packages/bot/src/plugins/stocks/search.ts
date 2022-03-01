@@ -23,15 +23,15 @@ const url = (ticker: string) =>
 
 const makeString = (globalQuote: StocksSearch[]) =>
   globalQuote
-    .map((g) => `${g["1. symbol"]}, ${g["2. name"]}, ${g["4. region"]}`)
+    .map(g => `${g["1. symbol"]}, ${g["2. name"]}, ${g["4. region"]}`)
     .join("\n");
 
 export default (bot: TelegramBot) =>
   (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
     axios
       .get<AlphaVantageResponse>(url(match[2].toUpperCase()))
-      .then((res) =>
-        bot.sendMessage(msg.chat.id, makeString(res.data["bestMatches"]))
+      .then(res =>
+        bot.sendMessage(msg.chat.id, makeString(res.data["bestMatches"])),
       )
-      .catch((err) => console.error(err));
+      .catch(err => console.error(err));
   };

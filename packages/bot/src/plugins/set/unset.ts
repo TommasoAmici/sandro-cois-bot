@@ -8,8 +8,6 @@ export default (bot: TelegramBot, media: Media) =>
 
     client
       .hdel(hkey, key)
-      .then((res) => bot.sendMessage(msg.chat.id, `Unset ${key}!`))
-      .catch((err) =>
-        bot.sendMessage(msg.chat.id, `Couldn't unset ${key} :()`)
-      );
+      .then(res => bot.sendMessage(msg.chat.id, `Unset ${key}!`))
+      .catch(err => bot.sendMessage(msg.chat.id, `Couldn't unset ${key} :()`));
   };

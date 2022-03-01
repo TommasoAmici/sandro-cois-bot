@@ -39,9 +39,9 @@ class Markov {
     for (let key in this.corpus) {
       let total = 0;
       let keys = Object.keys(this.corpus[key]);
-      keys.forEach((k) => (total += this.corpus[key][k]));
+      keys.forEach(k => (total += this.corpus[key][k]));
       let cum = 1;
-      const cumDensArr = keys.map((k) => {
+      const cumDensArr = keys.map(k => {
         cum -= this.corpus[key][k] / total;
         let prob = cum;
         return { word: k, prob: prob };
@@ -61,13 +61,13 @@ class Markov {
 
     // create markov corpus
     let data = "";
-    stream.on("data", (chunk) => {
+    stream.on("data", chunk => {
       data += chunk;
     });
 
     stream.on("end", () => {
       const sentences = data.split("\n");
-      sentences.forEach((s) => {
+      sentences.forEach(s => {
         this.processSentence(s);
       });
       this.calcProbs();
@@ -82,8 +82,7 @@ class Markov {
     // find word from CDF
     // e.g. [{word:"you", prob:0.9}, {word:"me", prob:0.6}]
     // random = 0.7 => return me (between 0.6 and 0.9)
-    return this.corpus[currWord].find((next) => Math.random() >= next.prob)
-      .word;
+    return this.corpus[currWord].find(next => Math.random() >= next.prob).word;
   }
 
   makeChain(start: string, limit = 100): string {

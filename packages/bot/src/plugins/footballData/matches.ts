@@ -6,7 +6,7 @@ import { api, getCurrMatchday, overrideTeamNames, refereeRoles } from "./utils";
 const getTeamName = (t: Team): string => overrideTeamNames[t.id] ?? t.name;
 
 const longestTeamName = (matches: Match[], key: "homeTeam" | "awayTeam") =>
-  Math.max(...matches.map((m) => getTeamName(m[key]).length));
+  Math.max(...matches.map(m => getTeamName(m[key]).length));
 
 const formatTeam = (t: Team, pad = 11) => getTeamName(t).padEnd(pad, " ");
 
@@ -14,19 +14,19 @@ const randomRefereeEmoji = () => randomChoice(["🧛‍♂️", "👮‍♂️",
 
 const makeMatchesString = async (
   currentMatchday: number,
-  competitionCode: string
+  competitionCode: string,
 ): Promise<string> => {
   const params = { matchday: currentMatchday };
   const res = await api.get<Matches>(
     `/competitions/${competitionCode}/matches/`,
-    { params }
+    { params },
   );
   const data = res.data;
   const padHomeTeam = longestTeamName(data.matches, "homeTeam");
   const padAwayTeam = longestTeamName(data.matches, "awayTeam");
-  const matchesStrings = data.matches.map((m) => {
+  const matchesStrings = data.matches.map(m => {
     const refs = m.referees
-      .map((r) => `${r.name} ${refereeRoles[r.role] ?? r.role}`)
+      .map(r => `${r.name} ${refereeRoles[r.role] ?? r.role}`)
       .join(", ");
     const homeTeam = formatTeam(m.homeTeam, padHomeTeam);
     const awayTeam = formatTeam(m.awayTeam, padAwayTeam);
@@ -52,7 +52,7 @@ export default (bot: TelegramBot, offset = 0) =>
       try {
         const matchesString = await makeMatchesString(
           currentMatchday + offset,
-          competitionCode
+          competitionCode,
         );
         bot.sendMessage(msg.chat.id, matchesString, {
           parse_mode: "Markdown",

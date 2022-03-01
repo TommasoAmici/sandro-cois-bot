@@ -9,7 +9,7 @@ export const api = axios.create({
 });
 
 export const getCurrMatchday = async (
-  competitionCode: string
+  competitionCode: string,
 ): Promise<number> => {
   try {
     const res = await api.get<Competition>(`/competitions/${competitionCode}/`);

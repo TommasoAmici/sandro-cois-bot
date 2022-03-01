@@ -25,7 +25,7 @@ export const formatQuote = (quote: IQuote) => {
 export const searchQuotes = async (
   chatID: number,
   query: string,
-  limit = 10
+  limit = 10,
 ) => {
   const res = await client.send_command("FT.SEARCH", [
     `chat:${chatID}:quotes-index`,
@@ -38,7 +38,7 @@ export const searchQuotes = async (
   const quotes: IQuote[] = res
     .slice(1)
     .filter((s, i) => i % 2 === 1)
-    .map((s) => {
+    .map(s => {
       const obj = {};
       for (let index = 0; index < s.length; index += 2) {
         const key = s[index];

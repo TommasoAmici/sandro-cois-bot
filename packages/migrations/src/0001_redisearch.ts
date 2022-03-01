@@ -6,10 +6,10 @@ const main = async () => {
   const client = new Redis();
 
   const quoteSets = await client.keys("chat:*:quotes");
-  quoteSets.forEach(async (quoteSet) => {
+  quoteSets.forEach(async quoteSet => {
     const quotes = await client.smembers(quoteSet);
     await client.del(quoteSet);
-    quotes.forEach(async (quote) => {
+    quotes.forEach(async quote => {
       const quoteID = await client.incr("quotes-id");
       client.zadd(quoteSet, Date.now(), quoteID);
       const author = quote.match(authorRegex);
@@ -20,7 +20,7 @@ const main = async () => {
         "author",
         author !== null ? author[1] : "",
         "id",
-        quoteID
+        quoteID,
       );
     });
     client
@@ -36,9 +36,9 @@ const main = async () => {
         "body",
         "TEXT",
         "author",
-        "TEXT"
+        "TEXT",
       )
-      .catch((err) => console.error(err));
+      .catch(err => console.error(err));
   });
 };
 

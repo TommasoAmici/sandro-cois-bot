@@ -6,7 +6,7 @@ import { randomChoice } from "./utils/random";
 const toTitleCase = (str: string): string =>
   str.replace(
     /\w\S*/g,
-    (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+    txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(),
   );
 
 interface IGiphyImage {
@@ -111,7 +111,7 @@ const getGif = async (query: string) => {
 const sendGif = (
   bot: TelegramBot,
   msg: TelegramBot.Message,
-  response: AxiosResponse<IGiphyResponse>
+  response: AxiosResponse<IGiphyResponse>,
 ): void => {
   if (!response.data.data || response.data.data.length === 0) {
     bot.sendMessage(msg.chat.id, "No gif found.");
@@ -119,7 +119,7 @@ const sendGif = (
     const item = randomChoice(response.data.data);
     bot.sendVideo(
       msg.chat.id,
-      item.images.original.mp4 || item.images.original.url
+      item.images.original.mp4 || item.images.original.url,
     );
   }
 };
@@ -127,7 +127,7 @@ const sendGif = (
 const paginateMessages = (
   bot: TelegramBot,
   msg: TelegramBot.Message,
-  longMsg: string
+  longMsg: string,
 ) => {
   const chunks: string[] = [];
   if (longMsg.length > 3000) {
@@ -138,7 +138,7 @@ const paginateMessages = (
   for (let i = 0; i < maxChars; i += 3000) {
     chunks.push(longMsg.substring(i, i + 3000));
   }
-  chunks.forEach((chunk) => {
+  chunks.forEach(chunk => {
     bot.sendMessage(msg.chat.id, chunk);
   });
 };

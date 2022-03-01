@@ -16,7 +16,7 @@ const createIndex = (chatID: number) =>
       "body",
       "TEXT",
       "author",
-      "TEXT"
+      "TEXT",
     )
     .then()
     .catch();
@@ -26,7 +26,7 @@ export const addQuote = async (
   author: string,
   date: string,
   chatId: number,
-  bot: TelegramBot
+  bot: TelegramBot,
 ) => {
   const key = `chat:${chatId}:quotes`;
 

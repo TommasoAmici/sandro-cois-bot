@@ -14,7 +14,7 @@ bot.onText(/^[/!]gif(?:@\w+)? (.+)/i, plugins.giphy(bot));
 bot.onText(/^[/!]magic8ball(?:@\w+)?/i, plugins.magic8ball(bot));
 bot.onText(
   /^[/!]attivatelegrampremium(?:@\w+)?/i,
-  plugins.telegramPremium(bot)
+  plugins.telegramPremium(bot),
 );
 bot.onText(/^[/!]weather(?:@\w+)? (\w+)/i, plugins.weather(bot));
 bot.onText(/^[/!]loc(?:@\w+)? (\w+)/i, plugins.loc(bot));
@@ -30,7 +30,7 @@ bot.onText(/^[/!]covid(\d+)/i, plugins.coronavirus.gago(bot));
 bot.onText(/^[/!]covid$/i, plugins.coronavirus.percent(bot));
 bot.onText(
   /^[/!]covid(?:@\w+)? ([a-zA-Z -]+)/i,
-  plugins.coronavirus.country(bot)
+  plugins.coronavirus.country(bot),
 );
 // AMORE-MERDA
 bot.onText(/^(.+)\s*amore$/gi, plugins.amoreMerda.amore());
@@ -58,11 +58,11 @@ export const media = {
 bot.onText(/^[/!]stklist(?:@\w+)?$/i, plugins.list(bot, media.stickers));
 bot.onText(
   /^[/!]setstk(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
-  plugins.setKey(bot, media.stickers)
+  plugins.setKey(bot, media.stickers),
 );
 bot.onText(
   /^[/!]unsetstk(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
-  plugins.unset(bot, media.stickers)
+  plugins.unset(bot, media.stickers),
 );
 bot.onText(/^(?!.*http)(.+)\.stk$/i, plugins.get(bot, media.stickers));
 bot.on(
@@ -70,8 +70,8 @@ bot.on(
   plugins.setValue(
     bot,
     /([A-Za-z\u00C0-\u017F\0-9\_]+)\.(stk)/i,
-    media.stickers
-  )
+    media.stickers,
+  ),
 );
 
 // IMAGES
@@ -79,39 +79,39 @@ bot.onText(/^[/!]i(?:@\w+)? (.+)/i, plugins.getImage(bot));
 bot.onText(/^[/!]i(?:@\w+)?$/i, plugins.getImage(bot));
 bot.onText(
   /^(?!.*http)(.+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)$/i,
-  plugins.get(bot, media.photos)
+  plugins.get(bot, media.photos),
 );
 bot.onText(
   /^[/!]setpic(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
-  plugins.setKey(bot, media.photos)
+  plugins.setKey(bot, media.photos),
 );
 bot.onText(/^[/!]piclist(?:@\w+)?$/i, plugins.list(bot, media.photos));
 bot.onText(
   /^[/!]unsetpic(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
-  plugins.unset(bot, media.photos)
+  plugins.unset(bot, media.photos),
 );
 bot.on(
   "photo",
   plugins.setValue(
     bot,
     /([A-Za-z\u00C0-\u017F\0-9\_]+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)/i,
-    media.photos
-  )
+    media.photos,
+  ),
 );
 
 // GIFS
 bot.onText(
   /^[/!]setgif(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
-  plugins.setKey(bot, media.gifs)
+  plugins.setKey(bot, media.gifs),
 );
 bot.onText(/^[/!]giflist(?:@\w+)?$/i, plugins.list(bot, media.gifs));
 bot.onText(
   /^[/!]unsetgif(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
-  plugins.unset(bot, media.gifs)
+  plugins.unset(bot, media.gifs),
 );
 bot.onText(
   /^(?!.*http)(.+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)$/i,
-  plugins.get(bot, media.gifs)
+  plugins.get(bot, media.gifs),
 );
 
 bot.on(
@@ -119,23 +119,23 @@ bot.on(
   plugins.setValue(
     bot,
     /([A-Za-z\u00C0-\u017F\0-9\_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i,
-    media.gifs
-  )
+    media.gifs,
+  ),
 );
 bot.on(
   "video",
   plugins.setValue(
     bot,
     /([A-Za-z\u00C0-\u017F\0-9\_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i,
-    media.gifs
-  )
+    media.gifs,
+  ),
 );
 
 // TEXT
 bot.onText(/^[/!]setlist(?:@\w+)?$/i, plugins.list(bot, media.text));
 bot.onText(
   /^[/!]set(?:@\w+)? (\w+) ([\s\S]+)/i,
-  plugins.text.setValue(bot, media.text)
+  plugins.text.setValue(bot, media.text),
 );
 bot.onText(/^[/!]unset(?:@\w+)? (.+)/i, plugins.unset(bot, media.text));
 bot.onText(/^\S+/i, plugins.text.get(bot, media.text));
@@ -145,7 +145,7 @@ bot.onText(/^[/!]addquote(?:@\w+)? ([\s\S]*)/i, plugins.quotes.add(bot));
 bot.onText(/^[/!]addquote(?:@\w+)?$/i, plugins.quotes.addFromReply(bot));
 bot.onText(
   /^[/!]addquotedate(?:@\w+)?$/i,
-  plugins.quotes.addFromReply(bot, true)
+  plugins.quotes.addFromReply(bot, true),
 );
 bot.onText(/^[/!]unquote(?:@\w+)?$/i, plugins.quotes.remove(bot));
 bot.onText(/^[/!]quote(?:@\w+)? (.+)/i, plugins.quotes.get(bot));
@@ -154,18 +154,18 @@ bot.onText(/^[/!]quote(?:@\w+)?$/i, plugins.quotes.random(bot));
 // bestemmie
 bot.onText(
   /(.+)?(dio|gesù|cristo|madonna|padre pio|san(ta |to |t')?)(.+)/i,
-  countBestemmia()
+  countBestemmia(),
 );
 bot.onText(
   /(.+)?(porco |porca |mannaggia |mannaggia a |mannaggia al )(dio|gesù|cristo|madonna|padre pio|san(ta |to |t')?)/i,
-  countBestemmia()
+  countBestemmia(),
 );
 bot.onText(/^[/!]le_mie_bestemmie$/i, printUserBestemmie(bot));
 bot.onText(/^[/!]bestemmiatori$/i, printBestemmiatori(bot));
 
 bot.onText(
   /^[/!](campionati|tornei|competitions)$/i,
-  plugins.footballData.competitions(bot)
+  plugins.footballData.competitions(bot),
 );
 bot.onText(/^[/!]ieri ?(\w+)?$$/i, plugins.footballData.matches(bot, -1));
 bot.onText(/^[/!]oggi ?(\w+)?$$/i, plugins.footballData.matches(bot, 0));
@@ -177,7 +177,7 @@ bot.onText(/^[/!]roll(?:@\w+)? (\d+)d(\d+)$/i, plugins.roll(bot));
 bot.onText(/^[/!]roll(?:@\w+)? d(\d+)$/i, plugins.roll(bot));
 bot.onText(
   /^\/r\/(\w+)(?:@\w+)? (hot|new|controversial|gilded|top|rising)/i,
-  plugins.reddit(bot)
+  plugins.reddit(bot),
 );
 bot.onText(/^\/r\/(\w+)(?:@\w+)?$/i, plugins.reddit(bot));
 bot.onText(/^[/!]stats(?:@\w+)?$/i, plugins.stats.print(bot));
@@ -192,7 +192,7 @@ bot.onText(/^[/!]inglese(?:@\w+)? ([\s\S]*)/i, plugins.gtranslate(bot, "en"));
 bot.onText(/^[/!]spagnolo(?:@\w+)? ([\s\S]*)/i, plugins.gtranslate(bot, "es"));
 bot.onText(
   /^[/!]napoletano(?:@\w+)? ([\s\S]*)/i,
-  plugins.gtranslate(bot, "sw")
+  plugins.gtranslate(bot, "sw"),
 );
 
 bot.onText(/^[/!]settitle(?:@\w+)? ([\s\S]*)/i, plugins.setTitle(bot));
@@ -201,11 +201,11 @@ bot.onText(/^[/!](calciomercato|cm)(?:@\w+)?$/i, plugins.calciomercato(bot));
 
 bot.onText(
   /^[/!](stonks|stocks|borsa)(?:@\w+)? (\w*\.\w*)$/i,
-  plugins.stocks.quote(bot)
+  plugins.stocks.quote(bot),
 );
 bot.onText(
   /^[/!](stonkssearch|stockssearch|borsacerca)(?:@\w+)? (\w+)$/i,
-  plugins.stocks.search(bot)
+  plugins.stocks.search(bot),
 );
 
 // Football trivia game
@@ -215,7 +215,7 @@ bot.onText(/^[/!]surrender(?:@\w+)?$/i, plugins.footballGame.solution(bot));
 bot.onText(/^[/!]ranking(?:@\w+)?$/i, plugins.footballGame.ranking(bot));
 bot.onText(
   /^[/!]solution(?:@\w+)? ([\s\S]*)/i,
-  plugins.footballGame.winner(bot)
+  plugins.footballGame.winner(bot),
 );
 
 bot.onText(/^[/!]echoid(?:@\w+)?$/i, plugins.echoID(bot));

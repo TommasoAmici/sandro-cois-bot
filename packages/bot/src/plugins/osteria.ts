@@ -252,7 +252,7 @@ const randomOsteria =
     const randomKey = randomChoice(Object.keys(songs));
     bot.sendMessage(
       msg.chat.id,
-      `${songs[randomKey]}\nDammela a me biondina\nDammela a me bionda`
+      `${songs[randomKey]}\nDammela a me biondina\nDammela a me bionda`,
     );
   };
 
@@ -263,12 +263,12 @@ const osteria =
     if (song === undefined) {
       bot.sendMessage(
         msg.chat.id,
-        "Questa osteria non esiste, prova con un'altra"
+        "Questa osteria non esiste, prova con un'altra",
       );
     } else {
       bot.sendMessage(
         msg.chat.id,
-        `${song}\nDammela a me biondina\nDammela a me bionda`
+        `${song}\nDammela a me biondina\nDammela a me bionda`,
       );
     }
   };

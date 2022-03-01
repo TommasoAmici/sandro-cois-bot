@@ -6,7 +6,7 @@ var gis = require("g-i-s");
 export const getImage = async (
   query: string,
   bot: TelegramBot,
-  msg: TelegramBot.Message
+  msg: TelegramBot.Message,
 ): Promise<void> => {
   const response = gis(query, (error, results) => {
     if (error) {

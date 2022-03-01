@@ -71,7 +71,7 @@ interface IRedditPost {
         a: string;
         e: string;
         u: string;
-      }
+      },
     ];
     gildings: unknown;
     content_categories: null | unknown;
@@ -193,7 +193,7 @@ export default (bot: TelegramBot) =>
         ) {
           bot.sendVideo(
             msg.chat.id,
-            item.data.preview.reddit_video_preview.fallback_url
+            item.data.preview.reddit_video_preview.fallback_url,
           );
         } else if (item.data.domain === "youtu.be") {
           bot.sendMessage(msg.chat.id, buildMessage(item), {

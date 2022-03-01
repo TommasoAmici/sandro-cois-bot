@@ -6,7 +6,7 @@ const set = (
   msg: TelegramBot.Message,
   media: Media,
   key: string,
-  fileId: string
+  fileId: string,
 ) => {
   const hkey = `chat:${msg.chat.id}:${media.type}`;
 
