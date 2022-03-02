@@ -1400,7 +1400,7 @@ __metadata:
     html-entities: 2.3.2
     ioredis: 4.28.5
     jest: 27.5.1
-    mathjs: 10.2.0
+    mathjs: 10.3.0
     node-html-parser: 5.2.0
     node-telegram-bot-api: 0.56.0
     novelcovid: 3.0.2
@@ -4083,9 +4083,9 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"mathjs@npm:10.2.0":
-  version: 10.2.0
-  resolution: "mathjs@npm:10.2.0"
+"mathjs@npm:10.3.0":
+  version: 10.3.0
+  resolution: "mathjs@npm:10.3.0"
   dependencies:
     "@babel/runtime": ^7.17.2
     complex.js: ^2.0.15
@@ -4098,7 +4098,7 @@ fsevents@^2.3.2:
     typed-function: ^2.0.0
   bin:
     mathjs: bin/cli.js
-  checksum: 69b37a6ad6c11178cc54ff2ef070202c15f5f2cba2f04559a9aa3b95d1fe208cbd3fdf84157b42fac960973de9fc7f7898d342fc7c33b5b5a56dc937b57b7d73
+  checksum: 3fb3b66be9cf8e532b33c29cb28adf4fc023d2f3faded52527e3e39a03b9616c8691cb299a908d47247bbe31658443b655c4ab36eef1b59718305582d0138855
   languageName: node
   linkType: hard
 
