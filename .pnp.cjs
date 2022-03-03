@@ -1083,10 +1083,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@mapbox/mapbox-sdk", [\
-        ["npm:0.13.2", {\
-          "packageLocation": "./.yarn/cache/@mapbox-mapbox-sdk-npm-0.13.2-ec38904ff3-cd5566eafd.zip/node_modules/@mapbox/mapbox-sdk/",\
+        ["npm:0.13.3", {\
+          "packageLocation": "./.yarn/cache/@mapbox-mapbox-sdk-npm-0.13.3-aa8761b30c-67268e166f.zip/node_modules/@mapbox/mapbox-sdk/",\
           "packageDependencies": [\
-            ["@mapbox/mapbox-sdk", "npm:0.13.2"],\
+            ["@mapbox/mapbox-sdk", "npm:0.13.3"],\
             ["@mapbox/fusspot", "npm:0.4.0"],\
             ["@mapbox/parse-mapbox-token", "npm:0.2.0"],\
             ["@mapbox/polyline", "npm:1.0.0"],\
@@ -1979,7 +1979,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/bot/",\
           "packageDependencies": [\
             ["bot", "workspace:packages/bot"],\
-            ["@mapbox/mapbox-sdk", "npm:0.13.2"],\
+            ["@mapbox/mapbox-sdk", "npm:0.13.3"],\
             ["@types/diacritics", "npm:1.3.1"],\
             ["@types/html-entities", "npm:1.3.4"],\
             ["@types/ioredis", "npm:4.28.8"],\
