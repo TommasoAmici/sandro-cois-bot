@@ -1997,7 +1997,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ioredis", "npm:4.28.5"],\
             ["jest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:27.5.1"],\
             ["mathjs", "npm:10.4.0"],\
-            ["node-html-parser", "npm:5.2.0"],\
+            ["node-html-parser", "npm:5.3.2"],\
             ["node-telegram-bot-api", "npm:0.56.0"],\
             ["novelcovid", "npm:3.0.2"],\
             ["pokedex", "npm:1.1.0"],\
@@ -2553,15 +2553,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:4.1.3", {\
-          "packageLocation": "./.yarn/cache/css-select-npm-4.1.3-97d7b817c1-40928f1aa6.zip/node_modules/css-select/",\
+        ["npm:4.2.1", {\
+          "packageLocation": "./.yarn/cache/css-select-npm-4.2.1-29b3e94383-6617193ec7.zip/node_modules/css-select/",\
           "packageDependencies": [\
-            ["css-select", "npm:4.1.3"],\
+            ["css-select", "npm:4.2.1"],\
             ["boolbase", "npm:1.0.0"],\
-            ["css-what", "npm:5.0.1"],\
-            ["domhandler", "npm:4.2.0"],\
-            ["domutils", "npm:2.7.0"],\
-            ["nth-check", "npm:2.0.0"]\
+            ["css-what", "npm:5.1.0"],\
+            ["domhandler", "npm:4.3.0"],\
+            ["domutils", "npm:2.8.0"],\
+            ["nth-check", "npm:2.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2574,10 +2574,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:5.0.1", {\
-          "packageLocation": "./.yarn/cache/css-what-npm-5.0.1-66d2e8ba46-7a3de33a1c.zip/node_modules/css-what/",\
+        ["npm:5.1.0", {\
+          "packageLocation": "./.yarn/cache/css-what-npm-5.1.0-9991ae71a8-0b75d1bac9.zip/node_modules/css-what/",\
           "packageDependencies": [\
-            ["css-what", "npm:5.0.1"]\
+            ["css-what", "npm:5.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2882,6 +2882,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["domelementtype", "npm:2.2.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:4.3.0", {\
+          "packageLocation": "./.yarn/cache/domhandler-npm-4.3.0-d142f8b6f6-d2a2dbf40d.zip/node_modules/domhandler/",\
+          "packageDependencies": [\
+            ["domhandler", "npm:4.3.0"],\
+            ["domelementtype", "npm:2.2.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["domutils", [\
@@ -2889,6 +2897,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/domutils-npm-2.7.0-31a28e89d6-a4da0fcc4c.zip/node_modules/domutils/",\
           "packageDependencies": [\
             ["domutils", "npm:2.7.0"],\
+            ["dom-serializer", "npm:1.2.0"],\
+            ["domelementtype", "npm:2.2.0"],\
+            ["domhandler", "npm:4.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:2.8.0", {\
+          "packageLocation": "./.yarn/cache/domutils-npm-2.8.0-0325139e5c-abf7434315.zip/node_modules/domutils/",\
+          "packageDependencies": [\
+            ["domutils", "npm:2.8.0"],\
             ["dom-serializer", "npm:1.2.0"],\
             ["domelementtype", "npm:2.2.0"],\
             ["domhandler", "npm:4.2.0"]\
@@ -5348,11 +5366,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["node-html-parser", [\
-        ["npm:5.2.0", {\
-          "packageLocation": "./.yarn/cache/node-html-parser-npm-5.2.0-fbdaeced49-999b3f3f46.zip/node_modules/node-html-parser/",\
+        ["npm:5.3.2", {\
+          "packageLocation": "./.yarn/cache/node-html-parser-npm-5.3.2-c2038e81d7-7a97366d9d.zip/node_modules/node-html-parser/",\
           "packageDependencies": [\
-            ["node-html-parser", "npm:5.2.0"],\
-            ["css-select", "npm:4.1.3"],\
+            ["node-html-parser", "npm:5.3.2"],\
+            ["css-select", "npm:4.2.1"],\
             ["he", "npm:1.2.0"]\
           ],\
           "linkType": "HARD"\
@@ -5469,6 +5487,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/nth-check-npm-2.0.0-d92071ce70-a22eb19616.zip/node_modules/nth-check/",\
           "packageDependencies": [\
             ["nth-check", "npm:2.0.0"],\
+            ["boolbase", "npm:1.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:2.0.1", {\
+          "packageLocation": "./.yarn/cache/nth-check-npm-2.0.1-69558042d2-5386d035c4.zip/node_modules/nth-check/",\
+          "packageDependencies": [\
+            ["nth-check", "npm:2.0.1"],\
             ["boolbase", "npm:1.0.0"]\
           ],\
           "linkType": "HARD"\
