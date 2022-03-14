@@ -1997,7 +1997,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ioredis", "npm:4.28.5"],\
             ["jest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:27.5.1"],\
             ["mathjs", "npm:10.4.0"],\
-            ["node-html-parser", "npm:5.3.2"],\
+            ["node-html-parser", "npm:5.3.3"],\
             ["node-telegram-bot-api", "npm:0.56.0"],\
             ["novelcovid", "npm:3.0.2"],\
             ["pokedex", "npm:1.1.0"],\
@@ -5366,10 +5366,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["node-html-parser", [\
-        ["npm:5.3.2", {\
-          "packageLocation": "./.yarn/cache/node-html-parser-npm-5.3.2-c2038e81d7-7a97366d9d.zip/node_modules/node-html-parser/",\
+        ["npm:5.3.3", {\
+          "packageLocation": "./.yarn/cache/node-html-parser-npm-5.3.3-d94c2b8957-57c61d5c34.zip/node_modules/node-html-parser/",\
           "packageDependencies": [\
-            ["node-html-parser", "npm:5.3.2"],\
+            ["node-html-parser", "npm:5.3.3"],\
             ["css-select", "npm:4.2.1"],\
             ["he", "npm:1.2.0"]\
           ],\
