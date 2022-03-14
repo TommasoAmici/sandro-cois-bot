@@ -1401,7 +1401,7 @@ __metadata:
     ioredis: 4.28.5
     jest: 27.5.1
     mathjs: 10.4.0
-    node-html-parser: 5.3.2
+    node-html-parser: 5.3.3
     node-telegram-bot-api: 0.56.0
     novelcovid: 3.0.2
     pokedex: 1.1.0
@@ -4333,13 +4333,13 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"node-html-parser@npm:5.3.2":
-  version: 5.3.2
-  resolution: "node-html-parser@npm:5.3.2"
+"node-html-parser@npm:5.3.3":
+  version: 5.3.3
+  resolution: "node-html-parser@npm:5.3.3"
   dependencies:
     css-select: ^4.2.1
     he: 1.2.0
-  checksum: 7a97366d9d5534d5b6883b19bef662b6de73451757e7f7196c86e9621045c543921319aeda9a45756d6b184bd37510e54d8ad5a4478776309f3c1f4b8eafd992
+  checksum: 57c61d5c34fd8c6139ef497cd8d7a4b1b8f4c127986d7a8624f83ba31d3e4a5fdea2684b021989f6bf920d517f8075068f05f031e8813e84fc42569906704cad
   languageName: node
   linkType: hard
 
