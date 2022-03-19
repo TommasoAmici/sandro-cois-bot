@@ -4,31 +4,31 @@ import { getUsers } from "./stats/print";
 import { prettyPrint } from "./utils/printStandings";
 import { sortRecord } from "./utils/sortRecord";
 
-const setKey = (msg: TelegramBot.Message) =>
-  `chat:${msg.chat.id}:user:${msg.from.id}:bestemmie`;
+const userKey = (msg: TelegramBot.Message) =>
+  `chat:${msg.chat.id}:user:${msg.from.id}`;
+
+const setKey = (msg: TelegramBot.Message) => `${userKey(msg)}:bestemmie`;
 
 const storeBestemmia = (msg: TelegramBot.Message) => {
   client.hincrby(setKey(msg), msg.text.replaceAll("@", ""), 1);
 };
 
 const incrCounter = (msg: TelegramBot.Message) => {
-  const key = `chat:${msg.chat.id}:user:${msg.from.id}`;
+  const key = userKey(msg);
   client.hincrby(key, "bestemmie", 1).then((stats: Number) => {
     if (stats === 1) client.hset(key, "name", msg.from.username);
   });
 };
 
 const nameFromID = (msg: TelegramBot.Message) => {
-  const key = `chat:${msg.chat.id}:user:${msg.from.id}`;
+  const key = userKey(msg);
   return client.hget(key, "name");
 };
 
-export const countBestemmia =
-  () =>
-  (msg: TelegramBot.Message): void => {
-    storeBestemmia(msg);
-    incrCounter(msg);
-  };
+export const countBestemmia = (msg: TelegramBot.Message) => {
+  storeBestemmia(msg);
+  incrCounter(msg);
+};
 
 export const printUserBestemmie =
   (bot: TelegramBot) =>
