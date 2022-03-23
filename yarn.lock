@@ -352,12 +352,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.17.2":
-  version: 7.17.2
-  resolution: "@babel/runtime@npm:7.17.2"
+"@babel/runtime@npm:^7.17.8":
+  version: 7.17.8
+  resolution: "@babel/runtime@npm:7.17.8"
   dependencies:
     regenerator-runtime: ^0.13.4
-  checksum: a48702d271ecc59c09c397856407afa29ff980ab537b3da58eeee1aeaa0f545402d340a1680c9af58aec94dfdcbccfb6abb211991b74686a86d03d3f6956cacd
+  checksum: 68d195c1630bb91ac20e86635d292a17ebab7f361cfe79406b3f5a6cc2e59fa283ae5006568899abf869312c2b35b744bd407aea8ffdb650f1a68d07785d47e9
   languageName: node
   linkType: hard
 
@@ -1400,7 +1400,7 @@ __metadata:
     html-entities: 2.3.2
     ioredis: 4.28.5
     jest: 27.5.1
-    mathjs: 10.4.0
+    mathjs: 10.4.1
     node-html-parser: 5.3.3
     node-telegram-bot-api: 0.56.0
     novelcovid: 3.0.2
@@ -4103,11 +4103,11 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"mathjs@npm:10.4.0":
-  version: 10.4.0
-  resolution: "mathjs@npm:10.4.0"
+"mathjs@npm:10.4.1":
+  version: 10.4.1
+  resolution: "mathjs@npm:10.4.1"
   dependencies:
-    "@babel/runtime": ^7.17.2
+    "@babel/runtime": ^7.17.8
     complex.js: ^2.0.15
     decimal.js: ^10.3.1
     escape-latex: ^1.2.0
@@ -4115,10 +4115,10 @@ fsevents@^2.3.2:
     javascript-natural-sort: ^0.7.1
     seedrandom: ^3.0.5
     tiny-emitter: ^2.1.0
-    typed-function: ^2.0.0
+    typed-function: ^2.1.0
   bin:
     mathjs: bin/cli.js
-  checksum: 14e687ac82c6fdb9ba39b57502ab4e3ec3e47c75eda89777a50f2921097982dd8c8ab1cd8c23006eef10497a015ebeaa2ec715440c6f5f789360fc414175a57b
+  checksum: 6a9a703a745bd7befd9cb95b6b9f893da810e0677e5e08981a7061b87faea38cc2a4a7fa350db0b3608f053975df38e6b1f65de5e7da3d684394785a93a2d492
   languageName: node
   linkType: hard
 
@@ -5699,10 +5699,10 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-"typed-function@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "typed-function@npm:2.0.0"
-  checksum: 8abb39dff088706f454cd3fa3e884ed98b61f28fcae6ea8b0f3b83225ca130d0ee5ab20acc91f820b41773532f0fd4308e25b5b346c9ab6a626bd8b4e83c59dc
+"typed-function@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "typed-function@npm:2.1.0"
+  checksum: 168c2c8f765fbecc842521a5fb62a5800958f9fcb0ce78d69c38a5e96c81fe133f853256ec8ee245ee2fc42b4c9342b5ba754c732189550c64c12e758892dc43
   languageName: node
   linkType: hard
 
