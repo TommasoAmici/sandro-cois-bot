@@ -1993,7 +1993,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["diacritics", "npm:1.3.0"],\
             ["fuse.js", "npm:6.5.3"],\
             ["g-i-s", "npm:2.1.6"],\
-            ["html-entities", "npm:2.3.2"],\
+            ["html-entities", "npm:2.3.3"],\
             ["ioredis", "npm:4.28.5"],\
             ["jest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:27.5.1"],\
             ["mathjs", "npm:10.4.1"],\
@@ -3664,6 +3664,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/html-entities-npm-2.3.2-366c4c257a-522d8d202d.zip/node_modules/html-entities/",\
           "packageDependencies": [\
             ["html-entities", "npm:2.3.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:2.3.3", {\
+          "packageLocation": "./.yarn/cache/html-entities-npm-2.3.3-e0aac656af-92521501da.zip/node_modules/html-entities/",\
+          "packageDependencies": [\
+            ["html-entities", "npm:2.3.3"]\
           ],\
           "linkType": "HARD"\
         }]\
