@@ -1996,7 +1996,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["html-entities", "npm:2.3.3"],\
             ["ioredis", "npm:4.28.5"],\
             ["jest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:27.5.1"],\
-            ["mathjs", "npm:10.4.1"],\
+            ["mathjs", "npm:10.4.2"],\
             ["node-html-parser", "npm:5.3.3"],\
             ["node-telegram-bot-api", "npm:0.56.0"],\
             ["novelcovid", "npm:3.0.2"],\
@@ -2445,10 +2445,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["complex.js", [\
-        ["npm:2.0.15", {\
-          "packageLocation": "./.yarn/cache/complex.js-npm-2.0.15-92b02e0853-f39b4ee8f8.zip/node_modules/complex.js/",\
+        ["npm:2.1.0", {\
+          "packageLocation": "./.yarn/cache/complex.js-npm-2.1.0-6d9742b352-8a31a0d819.zip/node_modules/complex.js/",\
           "packageDependencies": [\
-            ["complex.js", "npm:2.0.15"]\
+            ["complex.js", "npm:2.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5122,12 +5122,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["mathjs", [\
-        ["npm:10.4.1", {\
-          "packageLocation": "./.yarn/cache/mathjs-npm-10.4.1-3ca52c64d4-6a9a703a74.zip/node_modules/mathjs/",\
+        ["npm:10.4.2", {\
+          "packageLocation": "./.yarn/cache/mathjs-npm-10.4.2-0fd8b1d686-5cbf1d9c35.zip/node_modules/mathjs/",\
           "packageDependencies": [\
-            ["mathjs", "npm:10.4.1"],\
+            ["mathjs", "npm:10.4.2"],\
             ["@babel/runtime", "npm:7.17.8"],\
-            ["complex.js", "npm:2.0.15"],\
+            ["complex.js", "npm:2.1.0"],\
             ["decimal.js", "npm:10.3.1"],\
             ["escape-latex", "npm:1.2.0"],\
             ["fraction.js", "npm:4.2.0"],\
