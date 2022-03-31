@@ -6,6 +6,7 @@ import {
   printBestemmiatori,
   printUserBestemmie,
 } from "./plugins/bestemmie";
+import ultimouomo from "./plugins/ultimouomo";
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(cfg.telegramToken, { polling: true });
@@ -223,3 +224,5 @@ bot.onText(/^[/!]echoid(?:@\w+)?$/i, plugins.echoID(bot));
 bot.onText(/^[/!]osterie$/i, plugins.osteria.list(bot));
 bot.onText(/^[/!]osteria$/i, plugins.osteria.random(bot));
 bot.onText(/^[/!]osteria ([\s\S]+){1}/i, plugins.osteria.detail(bot));
+
+bot.onText(/ultimouomo\.com/gi, ultimouomo(bot));
