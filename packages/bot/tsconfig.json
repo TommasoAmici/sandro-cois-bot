@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "outDir": "./built",
-    "allowJs": false,
-    "target": "ESNext",
-    "moduleResolution": "Node",
+    "noEmit": true,
+    "target": "ES2015",
     "lib": ["ESNext"],
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },
