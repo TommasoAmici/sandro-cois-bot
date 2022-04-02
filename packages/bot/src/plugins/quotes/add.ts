@@ -4,7 +4,7 @@ import client from "../../redisClient";
 
 const createIndex = (chatID: number) =>
   client
-    .send_command(
+    .call(
       "FT.CREATE",
       `chat:${chatID}:quotes-index`,
       "ON",

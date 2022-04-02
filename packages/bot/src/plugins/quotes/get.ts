@@ -27,7 +27,7 @@ export const searchQuotes = async (
   query: string,
   limit = 10,
 ) => {
-  const res = await client.send_command("FT.SEARCH", [
+  const res = await client.call("FT.SEARCH", [
     `chat:${chatID}:quotes-index`,
     query,
     "limit",
@@ -35,7 +35,7 @@ export const searchQuotes = async (
     limit,
   ]);
   // transform redis response in objects
-  const quotes: IQuote[] = res
+  const quotes: IQuote[] = (res as any)
     .slice(1)
     .filter((s, i) => i % 2 === 1)
     .map(s => {

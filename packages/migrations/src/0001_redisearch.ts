@@ -1,4 +1,4 @@
-import * as Redis from "ioredis";
+import Redis from "ioredis";
 
 const authorRegex = /\n*[-–—] ?(.+)$/;
 
@@ -24,7 +24,7 @@ const main = async () => {
       );
     });
     client
-      .send_command(
+      .call(
         "FT.CREATE",
         quoteSet.replace(":quotes", ":quotes-index"),
         "ON",

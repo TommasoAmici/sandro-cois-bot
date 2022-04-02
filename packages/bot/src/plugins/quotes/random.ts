@@ -5,7 +5,7 @@ import { formatQuote, IQuote } from "./get";
 export default (bot: TelegramBot) =>
   async (msg: TelegramBot.Message): Promise<void> => {
     const key = `chat:${msg.chat.id}:quotes`;
-    const quoteID = await client.send_command("ZRANDMEMBER", key);
+    const quoteID = await client.zrandmember(key);
     client.hgetall(`${key}:${quoteID}`, (err, record) => {
       if (err) {
         console.error(err);

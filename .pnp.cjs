@@ -820,6 +820,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@ioredis/commands", [\
+        ["npm:1.1.1", {\
+          "packageLocation": "./.yarn/cache/@ioredis-commands-npm-1.1.1-8a87e5940e-66a9dc315d.zip/node_modules/@ioredis/commands/",\
+          "packageDependencies": [\
+            ["@ioredis/commands", "npm:1.1.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@istanbuljs/load-nyc-config", [\
         ["npm:1.1.0", {\
           "packageLocation": "./.yarn/cache/@istanbuljs-load-nyc-config-npm-1.1.0-42d17c9cb1-d578da5e2e.zip/node_modules/@istanbuljs/load-nyc-config/",\
@@ -1994,7 +2003,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fuse.js", "npm:6.5.3"],\
             ["g-i-s", "npm:2.1.6"],\
             ["html-entities", "npm:2.3.3"],\
-            ["ioredis", "npm:4.28.5"],\
+            ["ioredis", "npm:5.0.3"],\
             ["jest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:27.5.1"],\
             ["mathjs", "npm:10.4.2"],\
             ["node-html-parser", "npm:5.3.3"],\
@@ -2657,10 +2666,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
+        ["npm:4.3.4", {\
+          "packageLocation": "./.yarn/cache/debug-npm-4.3.4-4513954577-3dbad3f94e.zip/node_modules/debug/",\
+          "packageDependencies": [\
+            ["debug", "npm:4.3.4"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
         ["virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2", {\
           "packageLocation": "./.yarn/__virtual__/debug-virtual-e152771b72/0/cache/debug-npm-4.3.2-f0148b6afe-820ea160e2.zip/node_modules/debug/",\
           "packageDependencies": [\
             ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],\
+            ["@types/supports-color", null],\
+            ["ms", "npm:2.1.2"],\
+            ["supports-color", null]\
+          ],\
+          "packagePeers": [\
+            "@types/supports-color",\
+            "supports-color"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:7b2e166100c5c1ee76d64087af39670801837577c76bf2df867299712e30308f9bb27741b33a29b24b2fd8c3871b71e71b767bb9ca5e5df76288b16fe1956a44#npm:4.3.4", {\
+          "packageLocation": "./.yarn/__virtual__/debug-virtual-e4a8f7bbe8/0/cache/debug-npm-4.3.4-4513954577-3dbad3f94e.zip/node_modules/debug/",\
+          "packageDependencies": [\
+            ["debug", "virtual:7b2e166100c5c1ee76d64087af39670801837577c76bf2df867299712e30308f9bb27741b33a29b24b2fd8c3871b71e71b767bb9ca5e5df76288b16fe1956a44#npm:4.3.4"],\
             ["@types/supports-color", null],\
             ["ms", "npm:2.1.2"],\
             ["supports-color", null]\
@@ -2799,10 +2829,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["denque", [\
-        ["npm:1.4.1", {\
-          "packageLocation": "./.yarn/cache/denque-npm-1.4.1-91d454774e-a854ed61ec.zip/node_modules/denque/",\
+        ["npm:2.0.1", {\
+          "packageLocation": "./.yarn/cache/denque-npm-2.0.1-4ba00e404b-ec398d1e3c.zip/node_modules/denque/",\
           "packageDependencies": [\
-            ["denque", "npm:1.4.1"]\
+            ["denque", "npm:2.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3857,18 +3887,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["ioredis", [\
-        ["npm:4.28.5", {\
-          "packageLocation": "./.yarn/cache/ioredis-npm-4.28.5-74671f2fa3-a8793c3324.zip/node_modules/ioredis/",\
+        ["npm:5.0.3", {\
+          "packageLocation": "./.yarn/cache/ioredis-npm-5.0.3-7b2e166100-3d38075c8f.zip/node_modules/ioredis/",\
           "packageDependencies": [\
-            ["ioredis", "npm:4.28.5"],\
+            ["ioredis", "npm:5.0.3"],\
+            ["@ioredis/commands", "npm:1.1.1"],\
             ["cluster-key-slot", "npm:1.1.0"],\
-            ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],\
-            ["denque", "npm:1.4.1"],\
+            ["debug", "virtual:7b2e166100c5c1ee76d64087af39670801837577c76bf2df867299712e30308f9bb27741b33a29b24b2fd8c3871b71e71b767bb9ca5e5df76288b16fe1956a44#npm:4.3.4"],\
+            ["denque", "npm:2.0.1"],\
             ["lodash.defaults", "npm:4.2.0"],\
-            ["lodash.flatten", "npm:4.4.0"],\
             ["lodash.isarguments", "npm:3.1.0"],\
-            ["p-map", "npm:2.1.0"],\
-            ["redis-commands", "npm:1.7.0"],\
             ["redis-errors", "npm:1.2.0"],\
             ["redis-parser", "npm:3.0.0"],\
             ["standard-as-callback", "npm:2.1.0"]\
@@ -5167,7 +5195,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ioredis", "npm:4.28.10"],\
             ["@types/node", "npm:16.11.26"],\
             ["@vercel/ncc", "npm:0.33.3"],\
-            ["ioredis", "npm:4.28.5"],\
+            ["ioredis", "npm:5.0.3"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"]\
           ],\
           "linkType": "SOFT"\
@@ -5643,13 +5671,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["p-map", [\
-        ["npm:2.1.0", {\
-          "packageLocation": "./.yarn/cache/p-map-npm-2.1.0-d9e865dc7c-9e3ad3c9f6.zip/node_modules/p-map/",\
-          "packageDependencies": [\
-            ["p-map", "npm:2.1.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:4.0.0", {\
           "packageLocation": "./.yarn/cache/p-map-npm-4.0.0-4677ae07c7-cb0ab21ec0.zip/node_modules/p-map/",\
           "packageDependencies": [\
@@ -6000,15 +6021,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["safe-buffer", "npm:5.1.2"],\
             ["string_decoder", "npm:1.1.1"],\
             ["util-deprecate", "npm:1.0.2"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["redis-commands", [\
-        ["npm:1.7.0", {\
-          "packageLocation": "./.yarn/cache/redis-commands-npm-1.7.0-528f61f9d8-d1ff7fbcb5.zip/node_modules/redis-commands/",\
-          "packageDependencies": [\
-            ["redis-commands", "npm:1.7.0"]\
           ],\
           "linkType": "HARD"\
         }]\
