@@ -2,24 +2,21 @@ import TelegramBot from "node-telegram-bot-api";
 import * as utf8 from "utf8";
 import client from "../../redisClient";
 
-const createIndex = (chatID: number) =>
-  client
-    .call(
-      "FT.CREATE",
-      `chat:${chatID}:quotes-index`,
-      "ON",
-      "HASH",
-      "PREFIX",
-      1,
-      `chat:${chatID}:quotes:`,
-      "SCHEMA",
-      "body",
-      "TEXT",
-      "author",
-      "TEXT",
-    )
-    .then()
-    .catch();
+const createIndex = async (chatID: number) =>
+  client.call(
+    "FT.CREATE",
+    `chat:${chatID}:quotes-index`,
+    "ON",
+    "HASH",
+    "PREFIX",
+    1,
+    `chat:${chatID}:quotes:`,
+    "SCHEMA",
+    "body",
+    "TEXT",
+    "author",
+    "TEXT",
+  );
 
 export const addQuote = async (
   body: string,
@@ -30,7 +27,11 @@ export const addQuote = async (
 ) => {
   const key = `chat:${chatId}:quotes`;
 
-  createIndex(chatId);
+  try {
+    createIndex(chatId);
+  } catch {
+    // it will throw an error if the index already exists, not a problem
+  }
 
   const id = await client.incr("quotes-id");
   client.zadd(key, Date.now(), id);
