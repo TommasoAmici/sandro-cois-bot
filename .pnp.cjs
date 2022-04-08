@@ -2005,7 +2005,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["html-entities", "npm:2.3.3"],\
             ["ioredis", "npm:5.0.3"],\
             ["jest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:27.5.1"],\
-            ["mathjs", "npm:10.4.2"],\
+            ["mathjs", "npm:10.4.3"],\
             ["node-html-parser", "npm:5.3.3"],\
             ["node-telegram-bot-api", "npm:0.56.0"],\
             ["novelcovid", "npm:3.0.2"],\
@@ -5150,10 +5150,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["mathjs", [\
-        ["npm:10.4.2", {\
-          "packageLocation": "./.yarn/cache/mathjs-npm-10.4.2-0fd8b1d686-5cbf1d9c35.zip/node_modules/mathjs/",\
+        ["npm:10.4.3", {\
+          "packageLocation": "./.yarn/cache/mathjs-npm-10.4.3-9f80458c54-ed2343b2ab.zip/node_modules/mathjs/",\
           "packageDependencies": [\
-            ["mathjs", "npm:10.4.2"],\
+            ["mathjs", "npm:10.4.3"],\
             ["@babel/runtime", "npm:7.17.8"],\
             ["complex.js", "npm:2.1.0"],\
             ["decimal.js", "npm:10.3.1"],\
