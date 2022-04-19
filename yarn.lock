@@ -352,12 +352,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.17.8":
-  version: 7.17.8
-  resolution: "@babel/runtime@npm:7.17.8"
+"@babel/runtime@npm:^7.17.9":
+  version: 7.17.9
+  resolution: "@babel/runtime@npm:7.17.9"
   dependencies:
     regenerator-runtime: ^0.13.4
-  checksum: 68d195c1630bb91ac20e86635d292a17ebab7f361cfe79406b3f5a6cc2e59fa283ae5006568899abf869312c2b35b744bd407aea8ffdb650f1a68d07785d47e9
+  checksum: 4d56bdb82890f386d5a57c40ef985a0ed7f0a78f789377a2d0c3e8826819e0f7f16ba0fe906d9b2241c5f7ca56630ef0653f5bb99f03771f7b87ff8af4bf5fe3
   languageName: node
   linkType: hard
 
@@ -1414,7 +1414,7 @@ __metadata:
     html-entities: 2.3.3
     ioredis: 5.0.4
     jest: 27.5.1
-    mathjs: 10.4.3
+    mathjs: 10.5.0
     node-html-parser: 5.3.3
     node-telegram-bot-api: 0.56.0
     novelcovid: 3.0.2
@@ -1811,10 +1811,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"complex.js@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "complex.js@npm:2.1.0"
-  checksum: 8a31a0d8191d793e08c8bac5065b8146f2243d8f15b81736c07211f7e2b73e5d71c5d010ed38525985d83ac37027d66dbe51704e8070a59df6cf8130d55562b7
+"complex.js@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "complex.js@npm:2.1.1"
+  checksum: a0802cc3f0eb7703088edfc3fe209ae7be5ce93c0e710a0f288be2e29ee31b3530a8c0d3330d7c2a668410dfe4293a4038554d66c7f1f1165997941bdc1092aa
   languageName: node
   linkType: hard
 
@@ -4134,12 +4134,12 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"mathjs@npm:10.4.3":
-  version: 10.4.3
-  resolution: "mathjs@npm:10.4.3"
+"mathjs@npm:10.5.0":
+  version: 10.5.0
+  resolution: "mathjs@npm:10.5.0"
   dependencies:
-    "@babel/runtime": ^7.17.8
-    complex.js: ^2.1.0
+    "@babel/runtime": ^7.17.9
+    complex.js: ^2.1.1
     decimal.js: ^10.3.1
     escape-latex: ^1.2.0
     fraction.js: ^4.2.0
@@ -4149,7 +4149,7 @@ fsevents@^2.3.2:
     typed-function: ^2.1.0
   bin:
     mathjs: bin/cli.js
-  checksum: ed2343b2ab41c5638d54b04cecfb815069ea6508629b18bd1cc519711560ee43412cae82d17cfb5ed8e55ba2a8f3a90999bdd23457be6703157113de74c285fd
+  checksum: c97b076889054e492fb803d634aa72c30186c61194e8a9dd2c89098f6c97639feeb3f3d107d35368b42694dcc9586b5cce0d0a1bf2e3d8e71f2276daa9d449c7
   languageName: node
   linkType: hard
 
