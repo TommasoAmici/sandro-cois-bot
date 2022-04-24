@@ -2014,7 +2014,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:27.5.1"],\
             ["mathjs", "npm:10.5.0"],\
             ["node-html-parser", "npm:5.3.3"],\
-            ["node-telegram-bot-api", "npm:0.56.0"],\
+            ["node-telegram-bot-api", "npm:0.57.0"],\
             ["novelcovid", "npm:3.0.2"],\
             ["pokedex", "npm:1.1.0"],\
             ["ts-jest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:27.1.4"],\
@@ -2694,12 +2694,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:b7745c0be39ea8b063de50f4848ec91674cc850badba1efc587bd6dd8238d84d61316b80c03eab9f640a2575d7fee452d3db12658de8edc136f827ff67bebe05#npm:3.2.6", {\
-          "packageLocation": "./.yarn/__virtual__/debug-virtual-6c2485d2d2/0/cache/debug-npm-3.2.6-6214e40f12-07bc8b3a13.zip/node_modules/debug/",\
+        ["virtual:c1e692c6265fd7182435af5cacafdb56293fbf08ecf2d5a9f9ea502383e67a8cc0f42cbbeb4e8e5eb1f3bffd22f0d3fb1d560731041a6062b971ba58c781654f#npm:4.3.4", {\
+          "packageLocation": "./.yarn/__virtual__/debug-virtual-6be26ca5aa/0/cache/debug-npm-4.3.4-4513954577-3dbad3f94e.zip/node_modules/debug/",\
           "packageDependencies": [\
-            ["debug", "virtual:b7745c0be39ea8b063de50f4848ec91674cc850badba1efc587bd6dd8238d84d61316b80c03eab9f640a2575d7fee452d3db12658de8edc136f827ff67bebe05#npm:3.2.6"],\
+            ["debug", "virtual:c1e692c6265fd7182435af5cacafdb56293fbf08ecf2d5a9f9ea502383e67a8cc0f42cbbeb4e8e5eb1f3bffd22f0d3fb1d560731041a6062b971ba58c781654f#npm:4.3.4"],\
             ["@types/supports-color", null],\
-            ["ms", "npm:2.1.3"],\
+            ["ms", "npm:2.1.2"],\
             ["supports-color", null]\
           ],\
           "packagePeers": [\
@@ -2708,12 +2708,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:c1e692c6265fd7182435af5cacafdb56293fbf08ecf2d5a9f9ea502383e67a8cc0f42cbbeb4e8e5eb1f3bffd22f0d3fb1d560731041a6062b971ba58c781654f#npm:4.3.4", {\
-          "packageLocation": "./.yarn/__virtual__/debug-virtual-6be26ca5aa/0/cache/debug-npm-4.3.4-4513954577-3dbad3f94e.zip/node_modules/debug/",\
+        ["virtual:cadf57dadef9d3cdc09717dc6fc6ad7f2e0f4c82ef7c639948273a2e24b84b987b9722f8b51d1898a241b3e28c45520c8de7507a6636f6fefaa34284d3e64af6#npm:3.2.6", {\
+          "packageLocation": "./.yarn/__virtual__/debug-virtual-a6a600e43c/0/cache/debug-npm-3.2.6-6214e40f12-07bc8b3a13.zip/node_modules/debug/",\
           "packageDependencies": [\
-            ["debug", "virtual:c1e692c6265fd7182435af5cacafdb56293fbf08ecf2d5a9f9ea502383e67a8cc0f42cbbeb4e8e5eb1f3bffd22f0d3fb1d560731041a6062b971ba58c781654f#npm:4.3.4"],\
+            ["debug", "virtual:cadf57dadef9d3cdc09717dc6fc6ad7f2e0f4c82ef7c639948273a2e24b84b987b9722f8b51d1898a241b3e28c45520c8de7507a6636f6fefaa34284d3e64af6#npm:3.2.6"],\
             ["@types/supports-color", null],\
-            ["ms", "npm:2.1.2"],\
+            ["ms", "npm:2.1.3"],\
             ["supports-color", null]\
           ],\
           "packagePeers": [\
@@ -5437,21 +5437,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["node-telegram-bot-api", [\
-        ["npm:0.56.0", {\
-          "packageLocation": "./.yarn/cache/node-telegram-bot-api-npm-0.56.0-b7745c0be3-2f02792b21.zip/node_modules/node-telegram-bot-api/",\
+        ["npm:0.57.0", {\
+          "packageLocation": "./.yarn/cache/node-telegram-bot-api-npm-0.57.0-cadf57dade-b25b166aaa.zip/node_modules/node-telegram-bot-api/",\
           "packageDependencies": [\
-            ["node-telegram-bot-api", "npm:0.56.0"],\
+            ["node-telegram-bot-api", "npm:0.57.0"],\
             ["array.prototype.findindex", "npm:2.0.2"],\
             ["bl", "npm:1.2.3"],\
             ["bluebird", "npm:3.5.3"],\
-            ["debug", "virtual:b7745c0be39ea8b063de50f4848ec91674cc850badba1efc587bd6dd8238d84d61316b80c03eab9f640a2575d7fee452d3db12658de8edc136f827ff67bebe05#npm:3.2.6"],\
+            ["debug", "virtual:cadf57dadef9d3cdc09717dc6fc6ad7f2e0f4c82ef7c639948273a2e24b84b987b9722f8b51d1898a241b3e28c45520c8de7507a6636f6fefaa34284d3e64af6#npm:3.2.6"],\
             ["depd", "npm:1.1.2"],\
             ["eventemitter3", "npm:3.1.0"],\
             ["file-type", "npm:3.9.0"],\
             ["mime", "npm:1.6.0"],\
             ["pump", "npm:2.0.1"],\
             ["request", "npm:2.88.2"],\
-            ["request-promise", "virtual:b7745c0be39ea8b063de50f4848ec91674cc850badba1efc587bd6dd8238d84d61316b80c03eab9f640a2575d7fee452d3db12658de8edc136f827ff67bebe05#npm:4.2.4"]\
+            ["request-promise", "virtual:cadf57dadef9d3cdc09717dc6fc6ad7f2e0f4c82ef7c639948273a2e24b84b987b9722f8b51d1898a241b3e28c45520c8de7507a6636f6fefaa34284d3e64af6#npm:4.2.4"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6097,14 +6097,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:b7745c0be39ea8b063de50f4848ec91674cc850badba1efc587bd6dd8238d84d61316b80c03eab9f640a2575d7fee452d3db12658de8edc136f827ff67bebe05#npm:4.2.4", {\
-          "packageLocation": "./.yarn/__virtual__/request-promise-virtual-dc0e1ef1f4/0/cache/request-promise-npm-4.2.4-1de5915537-720305c1ba.zip/node_modules/request-promise/",\
+        ["virtual:cadf57dadef9d3cdc09717dc6fc6ad7f2e0f4c82ef7c639948273a2e24b84b987b9722f8b51d1898a241b3e28c45520c8de7507a6636f6fefaa34284d3e64af6#npm:4.2.4", {\
+          "packageLocation": "./.yarn/__virtual__/request-promise-virtual-224e1964e3/0/cache/request-promise-npm-4.2.4-1de5915537-720305c1ba.zip/node_modules/request-promise/",\
           "packageDependencies": [\
-            ["request-promise", "virtual:b7745c0be39ea8b063de50f4848ec91674cc850badba1efc587bd6dd8238d84d61316b80c03eab9f640a2575d7fee452d3db12658de8edc136f827ff67bebe05#npm:4.2.4"],\
+            ["request-promise", "virtual:cadf57dadef9d3cdc09717dc6fc6ad7f2e0f4c82ef7c639948273a2e24b84b987b9722f8b51d1898a241b3e28c45520c8de7507a6636f6fefaa34284d3e64af6#npm:4.2.4"],\
             ["@types/request", null],\
             ["bluebird", "npm:3.5.3"],\
             ["request", "npm:2.88.2"],\
-            ["request-promise-core", "virtual:dc0e1ef1f451b2e1ed5df8ffa4201fb725e04c0721a2321c05047f8b814c1dec29cafa324fb9334d3805bb3348cbb93935f3d57b02b5dec97ecb97dbb323bcf0#npm:1.1.2"],\
+            ["request-promise-core", "virtual:224e1964e390d975fecb851f3ed5eb179425ee338cba956c398fc8fff2719bd2923cb6632fc36d36f052c974abf44b653f4c0377bd3c5df182f58b24b61b98c4#npm:1.1.2"],\
             ["stealthy-require", "npm:1.1.1"],\
             ["tough-cookie", "npm:2.5.0"]\
           ],\
@@ -6123,10 +6123,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:dc0e1ef1f451b2e1ed5df8ffa4201fb725e04c0721a2321c05047f8b814c1dec29cafa324fb9334d3805bb3348cbb93935f3d57b02b5dec97ecb97dbb323bcf0#npm:1.1.2", {\
-          "packageLocation": "./.yarn/__virtual__/request-promise-core-virtual-79d47dd2bb/0/cache/request-promise-core-npm-1.1.2-380298170c-4946886b8d.zip/node_modules/request-promise-core/",\
+        ["virtual:224e1964e390d975fecb851f3ed5eb179425ee338cba956c398fc8fff2719bd2923cb6632fc36d36f052c974abf44b653f4c0377bd3c5df182f58b24b61b98c4#npm:1.1.2", {\
+          "packageLocation": "./.yarn/__virtual__/request-promise-core-virtual-1fe8a2ad40/0/cache/request-promise-core-npm-1.1.2-380298170c-4946886b8d.zip/node_modules/request-promise-core/",\
           "packageDependencies": [\
-            ["request-promise-core", "virtual:dc0e1ef1f451b2e1ed5df8ffa4201fb725e04c0721a2321c05047f8b814c1dec29cafa324fb9334d3805bb3348cbb93935f3d57b02b5dec97ecb97dbb323bcf0#npm:1.1.2"],\
+            ["request-promise-core", "virtual:224e1964e390d975fecb851f3ed5eb179425ee338cba956c398fc8fff2719bd2923cb6632fc36d36f052c974abf44b653f4c0377bd3c5df182f58b24b61b98c4#npm:1.1.2"],\
             ["@types/request", null],\
             ["lodash", "npm:4.17.21"],\
             ["request", "npm:2.88.2"]\

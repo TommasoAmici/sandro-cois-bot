@@ -1416,7 +1416,7 @@ __metadata:
     jest: 27.5.1
     mathjs: 10.5.0
     node-html-parser: 5.3.3
-    node-telegram-bot-api: 0.56.0
+    node-telegram-bot-api: 0.57.0
     novelcovid: 3.0.2
     pokedex: 1.1.0
     ts-jest: 27.1.4
@@ -4388,9 +4388,9 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"node-telegram-bot-api@npm:0.56.0":
-  version: 0.56.0
-  resolution: "node-telegram-bot-api@npm:0.56.0"
+"node-telegram-bot-api@npm:0.57.0":
+  version: 0.57.0
+  resolution: "node-telegram-bot-api@npm:0.57.0"
   dependencies:
     array.prototype.findindex: ^2.0.2
     bl: ^1.2.3
@@ -4403,7 +4403,7 @@ fsevents@^2.3.2:
     pump: ^2.0.0
     request: ^2.83.0
     request-promise: ^4.2.2
-  checksum: 2f02792b218b005af2a4c4323898d2f1b66dd6959eb9ff5243ee0c64a916e6e62b99013afc6a4862703779d2483ab751b9963595333e88838b722c667c0c75d6
+  checksum: b25b166aaafab15f514b1fee749cc37ca6e7b03a2420f5f525bd3b223dc4ed0b6ba509f7722aff69d78bfd6a99974e00753a4b1271cc5ac62e49e524b490e978
   languageName: node
   linkType: hard
 
