@@ -1786,11 +1786,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["axios", [\
-        ["npm:0.26.1", {\
-          "packageLocation": "./.yarn/cache/axios-npm-0.26.1-a6641ce4e3-d9eb58ff4b.zip/node_modules/axios/",\
+        ["npm:0.27.0", {\
+          "packageLocation": "./.yarn/cache/axios-npm-0.27.0-7f6751217e-57078fe72c.zip/node_modules/axios/",\
           "packageDependencies": [\
-            ["axios", "npm:0.26.1"],\
-            ["follow-redirects", "virtual:a6641ce4e3bdcc0997f8f53d9481b67c5d38e21276de8eeee7bf92881685b3ad5600bae416c2af904ceab8132bac649e7efd0af93f18e158e0e65ee05a263d72#npm:1.14.8"]\
+            ["axios", "npm:0.27.0"],\
+            ["follow-redirects", "virtual:7f6751217eed94f5da9e31f676634aaa8649fa0f38792cf5c47281c44535d413654ed779bacf9ee81d201f1473fa3fab74778de6b6acbac93d06e72058d10e96#npm:1.14.9"],\
+            ["form-data", "npm:4.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2005,7 +2006,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/utf8", "npm:3.0.1"],\
             ["@vercel/ncc", "npm:0.33.4"],\
             ["@vitalets/google-translate-api", "npm:8.0.0"],\
-            ["axios", "npm:0.26.1"],\
+            ["axios", "npm:0.27.0"],\
             ["diacritics", "npm:1.3.0"],\
             ["fuse.js", "npm:6.5.3"],\
             ["g-i-s", "npm:2.1.6"],\
@@ -3326,17 +3327,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["follow-redirects", [\
-        ["npm:1.14.8", {\
-          "packageLocation": "./.yarn/cache/follow-redirects-npm-1.14.8-f4c37ea22a-40c67899c2.zip/node_modules/follow-redirects/",\
+        ["npm:1.14.9", {\
+          "packageLocation": "./.yarn/cache/follow-redirects-npm-1.14.9-522f191631-f5982e0eb4.zip/node_modules/follow-redirects/",\
           "packageDependencies": [\
-            ["follow-redirects", "npm:1.14.8"]\
+            ["follow-redirects", "npm:1.14.9"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:a6641ce4e3bdcc0997f8f53d9481b67c5d38e21276de8eeee7bf92881685b3ad5600bae416c2af904ceab8132bac649e7efd0af93f18e158e0e65ee05a263d72#npm:1.14.8", {\
-          "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-d18ec3654c/0/cache/follow-redirects-npm-1.14.8-f4c37ea22a-40c67899c2.zip/node_modules/follow-redirects/",\
+        ["virtual:7f6751217eed94f5da9e31f676634aaa8649fa0f38792cf5c47281c44535d413654ed779bacf9ee81d201f1473fa3fab74778de6b6acbac93d06e72058d10e96#npm:1.14.9", {\
+          "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-ff762edd38/0/cache/follow-redirects-npm-1.14.9-522f191631-f5982e0eb4.zip/node_modules/follow-redirects/",\
           "packageDependencies": [\
-            ["follow-redirects", "virtual:a6641ce4e3bdcc0997f8f53d9481b67c5d38e21276de8eeee7bf92881685b3ad5600bae416c2af904ceab8132bac649e7efd0af93f18e158e0e65ee05a263d72#npm:1.14.8"],\
+            ["follow-redirects", "virtual:7f6751217eed94f5da9e31f676634aaa8649fa0f38792cf5c47281c44535d413654ed779bacf9ee81d201f1473fa3fab74778de6b6acbac93d06e72058d10e96#npm:1.14.9"],\
             ["@types/debug", null],\
             ["debug", null]\
           ],\
@@ -3371,6 +3372,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/form-data-npm-3.0.0-b01f488350-60ec3fe7e2.zip/node_modules/form-data/",\
           "packageDependencies": [\
             ["form-data", "npm:3.0.0"],\
+            ["asynckit", "npm:0.4.0"],\
+            ["combined-stream", "npm:1.0.8"],\
+            ["mime-types", "npm:2.1.22"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/form-data-npm-4.0.0-916facec2d-01135bf867.zip/node_modules/form-data/",\
+          "packageDependencies": [\
+            ["form-data", "npm:4.0.0"],\
             ["asynckit", "npm:0.4.0"],\
             ["combined-stream", "npm:1.0.8"],\
             ["mime-types", "npm:2.1.22"]\
