@@ -59,6 +59,7 @@ export default (bot: TelegramBot) =>
       const quotes = await searchQuotes(msg.chat.id, toMatch);
       if (quotes.length === 0) {
         bot.sendMessage(msg.chat.id, "No quote found :(");
+        return;
       }
       const quote = randomChoice(quotes);
       bot.sendMessage(msg.chat.id, formatQuote(quote));
