@@ -1786,11 +1786,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["axios", [\
-        ["npm:0.27.0", {\
-          "packageLocation": "./.yarn/cache/axios-npm-0.27.0-7f6751217e-57078fe72c.zip/node_modules/axios/",\
+        ["npm:0.27.1", {\
+          "packageLocation": "./.yarn/cache/axios-npm-0.27.1-48b178e638-0da3131125.zip/node_modules/axios/",\
           "packageDependencies": [\
-            ["axios", "npm:0.27.0"],\
-            ["follow-redirects", "virtual:7f6751217eed94f5da9e31f676634aaa8649fa0f38792cf5c47281c44535d413654ed779bacf9ee81d201f1473fa3fab74778de6b6acbac93d06e72058d10e96#npm:1.14.9"],\
+            ["axios", "npm:0.27.1"],\
+            ["follow-redirects", "virtual:48b178e6387f0dc5afc288d9bc566d0a8bc306752b704012dfa93818c3a1e984e81d102faeac0b7fb858f6967c088c52f7ffdc877762378951f9969a802a7049#npm:1.14.9"],\
             ["form-data", "npm:4.0.0"]\
           ],\
           "linkType": "HARD"\
@@ -2006,7 +2006,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/utf8", "npm:3.0.1"],\
             ["@vercel/ncc", "npm:0.33.4"],\
             ["@vitalets/google-translate-api", "npm:8.0.0"],\
-            ["axios", "npm:0.27.0"],\
+            ["axios", "npm:0.27.1"],\
             ["diacritics", "npm:1.3.0"],\
             ["fuse.js", "npm:6.5.3"],\
             ["g-i-s", "npm:2.1.6"],\
@@ -3334,10 +3334,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:7f6751217eed94f5da9e31f676634aaa8649fa0f38792cf5c47281c44535d413654ed779bacf9ee81d201f1473fa3fab74778de6b6acbac93d06e72058d10e96#npm:1.14.9", {\
-          "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-ff762edd38/0/cache/follow-redirects-npm-1.14.9-522f191631-f5982e0eb4.zip/node_modules/follow-redirects/",\
+        ["virtual:48b178e6387f0dc5afc288d9bc566d0a8bc306752b704012dfa93818c3a1e984e81d102faeac0b7fb858f6967c088c52f7ffdc877762378951f9969a802a7049#npm:1.14.9", {\
+          "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-91faa03001/0/cache/follow-redirects-npm-1.14.9-522f191631-f5982e0eb4.zip/node_modules/follow-redirects/",\
           "packageDependencies": [\
-            ["follow-redirects", "virtual:7f6751217eed94f5da9e31f676634aaa8649fa0f38792cf5c47281c44535d413654ed779bacf9ee81d201f1473fa3fab74778de6b6acbac93d06e72058d10e96#npm:1.14.9"],\
+            ["follow-redirects", "virtual:48b178e6387f0dc5afc288d9bc566d0a8bc306752b704012dfa93818c3a1e984e81d102faeac0b7fb858f6967c088c52f7ffdc877762378951f9969a802a7049#npm:1.14.9"],\
             ["@types/debug", null],\
             ["debug", null]\
           ],\
