@@ -11,11 +11,18 @@ export const getUsers = async (
   chatId: Number,
   category: string,
 ): Promise<User[]> => {
-  let users: User[] = [];
-  const keys = await client.keys(`chat:${chatId}:user:*`);
-  for (let key of keys) {
-    let user = await client.hmget(key, "name", category);
-    users.push({ name: user[0], count: +user[1] });
+  const users: User[] = [];
+  const scanned: { [k: string]: boolean } = {};
+  const stream = client.scanStream({ match: `chat:${chatId}:user:*` });
+  for await (const keys of stream) {
+    for (let key of keys) {
+      if (scanned[key]) {
+        continue;
+      }
+      let user = await client.hmget(key, "name", category);
+      users.push({ name: user[0], count: +user[1] });
+      scanned[key] = true;
+    }
   }
   return users.filter(u => u.count > 0);
 };
