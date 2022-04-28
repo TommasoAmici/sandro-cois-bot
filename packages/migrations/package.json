@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "ioredis": "5.0.4",
-    "typescript": "4.6.3"
+    "typescript": "4.6.4"
   },
   "devDependencies": {
     "@types/ioredis": "4.28.10",
