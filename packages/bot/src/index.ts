@@ -154,11 +154,7 @@ bot.onText(/^[/!]quote(?:@\w+)?$/i, plugins.quotes.random(bot));
 
 // bestemmie
 bot.onText(
-  /(.+)?(dio|gesù|cristo|madonna|padre pio|san(ta |to |t')?)(.+)/i,
-  countBestemmia,
-);
-bot.onText(
-  /(.+)?(porco |porca |mannaggia |mannaggia a |mannaggia al )(dio|gesù|cristo|madonna|padre pio|san(ta |to |t')?)/i,
+  /((porc(o|a)d?)|(mannaggia( al? )?)|\b)(dio|gesù|cristo|madonna|padre pio|san(ta|to|ti|t')? \w+)( \w+)?/i,
   countBestemmia,
 );
 bot.onText(/^[/!]le_mie_bestemmie$/i, printUserBestemmie(bot));
