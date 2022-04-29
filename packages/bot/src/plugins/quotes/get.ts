@@ -27,27 +27,32 @@ export const searchQuotes = async (
   query: string,
   limit = 10,
 ) => {
-  const res = await client.call("FT.SEARCH", [
-    `chat:${chatID}:quotes-index`,
-    query,
-    "limit",
-    0,
-    limit,
-  ]);
-  // transform redis response in objects
-  const quotes: IQuote[] = (res as any)
-    .slice(1)
-    .filter((s, i) => i % 2 === 1)
-    .map(s => {
-      const obj = {};
-      for (let index = 0; index < s.length; index += 2) {
-        const key = s[index];
-        const value = s[index + 1];
-        obj[key] = value;
-      }
-      return obj;
-    });
-  return quotes;
+  try {
+    const res = await client.call("FT.SEARCH", [
+      `chat:${chatID}:quotes-index`,
+      query,
+      "limit",
+      0,
+      limit,
+    ]);
+    console.log(res);
+    // transform redis response in objects
+    const quotes: IQuote[] = (res as any)
+      .slice(1)
+      .filter((s, i) => i % 2 === 1)
+      .map(s => {
+        const obj = {};
+        for (let index = 0; index < s.length; index += 2) {
+          const key = s[index];
+          const value = s[index + 1];
+          obj[key] = value;
+        }
+        return obj;
+      });
+    return quotes;
+  } catch (error) {
+    return [];
+  }
 };
 
 export default (bot: TelegramBot) =>
