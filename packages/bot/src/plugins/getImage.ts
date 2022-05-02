@@ -8,15 +8,19 @@ export const getImage = async (
   bot: TelegramBot,
   msg: TelegramBot.Message,
 ): Promise<void> => {
-  const response = gis(query, (error, results) => {
+  gis(query, (error, results) => {
     if (error) {
       bot.sendMessage(msg.chat.id, error);
     } else {
       if (!results || results.length === 0) {
-        bot.sendMessage(msg.chat.id, "No photo found.");
+        bot.sendMessage(msg.chat.id, "No photo found.", {
+          reply_to_message_id: msg.message_id,
+        });
       } else {
         const item = randomChoice(results as ImageItem[]);
-        bot.sendPhoto(msg.chat.id, item.url);
+        bot.sendPhoto(msg.chat.id, item.url, {
+          reply_to_message_id: msg.message_id,
+        });
       }
     }
   });
