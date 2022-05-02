@@ -1376,6 +1376,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/mocha", [\
+        ["npm:9.1.1", {\
+          "packageLocation": "./.yarn/cache/@types-mocha-npm-9.1.1-9646576ed0-516077c0ac.zip/node_modules/@types/mocha/",\
+          "packageDependencies": [\
+            ["@types/mocha", "npm:9.1.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/node", [\
         ["npm:16.11.26", {\
           "packageLocation": "./.yarn/cache/@types-node-npm-16.11.26-6163d95b7d-57757caaba.zip/node_modules/@types/node/",\
@@ -2013,7 +2022,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["html-entities", "npm:2.3.3"],\
             ["ioredis", "npm:5.0.4"],\
             ["jest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:27.5.1"],\
-            ["mathjs", "npm:10.5.0"],\
+            ["mathjs", "npm:10.5.1"],\
             ["node-html-parser", "npm:5.3.3"],\
             ["node-telegram-bot-api", "npm:0.57.0"],\
             ["novelcovid", "npm:3.0.2"],\
@@ -5168,11 +5177,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["mathjs", [\
-        ["npm:10.5.0", {\
-          "packageLocation": "./.yarn/cache/mathjs-npm-10.5.0-122cfb4326-c97b076889.zip/node_modules/mathjs/",\
+        ["npm:10.5.1", {\
+          "packageLocation": "./.yarn/cache/mathjs-npm-10.5.1-d05b69ad15-a8386bd2ee.zip/node_modules/mathjs/",\
           "packageDependencies": [\
-            ["mathjs", "npm:10.5.0"],\
+            ["mathjs", "npm:10.5.1"],\
             ["@babel/runtime", "npm:7.17.9"],\
+            ["@types/mocha", "npm:9.1.1"],\
             ["complex.js", "npm:2.1.1"],\
             ["decimal.js", "npm:10.3.1"],\
             ["escape-latex", "npm:1.2.0"],\
