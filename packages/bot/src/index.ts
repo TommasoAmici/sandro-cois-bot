@@ -76,8 +76,8 @@ bot.on(
 );
 
 // IMAGES
-bot.onText(/^[/!]i(?:@\w+)? (.+)/i, plugins.getImage(bot));
-bot.onText(/^[/!]i(?:@\w+)?$/i, plugins.getImage(bot));
+bot.onText(/^[/!][iì](?:@\w+)? (.+)/i, plugins.getImage(bot));
+bot.onText(/^[/!][iì](?:@\w+)?$/i, plugins.getImage(bot));
 bot.onText(
   /^(?!.*http)(.+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)$/i,
   plugins.get(bot, media.photos),
