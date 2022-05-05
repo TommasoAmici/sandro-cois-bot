@@ -135,14 +135,14 @@ bot.on(
 // TEXT
 bot.onText(/^[/!]setlist(?:@\w+)?$/i, plugins.list(bot, media.text));
 bot.onText(
-  /^[/!]set(?:@\w+)? (\w+) ([\s\S]+)/i,
+  /^[/!]set(?:@\w+)? (.*?) (.+)/i,
   plugins.text.setValue(bot, media.text),
 );
 bot.onText(/^[/!]unset(?:@\w+)? (.+)/i, plugins.unset(bot, media.text));
 bot.onText(/^\S+/i, plugins.text.get(bot, media.text));
 
 // QUOTES
-bot.onText(/^[/!]addquote(?:@\w+)? ([\s\S]*)/i, plugins.quotes.add(bot));
+bot.onText(/^[/!]addquote(?:@\w+)? ?([\s\S]*)/i, plugins.quotes.add(bot));
 bot.onText(/^[/!]addquote(?:@\w+)?$/i, plugins.quotes.addFromReply(bot));
 bot.onText(
   /^[/!]addquotedate(?:@\w+)?$/i,
