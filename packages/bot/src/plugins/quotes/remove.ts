@@ -11,10 +11,15 @@ export default (bot: TelegramBot) =>
       const search = await searchQuotes(msg.chat.id, quote, 1);
       if (search.length === 0) {
         bot.sendMessage(msg.chat.id, "Couldn't remove quote :(");
-      } else {
+      } else if (search.length === 1) {
         client.zrem(`chat:${msg.chat.id}:quotes`, search[0].id);
         client.del(`chat:${msg.chat.id}:quotes:${search[0].id}`);
         bot.sendMessage(msg.chat.id, "Quote removed!");
+      } else {
+        bot.sendMessage(
+          msg.chat.id,
+          "I found more than one quote, not sure what to do",
+        );
       }
     }
   };
