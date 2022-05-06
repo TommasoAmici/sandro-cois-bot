@@ -28,6 +28,11 @@ export const addQuote = async (
   chatId: number,
   bot: TelegramBot,
 ) => {
+  const trimmedBody = body.trim();
+  if (trimmedBody === "") {
+    return;
+  }
+
   const key = `chat:${chatId}:quotes`;
 
   try {
@@ -40,7 +45,7 @@ export const addQuote = async (
   const id = await client.incr("quotes-id");
   client.zadd(key, Date.now(), id);
   client
-    .hset(`${key}:${id}`, "body", body, "author", author, "date", date)
+    .hset(`${key}:${id}`, "body", trimmedBody, "author", author, "date", date)
     .then(() => bot.sendMessage(chatId, "Quote added!"))
     .catch(() => bot.sendMessage(chatId, "Couldn't add quote :("));
 };
