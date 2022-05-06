@@ -1417,7 +1417,7 @@ __metadata:
     "@vitalets/google-translate-api": 8.0.0
     axios: 0.27.2
     diacritics: 1.3.0
-    fuse.js: 6.6.0
+    fuse.js: 6.6.1
     g-i-s: 2.1.6
     html-entities: 2.3.3
     ioredis: 5.0.4
@@ -2641,10 +2641,10 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"fuse.js@npm:6.6.0":
-  version: 6.6.0
-  resolution: "fuse.js@npm:6.6.0"
-  checksum: ebabf54309fecbe955e6db2dddfaa7cd781018e1b8f09f3acd5f094d03cbca6aa48cc8cfa09f2a23f7b86b881f5b2fb65a5960dd7a4ee36b01f5e84c091fca0e
+"fuse.js@npm:6.6.1":
+  version: 6.6.1
+  resolution: "fuse.js@npm:6.6.1"
+  checksum: 58e74b3489a24866197ec1d5c0febc3099f32f35c74a842ed7644eb697d1b496b54712ee187ae38efbfd52b861b5f8b8bc6a550ec619c7d721c459b6cc4d8b77
   languageName: node
   linkType: hard
 
