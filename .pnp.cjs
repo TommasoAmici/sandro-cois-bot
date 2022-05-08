@@ -2221,7 +2221,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["node-telegram-bot-api", "npm:0.57.0"],\
             ["novelcovid", "npm:3.0.2"],\
             ["pokedex", "npm:1.1.0"],\
-            ["ts-jest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:28.0.1"],\
+            ["ts-jest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:28.0.2"],\
             ["typescript", "patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=bda367"],\
             ["utf8", "npm:3.0.0"]\
           ],\
@@ -6901,17 +6901,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["ts-jest", [\
-        ["npm:28.0.1", {\
-          "packageLocation": "./.yarn/cache/ts-jest-npm-28.0.1-5105a33098-d6827b5eb9.zip/node_modules/ts-jest/",\
+        ["npm:28.0.2", {\
+          "packageLocation": "./.yarn/cache/ts-jest-npm-28.0.2-810528826d-bb244015f9.zip/node_modules/ts-jest/",\
           "packageDependencies": [\
-            ["ts-jest", "npm:28.0.1"]\
+            ["ts-jest", "npm:28.0.2"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:28.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/ts-jest-virtual-777aa6894f/0/cache/ts-jest-npm-28.0.1-5105a33098-d6827b5eb9.zip/node_modules/ts-jest/",\
+        ["virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:28.0.2", {\
+          "packageLocation": "./.yarn/__virtual__/ts-jest-virtual-0024425bf2/0/cache/ts-jest-npm-28.0.2-810528826d-bb244015f9.zip/node_modules/ts-jest/",\
           "packageDependencies": [\
-            ["ts-jest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:28.0.1"],\
+            ["ts-jest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:28.0.2"],\
             ["@babel/core", null],\
             ["@types/babel-jest", null],\
             ["@types/babel__core", null],\
