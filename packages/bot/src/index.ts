@@ -164,19 +164,19 @@ bot.onText(
   /^[/!](campionati|tornei|competitions)$/i,
   plugins.footballData.competitions(bot),
 );
-bot.onText(/^[/!]ieri ?(\w+)?$$/i, plugins.footballData.matches(bot, -1));
-bot.onText(/^[/!]oggi ?(\w+)?$$/i, plugins.footballData.matches(bot, 0));
-bot.onText(/^[/!]domani ?(\w+)?$/i, plugins.footballData.matches(bot, 1));
+bot.onText(/^[/!]ieri ?([a-zA-Z]+)?$/i, plugins.footballData.matches(bot, -1));
+bot.onText(/^[/!]oggi ?([a-zA-Z]+)?$/i, plugins.footballData.matches(bot, 0));
+bot.onText(/^[/!]domani ?([a-zA-Z]+)?$/i, plugins.footballData.matches(bot, 1));
 bot.onText(
-  /^[/!]ieri_arbitri ?(\w+)?$$/i,
+  /^[/!]ieri_arbitri ?([a-zA-Z])?$/i,
   plugins.footballData.matches(bot, -1, true),
 );
 bot.onText(
-  /^[/!]oggi_arbitri ?(\w+)?$$/i,
+  /^[/!]oggi_arbitri ?([a-zA-Z])?$/i,
   plugins.footballData.matches(bot, 0, true),
 );
 bot.onText(
-  /^[/!]domani_arbitri ?(\w+)?$/i,
+  /^[/!]domani_arbitri ?([a-zA-Z])?$/i,
   plugins.footballData.matches(bot, 1, true),
 );
 bot.onText(/^[/!]classifica ?(\w+)?$/i, plugins.footballData.standings(bot));
