@@ -15,6 +15,7 @@ const randomRefereeEmoji = () => randomChoice(["🧛‍♂️", "👮‍♂️",
 const makeMatchesString = async (
   currentMatchday: number,
   competitionCode: string,
+  referees: boolean,
 ): Promise<string> => {
   const params = { matchday: currentMatchday };
   const res = await api.get<Matches>(
@@ -25,9 +26,6 @@ const makeMatchesString = async (
   const padHomeTeam = longestTeamName(data.matches, "homeTeam");
   const padAwayTeam = longestTeamName(data.matches, "awayTeam");
   const matchesStrings = data.matches.map(m => {
-    const refs = m.referees
-      .map(r => `${r.name} ${refereeRoles[r.role] ?? r.role}`)
-      .join(", ");
     const homeTeam = formatTeam(m.homeTeam, padHomeTeam);
     const awayTeam = formatTeam(m.awayTeam, padAwayTeam);
     const homeTeamScore =
@@ -36,14 +34,22 @@ const makeMatchesString = async (
       m.score.fullTime.awayTeam === null ? " " : m.score.fullTime.awayTeam;
     const match = `${homeTeam} ${homeTeamScore}-${awayTeamScore} ${awayTeam}`;
     const date = new Date(m.utcDate).toLocaleString("it-IT");
-    return `\`${match} ${date}\`${
-      refs !== "" ? `\n${randomRefereeEmoji()} Arbitri: ${refs}` : ""
-    }\n`;
+    const output = `\`${match} ${date}\``;
+    if (referees) {
+      const refs = m.referees
+        .map(r => `${r.name} ${refereeRoles[r.role] ?? r.role}`)
+        .join(", ");
+      const refsString =
+        refs !== "" ? `\n${randomRefereeEmoji()} Arbitri: ${refs}` : "";
+      return `${output}${refsString}\n`;
+    } else {
+      return output;
+    }
   });
   return `*Giornata ${currentMatchday}*\n\n${matchesStrings.join("\n")}`;
 };
 
-export default (bot: TelegramBot, offset = 0) =>
+export default (bot: TelegramBot, offset = 0, referees = false) =>
   async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
     const competitionCode = (match[1] ?? "SA").toUpperCase();
     const currentMatchday = await getCurrMatchday(competitionCode);
@@ -53,6 +59,7 @@ export default (bot: TelegramBot, offset = 0) =>
         const matchesString = await makeMatchesString(
           currentMatchday + offset,
           competitionCode,
+          referees,
         );
         bot.sendMessage(msg.chat.id, matchesString, {
           parse_mode: "Markdown",
