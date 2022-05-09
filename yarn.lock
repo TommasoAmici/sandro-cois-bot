@@ -1125,13 +1125,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mocha@npm:^9.1.1":
-  version: 9.1.1
-  resolution: "@types/mocha@npm:9.1.1"
-  checksum: 516077c0acd9806dc78317f88aaac0df5aaf0bdc2f63dfdadeabdf0b0137953b6ca65472e6ff7c30bc93ce4e0ae76eae70e8d46764b9a8eae4877a928b6ef49a
-  languageName: node
-  linkType: hard
-
 "@types/node-telegram-bot-api@npm:0.57.0":
   version: 0.57.0
   resolution: "@types/node-telegram-bot-api@npm:0.57.0"
@@ -1604,7 +1597,7 @@ __metadata:
     html-entities: 2.3.3
     ioredis: 5.0.4
     jest: 28.1.0
-    mathjs: 10.5.1
+    mathjs: 10.5.2
     node-html-parser: 5.3.3
     node-telegram-bot-api: 0.57.0
     novelcovid: 3.0.2
@@ -4189,12 +4182,11 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"mathjs@npm:10.5.1":
-  version: 10.5.1
-  resolution: "mathjs@npm:10.5.1"
+"mathjs@npm:10.5.2":
+  version: 10.5.2
+  resolution: "mathjs@npm:10.5.2"
   dependencies:
     "@babel/runtime": ^7.17.9
-    "@types/mocha": ^9.1.1
     complex.js: ^2.1.1
     decimal.js: ^10.3.1
     escape-latex: ^1.2.0
@@ -4205,7 +4197,7 @@ fsevents@^2.3.2:
     typed-function: ^2.1.0
   bin:
     mathjs: bin/cli.js
-  checksum: a8386bd2ee70b8834fb59933a0319d269da447d68eac843bd0e27032537ab7e08a724415d28c490d50bdf8b7d749a2a35bc627c17fa7ae738e289d41ccc6e05f
+  checksum: 5e91fc6efc34713be851bb1d7b8e11b3a09673684b711d4fc1785c178fdbad2d61a8eeed207d50ba2413bb6c95686632559b7307a95e167aa18f753f725424f2
   languageName: node
   linkType: hard
 
