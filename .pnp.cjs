@@ -1633,10 +1633,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/node-telegram-bot-api", [\
-        ["npm:0.57.0", {\
-          "packageLocation": "./.yarn/cache/@types-node-telegram-bot-api-npm-0.57.0-956ed1c84a-4c9064a1ac.zip/node_modules/@types/node-telegram-bot-api/",\
+        ["npm:0.57.1", {\
+          "packageLocation": "./.yarn/cache/@types-node-telegram-bot-api-npm-0.57.1-71a6c3564f-e4147cb8ba.zip/node_modules/@types/node-telegram-bot-api/",\
           "packageDependencies": [\
-            ["@types/node-telegram-bot-api", "npm:0.57.0"],\
+            ["@types/node-telegram-bot-api", "npm:0.57.1"],\
             ["@types/node", "npm:16.11.26"],\
             ["@types/request", "npm:2.48.1"]\
           ],\
@@ -2196,7 +2196,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ioredis", "npm:4.28.10"],\
             ["@types/jest", "npm:27.5.1"],\
             ["@types/node", "npm:16.11.35"],\
-            ["@types/node-telegram-bot-api", "npm:0.57.0"],\
+            ["@types/node-telegram-bot-api", "npm:0.57.1"],\
             ["@types/utf8", "npm:3.0.1"],\
             ["@vercel/ncc", "npm:0.33.4"],\
             ["@vitalets/google-translate-api", "npm:8.0.0"],\
