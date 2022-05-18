@@ -15,8 +15,10 @@ export default (bot: TelegramBot) =>
       .forwardGeocode({ query: query, limit: 1 })
       .send()
       .then(response => {
-        const coord = response.body.features[0].center;
-        bot.sendPhoto(msg.chat.id, makeMapboxScreenshot(coord));
-        bot.sendLocation(msg.chat.id, coord[1], coord[0]);
+        if (response.body.features[0] !== undefined) {
+          const coord = response.body.features[0].center;
+          bot.sendPhoto(msg.chat.id, makeMapboxScreenshot(coord));
+          bot.sendLocation(msg.chat.id, coord[1], coord[0]);
+        }
       });
   };
