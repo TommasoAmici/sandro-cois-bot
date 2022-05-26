@@ -1221,14 +1221,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/ncc@npm:0.33.4":
-  version: 0.33.4
-  resolution: "@vercel/ncc@npm:0.33.4"
+"@vercel/ncc@npm:0.34.0":
+  version: 0.34.0
+  resolution: "@vercel/ncc@npm:0.34.0"
   dependencies:
     node-gyp: latest
   bin:
     ncc: dist/ncc/cli.js
-  checksum: e6093efc3b970c3a64797e4ecefa7e58f22873e34985fc6f53d538032fa94321511edef59f937e6ff292dd30e53b86235968309ca57dae16ee4e6bbfeefaff6e
+  checksum: 3282578e990572759454f7f8d7ef025f2ae060b261fcb28a96d165350e3665438dc8fb72caf122081d6c57277e4899dab30ea0d8759bfd90baf37286cb887597
   languageName: node
   linkType: hard
 
@@ -1588,7 +1588,7 @@ __metadata:
     "@types/node": 16.11.36
     "@types/node-telegram-bot-api": 0.57.1
     "@types/utf8": 3.0.1
-    "@vercel/ncc": 0.33.4
+    "@vercel/ncc": 0.34.0
     "@vitalets/google-translate-api": 8.0.0
     axios: 0.27.2
     diacritics: 1.3.0
@@ -4224,7 +4224,7 @@ fsevents@^2.3.2:
   dependencies:
     "@types/ioredis": 4.28.10
     "@types/node": 16.11.36
-    "@vercel/ncc": 0.33.4
+    "@vercel/ncc": 0.34.0
     ioredis: 5.0.5
     typescript: 4.6.4
   languageName: unknown
