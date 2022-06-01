@@ -1596,10 +1596,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/jest", [\
-        ["npm:27.5.1", {\
-          "packageLocation": "./.yarn/cache/@types-jest-npm-27.5.1-853338350a-be20e39f7a.zip/node_modules/@types/jest/",\
+        ["npm:27.5.2", {\
+          "packageLocation": "./.yarn/cache/@types-jest-npm-27.5.2-f8ba570ba6-7e11c6826a.zip/node_modules/@types/jest/",\
           "packageDependencies": [\
-            ["@types/jest", "npm:27.5.1"],\
+            ["@types/jest", "npm:27.5.2"],\
             ["jest-matcher-utils", "npm:27.5.1"],\
             ["pretty-format", "npm:27.5.1"]\
           ],\
@@ -2194,7 +2194,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/diacritics", "npm:1.3.1"],\
             ["@types/html-entities", "npm:1.3.4"],\
             ["@types/ioredis", "npm:4.28.10"],\
-            ["@types/jest", "npm:27.5.1"],\
+            ["@types/jest", "npm:27.5.2"],\
             ["@types/node", "npm:16.11.38"],\
             ["@types/node-telegram-bot-api", "npm:0.57.1"],\
             ["@types/utf8", "npm:3.0.1"],\
@@ -6906,7 +6906,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/babel-jest", null],\
             ["@types/babel__core", null],\
             ["@types/esbuild", null],\
-            ["@types/jest", "npm:27.5.1"],\
+            ["@types/jest", "npm:27.5.2"],\
             ["@types/typescript", null],\
             ["babel-jest", null],\
             ["bs-logger", "npm:0.2.6"],\
