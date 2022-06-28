@@ -9,7 +9,7 @@
     "g-i-s": "2.1.6",
     "html-entities": "2.3.3",
     "ioredis": "5.1.0",
-    "mathjs": "10.6.3",
+    "mathjs": "10.6.4",
     "node-html-parser": "5.3.3",
     "node-telegram-bot-api": "0.58.0",
     "novelcovid": "3.0.2",
