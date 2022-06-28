@@ -884,10 +884,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@babel/runtime", [\
-        ["npm:7.18.3", {\
-          "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.18.3-1883c70fa6-db8526226a.zip/node_modules/@babel/runtime/",\
+        ["npm:7.18.6", {\
+          "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.18.6-6a59ef0d54-8b707b64ae.zip/node_modules/@babel/runtime/",\
           "packageDependencies": [\
-            ["@babel/runtime", "npm:7.18.3"],\
+            ["@babel/runtime", "npm:7.18.6"],\
             ["regenerator-runtime", "npm:0.13.8"]\
           ],\
           "linkType": "HARD"\
@@ -2221,7 +2221,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["html-entities", "npm:2.3.3"],\
             ["ioredis", "npm:5.1.0"],\
             ["jest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:28.1.1"],\
-            ["mathjs", "npm:10.6.3"],\
+            ["mathjs", "npm:10.6.4"],\
             ["node-html-parser", "npm:5.3.3"],\
             ["node-telegram-bot-api", "npm:0.58.0"],\
             ["novelcovid", "npm:3.0.2"],\
@@ -5248,11 +5248,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["mathjs", [\
-        ["npm:10.6.3", {\
-          "packageLocation": "./.yarn/cache/mathjs-npm-10.6.3-0e9fa8a497-de8d483da3.zip/node_modules/mathjs/",\
+        ["npm:10.6.4", {\
+          "packageLocation": "./.yarn/cache/mathjs-npm-10.6.4-af87d20542-64c785d6f3.zip/node_modules/mathjs/",\
           "packageDependencies": [\
-            ["mathjs", "npm:10.6.3"],\
-            ["@babel/runtime", "npm:7.18.3"],\
+            ["mathjs", "npm:10.6.4"],\
+            ["@babel/runtime", "npm:7.18.6"],\
             ["complex.js", "npm:2.1.1"],\
             ["decimal.js", "npm:10.3.1"],\
             ["escape-latex", "npm:1.2.0"],\
