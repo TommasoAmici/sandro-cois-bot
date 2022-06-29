@@ -17,7 +17,7 @@ bot.onText(
   /^[/!]attivatelegrampremium(?:@\w+)?/i,
   plugins.telegramPremium(bot),
 );
-bot.onText(/^[/!]weather(?:@\w+)? (\w+)/i, plugins.weather(bot));
+bot.onText(/^[/!]weather(?:@\w+)? (.+)/i, plugins.weather(bot));
 bot.onText(/^[/!]loc(?:@\w+)? (\w+)/i, plugins.loc(bot));
 bot.onText(/^[/!]treccani(?:@\w+)? (\w+)/i, plugins.treccani(bot));
 bot.onText(/^[/!]kedde(?:@\w+)? ([\s\S]*)/i, plugins.kedde(bot));
