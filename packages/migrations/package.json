@@ -6,7 +6,7 @@
     "build": "ncc build src/0001_redisearch.ts --out dist --minify --no-cache"
   },
   "dependencies": {
-    "ioredis": "5.2.0",
+    "ioredis": "5.2.1",
     "typescript": "4.7.4"
   },
   "devDependencies": {
