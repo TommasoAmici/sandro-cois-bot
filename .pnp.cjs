@@ -2243,7 +2243,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fuse.js", "npm:6.6.2"],\
             ["g-i-s", "npm:2.1.6"],\
             ["html-entities", "npm:2.3.3"],\
-            ["ioredis", "npm:5.2.1"],\
+            ["ioredis", "npm:5.2.2"],\
             ["jest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:28.1.3"],\
             ["mathjs", "npm:10.6.4"],\
             ["node-html-parser", "npm:5.3.3"],\
@@ -2885,10 +2885,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:4715745718dd8987cc7c36453cee07b624ce8185200c80a0ebc1aafd04d48d3a20beb0c54f064a2d84ee3ea9b388220f4615a62185703f658b79f6ffe5192031#npm:4.3.4", {\
-          "packageLocation": "./.yarn/__virtual__/debug-virtual-ec84f41fc9/0/cache/debug-npm-4.3.4-4513954577-3dbad3f94e.zip/node_modules/debug/",\
+        ["virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2", {\
+          "packageLocation": "./.yarn/__virtual__/debug-virtual-e152771b72/0/cache/debug-npm-4.3.2-f0148b6afe-820ea160e2.zip/node_modules/debug/",\
           "packageDependencies": [\
-            ["debug", "virtual:4715745718dd8987cc7c36453cee07b624ce8185200c80a0ebc1aafd04d48d3a20beb0c54f064a2d84ee3ea9b388220f4615a62185703f658b79f6ffe5192031#npm:4.3.4"],\
+            ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],\
             ["@types/supports-color", null],\
             ["ms", "npm:2.1.2"],\
             ["supports-color", null]\
@@ -2899,10 +2899,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2", {\
-          "packageLocation": "./.yarn/__virtual__/debug-virtual-e152771b72/0/cache/debug-npm-4.3.2-f0148b6afe-820ea160e2.zip/node_modules/debug/",\
+        ["virtual:762f3ee75d4cc86f7d196cee2fd0a34262ea555dc2da06148b8b8afea42bbeaf958d134582a037f589651300222bbdffa324fe165043dd730ae65a14d7384fb7#npm:4.3.4", {\
+          "packageLocation": "./.yarn/__virtual__/debug-virtual-4e0e77696e/0/cache/debug-npm-4.3.4-4513954577-3dbad3f94e.zip/node_modules/debug/",\
           "packageDependencies": [\
-            ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],\
+            ["debug", "virtual:762f3ee75d4cc86f7d196cee2fd0a34262ea555dc2da06148b8b8afea42bbeaf958d134582a037f589651300222bbdffa324fe165043dd730ae65a14d7384fb7#npm:4.3.4"],\
             ["@types/supports-color", null],\
             ["ms", "npm:2.1.2"],\
             ["supports-color", null]\
@@ -4046,13 +4046,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["ioredis", [\
-        ["npm:5.2.1", {\
-          "packageLocation": "./.yarn/cache/ioredis-npm-5.2.1-4715745718-cd744f4d8b.zip/node_modules/ioredis/",\
+        ["npm:5.2.2", {\
+          "packageLocation": "./.yarn/cache/ioredis-npm-5.2.2-762f3ee75d-8d65032606.zip/node_modules/ioredis/",\
           "packageDependencies": [\
-            ["ioredis", "npm:5.2.1"],\
+            ["ioredis", "npm:5.2.2"],\
             ["@ioredis/commands", "npm:1.1.1"],\
             ["cluster-key-slot", "npm:1.1.0"],\
-            ["debug", "virtual:4715745718dd8987cc7c36453cee07b624ce8185200c80a0ebc1aafd04d48d3a20beb0c54f064a2d84ee3ea9b388220f4615a62185703f658b79f6ffe5192031#npm:4.3.4"],\
+            ["debug", "virtual:762f3ee75d4cc86f7d196cee2fd0a34262ea555dc2da06148b8b8afea42bbeaf958d134582a037f589651300222bbdffa324fe165043dd730ae65a14d7384fb7#npm:4.3.4"],\
             ["denque", "npm:2.0.1"],\
             ["lodash.defaults", "npm:4.2.0"],\
             ["lodash.isarguments", "npm:3.1.0"],\
@@ -5317,7 +5317,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ioredis", "npm:4.28.10"],\
             ["@types/node", "npm:16.11.45"],\
             ["@vercel/ncc", "npm:0.34.0"],\
-            ["ioredis", "npm:5.2.1"],\
+            ["ioredis", "npm:5.2.2"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"]\
           ],\
           "linkType": "SOFT"\
