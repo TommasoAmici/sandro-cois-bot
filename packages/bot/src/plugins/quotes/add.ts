@@ -28,8 +28,11 @@ export const addQuote = async (
   chatId: number,
   bot: TelegramBot,
 ) => {
+  // Prevent adding empty quotes
+  // Since a command addquotedate exists, the regex for addquote may be triggered
+  // by that command, resulting in an attempt to add a quote with body "date"
   const trimmedBody = body.trim();
-  if (trimmedBody === "") {
+  if (trimmedBody === "" || trimmedBody === "date") {
     return;
   }
 
