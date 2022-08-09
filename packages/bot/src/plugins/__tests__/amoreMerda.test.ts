@@ -1,3 +1,4 @@
+import { describe, expect, test } from "vitest";
 import { cleanKey, cleanMerda, recursivelyRemoveMerda } from "../amoreMerda";
 
 describe("recursivelyRemoveMerda", () => {

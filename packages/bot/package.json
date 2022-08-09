@@ -20,20 +20,20 @@
     "@types/diacritics": "1.3.1",
     "@types/html-entities": "1.3.4",
     "@types/ioredis": "4.28.10",
-    "@types/jest": "27.5.2",
     "@types/node": "16.11.47",
     "@types/node-telegram-bot-api": "0.57.1",
     "@types/utf8": "3.0.1",
     "@vercel/ncc": "0.34.0",
-    "jest": "28.1.3",
-    "ts-jest": "28.0.7",
-    "typescript": "4.7.4"
+    "c8": "7.12.0",
+    "typescript": "4.7.4",
+    "vite": "3.0.5",
+    "vitest": "0.21.1"
   },
   "scripts": {
     "start": "node dist/index.js",
     "build:dev": "ncc build src/index.ts --out dist",
     "build": "ncc build src/index.ts --out dist --minify --no-cache",
-    "test": "jest --watch",
-    "test:ci": "jest --ci"
+    "test": "vitest",
+    "test:ci": "vitest run --coverage"
   }
 }
