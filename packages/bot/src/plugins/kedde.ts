@@ -2,6 +2,7 @@ import TelegramBot from "node-telegram-bot-api";
 
 const translationTable = [
   { find: /c(a|i|o)/gi, replace: "ghe" },
+  { find: /lt/gi, replace: "rd" },
   { find: /a|i|o/gi, replace: "e" },
   { find: /t/gi, replace: "d" },
   { find: /c/gi, replace: "g" },
