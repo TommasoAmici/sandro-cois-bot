@@ -93,10 +93,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@babel/runtime", [\
-        ["npm:7.18.6", {\
-          "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.18.6-6a59ef0d54-8b707b64ae.zip/node_modules/@babel/runtime/",\
+        ["npm:7.18.9", {\
+          "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.18.9-28ca6b5f61-36dd736bab.zip/node_modules/@babel/runtime/",\
           "packageDependencies": [\
-            ["@babel/runtime", "npm:7.18.6"],\
+            ["@babel/runtime", "npm:7.18.9"],\
             ["regenerator-runtime", "npm:0.13.8"]\
           ],\
           "linkType": "HARD"\
@@ -766,7 +766,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["g-i-s", "npm:2.1.6"],\
             ["html-entities", "npm:2.3.3"],\
             ["ioredis", "npm:5.2.2"],\
-            ["mathjs", "npm:10.6.4"],\
+            ["mathjs", "npm:11.0.1"],\
             ["node-html-parser", "npm:5.4.1"],\
             ["node-telegram-bot-api", "npm:0.58.0"],\
             ["novelcovid", "npm:3.0.2"],\
@@ -3068,11 +3068,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["mathjs", [\
-        ["npm:10.6.4", {\
-          "packageLocation": "./.yarn/cache/mathjs-npm-10.6.4-af87d20542-64c785d6f3.zip/node_modules/mathjs/",\
+        ["npm:11.0.1", {\
+          "packageLocation": "./.yarn/cache/mathjs-npm-11.0.1-4431109c66-2feb1c9c16.zip/node_modules/mathjs/",\
           "packageDependencies": [\
-            ["mathjs", "npm:10.6.4"],\
-            ["@babel/runtime", "npm:7.18.6"],\
+            ["mathjs", "npm:11.0.1"],\
+            ["@babel/runtime", "npm:7.18.9"],\
             ["complex.js", "npm:2.1.1"],\
             ["decimal.js", "npm:10.3.1"],\
             ["escape-latex", "npm:1.2.0"],\
@@ -3080,7 +3080,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["javascript-natural-sort", "npm:0.7.1"],\
             ["seedrandom", "npm:3.0.5"],\
             ["tiny-emitter", "npm:2.1.0"],\
-            ["typed-function", "npm:2.1.0"]\
+            ["typed-function", "npm:3.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4549,10 +4549,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["typed-function", [\
-        ["npm:2.1.0", {\
-          "packageLocation": "./.yarn/cache/typed-function-npm-2.1.0-de442ec721-168c2c8f76.zip/node_modules/typed-function/",\
+        ["npm:3.0.0", {\
+          "packageLocation": "./.yarn/cache/typed-function-npm-3.0.0-8d30d08d75-f05afc8254.zip/node_modules/typed-function/",\
           "packageDependencies": [\
-            ["typed-function", "npm:2.1.0"]\
+            ["typed-function", "npm:3.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
