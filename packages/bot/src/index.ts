@@ -6,6 +6,7 @@ import {
   printBestemmiatori,
   printUserBestemmie,
 } from "./plugins/bestemmie";
+import cursive from "./plugins/cursive";
 import ultimouomo from "./plugins/ultimouomo";
 
 // Create a bot that uses 'polling' to fetch new updates
@@ -21,6 +22,9 @@ bot.onText(/^[/!]weather(?:@\w+)? (.+)/i, plugins.weather(bot));
 bot.onText(/^[/!]loc(?:@\w+)? (\w+)/i, plugins.loc(bot));
 bot.onText(/^[/!]treccani(?:@\w+)? (\w+)/i, plugins.treccani(bot));
 bot.onText(/^[/!]kedde(?:@\w+)? ([\s\S]*)/i, plugins.kedde(bot));
+// // in reply
+// bot.onText(/^[/!]corsivo/i, cursive(bot));
+bot.onText(/^[/!]corsivo(?:@\w+)? ([\s\S]*)/i, cursive(bot));
 bot.onText(/^[/!]calc(?:@\w+)? (.+)/i, plugins.calc(bot));
 bot.onText(/^(what|cosa|cos|wat)$/i, plugins.what(bot));
 bot.onText(/^[/!]pokedex(?:@\w+)? ([a-zA-Z]+)/i, plugins.pokedex.byName(bot));
