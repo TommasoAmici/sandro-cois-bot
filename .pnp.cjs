@@ -737,7 +737,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["pokedex", "npm:1.1.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
             ["utf8", "npm:3.0.0"],\
-            ["vite", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:3.0.6"],\
+            ["vite", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:3.0.7"],\
             ["vitest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:0.21.1"]\
           ],\
           "linkType": "SOFT"\
@@ -4511,17 +4511,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["npm:3.0.6", {\
-          "packageLocation": "./.yarn/cache/vite-npm-3.0.6-f16e5b8159-73e9015e94.zip/node_modules/vite/",\
+        ["npm:3.0.7", {\
+          "packageLocation": "./.yarn/cache/vite-npm-3.0.7-2c9b6d3aff-3cdcb68e16.zip/node_modules/vite/",\
           "packageDependencies": [\
-            ["vite", "npm:3.0.6"]\
+            ["vite", "npm:3.0.7"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:3.0.6", {\
-          "packageLocation": "./.yarn/__virtual__/vite-virtual-dc75b026c7/0/cache/vite-npm-3.0.6-f16e5b8159-73e9015e94.zip/node_modules/vite/",\
+        ["virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:3.0.7", {\
+          "packageLocation": "./.yarn/__virtual__/vite-virtual-a869b23007/0/cache/vite-npm-3.0.7-2c9b6d3aff-3cdcb68e16.zip/node_modules/vite/",\
           "packageDependencies": [\
-            ["vite", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:3.0.6"],\
+            ["vite", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:3.0.7"],\
             ["@types/less", null],\
             ["@types/sass", null],\
             ["@types/stylus", null],\
