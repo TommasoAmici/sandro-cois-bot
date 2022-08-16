@@ -18,6 +18,15 @@ const ghenverde = (msg: string) => {
   return `hehehe ${convertedMessage} hehehe`;
 };
 
+export const keddeInReply =
+  (bot: TelegramBot) =>
+  (msg: TelegramBot.Message): void => {
+    if (msg.reply_to_message) {
+      const message = ghenverde(msg.reply_to_message.text);
+      bot.sendMessage(msg.chat.id, message);
+    }
+  };
+
 export default (bot: TelegramBot) =>
   async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
     bot.sendMessage(msg.chat.id, ghenverde(match[1]));

@@ -7,6 +7,7 @@ import {
   printUserBestemmie,
 } from "./plugins/bestemmie";
 import cursive, { cursiveInReply } from "./plugins/cursive";
+import { keddeInReply } from "./plugins/kedde";
 import ultimouomo from "./plugins/ultimouomo";
 
 // Create a bot that uses 'polling' to fetch new updates
@@ -21,6 +22,7 @@ bot.onText(
 bot.onText(/^[/!]weather(?:@\w+)? (.+)/i, plugins.weather(bot));
 bot.onText(/^[/!]loc(?:@\w+)? (\w+)/i, plugins.loc(bot));
 bot.onText(/^[/!]treccani(?:@\w+)? (\w+)/i, plugins.treccani(bot));
+bot.onText(/^[/!]kedde$/i, keddeInReply(bot));
 bot.onText(/^[/!]kedde(?:@\w+)? ([\s\S]*)/i, plugins.kedde(bot));
 // // in reply
 bot.onText(/^[/!]corsivo$/i, cursiveInReply(bot));
