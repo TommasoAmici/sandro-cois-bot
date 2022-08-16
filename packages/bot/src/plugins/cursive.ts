@@ -30,11 +30,16 @@ const convert = (msg: string) => {
   return convertedMessage;
 };
 
+export const cursiveInReply =
+  (bot: TelegramBot) =>
+  (msg: TelegramBot.Message): void => {
+    if (msg.reply_to_message) {
+      const message = convert(msg.reply_to_message.text);
+      bot.sendMessage(msg.chat.id, message);
+    }
+  };
+
 export default (bot: TelegramBot) =>
   async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
-    if (msg.reply_to_message) {
-      bot.sendMessage(msg.chat.id, convert(msg.reply_to_message.text));
-    } else {
-      bot.sendMessage(msg.chat.id, convert(match[1]));
-    }
+    bot.sendMessage(msg.chat.id, convert(match[1]));
   };
