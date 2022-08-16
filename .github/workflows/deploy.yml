@@ -24,8 +24,27 @@ jobs:
       - name: Build
         run: yarn workspace bot build
 
+      - name: Create changelog
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          skip-version-file: "true"
+          output-file: "false"
+          skip-commit: "true"
+          skip-on-empty: "true"
+
+      - name: Create Release
+        run: gh release create "$TAG_NAME" --notes "$BODY"
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG_NAME: ${{ steps.changelog.outputs.tag }}
+          BODY: ${{ steps.changelog.outputs.clean_changelog }}
+
       - name: rsync deployments
         uses: burnett01/rsync-deployments@5.2
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
         with:
           switches: -avzr --delete --exclude=".git"
           path: packages/bot/dist/index.js
@@ -37,6 +56,7 @@ jobs:
 
       - name: Restart service
         uses: appleboy/ssh-action@master
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
         with:
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
