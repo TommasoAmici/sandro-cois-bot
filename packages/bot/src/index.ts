@@ -1,6 +1,7 @@
 import TelegramBot from "node-telegram-bot-api";
 import cfg from "./config";
 import plugins from "./plugins";
+import { anyGood } from "./plugins/anyGood";
 import {
   countBestemmia,
   printBestemmiatori,
@@ -24,7 +25,6 @@ bot.onText(/^[/!]loc(?:@\w+)? (\w+)/i, plugins.loc(bot));
 bot.onText(/^[/!]treccani(?:@\w+)? (\w+)/i, plugins.treccani(bot));
 bot.onText(/^[/!]kedde$/i, keddeInReply(bot));
 bot.onText(/^[/!]kedde(?:@\w+)? ([\s\S]*)/i, plugins.kedde(bot));
-// // in reply
 bot.onText(/^[/!]corsivo$/i, cursiveInReply(bot));
 bot.onText(/^[/!]corsivo(?:@\w+)? ([\s\S]*)/i, cursive(bot));
 bot.onText(/^[/!]calc(?:@\w+)? (.+)/i, plugins.calc(bot));
@@ -240,3 +240,4 @@ bot.onText(/^[/!]osteria$/i, plugins.osteria.random(bot));
 bot.onText(/^[/!]osteria ([\s\S]+){1}/i, plugins.osteria.detail(bot));
 
 bot.onText(/ultimouomo\.com/gi, ultimouomo(bot));
+bot.onText(/(è )?(bono|buono)\??$/gi, anyGood(bot));
