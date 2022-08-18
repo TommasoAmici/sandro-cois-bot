@@ -1,10 +1,9 @@
-import TelegramBot from "node-telegram-bot-api";
+import type { Context, HearsContext } from "grammy";
 
-export default (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message): Promise<void> => {
-    const admins = await bot.getChatAdministrators(msg.chat.id);
-    const nazis =
-      "Taking my mods for a walk ( ͡° ͜ʖ ͡°)╯╲___卐卐卐卐\n\n" +
-      admins.map(a => a.user.username).join("\n");
-    bot.sendMessage(msg.chat.id, nazis);
-  };
+export const naziMods = async (ctx: HearsContext<Context>) => {
+  const admins = await ctx.getChatAdministrators();
+  const nazis =
+    "Taking my mods for a walk ( ͡° ͜ʖ ͡°)╯╲___卐卐卐卐\n\n" +
+    admins.map(a => a.user.username).join("\n");
+  ctx.reply(nazis);
+};

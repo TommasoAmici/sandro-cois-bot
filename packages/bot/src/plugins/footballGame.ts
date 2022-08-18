@@ -1,9 +1,10 @@
 import axios from "axios";
 import { remove as removeDiacritics } from "diacritics";
-import TelegramBot from "node-telegram-bot-api";
+import type { Context, HearsContext } from "grammy";
+import { Composer } from "grammy";
 import * as utf8 from "utf8";
 import client from "../redisClient";
-import { getUsers } from "./stats/print";
+import { getUsers } from "./stats";
 import { prettyPrint } from "./utils/printStandings";
 
 const Fuse = require("fuse.js");
@@ -40,7 +41,7 @@ const sparqlQuery = `SELECT DISTINCT ?item ?itemLabel WHERE {
   LIMIT 5000`;
 const fullURL = endpointUrl + "?query=" + encodeURIComponent(sparqlQuery);
 
-const build = (bot: TelegramBot) => (msg: TelegramBot.Message) => {
+const build = (ctx: HearsContext<Context>) => {
   client.del(redisKey);
   axios
     .get<WikiFootballData>(fullURL, {
@@ -52,9 +53,9 @@ const build = (bot: TelegramBot) => (msg: TelegramBot.Message) => {
         const ID = b.item.value.replace("http://www.wikidata.org/entity/", "");
         client.sadd(redisKey, `${utf8.encode(b.itemLabel.value)}:${ID}`);
       });
-      bot.sendMessage(msg.chat.id, "Il gioco è pronto");
+      ctx.reply("Il gioco è pronto");
     })
-    .catch(err => bot.sendMessage(msg.chat.id, err));
+    .catch(err => ctx.reply(err));
 };
 
 interface WikiFootballDataTeam {
@@ -127,8 +128,8 @@ const allTeams = async teams => {
   ];
 };
 
-const play = (bot: TelegramBot) => async (msg: TelegramBot.Message) => {
-  const prevSolution = await client.get(`${msg.chat.id}:solution`);
+const play = async (ctx: HearsContext<Context>) => {
+  const prevSolution = await client.get(`${ctx.chat.id}:solution`);
   const randomPlayer = await client.spop(redisKey);
   const randomPlayerName = utf8.decode(randomPlayer.split(":")[0]);
   const randomPlayerID = randomPlayer.split(":")[1];
@@ -138,60 +139,60 @@ const play = (bot: TelegramBot) => async (msg: TelegramBot.Message) => {
   const teams = data.entities[randomPlayerID].claims["P54"];
   const teamsFormatted = await allTeams(teams);
 
-  bot.sendMessage(msg.chat.id, teamsFormatted.join(""));
-  if (prevSolution !== null) bot.sendMessage(msg.chat.id, prevSolution);
+  ctx.reply(teamsFormatted.join(""));
+  if (prevSolution !== null) {
+    ctx.reply(prevSolution);
+  }
 
-  client.set(`${msg.chat.id}:solution`, randomPlayerName);
+  client.set(`${ctx.chat.id}:solution`, randomPlayerName);
 };
 
-const solution = (bot: TelegramBot) => async (msg: TelegramBot.Message) => {
-  const s = await client.get(`${msg.chat.id}:solution`);
-  client.set(`${msg.chat.id}:solution`, null);
-  bot.sendMessage(msg.chat.id, s);
+const surrender = async (ctx: HearsContext<Context>) => {
+  const s = await client.get(`${ctx.chat.id}:solution`);
+  client.set(`${ctx.chat.id}:solution`, null);
+  ctx.reply(s);
 };
 
-const winner =
-  (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message, match: RegExpMatchArray) => {
-    const solution = await client.get(`${msg.chat.id}:solution`);
-    const normalizedSolution = removeDiacritics(solution);
-    const options = {
-      includeScore: true,
-    };
+const solution = async (ctx: HearsContext<Context>) => {
+  const solution = await client.get(`${ctx.chat.id}:solution`);
+  const normalizedSolution = removeDiacritics(solution);
+  const options = {
+    includeScore: true,
+  };
 
-    const fuse = new Fuse([normalizedSolution], options);
+  const fuse = new Fuse([normalizedSolution], options);
 
-    const result = fuse.search(match[1]);
-    if (result[0] === undefined) {
-      if (
-        ["smith", "inho", "sson", "escu", "mohamed", "chenko"].includes(
-          match[1].toLowerCase(),
-        )
-      ) {
-        bot.sendMessage(msg.chat.id, "Vergognati!");
-      } else bot.sendMessage(msg.chat.id, "No");
-    } else if (result[0].score < 0.3) {
-      if (match[1].length / solution.length < 0.2) {
-        bot.sendMessage(msg.chat.id, "Non ci provare");
-      } else {
-        const key = `chat:${msg.chat.id}:user:${msg.from.id}`;
-        client.hincrby(key, "football-game", 1);
-        client.set(`${msg.chat.id}:solution`, null);
-        bot.sendMessage(
-          msg.chat.id,
-          `@${msg.from.username} ha indovinato: ${solution}`,
-        );
-      }
+  const result = fuse.search(ctx.match[1]);
+  if (result[0] === undefined) {
+    if (
+      ["smith", "inho", "sson", "escu", "mohamed", "chenko"].includes(
+        ctx.match[1].toLowerCase(),
+      )
+    ) {
+      ctx.reply("Vergognati!");
+    } else ctx.reply("No");
+  } else if (result[0].score < 0.3) {
+    if (ctx.match[1].length / solution.length < 0.2) {
+      ctx.reply("Non ci provare");
+    } else {
+      const key = `chat:${ctx.chat.id}:user:${ctx.msg.from.id}`;
+      client.hincrby(key, "football-game", 1);
+      client.set(`${ctx.chat.id}:solution`, null);
+      ctx.reply(`@${ctx.msg.from.username} ha indovinato: ${solution}`);
     }
-  };
+  }
+};
 
-const ranking =
-  (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message): Promise<void> => {
-    const users = await getUsers(msg.chat.id, "football-game");
-    const sortedUsers = users.sort((a, b) => b.count - a.count);
-    const message = prettyPrint(sortedUsers);
-    bot.sendMessage(msg.chat.id, message);
-  };
+const ranking = async (ctx: HearsContext<Context>) => {
+  const users = await getUsers(ctx.chat.id, "football-game");
+  const sortedUsers = users.sort((a, b) => b.count - a.count);
+  const message = prettyPrint(sortedUsers);
+  ctx.reply(message);
+};
 
-export default { build, play, solution, winner, ranking };
+export const footballGame = new Composer();
+footballGame.hears(/^[/!]buildgame(?:@\w+)?$/i, build);
+footballGame.hears(/^[/!]trivia(?:@\w+)?$/i, play);
+footballGame.hears(/^[/!]surrender(?:@\w+)?$/i, surrender);
+footballGame.hears(/^[/!]ranking(?:@\w+)?$/i, ranking);
+footballGame.hears(/^[/!]solution(?:@\w+)? ([\s\S]*)/i, solution);

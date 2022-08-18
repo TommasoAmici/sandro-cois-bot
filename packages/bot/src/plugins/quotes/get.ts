@@ -1,26 +1,9 @@
-import TelegramBot from "node-telegram-bot-api";
+import type { Context, HearsContext } from "grammy";
 import * as utf8 from "utf8";
 import client from "../../redisClient";
 import { randomChoice } from "../utils/random";
 import random from "./random";
-
-export interface IQuote {
-  id: string;
-  body: string;
-  author?: string;
-  date?: string;
-}
-
-export const formatQuote = (quote: IQuote) => {
-  let body = quote.body;
-  if (quote.author) {
-    body += `\n- ${quote.author}`;
-  }
-  if (quote.date) {
-    body += ` - ${quote.date}`;
-  }
-  return body;
-};
+import { formatQuote, IQuote } from "./utils";
 
 export const searchQuotes = async (
   chatID: number,
@@ -55,18 +38,17 @@ export const searchQuotes = async (
   }
 };
 
-export default (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
-    const toMatch = utf8.encode(match[1]);
-    if (toMatch === "") {
-      return random(bot)(msg);
-    } else {
-      const quotes = await searchQuotes(msg.chat.id, toMatch);
-      if (quotes.length === 0) {
-        bot.sendMessage(msg.chat.id, "No quote found :(");
-        return;
-      }
-      const quote = randomChoice(quotes);
-      bot.sendMessage(msg.chat.id, formatQuote(quote));
+export default async (ctx: HearsContext<Context>) => {
+  const toMatch = utf8.encode(ctx.match[1]);
+  if (toMatch === "") {
+    return random(ctx);
+  } else {
+    const quotes = await searchQuotes(ctx.chat.id, toMatch);
+    if (quotes.length === 0) {
+      ctx.reply("No quote found :(");
+      return;
     }
-  };
+    const quote = randomChoice(quotes);
+    ctx.reply(formatQuote(quote));
+  }
+};

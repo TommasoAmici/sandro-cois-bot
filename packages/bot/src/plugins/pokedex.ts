@@ -1,30 +1,20 @@
-const Pokedex = require("pokedex");
-import TelegramBot from "node-telegram-bot-api";
-import utils from "./utils";
+import axios from "axios";
+import { Context } from "grammy";
+import { toTitleCase } from "./utils";
 
-const pokedex = new Pokedex();
+const getPokemon = async (name: string) => {
+  const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+  return res.data;
+};
 
 const makeCaption = (pokemon): string =>
-  `#${pokemon.id} ${utils.toTitleCase(pokemon.name)}\nHeight: ${
-    pokemon.height / 10
-  } m\nWeight: ${pokemon.weight / 10} kg`;
+  `#${pokemon.id} ${toTitleCase(pokemon.name)}\nHeight: ${
+    parseInt(pokemon.height) / 10
+  } m\nWeight: ${parseInt(pokemon.weight) / 10} kg`;
 
-const pokedexByName =
-  (bot: TelegramBot) =>
-  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    const pokemon = pokedex.pokemon(match[1].toLowerCase());
-    bot.sendVideo(msg.chat.id, pokemon.sprites.animated, {
-      caption: makeCaption(pokemon),
-    });
-  };
-
-const pokedexById =
-  (bot: TelegramBot) =>
-  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    const pokemon = pokedex.pokemon(+match[1]);
-    bot.sendVideo(msg.chat.id, pokemon.sprites.animated, {
-      caption: makeCaption(pokemon),
-    });
-  };
-
-export default { byId: pokedexById, byName: pokedexByName };
+export const pokemonByName = async (ctx: Context) => {
+  const pokemon = await getPokemon(ctx.match[1].toLowerCase());
+  ctx.replyWithPhoto(pokemon.sprites.other["official-artwork"].front_default, {
+    caption: makeCaption(pokemon),
+  });
+};

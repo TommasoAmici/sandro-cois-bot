@@ -1,9 +1,9 @@
-import TelegramBot from "node-telegram-bot-api";
+import type { Context, HearsContext } from "grammy";
 import { addQuote } from "./add";
 
-export default (bot: TelegramBot, addDate = false) =>
-  (msg: TelegramBot.Message): void => {
-    const msgReply = msg.reply_to_message;
+export default (addDate = false) =>
+  (ctx: HearsContext<Context>): void => {
+    const msgReply = ctx.msg.reply_to_message;
     if (msgReply.text && msgReply.text.length !== 0) {
       const quote = msgReply;
 
@@ -19,6 +19,6 @@ export default (bot: TelegramBot, addDate = false) =>
         date = null;
       }
 
-      addQuote(quote.text, author, date, msg.chat.id, bot);
+      addQuote(quote.text, author, date, ctx);
     }
   };

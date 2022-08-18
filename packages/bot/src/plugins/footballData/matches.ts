@@ -1,4 +1,4 @@
-import TelegramBot from "node-telegram-bot-api";
+import type { Context, HearsContext } from "grammy";
 import { randomChoice } from "../utils/random";
 import { Match, Matches, Team } from "./types";
 import { api, getCurrMatchday, overrideTeamNames, refereeRoles } from "./utils";
@@ -49,11 +49,11 @@ const makeMatchesString = async (
   return `*Giornata ${currentMatchday}*\n\n${matchesStrings.join("\n")}`;
 };
 
-export default (bot: TelegramBot, offset = 0, referees = false) =>
-  async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
-    const competitionCode = (match[1] ?? "SA").toUpperCase();
+export default (offset = 0, referees = false) =>
+  async (ctx: HearsContext<Context>) => {
+    const competitionCode = (ctx.match[1] ?? "SA").toUpperCase();
     const currentMatchday = await getCurrMatchday(competitionCode);
-    if (currentMatchday === 0) bot.sendMessage(msg.chat.id, "Boh 🤷🏻‍♂️");
+    if (currentMatchday === 0) ctx.reply("Boh 🤷🏻‍♂️");
     else {
       try {
         const matchesString = await makeMatchesString(
@@ -61,12 +61,12 @@ export default (bot: TelegramBot, offset = 0, referees = false) =>
           competitionCode,
           referees,
         );
-        bot.sendMessage(msg.chat.id, matchesString, {
+        ctx.reply(matchesString, {
           parse_mode: "Markdown",
         });
       } catch (error) {
         if (error.response && error.response.status >= 400) {
-          bot.sendMessage(msg.chat.id, error.response.status);
+          ctx.reply(error.response.status);
         }
         console.error(error.response);
       }

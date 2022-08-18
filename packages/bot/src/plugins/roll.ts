@@ -1,27 +1,28 @@
-import TelegramBot from "node-telegram-bot-api";
+import type { Context, HearsContext } from "grammy";
 import { randInt } from "./utils/random";
 
-export default (bot: TelegramBot) =>
-  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    let count = +match[1];
-    if (count === undefined || count === 0) count = 1;
-    if (count >= 1000) count = 1000;
+export default (ctx: HearsContext<Context>) => {
+  let count = parseInt(ctx.match[1]);
+  if (count === undefined || count === 0) count = 1;
+  if (count >= 1000) count = 1000;
 
-    let sides = +match[2];
-    if (sides >= Number.MAX_SAFE_INTEGER) sides = Number.MAX_SAFE_INTEGER;
+  let sides = parseInt(ctx.match[2]);
+  if (sides >= Number.MAX_SAFE_INTEGER) {
+    sides = Number.MAX_SAFE_INTEGER;
+  }
 
-    if (isNaN(sides)) {
-      sides = count;
-      count = 1;
-    }
+  if (isNaN(sides)) {
+    sides = count;
+    count = 1;
+  }
 
-    let total = 0;
-    let throws = [];
-    for (let i = 0; i < count; i++) {
-      let val = randInt(1, sides);
-      total += val;
-      throws.push(val);
-    }
+  let total = 0;
+  let throws = [];
+  for (let i = 0; i < count; i++) {
+    let val = randInt(1, sides);
+    total += val;
+    throws.push(val);
+  }
 
-    bot.sendMessage(msg.chat.id, `${throws.join(" ")} | Total: ${total}`);
-  };
+  ctx.reply(`${throws.join(" ")} | Total: ${total}`);
+};

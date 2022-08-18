@@ -1,4 +1,4 @@
-import TelegramBot from "node-telegram-bot-api";
+import type { Context, HearsContext } from "grammy";
 import { randomChoice } from "./utils/random";
 
 const choices = [
@@ -24,7 +24,6 @@ const choices = [
   "Molto incerto",
 ];
 
-export default (bot: TelegramBot) =>
-  (msg: TelegramBot.Message): void => {
-    bot.sendMessage(msg.chat.id, randomChoice(choices));
-  };
+export const magic8ball = (ctx: HearsContext<Context>) => {
+  ctx.reply(randomChoice(choices));
+};

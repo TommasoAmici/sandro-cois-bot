@@ -1,40 +1,41 @@
-import TelegramBot from "node-telegram-bot-api";
-import { media } from "../..";
+import type { Context } from "grammy";
 import client from "../../redisClient";
-import { getImage } from "../getImage";
-import utils from "../utils";
+import { sendGifFromQuery } from "../giphy";
+import { sendImageFromQuery } from "../imageSearch";
+import { media, Media } from "./media";
 
-export default (bot: TelegramBot, mediaMsg: Media) =>
-  async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
-    const key = match[1].toLowerCase();
-    const hkey = `chat:${msg.chat.id}:${mediaMsg.type}`;
-    const fileId = await client.hget(hkey, key);
+export default (mediaMsg: Media) =>
+  async (ctx: Context): Promise<void> => {
+    const key = ctx.match[1].toLowerCase();
+    const hkey = `chat:${ctx.chat.id}:${mediaMsg.type}`;
+    const fileID = await client.hget(hkey, key);
     if (mediaMsg === media.stickers) {
-      if (fileId !== null) bot.sendSticker(msg.chat.id, fileId);
+      if (fileID !== null) {
+        ctx.replyWithSticker(fileID);
+      }
     } else if (mediaMsg === media.photos) {
-      if (fileId !== null) {
-        bot.sendPhoto(msg.chat.id, fileId);
+      if (fileID !== null) {
+        ctx.replyWithPhoto(fileID);
       } else {
         // if no image is set try google api
         try {
-          getImage(key, bot, msg);
+          sendImageFromQuery(ctx, key);
         } catch (error) {
           if (error.response && error.response.status >= 400) {
-            bot.sendMessage(msg.chat.id, error.response.status);
+            ctx.reply(error.response.status);
           }
           console.error(error.response);
         }
       }
     } else if (mediaMsg === media.gifs) {
-      if (fileId !== null) {
-        bot.sendDocument(msg.chat.id, fileId);
+      if (fileID !== null) {
+        ctx.replyWithDocument(fileID);
       } else {
         try {
-          const response = await utils.getGif(key);
-          utils.sendGif(bot, msg, response);
+          sendGifFromQuery(ctx, key);
         } catch (error) {
           if (error.response && error.response.status >= 400) {
-            bot.sendMessage(msg.chat.id, error.response.status);
+            ctx.reply(error.response.status);
           }
           console.error(error.response);
         }

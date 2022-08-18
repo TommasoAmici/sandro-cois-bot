@@ -1,6 +1,6 @@
 import axios from "axios";
+import { Context, HearsContext } from "grammy";
 import { parse } from "node-html-parser";
-import TelegramBot from "node-telegram-bot-api";
 import utils from "./utils";
 
 const baseURL = "http://www.treccani.it";
@@ -21,16 +21,15 @@ const getDetailURL = async (word: string) => {
   return detailURL;
 };
 
-export default (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
-    const detailURL = await getDetailURL(match[1]);
+export const treccani = async (ctx: HearsContext<Context>) => {
+  const detailURL = await getDetailURL(ctx.match[1]);
 
-    if (detailURL !== undefined) {
-      const res = await axios.get<string>(detailURL);
-      const root = parse(res.data);
-      const section = root.querySelector("div.text.spiega");
-      utils.paginateMessages(bot, msg, section.rawText);
-    } else {
-      bot.sendMessage(msg.chat.id, "Non ho trovato niente");
-    }
-  };
+  if (detailURL !== undefined) {
+    const res = await axios.get<string>(detailURL);
+    const root = parse(res.data);
+    const section = root.querySelector("div.text.spiega");
+    utils.paginateMessages(ctx, section.rawText);
+  } else {
+    ctx.reply("Non ho trovato niente");
+  }
+};

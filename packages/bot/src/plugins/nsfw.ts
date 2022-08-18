@@ -1,8 +1,7 @@
-import TelegramBot from "node-telegram-bot-api";
+import type { Context } from "grammy";
 
-export default (bot: TelegramBot) =>
-  (msg: TelegramBot.Message): void => {
-    const nsfw =
-      "NSFW\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNSFW";
-    bot.sendMessage(msg.chat.id, nsfw);
-  };
+export const nsfw = (ctx: Context) => {
+  const message =
+    "NSFW\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNSFW";
+  ctx.reply(message);
+};

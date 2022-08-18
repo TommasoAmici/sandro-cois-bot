@@ -1,4 +1,4 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Composer } from "grammy";
 import { randomChoice } from "./utils/random";
 
 const songs = {
@@ -240,37 +240,22 @@ due cadaveri putrefatti
 si inculavano come matti`,
 };
 
-const osterieList =
-  (bot: TelegramBot) =>
-  (msg: TelegramBot.Message): void => {
-    bot.sendMessage(msg.chat.id, Object.keys(songs).join(", "));
-  };
+export const osteria = new Composer();
 
-const randomOsteria =
-  (bot: TelegramBot) =>
-  (msg: TelegramBot.Message): void => {
-    const randomKey = randomChoice(Object.keys(songs));
-    bot.sendMessage(
-      msg.chat.id,
-      `${songs[randomKey]}\nDammela a me biondina\nDammela a me bionda`,
-    );
-  };
+osteria
+  .on(":text")
+  .hears(/^[/!]osterie$/i, ctx => ctx.reply(Object.keys(songs).join(", ")));
 
-const osteria =
-  (bot: TelegramBot) =>
-  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    const song = songs[match[1].toLowerCase()];
-    if (song === undefined) {
-      bot.sendMessage(
-        msg.chat.id,
-        "Questa osteria non esiste, prova con un'altra",
-      );
-    } else {
-      bot.sendMessage(
-        msg.chat.id,
-        `${song}\nDammela a me biondina\nDammela a me bionda`,
-      );
-    }
-  };
+osteria.on(":text").hears(/^[/!]osteria$/i, ctx => {
+  const randomKey = randomChoice(Object.keys(songs));
+  ctx.reply(`${songs[randomKey]}\nDammela a me biondina\nDammela a me bionda`);
+});
 
-export default { list: osterieList, detail: osteria, random: randomOsteria };
+osteria.on(":text").hears(/^[/!]osteria ([\s\S]+){1}/i, ctx => {
+  const song = songs[ctx.match[1].toLowerCase()];
+  if (song === undefined) {
+    ctx.reply("Questa osteria non esiste, prova con un'altra");
+  } else {
+    ctx.reply(`${song}\nDammela a me biondina\nDammela a me bionda`);
+  }
+});

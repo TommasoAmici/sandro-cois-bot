@@ -1,19 +1,20 @@
-import TelegramBot from "node-telegram-bot-api";
+import type { Context, HearsContext } from "grammy";
 import client from "../../../redisClient";
+import type { Media } from "../media";
 
-export default (bot: TelegramBot, media: Media) =>
-  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    const key = match[1];
-    const val = match[2];
+export default (media: Media) =>
+  (ctx: HearsContext<Context>): void => {
+    const key = ctx.match[1];
+    const val = ctx.match[2];
 
-    const hkey = `chat:${msg.chat.id}:${media.type}`;
+    const hkey = `chat:${ctx.chat.id}:${media.type}`;
 
     client.hset(hkey, key, val, (err, res) => {
       if (err) {
-        bot.sendMessage(msg.chat.id, `Couldn't set ${key} :(`);
+        ctx.reply(`Couldn't set ${key} :(`);
       } else {
         const message = `${key} => ${val}`;
-        bot.sendMessage(msg.chat.id, message);
+        ctx.reply(message);
       }
     });
   };

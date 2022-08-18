@@ -1,4 +1,4 @@
-import TelegramBot from "node-telegram-bot-api";
+import type { Context, HearsContext } from "grammy";
 import * as utf8 from "utf8";
 import client from "../../redisClient";
 
@@ -25,8 +25,7 @@ export const addQuote = async (
   body: string,
   author: string,
   date: string,
-  chatId: number,
-  bot: TelegramBot,
+  ctx: HearsContext<Context>,
 ) => {
   // Prevent adding empty quotes
   // Since a command addquotedate exists, the regex for addquote may be triggered
@@ -36,10 +35,10 @@ export const addQuote = async (
     return;
   }
 
-  const key = `chat:${chatId}:quotes`;
+  const key = `chat:${ctx.chat.id}:quotes`;
 
   try {
-    createIndex(chatId);
+    createIndex(ctx.chat.id);
   } catch (err) {
     // it will throw an error if the index already exists, not a problem
     console.error(err);
@@ -49,12 +48,11 @@ export const addQuote = async (
   client.zadd(key, Date.now(), id);
   client
     .hset(`${key}:${id}`, "body", trimmedBody, "author", author, "date", date)
-    .then(() => bot.sendMessage(chatId, "Quote added!"))
-    .catch(() => bot.sendMessage(chatId, "Couldn't add quote :("));
+    .then(() => ctx.reply("Quote added!"))
+    .catch(() => ctx.reply("Couldn't add quote :("));
 };
 
-export default (bot: TelegramBot) =>
-  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    const quote = utf8.encode(match[1]);
-    addQuote(quote, "", null, msg.chat.id, bot);
-  };
+export default (ctx: HearsContext<Context>): void => {
+  const quote = utf8.encode(ctx.match[1]);
+  addQuote(quote, "", null, ctx);
+};

@@ -1,24 +1,17 @@
-import TelegramBot from "node-telegram-bot-api";
+import type { Context, HearsContext } from "grammy";
 
-const spongebob = word => {
-  let output = [];
-  for (let char of word) {
-    output.push(Math.random() > 0.5 ? char.toUpperCase() : char);
+const convert = (word: string) => {
+  const output: string[] = [];
+  for (const char of word) {
+    output.push(Math.random() > 0.5 ? char.toUpperCase() : char.toLowerCase());
   }
   return output.join("");
 };
 
-export const spongebobInReply =
-  (bot: TelegramBot) =>
-  (msg: TelegramBot.Message): void => {
-    if (msg.reply_to_message) {
-      const message = spongebob(msg.reply_to_message.text);
-      bot.sendMessage(msg.chat.id, message);
-    }
-  };
-
-export default (bot: TelegramBot) =>
-  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    const message = spongebob(match[1].toLowerCase());
-    bot.sendMessage(msg.chat.id, message);
-  };
+export const spongebob = (ctx: HearsContext<Context>) => {
+  if (ctx.match[1] !== "") {
+    return ctx.reply(convert(ctx.match[1]));
+  } else if (ctx.message?.reply_to_message?.text !== undefined) {
+    return ctx.reply(convert(ctx.message?.reply_to_message?.text));
+  }
+};

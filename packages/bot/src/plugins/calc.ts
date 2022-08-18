@@ -1,35 +1,32 @@
+import type { Context, HearsContext } from "grammy";
 import { evaluate } from "mathjs";
-import TelegramBot from "node-telegram-bot-api";
 
-export default (bot: TelegramBot) =>
-  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    try {
-      const evaluated = evaluate(match[1]);
-      if (typeof evaluated === "object") {
-        // handle conversions
-        if (match[1].includes(" to ")) {
-          bot.sendMessage(
-            msg.chat.id,
-            `${evaluated.value / evaluated.units[0].unit.value} ${
-              evaluated.units[0].unit.name
-            }`,
-          );
-        }
-        // handle calcs with different units
-        else {
-          bot.sendMessage(
-            msg.chat.id,
-            `${evaluated.value / evaluated.units[0].prefix.value} ${
-              evaluated.units[0].prefix.name
-            }${evaluated.units[0].unit.name}`,
-          );
-        }
+export default (ctx: HearsContext<Context>) => {
+  try {
+    const evaluated = evaluate(ctx.match[1]);
+    if (typeof evaluated === "object") {
+      // handle conversions
+      if (ctx.match[1].includes(" to ")) {
+        ctx.reply(
+          `${evaluated.value / evaluated.units[0].unit.value} ${
+            evaluated.units[0].unit.name
+          }`,
+        );
       }
-      // numerical expression needs no handling
+      // handle calcs with different units
       else {
-        bot.sendMessage(msg.chat.id, evaluated);
+        ctx.reply(
+          `${evaluated.value / evaluated.units[0].prefix.value} ${
+            evaluated.units[0].prefix.name
+          }${evaluated.units[0].unit.name}`,
+        );
       }
-    } catch (error) {
-      bot.sendMessage(msg.chat.id, "🤷🏻‍♂️");
     }
-  };
+    // numerical expression needs no handling
+    else {
+      ctx.reply(evaluated);
+    }
+  } catch (error) {
+    ctx.reply("🤷🏻‍♂️");
+  }
+};

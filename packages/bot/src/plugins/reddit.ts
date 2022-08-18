@@ -1,5 +1,6 @@
 import axios from "axios";
-import TelegramBot from "node-telegram-bot-api";
+import type { Context, HearsContext } from "grammy";
+import { Composer } from "grammy";
 import { randomChoice, shuffle } from "./utils/random";
 
 interface IRedditPost {
@@ -167,60 +168,63 @@ const buildMessage = (item): string => {
   return `${text}${links}`;
 };
 
-export default (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
-    const subreddit = match[1].toLowerCase();
-    let sortBy: string;
-    if (match[2] === undefined) {
-      sortBy = "hot";
+const handler = async (ctx: HearsContext<Context>) => {
+  const subreddit = ctx.match[1].toLowerCase();
+  let sortBy: string;
+  if (ctx.match[2] === undefined) {
+    sortBy = "hot";
+  } else {
+    sortBy = ctx.match[2].toLowerCase();
+  }
+
+  const baseApi = `https://old.reddit.com/r/${subreddit}/${sortBy}.json`;
+
+  try {
+    const response = await axios.get<ISubredditResponse>(baseApi);
+
+    if (!response.data.data) {
+      ctx.reply("Nothing found.");
     } else {
-      sortBy = match[2].toLowerCase();
-    }
-
-    const baseApi = `https://old.reddit.com/r/${subreddit}/${sortBy}.json`;
-
-    try {
-      const response = await axios.get<ISubredditResponse>(baseApi);
-
-      if (!response.data.data) {
-        bot.sendMessage(msg.chat.id, "Nothing found.");
-      } else {
-        const item = randomChoice(shuffle(response.data.data.children));
-        // find correct api method
-        if (
-          item.data.domain === "gfycat.com" ||
-          item.data.url.includes(".gifv")
-        ) {
-          bot.sendVideo(
-            msg.chat.id,
-            item.data.preview.reddit_video_preview.fallback_url,
-          );
-        } else if (item.data.domain === "youtu.be") {
-          bot.sendMessage(msg.chat.id, buildMessage(item), {
-            parse_mode: "HTML",
-          });
-        } else if (item.data.post_hint === "image") {
-          bot.sendPhoto(msg.chat.id, item.data.url);
-        }
-        // hosted on reddit
-        else if (item.data.post_hint === "hosted:video") {
-          bot.sendVideo(msg.chat.id, item.data.media.reddit_video.fallback_url);
-        }
-        // external video hosting
-        else if (item.data.post_hint === "rich:video") {
-          bot.sendVideo(msg.chat.id, item.data.url);
-        }
-        // everything else
-        else {
-          bot.sendMessage(msg.chat.id, buildMessage(item), {
-            parse_mode: "HTML",
-          });
-        }
+      const item = randomChoice(shuffle(response.data.data.children));
+      // find correct api method
+      if (
+        item.data.domain === "gfycat.com" ||
+        item.data.url.includes(".gifv")
+      ) {
+        ctx.replyWithVideo(item.data.preview.reddit_video_preview.fallback_url);
+      } else if (item.data.domain === "youtu.be") {
+        ctx.reply(buildMessage(item), {
+          parse_mode: "HTML",
+        });
+      } else if (item.data.post_hint === "image") {
+        ctx.replyWithPhoto(item.data.url);
       }
-    } catch (error) {
-      if (error.response && error.response.status >= 400) {
-        bot.sendMessage(msg.chat.id, error.response.status);
+      // hosted on reddit
+      else if (item.data.post_hint === "hosted:video") {
+        ctx.replyWithVideo(item.data.media.reddit_video.fallback_url);
       }
-      console.error(error.response);
+      // external video hosting
+      else if (item.data.post_hint === "rich:video") {
+        ctx.replyWithVideo(item.data.url);
+      }
+      // everything else
+      else {
+        ctx.reply(buildMessage(item), {
+          parse_mode: "HTML",
+        });
+      }
     }
-  };
+  } catch (error) {
+    if (error.response && error.response.status >= 400) {
+      ctx.reply(error.response.status);
+    }
+    console.error(error.response);
+  }
+};
+
+export const reddit = new Composer();
+reddit.hears(
+  /^\/r\/(\w+)(?:@\w+)? (hot|new|controversial|gilded|top|rising)/i,
+  handler,
+);
+reddit.hears(/^\/r\/(\w+)(?:@\w+)?$/i, handler);

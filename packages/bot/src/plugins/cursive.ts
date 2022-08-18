@@ -1,4 +1,4 @@
-import TelegramBot from "node-telegram-bot-api";
+import type { Context, HearsContext } from "grammy";
 import { randomChoice } from "./utils/random";
 
 const randomSequence = (options: string[]) => {
@@ -30,16 +30,10 @@ const convert = (msg: string) => {
   return convertedMessage;
 };
 
-export const cursiveInReply =
-  (bot: TelegramBot) =>
-  (msg: TelegramBot.Message): void => {
-    if (msg.reply_to_message) {
-      const message = convert(msg.reply_to_message.text);
-      bot.sendMessage(msg.chat.id, message);
-    }
-  };
-
-export default (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
-    bot.sendMessage(msg.chat.id, convert(match[1]));
-  };
+export const cursive = (ctx: HearsContext<Context>) => {
+  if (ctx.match[1] !== "") {
+    return ctx.reply(convert(ctx.match[1]));
+  } else if (ctx.message?.reply_to_message?.text !== undefined) {
+    return ctx.reply(convert(ctx.message?.reply_to_message?.text));
+  }
+};
