@@ -240,4 +240,4 @@ bot.onText(/^[/!]osteria$/i, plugins.osteria.random(bot));
 bot.onText(/^[/!]osteria ([\s\S]+){1}/i, plugins.osteria.detail(bot));
 
 bot.onText(/ultimouomo\.com/gi, ultimouomo(bot));
-bot.onText(/(è )?(bono|buono)\??$/gi, anyGood(bot));
+bot.onText(/^(è )?(bono|buono)\?$/gi, anyGood(bot));
