@@ -601,7 +601,7 @@ __metadata:
     novelcovid: 3.0.2
     pokedex: 1.1.0
     typescript: 4.7.4
-    undici: ^5.9.1
+    undici: 5.9.1
     utf8: 3.0.0
     vite: 3.0.9
     vitest: 0.22.1
@@ -3863,7 +3863,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^5.9.1":
+"undici@npm:5.9.1":
   version: 5.9.1
   resolution: "undici@npm:5.9.1"
   checksum: 8acabbac8e18943ff822574f831d03d65e697e66ef486a679763f7778f37b28980caf7097ededf4017b58c099809e8efd8509a6688f60638360fb86ef47a59df
