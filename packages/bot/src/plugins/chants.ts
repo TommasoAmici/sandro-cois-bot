@@ -29,6 +29,6 @@ export const randomChant =
   (bot: TelegramBot) => async (msg: TelegramBot.Message) => {
     const chants = await getChants();
     bot.sendMessage(msg.chat.id, formatChant(randomChoice(chants)), {
-      parse_mode: "MarkdownV2",
+      parse_mode: "Markdown",
     });
   };
