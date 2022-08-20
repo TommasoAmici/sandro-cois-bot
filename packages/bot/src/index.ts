@@ -7,6 +7,7 @@ import {
   printBestemmiatori,
   printUserBestemmie,
 } from "./plugins/bestemmie";
+import { randomChant } from "./plugins/chants";
 import cursive, { cursiveInReply } from "./plugins/cursive";
 import { keddeInReply } from "./plugins/kedde";
 import ultimouomo from "./plugins/ultimouomo";
@@ -238,6 +239,8 @@ bot.onText(/^[/!]echoid(?:@\w+)?$/i, plugins.echoID(bot));
 bot.onText(/^[/!]osterie$/i, plugins.osteria.list(bot));
 bot.onText(/^[/!]osteria$/i, plugins.osteria.random(bot));
 bot.onText(/^[/!]osteria ([\s\S]+){1}/i, plugins.osteria.detail(bot));
+
+bot.onText(/^[/!]coro/i, randomChant(bot));
 
 bot.onText(/ultimouomo\.com/gi, ultimouomo(bot));
 bot.onText(/^(è )?(bono|buono)\?$/gi, anyGood(bot));
