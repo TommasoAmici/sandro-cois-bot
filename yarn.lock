@@ -605,6 +605,7 @@ __metadata:
     utf8: 3.0.0
     vite: 3.0.9
     vitest: 0.22.1
+    windows-1252: ^3.0.4
   languageName: unknown
   linkType: soft
 
@@ -4077,6 +4078,13 @@ __metadata:
   dependencies:
     string-width: ^1.0.2 || 2
   checksum: d09c8012652a9e6cab3e82338d1874a4d7db2ad1bd19ab43eb744acf0b9b5632ec406bdbbbb970a8f4771a7d5ef49824d038ba70aa884e7723f5b090ab87134d
+  languageName: node
+  linkType: hard
+
+"windows-1252@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "windows-1252@npm:3.0.4"
+  checksum: afdbb86a2b8a793935bac181c0a9941ccd8ee57d4d6d6e0afadb5d3eadcba79caeb48b24bbf9b50dd3bc7b48a60711eee255d688b8bbddb360a4206ec969da46
   languageName: node
   linkType: hard
 

@@ -739,7 +739,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["undici", "npm:5.9.1"],\
             ["utf8", "npm:3.0.0"],\
             ["vite", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:3.0.9"],\
-            ["vitest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:0.22.1"]\
+            ["vitest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:0.22.1"],\
+            ["windows-1252", "npm:3.0.4"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -4652,6 +4653,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["wide-align", "npm:1.1.3"],\
             ["string-width", "npm:2.1.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["windows-1252", [\
+        ["npm:3.0.4", {\
+          "packageLocation": "./.yarn/cache/windows-1252-npm-3.0.4-8908601942-afdbb86a2b.zip/node_modules/windows-1252/",\
+          "packageDependencies": [\
+            ["windows-1252", "npm:3.0.4"]\
           ],\
           "linkType": "HARD"\
         }]\

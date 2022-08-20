@@ -1,6 +1,7 @@
 import { parse } from "node-html-parser";
 import TelegramBot from "node-telegram-bot-api";
 import { request } from "undici";
+import { decode } from "windows-1252";
 import { randInt, randomChoice } from "./utils/random";
 
 const url = (n: number) =>
@@ -16,7 +17,8 @@ const getChants = async (): Promise<Chant[]> => {
     headers: { referer: "https://www.coridastadio.com" },
   });
   const text = await res.body.text();
-  const root = parse(text);
+  const decodedText = decode(text);
+  const root = parse(decodedText);
   const chantsEls = root.querySelectorAll(".coro");
   return [
     ...new Set(
