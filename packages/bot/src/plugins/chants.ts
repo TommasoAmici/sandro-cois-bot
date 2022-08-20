@@ -23,7 +23,7 @@ const getChants = async (): Promise<Chant[]> => {
   });
 };
 
-const formatChant = (chant: Chant) => `**${chant.team}**\n\n${chant.text}`;
+const formatChant = (chant: Chant) => `*${chant.team}*\n\n${chant.text}`;
 
 export const randomChant =
   (bot: TelegramBot) => async (msg: TelegramBot.Message) => {
