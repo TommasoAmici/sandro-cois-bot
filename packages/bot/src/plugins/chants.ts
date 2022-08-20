@@ -18,17 +18,20 @@ const getChants = async (): Promise<Chant[]> => {
   return chantsEls.map(c => {
     return {
       team: c.querySelector("a.titolocoro").textContent,
-      text: c.querySelector(".testomessaggio").innerHTML.replace("<br>", "\n"),
+      text: c
+        .querySelector(".testomessaggio")
+        .innerHTML.replaceAll("<br>", "\n"),
     };
   });
 };
 
-const formatChant = (chant: Chant) => `*${chant.team}*\n\n${chant.text}`;
+const formatChant = (chant: Chant) =>
+  `<strong>${chant.team}</strong>\n\n${chant.text}`;
 
 export const randomChant =
   (bot: TelegramBot) => async (msg: TelegramBot.Message) => {
     const chants = await getChants();
     bot.sendMessage(msg.chat.id, formatChant(randomChoice(chants)), {
-      parse_mode: "Markdown",
+      parse_mode: "HTML",
     });
   };
