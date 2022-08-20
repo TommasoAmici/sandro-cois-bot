@@ -3,7 +3,7 @@ import TelegramBot from "node-telegram-bot-api";
 import { request } from "undici";
 import { randomChoice } from "./utils/random";
 
-const url = "https://www.coridastadio.com/migliori";
+const url = "https://www.coridastadio.com/recenti";
 
 interface Chant {
   team: string;
