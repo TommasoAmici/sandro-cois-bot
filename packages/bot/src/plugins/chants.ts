@@ -15,14 +15,18 @@ const getChants = async (): Promise<Chant[]> => {
   const text = await res.body.text();
   const root = parse(text);
   const chantsEls = root.querySelectorAll(".coro");
-  return chantsEls.map(c => {
-    return {
-      team: c.querySelector("a.titolocoro").textContent,
-      text: c
-        .querySelector(".testomessaggio")
-        .innerHTML.replaceAll("<br>", "\n"),
-    };
-  });
+  return [
+    ...new Set(
+      chantsEls.map(c => {
+        return {
+          team: c.querySelector("a.titolocoro").textContent,
+          text: c
+            .querySelector(".testomessaggio")
+            .innerHTML.replaceAll("<br>", "\n"),
+        };
+      }),
+    ),
+  ];
 };
 
 const formatChant = (chant: Chant) =>
