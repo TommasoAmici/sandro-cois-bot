@@ -18,7 +18,7 @@ const getChants = async (): Promise<Chant[]> => {
   return chantsEls.map(c => {
     return {
       team: c.querySelector("a.titolocoro").textContent,
-      text: c.querySelector(".testomessaggio").textContent,
+      text: c.querySelector(".testomessaggio").innerHTML.replace("<br>", "\n"),
     };
   });
 };
