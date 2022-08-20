@@ -27,15 +27,7 @@ const calcioMercato = (bot: TelegramBot, msg: TelegramBot.Message) =>
     })
     .catch(e => bot.sendMessage(msg.chat.id, "🤷🏻‍♂️"));
 
-const gazzettaUrl =
-  "https://components2.gazzettaobjects.it/rcs_gaz_searchapi/v1/latest.json";
-
-const includesCalcio = (arr: string[]): boolean => {
-  for (const a of arr) {
-    if (a.toLowerCase().includes("calcio")) return true;
-  }
-  return false;
-};
+const gazzettaURL = "https://searchapiservice2.gazzetta.it/api/section/calcio";
 
 interface Article {
   image: string;
@@ -46,16 +38,14 @@ interface Article {
   [propsName: string]: string | string[];
 }
 
-const prepareString = (article: Article): string =>
+const prepareString = (article: GazzettaArticle): string =>
   `*${article.headline}*\n${article.standFirst}\n\n${article.url}`;
 
 const gazzetta = (bot: TelegramBot, msg: TelegramBot.Message) =>
   axios
-    .get<any>(gazzettaUrl)
+    .get<GazzettaResponse>(gazzettaURL)
     .then(res => {
-      const calcioArticles = res.data.response.docs.filter((d: Article) =>
-        includesCalcio(d.section),
-      ) as Article[];
+      const calcioArticles = res.data.data;
       const article = randomChoice(calcioArticles);
       const articleString = prepareString(article);
       bot.sendMessage(msg.chat.id, articleString, {
