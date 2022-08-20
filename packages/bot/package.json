@@ -14,7 +14,7 @@
     "node-telegram-bot-api": "0.58.0",
     "novelcovid": "3.0.2",
     "pokedex": "1.1.0",
-    "undici": "^5.9.1",
+    "undici": "5.9.1",
     "utf8": "3.0.0"
   },
   "devDependencies": {
