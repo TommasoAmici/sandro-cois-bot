@@ -6,7 +6,6 @@ import calciomercato from "./calciomercato";
 import coronavirus from "./coronavirus";
 import echoID from "./echoID";
 import footballData from "./footballData/index";
-import footballGame from "./footballGame";
 import getImage from "./getImage";
 import giphy from "./giphy";
 import gtranslate from "./gtranslate";
@@ -43,7 +42,6 @@ export default {
   calciomercato,
   echoID,
   footballData,
-  footballGame,
   getImage,
   giphy,
   gtranslate,
