@@ -224,16 +224,6 @@ bot.onText(
   plugins.stocks.search(bot),
 );
 
-// Football trivia game
-bot.onText(/^[/!]buildgame(?:@\w+)?$/i, plugins.footballGame.build(bot));
-bot.onText(/^[/!]trivia(?:@\w+)?$/i, plugins.footballGame.play(bot));
-bot.onText(/^[/!]surrender(?:@\w+)?$/i, plugins.footballGame.solution(bot));
-bot.onText(/^[/!]ranking(?:@\w+)?$/i, plugins.footballGame.ranking(bot));
-bot.onText(
-  /^[/!]solution(?:@\w+)? ([\s\S]*)/i,
-  plugins.footballGame.winner(bot),
-);
-
 bot.onText(/^[/!]echoid(?:@\w+)?$/i, plugins.echoID(bot));
 // osterie
 bot.onText(/^[/!]osterie$/i, plugins.osteria.list(bot));
