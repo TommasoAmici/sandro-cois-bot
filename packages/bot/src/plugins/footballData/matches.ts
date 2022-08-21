@@ -1,7 +1,12 @@
 import TelegramBot from "node-telegram-bot-api";
 import { randomChoice } from "../utils/random";
 import { Match, Matches, Team } from "./types";
-import { api, getCurrMatchday, overrideTeamNames, refereeRoles } from "./utils";
+import {
+  apiGet,
+  getCurrMatchday,
+  overrideTeamNames,
+  refereeRoles,
+} from "./utils";
 
 const getTeamName = (t: Team): string => overrideTeamNames[t.id] ?? t.name;
 
@@ -17,12 +22,10 @@ const makeMatchesString = async (
   competitionCode: string,
   referees: boolean,
 ): Promise<string> => {
-  const params = { matchday: currentMatchday };
-  const res = await api.get<Matches>(
-    `/competitions/${competitionCode}/matches/`,
-    { params },
+  const res = await apiGet(
+    `/competitions/${competitionCode}/matches/?matchday=${currentMatchday}`,
   );
-  const data = res.data;
+  const data: Matches = await res.body.json();
   const padHomeTeam = longestTeamName(data.matches, "homeTeam");
   const padAwayTeam = longestTeamName(data.matches, "awayTeam");
   const matchesStrings = data.matches.map(m => {

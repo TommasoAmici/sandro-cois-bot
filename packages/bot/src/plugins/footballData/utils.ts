@@ -1,20 +1,19 @@
-import axios from "axios";
+import { request } from "undici";
 import cfg from "../../config";
 import { Competition } from "./types";
 
-export const api = axios.create({
-  baseURL: "http://api.football-data.org/v2",
-  timeout: 1000,
-  headers: { "X-Auth-Token": cfg.footballDataToken },
-});
+export const apiGet = (endpoint: string) =>
+  request(`http://api.football-data.org/v2${endpoint}`, {
+    headers: { "X-Auth-Token": cfg.footballDataToken },
+  });
 
 export const getCurrMatchday = async (
   competitionCode: string,
 ): Promise<number> => {
   try {
-    const res = await api.get<Competition>(`/competitions/${competitionCode}/`);
-    const competition = res.data;
-    return competition.currentSeason.currentMatchday;
+    const res = await apiGet(`/competitions/${competitionCode}/`);
+    const data: Competition = await res.body.json();
+    return data.currentSeason.currentMatchday;
   } catch (error) {
     console.error(error);
     return 0;

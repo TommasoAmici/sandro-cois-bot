@@ -1,21 +1,19 @@
 import TelegramBot from "node-telegram-bot-api";
 import { Standings } from "./types";
-import { api, getCurrMatchday, overrideTeamNames } from "./utils";
+import { apiGet, getCurrMatchday, overrideTeamNames } from "./utils";
 
 const makeMatchesString = async (
   currentMatchday: number,
   competitionCode: string,
-): Promise<string> => {
-  const params = { matchday: currentMatchday };
-  const data = await api.get<Standings>(
-    `/competitions/${competitionCode}/standings/`,
-    { params },
+) => {
+  const res = await apiGet(
+    `/competitions/${competitionCode}/standings/?matchday=${currentMatchday}`,
   );
-  const standings = data.data;
-  const padEnd = standings.standings[0].table
+  const data: Standings = await res.body.json();
+  const padEnd = data.standings[0].table
     .map(t => overrideTeamNames[t.team.id] ?? t.team.name)
     .sort((a, b) => b.length - a.length)[0].length;
-  const standingsStrings = standings.standings[0].table.map(
+  const standingsStrings = data.standings[0].table.map(
     t =>
       `${String(t.position).padStart(2, " ")} ${(
         overrideTeamNames[t.team.id] ?? t.team.name
