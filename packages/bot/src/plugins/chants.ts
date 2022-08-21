@@ -1,27 +1,36 @@
 import { parse } from "node-html-parser";
 import TelegramBot from "node-telegram-bot-api";
 import { request } from "undici";
-import { decode } from "windows-1252";
 import { randInt, randomChoice } from "./utils/random";
 
-const url = (n: number, team: string) => {
-  return `https://www.coridastadio.com/tifoseria/loadmore.asp?PagePosition=${n}&filtrosquadra=${team}`;
-};
+const baseURL = `https://www.coridastadio.com/tifoseria/loadmore.asp`;
 
 interface Chant {
   team: string;
   text: string;
 }
 
-const getChants = async (team: string): Promise<Chant[]> => {
-  const res = await request(url(randInt(1, 1000), team), {
+const getChants = async (team: string, retries = 3): Promise<Chant[]> => {
+  const page = team === undefined ? randInt(1, 1000) : randInt(1, 100);
+
+  const res = await request(baseURL, {
     headers: {
       referer: "https://www.coridastadio.com",
     },
+    query: {
+      PagePosition: page,
+      filtrosquadra: team,
+    },
   });
+
   const text = await res.body.text();
-  const decodedText = decode(text);
-  const root = parse(decodedText);
+  const notFound =
+    res.statusCode === 404 || text.includes("404 Not Found") || text === "";
+
+  if (retries > 0 && notFound) {
+    return getChants(team, retries - 1);
+  }
+  const root = parse(text);
   const chantsEls = root.querySelectorAll(".coro");
   return [
     ...new Set(
@@ -43,7 +52,7 @@ const formatChant = (chant: Chant) =>
 export const randomChant =
   (bot: TelegramBot) =>
   async (msg: TelegramBot.Message, match: RegExpMatchArray) => {
-    const team = match[1].trim();
+    const team = match[1]?.trim();
     let chant = "";
     try {
       const chants = await getChants(team);
