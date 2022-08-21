@@ -1,5 +1,5 @@
-import axios from "axios";
 import TelegramBot from "node-telegram-bot-api";
+import { request } from "undici";
 import { randomChoice, shuffle } from "./utils/random";
 
 interface IRedditPost {
@@ -180,12 +180,13 @@ export default (bot: TelegramBot) =>
     const baseApi = `https://old.reddit.com/r/${subreddit}/${sortBy}.json`;
 
     try {
-      const response = await axios.get<ISubredditResponse>(baseApi);
+      const res = await request(baseApi);
+      const { data }: ISubredditResponse = await res.body.json();
 
-      if (!response.data.data) {
+      if (!data) {
         bot.sendMessage(msg.chat.id, "Nothing found.");
       } else {
-        const item = randomChoice(shuffle(response.data.data.children));
+        const item = randomChoice(shuffle(data.children));
         // find correct api method
         if (
           item.data.domain === "gfycat.com" ||
