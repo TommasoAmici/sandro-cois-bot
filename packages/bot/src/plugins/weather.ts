@@ -1,5 +1,5 @@
-import axios from "axios";
 import TelegramBot from "node-telegram-bot-api";
+import { request } from "undici";
 import cfg from "../config";
 
 const kToC = (temp: number): string => (temp - 273.15).toFixed(1);
@@ -28,19 +28,24 @@ export default (bot: TelegramBot) =>
     // https://openweathermap.org/current
     const baseApi = "https://api.openweathermap.org/data/2.5/weather";
 
-    const params = { q: query, APPID: cfg.openWeatherToken };
+    const params = new URLSearchParams({
+      q: query,
+      APPID: cfg.openWeatherToken,
+    });
+    const url = `${baseApi}?${params.toString()}`;
 
     try {
-      const response = await axios.get<any>(baseApi, { params });
+      const response = await request(url);
+      const data = await response.body.json();
 
-      if (!response.data.weather || response.data.weather.length === 0) {
+      if (!data.weather || data.weather.length === 0) {
         bot.sendMessage(msg.chat.id, `Couldn't find the weather for ${query}`);
       } else {
-        const conditionsEmoji = getEmoji(response.data.weather[0].main);
-        const message = `The temperature in ${response.data.name} is ${kToC(
-          response.data.main.temp,
+        const conditionsEmoji = getEmoji(data.weather[0].main);
+        const message = `The temperature in ${data.name} is ${kToC(
+          data.main.temp,
         )}°C\nCurrent conditions are: ${
-          response.data.weather[0].description
+          data.weather[0].description
         } ${conditionsEmoji}`;
         bot.sendMessage(msg.chat.id, message);
       }
