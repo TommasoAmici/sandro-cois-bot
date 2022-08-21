@@ -1,5 +1,5 @@
-import axios from "axios";
 import TelegramBot from "node-telegram-bot-api";
+import { request } from "undici";
 import config from "../../config";
 
 interface GlobalQuote {
@@ -30,11 +30,10 @@ const makeString = (globalQuote: GlobalQuote) =>
   }${globalQuote["10. change percent"]}`;
 
 export default (bot: TelegramBot) =>
-  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    axios
-      .get<AlphaVantageResponse>(url(match[2].toUpperCase()))
-      .then(res =>
-        bot.sendMessage(msg.chat.id, makeString(res.data["Global Quote"])),
-      )
-      .catch(err => console.error(err));
+  async (msg: TelegramBot.Message, match: RegExpMatchArray) => {
+    const ticker = match[2].toUpperCase();
+
+    const res = await request(url(ticker));
+    const data: AlphaVantageResponse = await res.body.json();
+    bot.sendMessage(msg.chat.id, makeString(data["Global Quote"]));
   };
