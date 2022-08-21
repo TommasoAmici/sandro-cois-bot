@@ -2,6 +2,7 @@ import axios from "axios";
 import { decode } from "html-entities";
 import { parse } from "node-html-parser";
 import TelegramBot from "node-telegram-bot-api";
+import { request } from "undici";
 import { randomChoice } from "./utils/random";
 
 const url =
@@ -41,18 +42,15 @@ interface Article {
 const prepareString = (article: GazzettaArticle): string =>
   `*${article.headline}*\n${article.standFirst}\n\n${article.url}`;
 
-const gazzetta = (bot: TelegramBot, msg: TelegramBot.Message) =>
-  axios
-    .get<GazzettaResponse>(gazzettaURL)
-    .then(res => {
-      const calcioArticles = res.data.data;
-      const article = randomChoice(calcioArticles);
-      const articleString = prepareString(article);
-      bot.sendMessage(msg.chat.id, articleString, {
-        parse_mode: "Markdown",
-      });
-    })
-    .catch(e => bot.sendMessage(msg.chat.id, "🤷🏻‍♂️"));
+const gazzetta = async (bot: TelegramBot, msg: TelegramBot.Message) => {
+  const res = await request(gazzettaURL);
+  const { data }: GazzettaResponse = await res.body.json();
+  const article = randomChoice(data);
+  const articleString = prepareString(article);
+  bot.sendMessage(msg.chat.id, articleString, {
+    parse_mode: "Markdown",
+  });
+};
 
 const providers = [gazzetta, calcioMercato];
 
