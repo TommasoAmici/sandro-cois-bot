@@ -4,16 +4,17 @@ import { request } from "undici";
 import { decode } from "windows-1252";
 import { randInt, randomChoice } from "./utils/random";
 
-const url = (n: number) =>
-  `https://www.coridastadio.com/tifoseria/loadmore.asp?PagePosition=${n}`;
+const url = (n: number, team: string) => {
+  return `https://www.coridastadio.com/tifoseria/loadmore.asp?PagePosition=${n}&filtrosquadra=${team}`;
+};
 
 interface Chant {
   team: string;
   text: string;
 }
 
-const getChants = async (): Promise<Chant[]> => {
-  const res = await request(url(randInt(1, 1000)), {
+const getChants = async (team: string): Promise<Chant[]> => {
+  const res = await request(url(randInt(1, 1000), team), {
     headers: {
       referer: "https://www.coridastadio.com",
     },
@@ -40,10 +41,12 @@ const formatChant = (chant: Chant) =>
   `<strong>${chant.team}</strong>\n\n${chant.text}`;
 
 export const randomChant =
-  (bot: TelegramBot) => async (msg: TelegramBot.Message) => {
+  (bot: TelegramBot) =>
+  async (msg: TelegramBot.Message, match: RegExpMatchArray) => {
+    const team = match[1].trim();
     let chant = "";
     try {
-      const chants = await getChants();
+      const chants = await getChants(team);
       chant = formatChant(randomChoice(chants));
     } catch (error) {
       console.error("failed to send chant");
