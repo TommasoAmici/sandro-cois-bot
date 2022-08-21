@@ -5,13 +5,6 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@aero/centra@npm:^1.0.3":
-  version: 1.0.4
-  resolution: "@aero/centra@npm:1.0.4"
-  checksum: 8a81aa03b90e5c6624b02671cb42546cfeaaa3d9f82296e92585adbbb73779c9253e78052df20c1023cc8c5e16973ac0fe258c783449977720d1c801b4aef8a7
-  languageName: node
-  linkType: hard
-
 "@babel/runtime@npm:^7.18.9":
   version: 7.18.9
   resolution: "@babel/runtime@npm:7.18.9"
@@ -591,7 +584,6 @@ __metadata:
     mathjs: 11.0.1
     node-html-parser: 5.4.1
     node-telegram-bot-api: 0.58.0
-    novelcovid: 3.0.2
     pokedex: 1.1.0
     typescript: 4.7.4
     undici: 5.9.1
@@ -2774,15 +2766,6 @@ __metadata:
   version: 6.1.0
   resolution: "normalize-url@npm:6.1.0"
   checksum: 4a4944631173e7d521d6b80e4c85ccaeceb2870f315584fa30121f505a6dfd86439c5e3fdd8cd9e0e291290c41d0c3599f0cb12ab356722ed242584c30348e50
-  languageName: node
-  linkType: hard
-
-"novelcovid@npm:3.0.2":
-  version: 3.0.2
-  resolution: "novelcovid@npm:3.0.2"
-  dependencies:
-    "@aero/centra": ^1.0.3
-  checksum: 75235228a2c27abfadaf23f90e95cc50a19bbc1a058531c164279ef61cc37cf080c2465396d8b16b6bc734ade5419ce8974bcf9439777c44430a06282298c9a2
   languageName: node
   linkType: hard
 

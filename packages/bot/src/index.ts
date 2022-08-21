@@ -36,10 +36,6 @@ bot.onText(/^[/!]pokedex(?:@\w+)? (\d+)/i, plugins.pokedex.byId(bot));
 bot.onText(/^[/!](\d+)covid/i, plugins.coronavirus.gago(bot));
 bot.onText(/^[/!]covid(\d+)/i, plugins.coronavirus.gago(bot));
 bot.onText(/^[/!]covid$/i, plugins.coronavirus.percent(bot));
-bot.onText(
-  /^[/!]covid(?:@\w+)? ([a-zA-Z -]+)/i,
-  plugins.coronavirus.country(bot),
-);
 // AMORE-MERDA
 bot.onText(/^(.+)\s*amore$/gi, plugins.amoreMerda.amore());
 bot.onText(/^[/!]amore$/gi, plugins.amoreMerda.summaryAmore(bot));

@@ -52,15 +52,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT"\
         }]\
       ]],\
-      ["@aero/centra", [\
-        ["npm:1.0.4", {\
-          "packageLocation": "./.yarn/cache/@aero-centra-npm-1.0.4-97d1bfb20c-8a81aa03b9.zip/node_modules/@aero/centra/",\
-          "packageDependencies": [\
-            ["@aero/centra", "npm:1.0.4"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["@babel/runtime", [\
         ["npm:7.18.9", {\
           "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.18.9-28ca6b5f61-36dd736bab.zip/node_modules/@babel/runtime/",\
@@ -726,7 +717,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mathjs", "npm:11.0.1"],\
             ["node-html-parser", "npm:5.4.1"],\
             ["node-telegram-bot-api", "npm:0.58.0"],\
-            ["novelcovid", "npm:3.0.2"],\
             ["pokedex", "npm:1.1.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
             ["undici", "npm:5.9.1"],\
@@ -3189,16 +3179,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/normalize-url-npm-6.1.0-b95bc12ece-4a49446311.zip/node_modules/normalize-url/",\
           "packageDependencies": [\
             ["normalize-url", "npm:6.1.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["novelcovid", [\
-        ["npm:3.0.2", {\
-          "packageLocation": "./.yarn/cache/novelcovid-npm-3.0.2-909fec9018-75235228a2.zip/node_modules/novelcovid/",\
-          "packageDependencies": [\
-            ["novelcovid", "npm:3.0.2"],\
-            ["@aero/centra", "npm:1.0.4"]\
           ],\
           "linkType": "HARD"\
         }]\
