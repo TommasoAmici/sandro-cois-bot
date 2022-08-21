@@ -14,7 +14,9 @@ interface Chant {
 
 const getChants = async (): Promise<Chant[]> => {
   const res = await request(url(randInt(1, 1000)), {
-    headers: { referer: "https://www.coridastadio.com" },
+    headers: {
+      referer: "https://www.coridastadio.com",
+    },
   });
   const text = await res.body.text();
   const decodedText = decode(text);
@@ -39,8 +41,16 @@ const formatChant = (chant: Chant) =>
 
 export const randomChant =
   (bot: TelegramBot) => async (msg: TelegramBot.Message) => {
-    const chants = await getChants();
-    bot.sendMessage(msg.chat.id, formatChant(randomChoice(chants)), {
+    let chant = "";
+    try {
+      const chants = await getChants();
+      chant = formatChant(randomChoice(chants));
+    } catch (error) {
+      console.error("failed to send chant");
+      return;
+    }
+
+    bot.sendMessage(msg.chat.id, chant, {
       parse_mode: "HTML",
     });
   };
