@@ -1,5 +1,5 @@
 import TelegramBot from "node-telegram-bot-api";
-import utils from "./utils";
+import { paginateMessages } from "./utils";
 import { randomChoice } from "./utils/random";
 
 const choices = [
@@ -36,7 +36,7 @@ export default {
     (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
       const gagoIndex = +match[1];
       const message = gago(gagoIndex);
-      utils.paginateMessages(bot, msg, message);
+      paginateMessages(bot, msg, message);
     },
   alpha:
     (bot: TelegramBot) =>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { parse } from "node-html-parser";
 import TelegramBot from "node-telegram-bot-api";
-import utils from "./utils";
+import { paginateMessages } from "./utils";
 
 const baseURL = "http://www.treccani.it";
 
@@ -29,7 +29,7 @@ export default (bot: TelegramBot) =>
       const res = await axios.get<string>(detailURL);
       const root = parse(res.data);
       const section = root.querySelector("div.text.spiega");
-      utils.paginateMessages(bot, msg, section.rawText);
+      paginateMessages(bot, msg, section.rawText);
     } else {
       bot.sendMessage(msg.chat.id, "Non ho trovato niente");
     }

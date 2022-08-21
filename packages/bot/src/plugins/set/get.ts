@@ -2,7 +2,7 @@ import TelegramBot from "node-telegram-bot-api";
 import { media } from "../..";
 import client from "../../redisClient";
 import { getImage } from "../getImage";
-import utils from "../utils";
+import { getGif, sendGif } from "../giphy";
 
 export default (bot: TelegramBot, mediaMsg: Media) =>
   async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
@@ -30,8 +30,8 @@ export default (bot: TelegramBot, mediaMsg: Media) =>
         bot.sendDocument(msg.chat.id, fileId);
       } else {
         try {
-          const response = await utils.getGif(key);
-          utils.sendGif(bot, msg, response);
+          const response = await getGif(key);
+          sendGif(bot, msg, response);
         } catch (error) {
           if (error.response && error.response.status >= 400) {
             bot.sendMessage(msg.chat.id, error.response.status);
