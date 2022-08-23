@@ -577,7 +577,7 @@ __metadata:
     g-i-s: 2.1.6
     html-entities: 2.3.3
     ioredis: 5.2.3
-    mathjs: 11.0.1
+    mathjs: 11.1.0
     node-html-parser: 5.4.1
     node-telegram-bot-api: 0.58.0
     pokedex: 1.1.0
@@ -1021,10 +1021,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"decimal.js@npm:^10.3.1":
-  version: 10.3.1
-  resolution: "decimal.js@npm:10.3.1"
-  checksum: 0351ac9f05fe050f23227aa6a4573bee2d58fa7378fcf28d969a8c789525032effb488a90320fd3fe86a66e17b4bc507d811b15eada5b7f0e7ec5d2af4c24a59
+"decimal.js@npm:^10.4.0":
+  version: 10.4.0
+  resolution: "decimal.js@npm:10.4.0"
+  checksum: 98702d9d817a9e5b3767ea6580e7f3b35544b9454e463a5dd5d3232131470f39067d02864c45cab009eb1200bc162cd26a33d34c622cd79e4657a3e25e95fb4e
   languageName: node
   linkType: hard
 
@@ -2451,22 +2451,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mathjs@npm:11.0.1":
-  version: 11.0.1
-  resolution: "mathjs@npm:11.0.1"
+"mathjs@npm:11.1.0":
+  version: 11.1.0
+  resolution: "mathjs@npm:11.1.0"
   dependencies:
     "@babel/runtime": ^7.18.9
     complex.js: ^2.1.1
-    decimal.js: ^10.3.1
+    decimal.js: ^10.4.0
     escape-latex: ^1.2.0
     fraction.js: ^4.2.0
     javascript-natural-sort: ^0.7.1
     seedrandom: ^3.0.5
     tiny-emitter: ^2.1.0
-    typed-function: ^3.0.0
+    typed-function: ^4.1.0
   bin:
     mathjs: bin/cli.js
-  checksum: 2feb1c9c16ff7a8375ec678bfc9e114007739cfb4fff7409042779f3f9496107974a4bb49a01e9e7358222f30d5b32fb763b41bf9b2a08ab84376af397825af1
+  checksum: 66d1c285e18478d8d5e07b8e67268a58bf296f21c5a72cddfcefc46fe81c5876eee77b4a630f9191a6cbd789d3ac1d5d2380adb4e83fd0569949c9f70ffa48df
   languageName: node
   linkType: hard
 
@@ -3751,10 +3751,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typed-function@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "typed-function@npm:3.0.0"
-  checksum: f05afc8254dcb72815903c764fc3f8064a50ce1a0db9eb3a5134528209a852c8817682bdaf8ee9a73b316d4a4bbf92b6ae030934dd0983e7a2fd7fa487a71cec
+"typed-function@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "typed-function@npm:4.1.0"
+  checksum: 5d512a13501028abbf8676299b4f92209cb4a90fb9b002330494bfd2451b1f9ecde866dbd51b2e599f9ff3521349489b173df050528521d28a38cc071b8d5b8f
   languageName: node
   linkType: hard
 
