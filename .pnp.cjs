@@ -708,7 +708,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fuse.js", "npm:6.6.2"],\
             ["g-i-s", "npm:2.1.6"],\
             ["html-entities", "npm:2.3.3"],\
-            ["ioredis", "npm:5.2.2"],\
+            ["ioredis", "npm:5.2.3"],\
             ["mathjs", "npm:11.0.1"],\
             ["node-html-parser", "npm:5.4.1"],\
             ["node-telegram-bot-api", "npm:0.58.0"],\
@@ -2313,10 +2313,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["ioredis", [\
-        ["npm:5.2.2", {\
-          "packageLocation": "./.yarn/cache/ioredis-npm-5.2.2-762f3ee75d-8d65032606.zip/node_modules/ioredis/",\
+        ["npm:5.2.3", {\
+          "packageLocation": "./.yarn/cache/ioredis-npm-5.2.3-54d9576179-2cb7f0f421.zip/node_modules/ioredis/",\
           "packageDependencies": [\
-            ["ioredis", "npm:5.2.2"],\
+            ["ioredis", "npm:5.2.3"],\
             ["@ioredis/commands", "npm:1.1.1"],\
             ["cluster-key-slot", "npm:1.1.0"],\
             ["debug", "virtual:5f9010e5ff1626822e95f9478abbca9d06865e771c302ab7261d07ee4d7fe4994efa0046bb5f7982f8af81ec57df4734f10c32785310c1db8be5aaf37cb23c05#npm:4.3.4"],\
@@ -2877,7 +2877,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ioredis", "npm:4.28.10"],\
             ["@types/node", "npm:16.11.52"],\
             ["@vercel/ncc", "npm:0.34.0"],\
-            ["ioredis", "npm:5.2.2"],\
+            ["ioredis", "npm:5.2.3"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"]\
           ],\
           "linkType": "SOFT"\
