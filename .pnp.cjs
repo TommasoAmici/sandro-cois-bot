@@ -714,7 +714,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["node-telegram-bot-api", "npm:0.58.0"],\
             ["pokedex", "npm:1.1.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
-            ["undici", "npm:5.9.1"],\
+            ["undici", "npm:5.10.0"],\
             ["utf8", "npm:3.0.0"],\
             ["vite", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:3.0.9"],\
             ["vitest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:0.22.1"],\
@@ -4319,10 +4319,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["undici", [\
-        ["npm:5.9.1", {\
-          "packageLocation": "./.yarn/cache/undici-npm-5.9.1-8d51813ba8-8acabbac8e.zip/node_modules/undici/",\
+        ["npm:5.10.0", {\
+          "packageLocation": "./.yarn/cache/undici-npm-5.10.0-e8cef36040-7ba2b71dcc.zip/node_modules/undici/",\
           "packageDependencies": [\
-            ["undici", "npm:5.9.1"]\
+            ["undici", "npm:5.10.0"]\
           ],\
           "linkType": "HARD"\
         }]\
