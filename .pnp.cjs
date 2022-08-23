@@ -709,7 +709,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["g-i-s", "npm:2.1.6"],\
             ["html-entities", "npm:2.3.3"],\
             ["ioredis", "npm:5.2.3"],\
-            ["mathjs", "npm:11.0.1"],\
+            ["mathjs", "npm:11.1.0"],\
             ["node-html-parser", "npm:5.4.1"],\
             ["node-telegram-bot-api", "npm:0.58.0"],\
             ["pokedex", "npm:1.1.0"],\
@@ -1222,10 +1222,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["decimal.js", [\
-        ["npm:10.3.1", {\
-          "packageLocation": "./.yarn/cache/decimal.js-npm-10.3.1-797c736b6c-0351ac9f05.zip/node_modules/decimal.js/",\
+        ["npm:10.4.0", {\
+          "packageLocation": "./.yarn/cache/decimal.js-npm-10.4.0-9a246fb0fa-98702d9d81.zip/node_modules/decimal.js/",\
           "packageDependencies": [\
-            ["decimal.js", "npm:10.3.1"]\
+            ["decimal.js", "npm:10.4.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2832,19 +2832,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["mathjs", [\
-        ["npm:11.0.1", {\
-          "packageLocation": "./.yarn/cache/mathjs-npm-11.0.1-4431109c66-2feb1c9c16.zip/node_modules/mathjs/",\
+        ["npm:11.1.0", {\
+          "packageLocation": "./.yarn/cache/mathjs-npm-11.1.0-5f8b72775f-66d1c285e1.zip/node_modules/mathjs/",\
           "packageDependencies": [\
-            ["mathjs", "npm:11.0.1"],\
+            ["mathjs", "npm:11.1.0"],\
             ["@babel/runtime", "npm:7.18.9"],\
             ["complex.js", "npm:2.1.1"],\
-            ["decimal.js", "npm:10.3.1"],\
+            ["decimal.js", "npm:10.4.0"],\
             ["escape-latex", "npm:1.2.0"],\
             ["fraction.js", "npm:4.2.0"],\
             ["javascript-natural-sort", "npm:0.7.1"],\
             ["seedrandom", "npm:3.0.5"],\
             ["tiny-emitter", "npm:2.1.0"],\
-            ["typed-function", "npm:3.0.0"]\
+            ["typed-function", "npm:4.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4291,10 +4291,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["typed-function", [\
-        ["npm:3.0.0", {\
-          "packageLocation": "./.yarn/cache/typed-function-npm-3.0.0-8d30d08d75-f05afc8254.zip/node_modules/typed-function/",\
+        ["npm:4.1.0", {\
+          "packageLocation": "./.yarn/cache/typed-function-npm-4.1.0-fe0bfcf8e1-5d512a1350.zip/node_modules/typed-function/",\
           "packageDependencies": [\
-            ["typed-function", "npm:3.0.0"]\
+            ["typed-function", "npm:4.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
