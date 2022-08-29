@@ -579,7 +579,7 @@ __metadata:
     ioredis: 5.2.3
     mathjs: 11.1.0
     node-html-parser: 5.4.1
-    node-telegram-bot-api: 0.58.0
+    node-telegram-bot-api: 0.59.0
     pokedex: 1.1.0
     typescript: 4.8.2
     undici: 5.10.0
@@ -1012,12 +1012,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^3.1.0":
-  version: 3.2.6
-  resolution: "debug@npm:3.2.6"
+"debug@npm:^3.2.7":
+  version: 3.2.7
+  resolution: "debug@npm:3.2.7"
   dependencies:
     ms: ^2.1.1
-  checksum: 07bc8b3a13ef3cfa6c06baf7871dfb174c291e5f85dbf566f086620c16b9c1a0e93bb8f1935ebbd07a683249e7e30286f2966e2ef461e8fd17b1b60732062d6b
+  checksum: b3d8c5940799914d30314b7c3304a43305fd0715581a919dacb8b3176d024a782062368405b47491516d2091d6462d4d11f2f4974a405048094f8bfebfa3071c
   languageName: node
   linkType: hard
 
@@ -1099,7 +1099,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"depd@npm:^1.1.1, depd@npm:^1.1.2":
+"depd@npm:^1.1.2":
   version: 1.1.2
   resolution: "depd@npm:1.1.2"
   checksum: 6b406620d269619852885ce15965272b829df6f409724415e0002c8632ab6a8c0a08ec1f0bd2add05dc7bd7507606f7e2cc034fa24224ab829580040b835ecd9
@@ -2693,22 +2693,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-telegram-bot-api@npm:0.58.0":
-  version: 0.58.0
-  resolution: "node-telegram-bot-api@npm:0.58.0"
+"node-telegram-bot-api@npm:0.59.0":
+  version: 0.59.0
+  resolution: "node-telegram-bot-api@npm:0.59.0"
   dependencies:
     array.prototype.findindex: ^2.0.2
     bl: ^1.2.3
-    bluebird: ^3.5.1
-    debug: ^3.1.0
-    depd: ^1.1.1
+    debug: ^3.2.7
     eventemitter3: ^3.0.0
     file-type: ^3.9.0
     mime: ^1.6.0
     pump: ^2.0.0
     request: ^2.83.0
     request-promise: ^4.2.2
-  checksum: ff54f7687e4459df228c81de6c5ba10f5a11de507792a57b27e24da99f8b1222b14b151edceac2d40fa759e5ec9453c63e36d2c154430e9b66a678aeb8ba5af1
+  checksum: 366f810931a0d816008f88764ff32c7468656ac89458b90fecd57f5780a33594effcdff253f5c7aadb5a92a64a13a55e4ae7f67636e23b58dc4239cbb81c61b9
   languageName: node
   linkType: hard
 
