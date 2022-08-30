@@ -14,7 +14,10 @@ const translationTable = [
   { find: /a/gi, replace: ["á", "à", "å", "ä", "æ", "â", "a", "a", "a", "a"] },
   { find: /e/gi, replace: ["é", "è", "e", "ë", "ê", "e", "e", "e", "e"] },
   { find: /i/gi, replace: ["î", "i", "ï", "ì", "í", "i", "i", "i", "i"] },
-  { find: /o/gi, replace: ["ô", "o", "ö", "ò", "ó", "ø", "o", "o", "o", "o"] },
+  {
+    find: /o/gi,
+    replace: ["ô", "o", "ö", "ò", "ó", "ø", "o", "o", "o", "o", "œ"],
+  },
   { find: /u/gi, replace: ["û", "u", "ü", "ù", "ú", "u", "u", "u", "u"] },
 ];
 
