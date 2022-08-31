@@ -578,7 +578,7 @@ __metadata:
     html-entities: 2.3.3
     ioredis: 5.2.3
     mathjs: 11.1.0
-    node-html-parser: 5.4.1
+    node-html-parser: 5.4.2
     node-telegram-bot-api: 0.59.0
     pokedex: 1.1.0
     typescript: 4.8.2
@@ -2683,13 +2683,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-html-parser@npm:5.4.1":
-  version: 5.4.1
-  resolution: "node-html-parser@npm:5.4.1"
+"node-html-parser@npm:5.4.2":
+  version: 5.4.2
+  resolution: "node-html-parser@npm:5.4.2"
   dependencies:
     css-select: ^4.2.1
     he: 1.2.0
-  checksum: 7067e2de97a10c0e6e63d6e4c039ddc682027b80c821a3a812ed11bfadd0433324cccb2f6955a30b174e35993fd8be2ce642b8ed6eed5ca9c6ab36a5d5ce0612
+  checksum: 2d2391147c83b402786eeab95d23ea4e24ca8608e0e70a2823bfd4f2a248be13a8cc31acfd55a0109e051131e4f0c17d7ada8d999ce70ff2e342ab0110f5da59
   languageName: node
   linkType: hard
 

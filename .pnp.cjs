@@ -710,7 +710,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["html-entities", "npm:2.3.3"],\
             ["ioredis", "npm:5.2.3"],\
             ["mathjs", "npm:11.1.0"],\
-            ["node-html-parser", "npm:5.4.1"],\
+            ["node-html-parser", "npm:5.4.2"],\
             ["node-telegram-bot-api", "npm:0.59.0"],\
             ["pokedex", "npm:1.1.0"],\
             ["typescript", "patch:typescript@npm%3A4.8.2#~builtin<compat/typescript>::version=4.8.2&hash=a1c5e5"],\
@@ -3081,10 +3081,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["node-html-parser", [\
-        ["npm:5.4.1", {\
-          "packageLocation": "./.yarn/cache/node-html-parser-npm-5.4.1-babb06853f-7067e2de97.zip/node_modules/node-html-parser/",\
+        ["npm:5.4.2", {\
+          "packageLocation": "./.yarn/cache/node-html-parser-npm-5.4.2-9701acd94e-2d2391147c.zip/node_modules/node-html-parser/",\
           "packageDependencies": [\
-            ["node-html-parser", "npm:5.4.1"],\
+            ["node-html-parser", "npm:5.4.2"],\
             ["css-select", "npm:4.2.1"],\
             ["he", "npm:1.2.0"]\
           ],\
