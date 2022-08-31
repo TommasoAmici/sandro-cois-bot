@@ -9,7 +9,7 @@
     "html-entities": "2.3.3",
     "ioredis": "5.2.3",
     "mathjs": "11.1.0",
-    "node-html-parser": "5.4.1",
+    "node-html-parser": "5.4.2",
     "node-telegram-bot-api": "0.59.0",
     "pokedex": "1.1.0",
     "undici": "5.10.0",
