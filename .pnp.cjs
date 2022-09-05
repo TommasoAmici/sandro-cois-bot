@@ -726,7 +726,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["undici", "npm:5.10.0"],\
             ["utf8", "npm:3.0.0"],\
             ["vite", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:3.0.9"],\
-            ["vitest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:0.23.0"],\
+            ["vitest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:0.23.1"],\
             ["windows-1252", "npm:3.0.4"]\
           ],\
           "linkType": "SOFT"\
@@ -4494,17 +4494,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["vitest", [\
-        ["npm:0.23.0", {\
-          "packageLocation": "./.yarn/cache/vitest-npm-0.23.0-07b88e4a32-e35db8a261.zip/node_modules/vitest/",\
+        ["npm:0.23.1", {\
+          "packageLocation": "./.yarn/cache/vitest-npm-0.23.1-c190ccb255-26ca78dc09.zip/node_modules/vitest/",\
           "packageDependencies": [\
-            ["vitest", "npm:0.23.0"]\
+            ["vitest", "npm:0.23.1"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:0.23.0", {\
-          "packageLocation": "./.yarn/__virtual__/vitest-virtual-00e4acf3d2/0/cache/vitest-npm-0.23.0-07b88e4a32-e35db8a261.zip/node_modules/vitest/",\
+        ["virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:0.23.1", {\
+          "packageLocation": "./.yarn/__virtual__/vitest-virtual-7f25d0e48c/0/cache/vitest-npm-0.23.1-c190ccb255-26ca78dc09.zip/node_modules/vitest/",\
           "packageDependencies": [\
-            ["vitest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:0.23.0"],\
+            ["vitest", "virtual:2dee80541c2d7da75ad4cc83bab866c8fae7b714f44acc81c0a33d4d80e9a1512d079a65ca9c8bc83dabed9c97e52e414eeb4e08c26cb01fe534094f50c34c69#npm:0.23.1"],\
             ["@edge-runtime/vm", null],\
             ["@types/chai", "npm:4.3.3"],\
             ["@types/chai-subset", "npm:1.3.3"],\
