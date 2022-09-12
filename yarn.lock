@@ -5,12 +5,12 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@babel/runtime@npm:^7.18.9":
-  version: 7.18.9
-  resolution: "@babel/runtime@npm:7.18.9"
+"@babel/runtime@npm:^7.19.0":
+  version: 7.19.0
+  resolution: "@babel/runtime@npm:7.19.0"
   dependencies:
     regenerator-runtime: ^0.13.4
-  checksum: 36dd736baba7164e82b3cc9d43e081f0cb2d05ff867ad39cac515d99546cee75b7f782018b02a3dcf5f2ef3d27f319faa68965fdfec49d4912c60c6002353a2e
+  checksum: fa69c351bb05e1db3ceb9a02fdcf620c234180af68cdda02152d3561015f6d55277265d3109815992f96d910f3db709458cae4f8df1c3def66f32e0867d82294
   languageName: node
   linkType: hard
 
@@ -593,7 +593,7 @@ __metadata:
     g-i-s: 2.1.6
     html-entities: 2.3.3
     ioredis: 5.2.3
-    mathjs: 11.1.0
+    mathjs: 11.2.0
     node-html-parser: 5.4.2
     node-telegram-bot-api: 0.59.0
     pokedex: 1.1.0
@@ -2681,11 +2681,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mathjs@npm:11.1.0":
-  version: 11.1.0
-  resolution: "mathjs@npm:11.1.0"
+"mathjs@npm:11.2.0":
+  version: 11.2.0
+  resolution: "mathjs@npm:11.2.0"
   dependencies:
-    "@babel/runtime": ^7.18.9
+    "@babel/runtime": ^7.19.0
     complex.js: ^2.1.1
     decimal.js: ^10.4.0
     escape-latex: ^1.2.0
@@ -2696,7 +2696,7 @@ __metadata:
     typed-function: ^4.1.0
   bin:
     mathjs: bin/cli.js
-  checksum: 66d1c285e18478d8d5e07b8e67268a58bf296f21c5a72cddfcefc46fe81c5876eee77b4a630f9191a6cbd789d3ac1d5d2380adb4e83fd0569949c9f70ffa48df
+  checksum: 965f7e466779e4cf65ad5292083871dff5f340ba4c7ff7e07f7bb9f108cf42993545892fb4cfbbff8e88cba15b1701c63b0ebcd31d0d793115d5f01fc625270f
   languageName: node
   linkType: hard
 

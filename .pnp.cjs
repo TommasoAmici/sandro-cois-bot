@@ -53,10 +53,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@babel/runtime", [\
-        ["npm:7.18.9", {\
-          "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.18.9-28ca6b5f61-36dd736bab.zip/node_modules/@babel/runtime/",\
+        ["npm:7.19.0", {\
+          "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.19.0-86b37fbb72-fa69c351bb.zip/node_modules/@babel/runtime/",\
           "packageDependencies": [\
-            ["@babel/runtime", "npm:7.18.9"],\
+            ["@babel/runtime", "npm:7.19.0"],\
             ["regenerator-runtime", "npm:0.13.8"]\
           ],\
           "linkType": "HARD"\
@@ -725,7 +725,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["g-i-s", "npm:2.1.6"],\
             ["html-entities", "npm:2.3.3"],\
             ["ioredis", "npm:5.2.3"],\
-            ["mathjs", "npm:11.1.0"],\
+            ["mathjs", "npm:11.2.0"],\
             ["node-html-parser", "npm:5.4.2"],\
             ["node-telegram-bot-api", "npm:0.59.0"],\
             ["pokedex", "npm:1.1.0"],\
@@ -3016,11 +3016,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["mathjs", [\
-        ["npm:11.1.0", {\
-          "packageLocation": "./.yarn/cache/mathjs-npm-11.1.0-5f8b72775f-66d1c285e1.zip/node_modules/mathjs/",\
+        ["npm:11.2.0", {\
+          "packageLocation": "./.yarn/cache/mathjs-npm-11.2.0-79b4d193a8-965f7e4667.zip/node_modules/mathjs/",\
           "packageDependencies": [\
-            ["mathjs", "npm:11.1.0"],\
-            ["@babel/runtime", "npm:7.18.9"],\
+            ["mathjs", "npm:11.2.0"],\
+            ["@babel/runtime", "npm:7.19.0"],\
             ["complex.js", "npm:2.1.1"],\
             ["decimal.js", "npm:10.4.0"],\
             ["escape-latex", "npm:1.2.0"],\
