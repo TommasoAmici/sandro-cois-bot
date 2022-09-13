@@ -593,7 +593,7 @@ __metadata:
     g-i-s: 2.1.6
     html-entities: 2.3.3
     ioredis: 5.2.3
-    mathjs: 11.2.0
+    mathjs: 11.2.1
     node-html-parser: 5.4.2
     node-telegram-bot-api: 0.59.0
     pokedex: 1.1.0
@@ -2681,9 +2681,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mathjs@npm:11.2.0":
-  version: 11.2.0
-  resolution: "mathjs@npm:11.2.0"
+"mathjs@npm:11.2.1":
+  version: 11.2.1
+  resolution: "mathjs@npm:11.2.1"
   dependencies:
     "@babel/runtime": ^7.19.0
     complex.js: ^2.1.1
@@ -2696,7 +2696,7 @@ __metadata:
     typed-function: ^4.1.0
   bin:
     mathjs: bin/cli.js
-  checksum: 965f7e466779e4cf65ad5292083871dff5f340ba4c7ff7e07f7bb9f108cf42993545892fb4cfbbff8e88cba15b1701c63b0ebcd31d0d793115d5f01fc625270f
+  checksum: 83ff278bc7a633757ca0b81f2c7c60f8ea70fb077266f60ea6b25a09325ba71f27096d08b3eeb58e8c438b9252e5b70e4a770842830cc249aaa85d523ed19616
   languageName: node
   linkType: hard
 
