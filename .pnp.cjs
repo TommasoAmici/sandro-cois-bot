@@ -725,7 +725,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["g-i-s", "npm:2.1.6"],\
             ["html-entities", "npm:2.3.3"],\
             ["ioredis", "npm:5.2.3"],\
-            ["mathjs", "npm:11.2.0"],\
+            ["mathjs", "npm:11.2.1"],\
             ["node-html-parser", "npm:5.4.2"],\
             ["node-telegram-bot-api", "npm:0.59.0"],\
             ["pokedex", "npm:1.1.0"],\
@@ -3016,10 +3016,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["mathjs", [\
-        ["npm:11.2.0", {\
-          "packageLocation": "./.yarn/cache/mathjs-npm-11.2.0-79b4d193a8-965f7e4667.zip/node_modules/mathjs/",\
+        ["npm:11.2.1", {\
+          "packageLocation": "./.yarn/cache/mathjs-npm-11.2.1-b3e3880d6d-83ff278bc7.zip/node_modules/mathjs/",\
           "packageDependencies": [\
-            ["mathjs", "npm:11.2.0"],\
+            ["mathjs", "npm:11.2.1"],\
             ["@babel/runtime", "npm:7.19.0"],\
             ["complex.js", "npm:2.1.1"],\
             ["decimal.js", "npm:10.4.0"],\
