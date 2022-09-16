@@ -10,6 +10,7 @@ import {
 import { randomChant } from "./plugins/chants";
 import cursive, { cursiveInReply } from "./plugins/cursive";
 import { keddeInReply } from "./plugins/kedde";
+import twitterPreview from "./plugins/twitterPreview";
 import ultimouomo from "./plugins/ultimouomo";
 
 // Create a bot that uses 'polling' to fetch new updates
@@ -229,4 +230,5 @@ bot.onText(/^[/!]osteria ([\s\S]+){1}/i, plugins.osteria.detail(bot));
 bot.onText(/^[/!]coro(?:@\w+)? ?(\w+)?/i, randomChant(bot));
 
 bot.onText(/ultimouomo\.com/gi, ultimouomo(bot));
+bot.onText(/^https?:\/\/twitter\.com/gi, twitterPreview(bot));
 bot.onText(/^(è )?(bono|buono)\?$/gi, anyGood(bot));
