@@ -10,5 +10,6 @@ export default (bot: TelegramBot) =>
       return;
     }
     url.search = "";
+    url.hostname = "vxtwitter.com";
     bot.sendMessage(msg.chat.id, url.toString());
   };
