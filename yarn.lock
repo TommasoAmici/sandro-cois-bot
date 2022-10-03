@@ -1750,7 +1750,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:0.15.10, esbuild@npm:^0.15.10":
+"esbuild@npm:0.15.10":
   version: 0.15.10
   resolution: "esbuild@npm:0.15.10"
   dependencies:
@@ -2991,7 +2991,7 @@ __metadata:
   dependencies:
     "@types/ioredis": 4.28.10
     "@types/node": 16.11.63
-    esbuild: ^0.15.10
+    esbuild: 0.15.10
     ioredis: 5.2.3
     typescript: 4.8.3
   languageName: unknown
