@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "start": "node dist/index.js",
-    "build": "ncc build src/0001_redisearch.ts --out dist --minify --no-cache"
+    "build": "esbuild --bundle --platform=node --target=node16 src/0001_redisearch.ts --outfile=dist/0001_redisearch.js"
   },
   "dependencies": {
     "ioredis": "5.2.3",
@@ -12,6 +12,6 @@
   "devDependencies": {
     "@types/ioredis": "4.28.10",
     "@types/node": "16.11.63",
-    "@vercel/ncc": "0.34.0"
+    "esbuild": "^0.15.10"
   }
 }
