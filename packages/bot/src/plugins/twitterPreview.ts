@@ -6,9 +6,6 @@ import TelegramBot from "node-telegram-bot-api";
 export default (bot: TelegramBot) =>
   (msg: TelegramBot.Message): void => {
     const url = new URL(msg.text);
-    if (url.search === "") {
-      return;
-    }
     url.search = "";
     url.hostname = "vxtwitter.com";
     bot.sendMessage(msg.chat.id, url.toString());
