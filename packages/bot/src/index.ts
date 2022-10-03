@@ -230,5 +230,5 @@ bot.onText(/^[/!]osteria ([\s\S]+){1}/i, plugins.osteria.detail(bot));
 bot.onText(/^[/!]coro(?:@\w+)? ?(\w+)?/i, randomChant(bot));
 
 bot.onText(/ultimouomo\.com/gi, ultimouomo(bot));
-bot.onText(/^https?:\/\/twitter\.com/gi, twitterPreview(bot));
 bot.onText(/^(è )?(bono|buono)\?$/gi, anyGood(bot));
+bot.on("message", twitterPreview(bot));
