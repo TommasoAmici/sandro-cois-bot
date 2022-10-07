@@ -23,7 +23,7 @@
     "@types/node": "16.11.64",
     "@types/node-telegram-bot-api": "0.57.1",
     "@types/utf8": "3.0.1",
-    "@vitest/coverage-c8": "0.23.4",
+    "@vitest/coverage-c8": "0.24.0",
     "c8": "7.12.0",
     "esbuild": "0.15.10",
     "nodemon": "2.0.20",
