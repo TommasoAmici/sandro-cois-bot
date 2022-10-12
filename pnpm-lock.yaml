@@ -23,7 +23,7 @@ importers:
       '@types/html-entities': 1.3.4
       '@types/ioredis': 4.28.10
       '@types/node': 16.11.65
-      '@types/node-telegram-bot-api': 0.57.4
+      '@types/node-telegram-bot-api': 0.57.5
       '@types/utf8': 3.0.1
       '@vitalets/google-translate-api': 8.0.0
       '@vitest/coverage-c8': 0.24.1
@@ -65,7 +65,7 @@ importers:
       '@types/html-entities': 1.3.4
       '@types/ioredis': 4.28.10
       '@types/node': 16.11.65
-      '@types/node-telegram-bot-api': 0.57.4
+      '@types/node-telegram-bot-api': 0.57.5
       '@types/utf8': 3.0.1
       '@vitest/coverage-c8': 0.24.1
       c8: 7.12.0
@@ -283,8 +283,8 @@ packages:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: false
 
-  /@types/node-telegram-bot-api/0.57.4:
-    resolution: {integrity: sha512-A2Zf2B0c4JeD2dHr9hc35svO1jdteoDjJTWGhj2V0bgWcER1bTLfiDSLTpix98Oo7f4LBDtil1S7eb2MeQqGig==}
+  /@types/node-telegram-bot-api/0.57.5:
+    resolution: {integrity: sha512-wLZeWnpPzETezR0xyxR3+2MEczSCTvB3ns9qNLmBCjA0bG76ocYfa3OFfu7YeClAo/sTN4elNdGmuG63fwtT8w==}
     dependencies:
       '@types/node': 16.11.65
       '@types/request': 2.48.8
