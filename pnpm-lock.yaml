@@ -33,7 +33,7 @@ importers:
       fuse.js: 6.6.2
       g-i-s: 2.1.6
       html-entities: 2.3.3
-      ioredis: 5.2.3
+      ioredis: 5.2.4
       mathjs: 11.3.2
       node-html-parser: 6.1.1
       node-telegram-bot-api: 0.59.0
@@ -52,7 +52,7 @@ importers:
       fuse.js: 6.6.2
       g-i-s: 2.1.6
       html-entities: 2.3.3
-      ioredis: 5.2.3
+      ioredis: 5.2.4
       mathjs: 11.3.2
       node-html-parser: 6.1.1
       node-telegram-bot-api: 0.59.0
@@ -80,10 +80,10 @@ importers:
       '@types/ioredis': 4.28.10
       '@types/node': 16.18.3
       esbuild: 0.15.12
-      ioredis: 5.2.3
+      ioredis: 5.2.4
       typescript: 4.8.4
     dependencies:
-      ioredis: 5.2.3
+      ioredis: 5.2.4
       typescript: 4.8.4
     devDependencies:
       '@types/ioredis': 4.28.10
@@ -1667,8 +1667,8 @@ packages:
       side-channel: 1.0.4
     dev: false
 
-  /ioredis/5.2.3:
-    resolution: {integrity: sha512-gQNcMF23/NpvjCaa1b5YycUyQJ9rBNH2xP94LWinNpodMWVUPP5Ai/xXANn/SM7gfIvI62B5CCvZxhg5pOgyMw==}
+  /ioredis/5.2.4:
+    resolution: {integrity: sha512-qIpuAEt32lZJQ0XyrloCRdlEdUUNGG9i0UOk6zgzK6igyudNWqEBxfH6OlbnOOoBBvr1WB02mm8fR55CnikRng==}
     engines: {node: '>=12.22.0'}
     dependencies:
       '@ioredis/commands': 1.2.0
