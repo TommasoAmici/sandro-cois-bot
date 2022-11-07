@@ -36,7 +36,7 @@ importers:
       ioredis: 5.2.4
       mathjs: 11.3.3
       node-html-parser: 6.1.1
-      node-telegram-bot-api: 0.59.0
+      node-telegram-bot-api: 0.60.0
       nodemon: 2.0.20
       pokedex: 1.1.0
       typescript: 4.8.4
@@ -55,7 +55,7 @@ importers:
       ioredis: 5.2.4
       mathjs: 11.3.3
       node-html-parser: 6.1.1
-      node-telegram-bot-api: 0.59.0
+      node-telegram-bot-api: 0.60.0
       pokedex: 1.1.0
       undici: 5.12.0
       utf8: 3.0.0
@@ -2164,8 +2164,8 @@ packages:
       he: 1.2.0
     dev: false
 
-  /node-telegram-bot-api/0.59.0:
-    resolution: {integrity: sha512-APQ7qf4KDrVWuvsstGnuhoC44HoCw+SnoCsnCtwRPdb6/FzQmACNySG1I6VWZG7itYAGntQK299fDiylF222GA==}
+  /node-telegram-bot-api/0.60.0:
+    resolution: {integrity: sha512-SBI2PjfCAfMVuieQb95GBvaWiprRdk5SKfzX6B6G2ciG7J4SjOVwaMvaYhm9dJDTqvRSzl5pbioGbqRO/vx1Zg==}
     engines: {node: '>=0.12'}
     dependencies:
       array.prototype.findindex: 2.2.0
