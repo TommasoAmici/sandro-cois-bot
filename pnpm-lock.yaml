@@ -35,7 +35,7 @@ importers:
       html-entities: 2.3.3
       ioredis: 5.2.4
       mathjs: 11.3.3
-      node-html-parser: 6.1.1
+      node-html-parser: 6.1.3
       node-telegram-bot-api: 0.60.0
       nodemon: 2.0.20
       pokedex: 1.1.0
@@ -54,7 +54,7 @@ importers:
       html-entities: 2.3.3
       ioredis: 5.2.4
       mathjs: 11.3.3
-      node-html-parser: 6.1.1
+      node-html-parser: 6.1.3
       node-telegram-bot-api: 0.60.0
       pokedex: 1.1.0
       undici: 5.12.0
@@ -2162,8 +2162,8 @@ packages:
     hasBin: true
     dev: true
 
-  /node-html-parser/6.1.1:
-    resolution: {integrity: sha512-eYYblUeoMg0nR6cYGM4GRb1XncNa9FXEftuKAU1qyMIr6rXVtNyUKduvzZtkqFqSHVByq2lLjC7WO8tz7VDmnA==}
+  /node-html-parser/6.1.3:
+    resolution: {integrity: sha512-bYvL774OmSBRShzYv/8JU2a/eKbBXwi9jAtSHOT40gF3YVKwMLFeA08vZFMS4R7A/C+oZdiHKw0pmaVEEdtUqw==}
     dependencies:
       css-select: 5.1.0
       he: 1.2.0
