@@ -25,7 +25,7 @@
     "@types/utf8": "3.0.1",
     "@vitest/coverage-c8": "0.25.2",
     "c8": "7.12.0",
-    "esbuild": "0.15.13",
+    "esbuild": "0.15.14",
     "nodemon": "2.0.20",
     "typescript": "4.8.4",
     "vite": "3.2.3",
