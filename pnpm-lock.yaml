@@ -8,13 +8,13 @@ importers:
       lint-staged: 13.0.3
       pinst: 3.0.0
       prettier: 2.7.1
-      typescript: 4.8.4
+      typescript: 4.9.3
     devDependencies:
       husky: 8.0.2
       lint-staged: 13.0.3
       pinst: 3.0.0
       prettier: 2.7.1
-      typescript: 4.8.4
+      typescript: 4.9.3
 
   packages/bot:
     specifiers:
@@ -39,7 +39,7 @@ importers:
       node-telegram-bot-api: 0.60.0
       nodemon: 2.0.20
       pokedex: 1.1.0
-      typescript: 4.8.4
+      typescript: 4.9.3
       undici: 5.12.0
       utf8: 3.0.0
       vite: 3.2.4
@@ -71,7 +71,7 @@ importers:
       c8: 7.12.0
       esbuild: 0.15.14
       nodemon: 2.0.20
-      typescript: 4.8.4
+      typescript: 4.9.3
       vite: 3.2.4_@types+node@16.18.3
       vitest: 0.25.2
 
@@ -81,10 +81,10 @@ importers:
       '@types/node': 16.18.3
       esbuild: 0.15.14
       ioredis: 5.2.4
-      typescript: 4.8.4
+      typescript: 4.9.3
     dependencies:
       ioredis: 5.2.4
-      typescript: 4.8.4
+      typescript: 4.9.3
     devDependencies:
       '@types/ioredis': 4.28.10
       '@types/node': 16.18.3
@@ -3036,8 +3036,8 @@ packages:
       is-typedarray: 1.0.0
     dev: false
 
-  /typescript/4.8.4:
-    resolution: {integrity: sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==}
+  /typescript/4.9.3:
+    resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
     engines: {node: '>=4.2.0'}
     hasBin: true
 
