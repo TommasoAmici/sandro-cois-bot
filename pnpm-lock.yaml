@@ -18,7 +18,7 @@ importers:
 
   packages/bot:
     specifiers:
-      '@mapbox/mapbox-sdk': 0.13.7
+      '@mapbox/mapbox-sdk': 0.14.0
       '@types/diacritics': 1.3.1
       '@types/html-entities': 1.3.4
       '@types/ioredis': 4.28.10
@@ -46,7 +46,7 @@ importers:
       vitest: 0.25.2
       windows-1252: 3.0.4
     dependencies:
-      '@mapbox/mapbox-sdk': 0.13.7
+      '@mapbox/mapbox-sdk': 0.14.0
       '@vitalets/google-translate-api': 8.0.0
       diacritics: 1.3.0
       fuse.js: 6.6.2
@@ -174,8 +174,8 @@ packages:
       xtend: 4.0.2
     dev: false
 
-  /@mapbox/mapbox-sdk/0.13.7:
-    resolution: {integrity: sha512-JZjBsAVSBv7lX7gQPOQwftBGHIUcvL/tPKFxAL+SCT7u1n+eRH052XebOTkl28pNm7Du6DpKAs1GvgUnDcFFDQ==}
+  /@mapbox/mapbox-sdk/0.14.0:
+    resolution: {integrity: sha512-YZou1lxXWG5XZfrhJiRBeCWIDxvtWh833F+kmNqQdm9Xy7NENgF8w1xZeuMxCccsAKtVrB55oZo8vrlrGnIk4g==}
     engines: {node: '>=6'}
     dependencies:
       '@mapbox/fusspot': 0.4.0
