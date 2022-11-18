@@ -34,7 +34,7 @@ importers:
       g-i-s: 2.1.6
       html-entities: 2.3.3
       ioredis: 5.2.4
-      mathjs: 11.3.3
+      mathjs: 11.4.0
       node-html-parser: 6.1.4
       node-telegram-bot-api: 0.60.0
       nodemon: 2.0.20
@@ -53,7 +53,7 @@ importers:
       g-i-s: 2.1.6
       html-entities: 2.3.3
       ioredis: 5.2.4
-      mathjs: 11.3.3
+      mathjs: 11.4.0
       node-html-parser: 6.1.4
       node-telegram-bot-api: 0.60.0
       pokedex: 1.1.0
@@ -2052,8 +2052,8 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /mathjs/11.3.3:
-    resolution: {integrity: sha512-+NsgPRzvnczrw5hp7fNPMnfXCaBo2cs7c8Edoacbjcc2Z3js6jHf+Pz8FY6nb5udmBj0q4zl+a5PxbjWVgOQcA==}
+  /mathjs/11.4.0:
+    resolution: {integrity: sha512-SGhKmXnwsPWrLHvhzm849RJPMjFTgLgVwKtv2L+IY7XHB4nuzyZLfV2eHT1HtBZ4yzsLHgcqak47zMmxuEIIUg==}
     engines: {node: '>= 14'}
     hasBin: true
     dependencies:
