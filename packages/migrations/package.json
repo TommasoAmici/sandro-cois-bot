@@ -12,6 +12,6 @@
   "devDependencies": {
     "@types/ioredis": "4.28.10",
     "@types/node": "16.18.3",
-    "esbuild": "0.15.15"
+    "esbuild": "0.15.16"
   }
 }
