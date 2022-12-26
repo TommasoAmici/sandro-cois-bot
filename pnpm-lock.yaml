@@ -22,7 +22,7 @@ importers:
       '@types/diacritics': 1.3.1
       '@types/html-entities': 1.3.4
       '@types/ioredis': 4.28.10
-      '@types/node': 16.18.10
+      '@types/node': 16.18.11
       '@types/node-telegram-bot-api': 0.57.6
       '@types/utf8': 3.0.1
       '@vitalets/google-translate-api': 9.0.0
@@ -64,7 +64,7 @@ importers:
       '@types/diacritics': 1.3.1
       '@types/html-entities': 1.3.4
       '@types/ioredis': 4.28.10
-      '@types/node': 16.18.10
+      '@types/node': 16.18.11
       '@types/node-telegram-bot-api': 0.57.6
       '@types/utf8': 3.0.1
       '@vitest/coverage-c8': 0.26.2
@@ -72,13 +72,13 @@ importers:
       esbuild: 0.16.10
       nodemon: 2.0.20
       typescript: 4.9.4
-      vite: 4.0.3_@types+node@16.18.10
+      vite: 4.0.3_@types+node@16.18.11
       vitest: 0.26.2
 
   packages/migrations:
     specifiers:
       '@types/ioredis': 4.28.10
-      '@types/node': 16.18.10
+      '@types/node': 16.18.11
       esbuild: 0.16.10
       ioredis: 5.2.4
       typescript: 4.9.4
@@ -87,7 +87,7 @@ importers:
       typescript: 4.9.4
     devDependencies:
       '@types/ioredis': 4.28.10
-      '@types/node': 16.18.10
+      '@types/node': 16.18.11
       esbuild: 0.16.10
 
 packages:
@@ -398,7 +398,7 @@ packages:
     dependencies:
       '@types/http-cache-semantics': 4.0.1
       '@types/keyv': 3.1.4
-      '@types/node': 16.18.10
+      '@types/node': 16.18.11
       '@types/responselike': 1.0.0
     dev: false
 
@@ -438,7 +438,7 @@ packages:
   /@types/ioredis/4.28.10:
     resolution: {integrity: sha512-69LyhUgrXdgcNDv7ogs1qXZomnfOEnSmrmMFqKgt1XMJxmoOSG/u3wYy13yACIfKuMJ8IhKgHafDO3sx19zVQQ==}
     dependencies:
-      '@types/node': 16.18.10
+      '@types/node': 16.18.11
     dev: true
 
   /@types/istanbul-lib-coverage/2.0.4:
@@ -448,7 +448,7 @@ packages:
   /@types/keyv/3.1.4:
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
     dependencies:
-      '@types/node': 16.18.10
+      '@types/node': 16.18.11
     dev: false
 
   /@types/minimist/1.2.2:
@@ -458,12 +458,12 @@ packages:
   /@types/node-telegram-bot-api/0.57.6:
     resolution: {integrity: sha512-hN1Ad4EntuTFZjKfRgfv8812RUk3dBRXUBH8D3NWws3t3U4J0Bep9l6hI+GYxL9B49E1Wd+mhJv85ducpjFVKQ==}
     dependencies:
-      '@types/node': 16.18.10
+      '@types/node': 16.18.11
       '@types/request': 2.48.8
     dev: true
 
-  /@types/node/16.18.10:
-    resolution: {integrity: sha512-XU1+v7h81p7145ddPfjv7jtWvkSilpcnON3mQ+bDi9Yuf7OI56efOglXRyXWgQ57xH3fEQgh7WOJMncRHVew5w==}
+  /@types/node/16.18.11:
+    resolution: {integrity: sha512-3oJbGBUWuS6ahSnEq1eN2XrCyf4YsWI8OyCvo7c64zQJNplk3mO84t53o8lfTk+2ji59g5ycfc6qQ3fdHliHuA==}
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -473,7 +473,7 @@ packages:
     resolution: {integrity: sha512-whjk1EDJPcAR2kYHRbFl/lKeeKYTi05A15K9bnLInCVroNDCtXce57xKdI0/rQaA3K+6q0eFyUBPmqfSndUZdQ==}
     dependencies:
       '@types/caseless': 0.12.2
-      '@types/node': 16.18.10
+      '@types/node': 16.18.11
       '@types/tough-cookie': 4.0.2
       form-data: 2.5.1
     dev: true
@@ -481,7 +481,7 @@ packages:
   /@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
     dependencies:
-      '@types/node': 16.18.10
+      '@types/node': 16.18.11
     dev: false
 
   /@types/tough-cookie/4.0.2:
@@ -3055,7 +3055,7 @@ packages:
       extsprintf: 1.3.0
     dev: false
 
-  /vite-node/0.26.2_@types+node@16.18.10:
+  /vite-node/0.26.2_@types+node@16.18.11:
     resolution: {integrity: sha512-4M/zlatItZAyvrQG+82zQBhgDjRZRhVJYFW4T9wcAKh7eMmSiPOVSeI5zsV9UzHXgCcIDKX0o0r3s4OxExTHqg==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -3065,7 +3065,7 @@ packages:
       pathe: 0.2.0
       source-map: 0.6.1
       source-map-support: 0.5.21
-      vite: 4.0.3_@types+node@16.18.10
+      vite: 4.0.3_@types+node@16.18.11
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -3076,7 +3076,7 @@ packages:
       - terser
     dev: true
 
-  /vite/4.0.3_@types+node@16.18.10:
+  /vite/4.0.3_@types+node@16.18.11:
     resolution: {integrity: sha512-HvuNv1RdE7deIfQb8mPk51UKjqptO/4RXZ5yXSAvurd5xOckwS/gg8h9Tky3uSbnjYTgUm0hVCet1cyhKd73ZA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -3101,7 +3101,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 16.18.10
+      '@types/node': 16.18.11
       esbuild: 0.16.10
       postcss: 8.4.20
       resolve: 1.22.1
@@ -3134,7 +3134,7 @@ packages:
     dependencies:
       '@types/chai': 4.3.4
       '@types/chai-subset': 1.3.3
-      '@types/node': 16.18.10
+      '@types/node': 16.18.11
       acorn: 8.8.1
       acorn-walk: 8.2.0
       chai: 4.3.7
@@ -3145,8 +3145,8 @@ packages:
       tinybench: 2.3.1
       tinypool: 0.3.0
       tinyspy: 1.0.2
-      vite: 4.0.3_@types+node@16.18.10
-      vite-node: 0.26.2_@types+node@16.18.10
+      vite: 4.0.3_@types+node@16.18.11
+      vite-node: 0.26.2_@types+node@16.18.11
     transitivePeerDependencies:
       - less
       - sass
