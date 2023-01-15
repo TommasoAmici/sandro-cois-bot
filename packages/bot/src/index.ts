@@ -16,6 +16,10 @@ import ultimouomo from "./plugins/ultimouomo";
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(cfg.telegramToken, { polling: true });
 
+bot.on("error", error => {
+  console.error(error);
+});
+
 bot.onText(/^[/!]gif(?:@\w+)? (.+)/i, plugins.giphy(bot));
 bot.onText(/^[/!]magic8ball(?:@\w+)?/i, plugins.magic8ball(bot));
 bot.onText(
