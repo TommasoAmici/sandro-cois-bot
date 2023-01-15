@@ -33,5 +33,10 @@ export default (bot: TelegramBot) =>
     if (query === undefined && msg.reply_to_message) {
       query = msg.reply_to_message.text;
     }
+
+    if (!query || query.trim() === "") {
+      return;
+    }
+
     getImage(query, bot, msg);
   };
