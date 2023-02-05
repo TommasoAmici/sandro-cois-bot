@@ -8,7 +8,8 @@ import {
   refereeRoles,
 } from "./utils";
 
-const getTeamName = (t: Team): string => overrideTeamNames[t.id] ?? t.name;
+const getTeamName = (t: Team): string =>
+  overrideTeamNames[t.id] ?? t.shortName ?? t.name;
 
 const longestTeamName = (matches: Match[], key: "homeTeam" | "awayTeam") =>
   Math.max(...matches.map(m => getTeamName(m[key]).length));
