@@ -43,8 +43,11 @@ export const overrideTeamNames = {
   98: "Milan",
   455: "Salernitana",
   450: "Verona",
+  457: "Cremonese",
   488: "Spezia",
   454: "Venezia",
+  5890: "Lecce",
+  5911: "Monza",
 };
 
 export const refereeRoles = {
