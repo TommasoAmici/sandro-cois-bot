@@ -41,7 +41,7 @@ importers:
       typescript: 4.9.5
       undici: 5.20.0
       utf8: 3.0.0
-      vite: 4.1.2
+      vite: 4.1.3
       vitest: 0.28.5
       windows-1252: 3.0.4
     dependencies:
@@ -70,7 +70,7 @@ importers:
       esbuild: 0.17.9
       nodemon: 2.0.20
       typescript: 4.9.5
-      vite: 4.1.2_@types+node@16.18.12
+      vite: 4.1.3_@types+node@16.18.12
       vitest: 0.28.5
 
   packages/migrations:
@@ -3370,7 +3370,7 @@ packages:
       picocolors: 1.0.0
       source-map: 0.6.1
       source-map-support: 0.5.21
-      vite: 4.1.2_@types+node@16.18.12
+      vite: 4.1.3_@types+node@16.18.12
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -3381,8 +3381,8 @@ packages:
       - terser
     dev: true
 
-  /vite/4.1.2_@types+node@16.18.12:
-    resolution: {integrity: sha512-MWDb9Rfy3DI8omDQySbMK93nQqStwbsQWejXRY2EBzEWKmLAXWb1mkI9Yw2IJrc+oCvPCI1Os5xSSIBYY6DEAw==}
+  /vite/4.1.3_@types+node@16.18.12:
+    resolution: {integrity: sha512-0Zqo4/Fr/swSOBmbl+HAAhOjrqNwju+yTtoe4hQX9UsARdcuc9njyOdr6xU0DDnV7YP0RT6mgTTOiRtZgxfCxA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -3458,7 +3458,7 @@ packages:
       tinybench: 2.3.1
       tinypool: 0.3.1
       tinyspy: 1.0.2
-      vite: 4.1.2_@types+node@16.18.12
+      vite: 4.1.3_@types+node@16.18.12
       vite-node: 0.28.5_@types+node@16.18.12
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
