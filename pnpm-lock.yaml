@@ -33,7 +33,7 @@ importers:
       g-i-s: 2.1.6
       html-entities: 2.3.3
       ioredis: 5.3.1
-      mathjs: 11.5.1
+      mathjs: 11.6.0
       node-html-parser: 6.1.5
       node-telegram-bot-api: 0.61.0
       nodemon: 2.0.20
@@ -52,7 +52,7 @@ importers:
       g-i-s: 2.1.6
       html-entities: 2.3.3
       ioredis: 5.3.1
-      mathjs: 11.5.1
+      mathjs: 11.6.0
       node-html-parser: 6.1.5
       node-telegram-bot-api: 0.61.0
       pokedex: 1.1.0
@@ -111,8 +111,8 @@ packages:
       js-tokens: 4.0.0
     dev: false
 
-  /@babel/runtime/7.20.13:
-    resolution: {integrity: sha512-gt3PKXs0DBoL9xCvOIIZ2NEqAGZqHjAnmVbfQtB620V0uReIQutpel14KcneZuer7UioY8ALKZ7iocavvzTNFA==}
+  /@babel/runtime/7.21.0:
+    resolution: {integrity: sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==}
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
@@ -2240,12 +2240,12 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /mathjs/11.5.1:
-    resolution: {integrity: sha512-9r35KHkpywim2hfYhJS3QHnKS7u61CODQcYPbJZ6Rov2jXDOAun07mM+8a7SRsJKfiMxtWWMJeiHQXTEnnHyoQ==}
+  /mathjs/11.6.0:
+    resolution: {integrity: sha512-6AAhoVvmCJSozTW+pc3XAwe9pLlAO5fYHnrHv4XWb0NQxjdz0DRnT3qneOPkKH6raTnlvHuX3XGLv8BmgXfiEg==}
     engines: {node: '>= 14'}
     hasBin: true
     dependencies:
-      '@babel/runtime': 7.20.13
+      '@babel/runtime': 7.21.0
       complex.js: 2.1.1
       decimal.js: 10.4.3
       escape-latex: 1.2.0
