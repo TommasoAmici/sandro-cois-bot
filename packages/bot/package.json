@@ -22,13 +22,13 @@
     "@types/node": "16.18.13",
     "@types/node-telegram-bot-api": "0.61.2",
     "@types/utf8": "3.0.1",
-    "@vitest/coverage-c8": "0.29.1",
+    "@vitest/coverage-c8": "0.29.2",
     "c8": "7.13.0",
     "esbuild": "0.17.10",
     "nodemon": "2.0.20",
     "typescript": "4.9.5",
     "vite": "4.1.4",
-    "vitest": "0.29.1"
+    "vitest": "0.29.2"
   },
   "scripts": {
     "start": "node dist/index.js",
