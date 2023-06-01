@@ -79,8 +79,8 @@ importers:
         specifier: 16.18.34
         version: 16.18.34
       '@types/node-telegram-bot-api':
-        specifier: 0.61.3
-        version: 0.61.3
+        specifier: 0.61.6
+        version: 0.61.6
       '@types/utf8':
         specifier: 3.0.1
         version: 3.0.1
@@ -688,11 +688,12 @@ packages:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: false
 
-  /@types/node-telegram-bot-api@0.61.3:
-    resolution: {integrity: sha512-Z6VFc/k4/z70RxlJ9pp/efBj4vsEnRo1UAkweN3sbGNDa4o4jJj5YNx1pshIikTyxCB2UWszKAV64xpgN5CxGg==}
+  /@types/node-telegram-bot-api@0.61.6:
+    resolution: {integrity: sha512-opkSxWn7ZLNMLHOwJHROKfBvr5dkqYoLCDpJ/m8cGMhreuF+tHc5bJ3E9isiIFiFOzD8Vj1K7TnCSWPIf7SmGw==}
     dependencies:
       '@types/node': 16.18.34
       '@types/request': 2.48.8
+      eventemitter3: 3.1.2
     dev: true
 
   /@types/node@16.18.34:
@@ -1554,7 +1555,6 @@ packages:
 
   /eventemitter3@3.1.2:
     resolution: {integrity: sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q==}
-    dev: false
 
   /execa@6.1.0:
     resolution: {integrity: sha512-QVWlX2e50heYJcCPG0iWtf8r0xjEYfz/OYLGDYH+IyjWezzPNxz63qNFOu0l4YftGWuizFVZHHs8PrLU5p2IDA==}
