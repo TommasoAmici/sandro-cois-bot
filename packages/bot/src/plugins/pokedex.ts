@@ -1,30 +1,24 @@
 const Pokedex = require("pokedex");
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 import { toTitleCase } from "./utils";
 
 const pokedex = new Pokedex();
 
-const makeCaption = (pokemon): string =>
+const makeCaption = (pokemon: any): string =>
   `#${pokemon.id} ${toTitleCase(pokemon.name)}\nHeight: ${
     pokemon.height / 10
   } m\nWeight: ${pokemon.weight / 10} kg`;
 
-const pokedexByName =
-  (bot: TelegramBot) =>
-  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    const pokemon = pokedex.pokemon(match[1].toLowerCase());
-    bot.sendVideo(msg.chat.id, pokemon.sprites.animated, {
-      caption: makeCaption(pokemon),
-    });
-  };
+export const pokedexByName = async (ctx: HearsContext<Context>) => {
+  const pokemon = pokedex.pokemon(ctx.match[1].toLowerCase());
+  await ctx.replyWithVideo(pokemon.sprites.animated, {
+    caption: makeCaption(pokemon),
+  });
+};
 
-const pokedexById =
-  (bot: TelegramBot) =>
-  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    const pokemon = pokedex.pokemon(+match[1]);
-    bot.sendVideo(msg.chat.id, pokemon.sprites.animated, {
-      caption: makeCaption(pokemon),
-    });
-  };
-
-export default { byId: pokedexById, byName: pokedexByName };
+export const pokedexByID = async (ctx: HearsContext<Context>) => {
+  const pokemon = pokedex.pokemon(+ctx.match[1]);
+  await ctx.replyWithVideo(pokemon.sprites.animated, {
+    caption: makeCaption(pokemon),
+  });
+};

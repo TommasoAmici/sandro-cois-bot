@@ -1,5 +1,5 @@
-import TelegramBot from "node-telegram-bot-api";
-import * as utf8 from "utf8";
+import { Context, HearsContext } from "grammy";
+import utf8 from "utf8";
 import client from "../../redisClient";
 import { randomChoice } from "../utils/random";
 import random from "./random";
@@ -35,13 +35,12 @@ export const searchQuotes = async (
       0,
       limit,
     ]);
-    console.log(res);
     // transform redis response in objects
     const quotes: IQuote[] = (res as any)
       .slice(1)
-      .filter((s, i) => i % 2 === 1)
-      .map(s => {
-        const obj = {};
+      .filter((s: any, i: number) => i % 2 === 1)
+      .map((s: any) => {
+        const obj: Record<any, any> = {};
         for (let index = 0; index < s.length; index += 2) {
           const key = s[index];
           const value = s[index + 1];
@@ -55,18 +54,17 @@ export const searchQuotes = async (
   }
 };
 
-export default (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
-    const toMatch = utf8.encode(match[1]);
-    if (toMatch === "") {
-      return random(bot)(msg);
-    } else {
-      const quotes = await searchQuotes(msg.chat.id, toMatch);
-      if (quotes.length === 0) {
-        bot.sendMessage(msg.chat.id, "No quote found :(");
-        return;
-      }
-      const quote = randomChoice(quotes);
-      bot.sendMessage(msg.chat.id, formatQuote(quote));
+export default async (ctx: HearsContext<Context>) => {
+  const toMatch = utf8.encode(ctx.match[1]);
+  if (toMatch === "") {
+    return random(ctx);
+  } else {
+    const quotes = await searchQuotes(ctx.chat.id, toMatch);
+    if (quotes.length === 0) {
+      await ctx.reply("No quote found :(");
+      return;
     }
-  };
+    const quote = randomChoice(quotes);
+    await ctx.reply(formatQuote(quote));
+  }
+};

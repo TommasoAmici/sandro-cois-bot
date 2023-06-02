@@ -1,4 +1,4 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 import { paginateMessages } from "./utils";
 import { randomChoice } from "./utils/random";
 
@@ -31,23 +31,17 @@ const gago = (k: number): string => {
 };
 
 export default {
-  numeric:
-    (bot: TelegramBot) =>
-    (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-      const gagoIndex = +match[1];
-      const message = gago(gagoIndex);
-      paginateMessages(bot, msg, message);
-    },
-  alpha:
-    (bot: TelegramBot) =>
-    (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-      const message = "😂".repeat((match[0].length - 1) / 4);
-      bot.sendMessage(msg.chat.id, message);
-    },
-  evil:
-    (bot: TelegramBot) =>
-    (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-      const message = "😡".repeat((match[0].length - 1) / 8);
-      bot.sendMessage(msg.chat.id, message);
-    },
+  numeric: async (ctx: HearsContext<Context>) => {
+    const gagoIndex = parseInt(ctx.match[1]);
+    const message = gago(gagoIndex);
+    await paginateMessages(ctx, message);
+  },
+  alpha: async (ctx: HearsContext<Context>) => {
+    const message = "😂".repeat((ctx.match[0].length - 1) / 4);
+    await ctx.reply(message);
+  },
+  evil: async (ctx: HearsContext<Context>) => {
+    const message = "😡".repeat((ctx.match[0].length - 1) / 8);
+    await ctx.reply(message);
+  },
 };

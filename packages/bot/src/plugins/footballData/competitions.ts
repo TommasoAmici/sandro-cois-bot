@@ -1,26 +1,24 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 import { Competition } from "./types";
 import { apiGet } from "./utils";
 
 /**
  * Returns a list of football competitions with their name and code
  */
-export default (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message): Promise<void> => {
-    const res = await apiGet("/competitions/");
-    const data: {
-      count: number;
-      filters: Object;
-      competitions: Competition[];
-    } = await res.body.json();
-    bot.sendMessage(
-      msg.chat.id,
-      data.competitions
-        .filter(c => c.plan === "TIER_ONE")
-        .map(c => `${c.code} - ${c.name}`)
-        .join("\n"),
-      {
-        parse_mode: "Markdown",
-      },
-    );
-  };
+export default async (ctx: HearsContext<Context>) => {
+  const res = await apiGet("/competitions/");
+  const data: {
+    count: number;
+    filters: Object;
+    competitions: Competition[];
+  } = await res.json();
+  await ctx.reply(
+    data.competitions
+      .filter(c => c.plan === "TIER_ONE")
+      .map(c => `${c.code} - ${c.name}`)
+      .join("\n"),
+    {
+      parse_mode: "MarkdownV2",
+    },
+  );
+};

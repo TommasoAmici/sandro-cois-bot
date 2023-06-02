@@ -1,8 +1,8 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 
-export default (bot: TelegramBot) =>
-  (msg: TelegramBot.Message): void => {
-    const nsfw =
-      "NSFW\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNSFW";
-    bot.sendMessage(msg.chat.id, nsfw);
-  };
+const text =
+  "NSFW\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNSFW";
+
+export const nsfw = async (ctx: HearsContext<Context>) => {
+  await ctx.reply(text);
+};

@@ -1,41 +1,39 @@
-import TelegramBot from "node-telegram-bot-api";
 import { randomChoice } from "./utils/random";
 
 import google from "googlethis";
+import { Context, HearsContext } from "grammy";
 
 export const getImage = async (
   query: string,
-  bot: TelegramBot,
-  msg: TelegramBot.Message,
+  ctx: HearsContext<Context>,
 ): Promise<void> => {
   try {
     const images = await google.image(query, { safe: false });
     if (!images || images.length === 0) {
-      bot.sendMessage(msg.chat.id, "No photo found.", {
-        reply_to_message_id: msg.message_id,
+      ctx.reply("No photo found.", {
+        reply_to_message_id: ctx.msg.message_id,
       });
     } else {
       const item = randomChoice(images);
-      bot.sendPhoto(msg.chat.id, item.url, {
-        reply_to_message_id: msg.message_id,
+      ctx.replyWithPhoto(item.url, {
+        reply_to_message_id: ctx.msg.message_id,
       });
     }
   } catch (error) {
-    bot.sendMessage(msg.chat.id, String(error));
+    ctx.reply(String(error));
   }
 };
 
-export default (bot: TelegramBot) =>
-  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    let query = match[1];
+export default (ctx: HearsContext<Context>) => {
+  let query = ctx.match[1];
 
-    if (query === undefined && msg.reply_to_message) {
-      query = msg.reply_to_message.text;
-    }
+  if (query === undefined && ctx.msg.reply_to_message?.text) {
+    query = ctx.msg.reply_to_message.text;
+  }
 
-    if (!query || query.trim() === "") {
-      return;
-    }
+  if (!query || query.trim() === "") {
+    return;
+  }
 
-    getImage(query, bot, msg);
-  };
+  getImage(query, ctx);
+};

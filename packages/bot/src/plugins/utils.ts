@@ -1,4 +1,4 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context } from "grammy";
 
 export const toTitleCase = (str: string): string =>
   str.replace(
@@ -6,21 +6,24 @@ export const toTitleCase = (str: string): string =>
     txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(),
   );
 
-export const paginateMessages = (
-  bot: TelegramBot,
-  msg: TelegramBot.Message,
-  longMsg: string,
+export const paginateMessages = async (
+  ctx: Context,
+  longMsg: string | undefined | null,
 ) => {
+  if (longMsg === undefined || longMsg === null) {
+    return;
+  }
+
   const chunks: string[] = [];
   if (longMsg.length > 3000) {
-    bot.sendMessage(msg.chat.id, "Dio porco ti ammazzo!");
+    await ctx.reply("Dio porco ti ammazzo!");
     return;
   }
   const maxChars = longMsg.length;
   for (let i = 0; i < maxChars; i += 3000) {
     chunks.push(longMsg.substring(i, i + 3000));
   }
-  chunks.forEach(chunk => {
-    bot.sendMessage(msg.chat.id, chunk);
+  chunks.forEach(async chunk => {
+    await ctx.reply(chunk);
   });
 };

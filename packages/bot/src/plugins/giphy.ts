@@ -1,4 +1,4 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 import { request } from "undici";
 import cfg from "../config";
 import { randomChoice } from "./utils/random";
@@ -89,7 +89,13 @@ interface IGiphyResponse {
   data: IGiphyItem[];
 }
 
-export const getGif = async (query: string): Promise<IGiphyResponse> => {
+export const getGif = async (
+  query: string,
+): Promise<IGiphyResponse | undefined> => {
+  if (!cfg.giphyToken) {
+    console.error("No giphy token found.");
+    return undefined;
+  }
   const baseApi = "https://api.giphy.com/v1/gifs/search";
 
   const params = new URLSearchParams({
@@ -103,36 +109,30 @@ export const getGif = async (query: string): Promise<IGiphyResponse> => {
   return res.body.json();
 };
 
-export const sendGif = (
-  bot: TelegramBot,
-  msg: TelegramBot.Message,
-  response: IGiphyResponse,
-): void => {
-  if (!response.data || response.data.length === 0) {
-    bot.sendMessage(msg.chat.id, "No gif found.");
+export const sendGif = async (
+  ctx: HearsContext<Context>,
+  response: IGiphyResponse | undefined,
+) => {
+  if (!response?.data || response.data.length === 0) {
+    await ctx.reply("No gif found.");
   } else {
     const item = randomChoice(response.data);
-    bot.sendVideo(
-      msg.chat.id,
-      item.images.original.mp4 || item.images.original.url,
-    );
+    const url = item.images.original.mp4 ?? item.images.original.url;
+    if (!url) {
+      await ctx.reply("No gif found.");
+    } else {
+      await ctx.replyWithVideo(url);
+    }
   }
 };
 
-export default (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
-    // 'msg' is the received Message from Telegram
-    // 'match' is the result of executing the regexp above on the text content
-    // of the message
-    const query = match[1]; // the captured "whatever"
-
-    try {
-      const response = await getGif(query);
-      sendGif(bot, msg, response);
-    } catch (error) {
-      if (error.response && error.response.status >= 400) {
-        bot.sendMessage(msg.chat.id, error.response.status);
-      }
-      console.error(error.response);
-    }
-  };
+export const giphy = async (ctx: HearsContext<Context>): Promise<void> => {
+  const query = ctx.match[1];
+  try {
+    const response = await getGif(query);
+    await sendGif(ctx, response);
+  } catch (error) {
+    ctx.reply("Error :(");
+    console.error(error);
+  }
+};

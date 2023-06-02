@@ -1,7 +1,7 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 import { randomChoice } from "./utils/random";
 
-const songs = {
+const songs: Record<string, string> = {
   0: `Osteria numero zero
 ho visto un prete tutto nero
 che con mille contorsioni
@@ -240,37 +240,22 @@ due cadaveri putrefatti
 si inculavano come matti`,
 };
 
-const osterieList =
-  (bot: TelegramBot) =>
-  (msg: TelegramBot.Message): void => {
-    bot.sendMessage(msg.chat.id, Object.keys(songs).join(", "));
-  };
+export const osteriaList = async (ctx: HearsContext<Context>) => {
+  await ctx.reply(Object.keys(songs).join(", "));
+};
 
-const randomOsteria =
-  (bot: TelegramBot) =>
-  (msg: TelegramBot.Message): void => {
-    const randomKey = randomChoice(Object.keys(songs));
-    bot.sendMessage(
-      msg.chat.id,
-      `${songs[randomKey]}\nDammela a me biondina\nDammela a me bionda`,
-    );
-  };
+export const osteriaRandom = async (ctx: HearsContext<Context>) => {
+  const randomKey = randomChoice(Object.keys(songs));
+  await ctx.reply(
+    `${songs[randomKey]}\nDammela a me biondina\nDammela a me bionda`,
+  );
+};
 
-const osteria =
-  (bot: TelegramBot) =>
-  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    const song = songs[match[1].toLowerCase()];
-    if (song === undefined) {
-      bot.sendMessage(
-        msg.chat.id,
-        "Questa osteria non esiste, prova con un'altra",
-      );
-    } else {
-      bot.sendMessage(
-        msg.chat.id,
-        `${song}\nDammela a me biondina\nDammela a me bionda`,
-      );
-    }
-  };
-
-export default { list: osterieList, detail: osteria, random: randomOsteria };
+export const osteriaDetail = async (ctx: HearsContext<Context>) => {
+  const song = songs[ctx.match[1].toLowerCase()];
+  if (song === undefined) {
+    await ctx.reply("Questa osteria non esiste, prova con un'altra");
+  } else {
+    await ctx.reply(`${song}\nDammela a me biondina\nDammela a me bionda`);
+  }
+};

@@ -1,8 +1,10 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 
-export default (bot: TelegramBot) =>
-  (msg: TelegramBot.Message): void => {
-    if (msg.reply_to_message) {
-      bot.sendMessage(msg.chat.id, msg.reply_to_message.text.toUpperCase());
+export const what = async (ctx: HearsContext<Context>): Promise<void> => {
+  if (ctx.msg?.reply_to_message) {
+    const text = ctx.msg?.reply_to_message?.text?.toUpperCase();
+    if (text) {
+      await ctx.reply(text);
     }
-  };
+  }
+};
