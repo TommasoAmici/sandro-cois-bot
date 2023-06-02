@@ -1,19 +1,20 @@
-import TelegramBot from "node-telegram-bot-api";
-import getFileId from "./getFileId";
+import { Context, HearsContext } from "grammy";
+import { fileIDFromMessage } from "./getFileId";
 import set from "./set";
 
-export default (bot: TelegramBot, media: Media) =>
-  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    if (msg.reply_to_message) {
-      const key = match[1].toLowerCase();
-      const fileId = getFileId(msg.reply_to_message, media);
-      set(bot, msg, media, key, fileId);
-    } else {
-      bot.sendMessage(
-        msg.chat.id,
-        `Reply to this message with the ${
-          media.type
-        } for ${match[1].toLowerCase()}.${media.ext}`,
-      );
+export default (media: Media) => async (ctx: HearsContext<Context>) => {
+  if (ctx.msg?.reply_to_message) {
+    const key = ctx.match[1].toLowerCase();
+    const fileId = fileIDFromMessage(ctx.msg.reply_to_message, media);
+    if (fileId === undefined) {
+      return;
     }
-  };
+    await set(ctx, media, key, fileId);
+  } else {
+    await ctx.reply(
+      `Reply to this message with the ${
+        media.type
+      } for ${ctx.match[1].toLowerCase()}.${media.ext}`,
+    );
+  }
+};

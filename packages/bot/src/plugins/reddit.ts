@@ -1,10 +1,33 @@
-import TelegramBot from "node-telegram-bot-api";
-import { request } from "undici";
+import { Context, HearsContext } from "grammy";
 import { randomChoice, shuffle } from "./utils/random";
 
-interface IRedditPost {
+type RedditVideo = {
+  bitrate_kbps: number;
+  fallback_url: string;
+  height: number;
+  width: number;
+  scrubber_media_url: string;
+  dash_url: string;
+  duration: number;
+  hls_url: string;
+  is_gif: boolean;
+  transcoding_status: "completed" | string;
+};
+
+interface RedditPost {
   kind: "t3" | string;
   data: {
+    post_hint: "self" | string;
+    preview: {
+      images: {
+        source: { url: string; width: number; height: number };
+        resoulutions: { url: string; width: number; height: number }[];
+        variants: unknown;
+        id: string;
+      }[];
+      enabled: boolean;
+      reddit_video_preview: RedditVideo;
+    };
     approved_at_utc: null | string;
     subreddit: string;
     selftext: string;
@@ -77,7 +100,7 @@ interface IRedditPost {
     content_categories: null | unknown;
     is_self: boolean;
     mod_note: null | unknown;
-    crosspost_parent_list: IRedditPost[];
+    crosspost_parent_list: RedditPost[];
     created: number;
     link_flair_type: "text" | string;
     wls: number;
@@ -134,7 +157,9 @@ interface IRedditPost {
     subreddit_subscribers: number;
     created_utc: number;
     num_crossposts: number;
-    media: null | unknown;
+    media: null | {
+      reddit_video: RedditVideo;
+    };
     is_video: boolean;
   };
 }
@@ -145,17 +170,17 @@ interface ISubredditResponse {
     dist: number;
     modhash: string;
     geo_filter: string;
-    children: IRedditPost[];
+    children: RedditPost[];
     before: string | null;
   };
 }
 
-const permalink = (item): string =>
+const permalink = (item: RedditPost): string =>
   `\n\nhttps://old.reddit.com${item.data.permalink}`;
 
-const url = (item): string => `\n\n${item.data.url}`;
+const url = (item: RedditPost): string => `\n\n${item.data.url}`;
 
-const buildMessage = (item): string => {
+const buildMessage = (item: RedditPost): string => {
   const links =
     url(item) === permalink(item)
       ? permalink(item)
@@ -167,61 +192,60 @@ const buildMessage = (item): string => {
   return `${text}${links}`;
 };
 
-export default (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
-    const subreddit = match[1].toLowerCase();
-    let sortBy: string;
-    if (match[2] === undefined) {
-      sortBy = "hot";
+export const reddit = async (ctx: HearsContext<Context>) => {
+  const subreddit = ctx.match[1].toLowerCase();
+  let sortBy: string;
+  if (ctx.match[2] === undefined) {
+    sortBy = "hot";
+  } else {
+    sortBy = ctx.match[2].toLowerCase();
+  }
+
+  const baseApi = `https://old.reddit.com/r/${subreddit}/${sortBy}.json`;
+
+  try {
+    const res = await fetch(baseApi);
+    const { data }: ISubredditResponse = await res.json();
+
+    if (!data) {
+      await ctx.reply("Nothing found.");
     } else {
-      sortBy = match[2].toLowerCase();
-    }
-
-    const baseApi = `https://old.reddit.com/r/${subreddit}/${sortBy}.json`;
-
-    try {
-      const res = await request(baseApi);
-      const { data }: ISubredditResponse = await res.body.json();
-
-      if (!data) {
-        bot.sendMessage(msg.chat.id, "Nothing found.");
-      } else {
-        const item = randomChoice(shuffle(data.children));
-        // find correct api method
-        if (
-          item.data.domain === "gfycat.com" ||
-          item.data.url.includes(".gifv")
-        ) {
-          bot.sendVideo(
-            msg.chat.id,
-            item.data.preview.reddit_video_preview.fallback_url,
-          );
-        } else if (item.data.domain === "youtu.be") {
-          bot.sendMessage(msg.chat.id, buildMessage(item), {
-            parse_mode: "HTML",
-          });
-        } else if (item.data.post_hint === "image") {
-          bot.sendPhoto(msg.chat.id, item.data.url);
-        }
-        // hosted on reddit
-        else if (item.data.post_hint === "hosted:video") {
-          bot.sendVideo(msg.chat.id, item.data.media.reddit_video.fallback_url);
-        }
-        // external video hosting
-        else if (item.data.post_hint === "rich:video") {
-          bot.sendVideo(msg.chat.id, item.data.url);
-        }
-        // everything else
-        else {
-          bot.sendMessage(msg.chat.id, buildMessage(item), {
-            parse_mode: "HTML",
-          });
-        }
+      const item = randomChoice(shuffle(data.children));
+      // find correct api method
+      if (
+        item.data.domain === "gfycat.com" ||
+        item.data.url.includes(".gifv")
+      ) {
+        await ctx.replyWithVideo(
+          item.data.preview.reddit_video_preview.fallback_url,
+        );
+      } else if (item.data.domain === "youtu.be") {
+        await ctx.reply(buildMessage(item), {
+          parse_mode: "HTML",
+        });
+      } else if (item.data.post_hint === "image") {
+        await ctx.replyWithPhoto(item.data.url);
       }
-    } catch (error) {
-      if (error.response && error.response.status >= 400) {
-        bot.sendMessage(msg.chat.id, error.response.status);
+      // hosted on reddit
+      else if (
+        item.data.post_hint === "hosted:video" &&
+        item.data.media?.reddit_video
+      ) {
+        await ctx.replyWithVideo(item.data.media.reddit_video.fallback_url);
       }
-      console.error(error.response);
+      // external video hosting
+      else if (item.data.post_hint === "rich:video") {
+        await ctx.replyWithVideo(item.data.url);
+      }
+      // everything else
+      else {
+        await ctx.reply(buildMessage(item), {
+          parse_mode: "HTML",
+        });
+      }
     }
-  };
+  } catch (error) {
+    await ctx.reply("Error :(");
+    console.error(error);
+  }
+};

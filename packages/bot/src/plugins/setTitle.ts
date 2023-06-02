@@ -1,10 +1,9 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 
-export default (bot: TelegramBot) =>
-  (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-    try {
-      bot.setChatTitle(msg.chat.id, match[1]);
-    } catch {
-      bot.sendMessage(msg.chat.id, "You're not an admin :(");
-    }
-  };
+export const setTitle = async (ctx: HearsContext<Context>) => {
+  try {
+    ctx.setChatTitle(ctx.match[1]);
+  } catch {
+    await ctx.reply("You're not an admin :(");
+  }
+};

@@ -1,10 +1,10 @@
-import TelegramBot from "node-telegram-bot-api";
-import { request } from "undici";
+import { Context, HearsContext } from "grammy";
+
 import cfg from "../config";
 
 const kToC = (temp: number): string => (temp - 273.15).toFixed(1);
 
-const conditionsEmojis = {
+const conditionsEmojis: Record<string, string> = {
   Clear: "☀️",
   Thunderstorm: "⛈",
   Drizzle: "🌧",
@@ -18,41 +18,42 @@ const conditionsEmojis = {
 
 const getEmoji = (condition: string): string => conditionsEmojis[condition];
 
-export default (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
-    // 'msg' is the received Message from Telegram
-    // 'match' is the result of executing the regexp above on the text content
-    // of the message
-    const query = match[1]; // the captured "whatever"
+export const weather = async (ctx: HearsContext<Context>) => {
+  if (!cfg.openWeatherToken) {
+    console.warn("OPENWEATHER_TOKEN missing");
+    return;
+  }
+  // 'msg' is the received Message from Telegram
+  // 'match' is the result of executing the regexp above on the text content
+  // of the message
+  const query = ctx.match[1]; // the captured "whatever"
 
-    // https://openweathermap.org/current
-    const baseApi = "https://api.openweathermap.org/data/2.5/weather";
+  // https://openweathermap.org/current
+  const baseApi = "https://api.openweathermap.org/data/2.5/weather";
 
-    const params = new URLSearchParams({
-      q: query,
-      APPID: cfg.openWeatherToken,
-    });
-    const url = `${baseApi}?${params.toString()}`;
+  const params = new URLSearchParams({
+    q: query,
+    APPID: cfg.openWeatherToken,
+  });
+  const url = `${baseApi}?${params.toString()}`;
 
-    try {
-      const response = await request(url);
-      const data = await response.body.json();
+  try {
+    const response = await fetch(url);
+    const data = await response.json<any>();
 
-      if (!data.weather || data.weather.length === 0) {
-        bot.sendMessage(msg.chat.id, `Couldn't find the weather for ${query}`);
-      } else {
-        const conditionsEmoji = getEmoji(data.weather[0].main);
-        const message = `The temperature in ${data.name} is ${kToC(
-          data.main.temp,
-        )}°C\nCurrent conditions are: ${
-          data.weather[0].description
-        } ${conditionsEmoji}`;
-        bot.sendMessage(msg.chat.id, message);
-      }
-    } catch (error) {
-      if (error.response && error.response.status >= 400) {
-        bot.sendMessage(msg.chat.id, error.response.status);
-      }
-      console.error(error.response);
+    if (!data.weather || data.weather.length === 0) {
+      await ctx.reply(`Couldn't find the weather for ${query}`);
+    } else {
+      const conditionsEmoji = getEmoji(data.weather[0].main);
+      const message = `The temperature in ${data.name} is ${kToC(
+        data.main.temp,
+      )}°C\nCurrent conditions are: ${
+        data.weather[0].description
+      } ${conditionsEmoji}`;
+      await ctx.reply(message);
     }
-  };
+  } catch (error) {
+    await ctx.reply("Error :(");
+    console.error(error);
+  }
+};

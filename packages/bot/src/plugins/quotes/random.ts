@@ -1,18 +1,17 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 import client from "../../redisClient";
-import { formatQuote, IQuote } from "./get";
+import { IQuote, formatQuote } from "./get";
 
-export default (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message): Promise<void> => {
-    const key = `chat:${msg.chat.id}:quotes`;
-    const quoteID = await client.zrandmember(key);
-    client.hgetall(`${key}:${quoteID}`, (err, record) => {
-      if (err) {
-        console.error(err);
-        bot.sendMessage(msg.chat.id, "Something went wrong :(");
-      } else {
-        const formattedQuote = formatQuote(record as unknown as IQuote);
-        bot.sendMessage(msg.chat.id, formattedQuote);
-      }
-    });
-  };
+export default async (ctx: HearsContext<Context>) => {
+  const key = `chat:${ctx.chat.id}:quotes`;
+  const quoteID = await client.zrandmember(key);
+  client.hgetall(`${key}:${quoteID}`, async (err, record) => {
+    if (err) {
+      console.error(err);
+      await ctx.reply("Something went wrong :(");
+    } else {
+      const formattedQuote = formatQuote(record as unknown as IQuote);
+      await ctx.reply(formattedQuote);
+    }
+  });
+};
