@@ -30,8 +30,8 @@ importers:
         specifier: 0.15.1
         version: 0.15.1
       '@vitalets/google-translate-api':
-        specifier: 9.1.0
-        version: 9.1.0
+        specifier: 9.2.0
+        version: 9.2.0
       diacritics:
         specifier: 1.3.0
         version: 1.3.0
@@ -528,8 +528,9 @@ packages:
     resolution: {integrity: sha512-1EkWuw7rT3BMz2HpmcEOr/HL61mWNA6Ulr/KdbXR9AI0A55wD4Qfv8hizd8Q1DnknSIzzDvQmvvY/guvX7jjZA==}
     dev: true
 
-  /@vitalets/google-translate-api@9.1.0:
-    resolution: {integrity: sha512-iA36eHfypNaYOHUjVoYcQ9Ro98WXHdBDgKNlWqn4MN4PA/R7bgccH4KlLWwuem5FjCSlRev27ZTUtyp/axgOVQ==}
+  /@vitalets/google-translate-api@9.2.0:
+    resolution: {integrity: sha512-w98IPWGuexlGmh8Y19AxF6cgWT0U5JLevVNDKEuFpTWtBC9z3YtDWKTDxF3nPP1k9bWicuB1V7I7YfHoZiDScw==}
+    engines: {node: '>=14'}
     dependencies:
       '@types/http-errors': 1.8.2
       http-errors: 2.0.0
