@@ -1,10 +1,17 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 
-export default (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message): Promise<void> => {
-    const admins = await bot.getChatAdministrators(msg.chat.id);
+export const naziMods = async (ctx: HearsContext<Context>) => {
+  try {
+    const admins = await ctx.getChatAdministrators();
     const nazis =
       "Taking my mods for a walk ( ͡° ͜ʖ ͡°)╯╲___卐卐卐卐\n\n" +
       admins.map(a => a.user.username).join("\n");
-    bot.sendMessage(msg.chat.id, nazis);
-  };
+    await ctx.reply(nazis);
+  } catch (error) {
+    if (
+      String(error).includes("there are no administrators in the private chat")
+    ) {
+      await ctx.reply("There are no admins in this chat");
+    }
+  }
+};

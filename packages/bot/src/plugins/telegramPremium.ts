@@ -1,8 +1,10 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 
-export default (bot: TelegramBot) =>
-  (msg: TelegramBot.Message): void => {
-    bot.banChatMember(msg.chat.id, msg.from.id);
-    bot.unbanChatMember(msg.chat.id, msg.from.id);
-    bot.sendSticker(msg.chat.id, "CAADBAADxAADuChICFX6VrCSrzkLAg");
-  };
+export const telegramPremium = async (ctx: HearsContext<Context>) => {
+  const id = ctx.from?.id;
+  if (id) {
+    await ctx.banChatMember(id);
+    await ctx.unbanChatMember(id);
+    await ctx.replyWithSticker("CAADBAADxAADuChICFX6VrCSrzkLAg");
+  }
+};

@@ -1,4 +1,4 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 import { randomChoice } from "./utils/random";
 
 const choices = [
@@ -33,23 +33,17 @@ const gago = (k: number): string => {
   }
   return elements.join("");
 };
+export const coronavirusGago = async (ctx: HearsContext<Context>) => {
+  const gagoIndex = parseInt(ctx.match[1]) <= 1500 ? +ctx.match[1] : 1500;
+  const message = gago(gagoIndex);
+  await ctx.reply(message);
+};
 
 const covidIndex = (): string => {
   const covidPercentage = (Math.random() * 100).toFixed(2);
   return `Hai il coronavirus con una probabilità del ${covidPercentage}%`;
 };
 
-export default {
-  gago:
-    (bot: TelegramBot) =>
-    (msg: TelegramBot.Message, match: RegExpMatchArray): void => {
-      const gagoIndex = +match[1] <= 1500 ? +match[1] : 1500;
-      const message = gago(gagoIndex);
-      bot.sendMessage(msg.chat.id, message);
-    },
-  percent:
-    (bot: TelegramBot) =>
-    (msg: TelegramBot.Message): void => {
-      bot.sendMessage(msg.chat.id, covidIndex());
-    },
+export const coronavirusPercent = async (ctx: HearsContext<Context>) => {
+  await ctx.reply(covidIndex());
 };

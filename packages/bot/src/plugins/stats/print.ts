@@ -1,4 +1,4 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 import client from "../../redisClient";
 import { prettyPrint } from "../utils/printStandings";
 
@@ -12,7 +12,7 @@ export const getUsers = async (
   category: string,
 ): Promise<User[]> => {
   const users: User[] = [];
-  const scanned: { [k: string]: boolean } = {};
+  const scanned: Record<string, boolean> = {};
   const stream = client.scanStream({ match: `chat:${chatId}:user:*` });
   for await (const keys of stream) {
     for (let key of keys) {
@@ -20,17 +20,19 @@ export const getUsers = async (
         continue;
       }
       let user = await client.hmget(key, "name", category);
-      users.push({ name: user[0], count: +user[1] });
+      if (user[0] === null || user[1] === null) {
+        continue;
+      }
+      users.push({ name: user[0], count: parseInt(user[1]) });
       scanned[key] = true;
     }
   }
   return users.filter(u => u.count > 0);
 };
 
-export default (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message): Promise<void> => {
-    const users = await getUsers(msg.chat.id, "stats");
-    const sortedUsers = users.sort((a, b) => b.count - a.count);
-    const message = prettyPrint(sortedUsers);
-    bot.sendMessage(msg.chat.id, message);
-  };
+export default async (ctx: HearsContext<Context>) => {
+  const users = await getUsers(ctx.chat.id, "stats");
+  const sortedUsers = users.sort((a, b) => b.count - a.count);
+  const message = prettyPrint(sortedUsers);
+  await ctx.reply(message);
+};

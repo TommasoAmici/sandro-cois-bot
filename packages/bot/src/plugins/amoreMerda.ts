@@ -1,5 +1,5 @@
 import { remove as removeDiacritics } from "diacritics";
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 import client from "../redisClient";
 import { prettyPrint } from "./utils/printStandings";
 import { sortRecord } from "./utils/sortRecord";
@@ -13,13 +13,15 @@ export const cleanKey = (word: string): string => {
  * @param bot
  * @returns void
  */
-export const amore =
-  () => (msg: TelegramBot.Message, match: RegExpMatchArray) => {
-    if (match[1] === "/") return;
-    const key = `chat:${msg.chat.id}:amore`;
-    const message = cleanKey(removeDiacritics(match[1]));
-    client.hincrby(key, message, 1);
-  };
+export const amore = async (ctx: HearsContext<Context>) => {
+  if (ctx.match[0] === "/ amore" || ctx.match[0] === "/amore") {
+    return;
+  }
+
+  const key = `chat:${ctx.chat.id}:amore`;
+  const message = cleanKey(removeDiacritics(ctx.match[0]).replace("amore", ""));
+  await client.hincrby(key, message, 1);
+};
 
 export const recursivelyRemoveMerda = (word: string): string => {
   const replaced = word.replace("mmerda", "merda");
@@ -29,9 +31,13 @@ export const recursivelyRemoveMerda = (word: string): string => {
   return recursivelyRemoveMerda(replaced);
 };
 
-export const cleanMerda = (word: string): string => {
+export const cleanMerda = (word: string): string | undefined => {
   const sanitized = recursivelyRemoveMerda(removeDiacritics(word));
   const match = /^(.+)\s*merda$/gi.exec(sanitized);
+  if (match === null) {
+    return undefined;
+  }
+  console.log(match);
   return cleanKey(match[1]);
 };
 
@@ -40,19 +46,26 @@ export const cleanMerda = (word: string): string => {
  * @param bot
  * @returns void
  */
-export const merda =
-  () => (msg: TelegramBot.Message, match: RegExpMatchArray) => {
-    if (match[1] === "/") return;
-    const key = `chat:${msg.chat.id}:merda`;
-    if (match[1].toLowerCase().includes("mmerda")) {
-      const message = match[0].toLowerCase();
-      const clean = cleanMerda(message);
-      client.hincrby(key, clean, 1);
-    } else {
-      const message = cleanKey(removeDiacritics(match[1]));
-      client.hincrby(key, message.trim(), 1);
+export const merda = async (ctx: HearsContext<Context>) => {
+  if (ctx.match[0] === "/ merda" || ctx.match[0] === "/merda") {
+    return;
+  }
+  const key = `chat:${ctx.chat.id}:merda`;
+  if (ctx.match[0].toLowerCase().includes("mmerda")) {
+    const message = ctx.match[0].toLowerCase();
+    const clean = cleanMerda(message);
+    if (clean === undefined) {
+      return;
     }
-  };
+    await client.hincrby(key, clean, 1);
+  } else {
+    const clean = cleanMerda(ctx.match[0]);
+    if (clean === undefined) {
+      return;
+    }
+    await client.hincrby(key, clean.trim(), 1);
+  }
+};
 
 /**
  * Prints a summary of the pleasures/displeasures recorded
@@ -60,28 +73,23 @@ export const merda =
  * @returns
  */
 const summary = (keySuffix: string, header: string) => {
-  return (bot: TelegramBot) =>
-    (msg: TelegramBot.Message): void => {
-      const key = `chat:${msg.chat.id}:${keySuffix}`;
-      client.hgetall(key, (err, record) => {
-        if (err) {
-          console.error(err);
-          bot.sendMessage(msg.chat.id, "Something went wrong :(");
-        } else {
-          const itemsSorted = sortRecord(record);
-          const message = prettyPrint(itemsSorted, header);
-          bot.sendMessage(msg.chat.id, message);
-        }
-      });
-    };
+  return async (ctx: Context) => {
+    const chatID = ctx.chat?.id;
+    if (chatID === undefined) {
+      return;
+    }
+
+    const key = `chat:${chatID}:${keySuffix}`;
+    const record = await client.hgetall(key);
+    if (record) {
+      const itemsSorted = sortRecord(record);
+      const message = prettyPrint(itemsSorted, header);
+      await ctx.reply(message);
+    } else {
+      await ctx.reply("Something went wrong :(");
+    }
+  };
 };
 
 export const summaryAmore = summary("amore", "CLASSIFICA DELL'AMORE 😍");
 export const summaryMerda = summary("merda", "CLASSIFICA DELLA MERDA 🤢");
-
-export default {
-  amore,
-  merda,
-  summaryAmore,
-  summaryMerda,
-};

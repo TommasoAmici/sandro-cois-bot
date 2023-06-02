@@ -1,4 +1,4 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 
 const translationTable = [
   { find: /c(a|i|o)/gi, replace: "ghe" },
@@ -18,16 +18,18 @@ const ghenverde = (msg: string) => {
   return `hehehe ${convertedMessage} hehehe`;
 };
 
-export const keddeInReply =
-  (bot: TelegramBot) =>
-  (msg: TelegramBot.Message): void => {
-    if (msg.reply_to_message) {
-      const message = ghenverde(msg.reply_to_message.text);
-      bot.sendMessage(msg.chat.id, message);
+export const keddeInReply = async (ctx: Context): Promise<void> => {
+  if (ctx.msg?.reply_to_message) {
+    const text = ctx.msg.reply_to_message.text;
+    if (text === undefined) {
+      return;
     }
-  };
 
-export default (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
-    bot.sendMessage(msg.chat.id, ghenverde(match[1]));
-  };
+    const message = ghenverde(text);
+    await ctx.reply(message);
+  }
+};
+
+export const kedde = async (ctx: HearsContext<Context>) => {
+  await ctx.reply(ghenverde(ctx.match[1]));
+};
