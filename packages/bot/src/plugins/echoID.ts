@@ -1,6 +1,5 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 
-export default (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message): Promise<void> => {
-    bot.sendMessage(msg.chat.id, String(msg.chat.id));
-  };
+export const echoID = async (ctx: HearsContext<Context>) => {
+  await ctx.reply(String(ctx.chat.id));
+};

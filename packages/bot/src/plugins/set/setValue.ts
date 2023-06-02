@@ -1,21 +1,23 @@
-import TelegramBot from "node-telegram-bot-api";
-import getFileId from "./getFileId";
+import { Context, NextFunction } from "grammy";
+import { fileIDFromMessage } from "./getFileId";
 import set from "./set";
 
-export default (bot: TelegramBot, regex: RegExp, media: Media) =>
-  (msg: TelegramBot.Message): void => {
+export default (regex: RegExp, media: Media) =>
+  async (ctx: Context, next: NextFunction) => {
     // function runs for every document, but it's not always applicable
-    if (msg.reply_to_message) {
-      let key: string;
+    if (ctx.msg?.reply_to_message?.text) {
+      let key: string | undefined;
       try {
-        key = msg.reply_to_message.text.match(regex)[1].toLowerCase();
-      } catch (e) {
-        key = null;
+        key = ctx.msg.reply_to_message.text.match(regex)?.[1].toLowerCase();
+      } catch {
+        key = undefined;
       }
-      if (key !== null) {
-        const fileId = getFileId(msg, media);
-        console.warn(fileId);
-        set(bot, msg, media, key, fileId);
+      if (key !== null && key !== undefined) {
+        const fileId = fileIDFromMessage(ctx.msg.reply_to_message, media);
+        if (fileId) {
+          await set(ctx, media, key, fileId);
+        }
       }
     }
+    await next();
   };

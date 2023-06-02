@@ -1,4 +1,4 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context, HearsContext } from "grammy";
 import { randomChoice } from "../utils/random";
 import { Match, Matches, Team } from "./types";
 import {
@@ -26,7 +26,7 @@ const makeMatchesString = async (
   const res = await apiGet(
     `/competitions/${competitionCode}/matches/?matchday=${currentMatchday}`,
   );
-  const data: Matches = await res.body.json();
+  const data: Matches = await res.json();
   const padHomeTeam = longestTeamName(data.matches, "homeTeam");
   const padAwayTeam = longestTeamName(data.matches, "awayTeam");
   const matchesStrings = data.matches.map(m => {
@@ -53,26 +53,25 @@ const makeMatchesString = async (
   return `*Giornata ${currentMatchday}*\n\n${matchesStrings.join("\n")}`;
 };
 
-export default (bot: TelegramBot, offset = 0, referees = false) =>
-  async (msg: TelegramBot.Message, match: RegExpMatchArray): Promise<void> => {
-    const competitionCode = (match[1] ?? "SA").toUpperCase();
+export default (offset = 0, referees = false) =>
+  async (ctx: HearsContext<Context>) => {
+    const competitionCode = (ctx.match[1] ?? "SA").toUpperCase();
     const currentMatchday = await getCurrMatchday(competitionCode);
-    if (currentMatchday === 0) bot.sendMessage(msg.chat.id, "Boh 🤷🏻‍♂️");
-    else {
+    if (currentMatchday === 0) {
+      await ctx.reply("Boh 🤷🏻‍♂️");
+    } else {
       try {
         const matchesString = await makeMatchesString(
           currentMatchday + offset,
           competitionCode,
           referees,
         );
-        bot.sendMessage(msg.chat.id, matchesString, {
-          parse_mode: "Markdown",
+        await ctx.reply(matchesString, {
+          parse_mode: "MarkdownV2",
         });
       } catch (error) {
-        if (error.response && error.response.status >= 400) {
-          bot.sendMessage(msg.chat.id, error.response.status);
-        }
-        console.error(error.response);
+        await ctx.reply("Error :(");
+        console.error(error);
       }
     }
   };

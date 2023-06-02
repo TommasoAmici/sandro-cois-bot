@@ -1,22 +1,19 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Context } from "grammy";
 import client from "../../redisClient";
 
-const set = (
-  bot: TelegramBot,
-  msg: TelegramBot.Message,
-  media: Media,
-  key: string,
-  fileId: string,
-) => {
-  const hkey = `chat:${msg.chat.id}:${media.type}`;
+const set = async (ctx: Context, media: Media, key: string, fileId: string) => {
+  const chatID = ctx?.chat?.id;
+  if (chatID === undefined) {
+    return;
+  }
 
-  client.hset(hkey, key, fileId, (err, res) => {
-    if (err) {
-      bot.sendMessage(msg.chat.id, `Couldn't set ${key} :(`);
-    } else {
-      bot.sendMessage(msg.chat.id, `Set ${key}!`);
-    }
-  });
+  const hkey = `chat:${chatID}:${media.type}`;
+  try {
+    await client.hset(hkey, key, fileId);
+    await ctx.reply(`Set ${key}!`);
+  } catch (error) {
+    await ctx.reply(`Couldn't set ${key} :(`);
+  }
 };
 
 export default set;

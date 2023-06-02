@@ -1,6 +1,5 @@
+import { Context, HearsContext } from "grammy";
 import { parse } from "node-html-parser";
-import TelegramBot from "node-telegram-bot-api";
-import { request } from "undici";
 import { randInt, randomChoice } from "./utils/random";
 
 const baseURL = `https://www.coridastadio.com/tifoseria/loadmore.asp`;
@@ -13,56 +12,53 @@ interface Chant {
 const getChants = async (team: string, retries = 3): Promise<Chant[]> => {
   const page = team === undefined ? randInt(1, 1000) : randInt(1, 100);
 
-  const res = await request(baseURL, {
+  const params = new URLSearchParams();
+  params.set("PagePosition", page.toString());
+  params.set("filtrosquadra", team);
+
+  const res = await fetch(`${baseURL}?${params.toString()}`, {
     headers: {
       referer: "https://www.coridastadio.com",
     },
-    query: {
-      PagePosition: page,
-      filtrosquadra: team,
-    },
   });
 
-  const text = await res.body.text();
+  const text = await res.text();
   const notFound =
-    res.statusCode === 404 || text.includes("404 Not Found") || text === "";
+    res.status === 404 || text.includes("404 Not Found") || text === "";
 
   if (retries > 0 && notFound) {
     return getChants(team, retries - 1);
   }
   const root = parse(text);
   const chantsEls = root.querySelectorAll(".coro");
-  return [
-    ...new Set(
-      chantsEls.map(c => {
-        return {
-          team: c.querySelector("a.titolocoro").textContent,
-          text: c
-            .querySelector(".testomessaggio")
-            .innerHTML.replaceAll("<br>", "\n"),
-        };
-      }),
-    ),
-  ];
+  const _chants = chantsEls.map(c => {
+    return {
+      team: c.querySelector("a.titolocoro")?.textContent,
+      text: c
+        .querySelector(".testomessaggio")
+        ?.innerHTML.replaceAll("<br>", "\n"),
+    };
+  });
+  return _chants.filter(
+    (c): c is Chant => c.team !== undefined && c.text !== undefined,
+  );
 };
 
 const formatChant = (chant: Chant) =>
   `<strong>${chant.team}</strong>\n\n${chant.text}`;
 
-export const randomChant =
-  (bot: TelegramBot) =>
-  async (msg: TelegramBot.Message, match: RegExpMatchArray) => {
-    const team = match[1]?.trim();
-    let chant = "";
-    try {
-      const chants = await getChants(team);
-      chant = formatChant(randomChoice(chants));
-    } catch (error) {
-      console.error("failed to send chant");
-      return;
-    }
+export const randomChant = async (ctx: HearsContext<Context>) => {
+  const team = ctx.match[1]?.trim();
+  let chant = "";
+  try {
+    const chants = await getChants(team);
+    chant = formatChant(randomChoice(chants));
+  } catch (error) {
+    console.error("failed to send chant");
+    return;
+  }
 
-    bot.sendMessage(msg.chat.id, chant, {
-      parse_mode: "HTML",
-    });
-  };
+  await ctx.reply(chant, {
+    parse_mode: "HTML",
+  });
+};

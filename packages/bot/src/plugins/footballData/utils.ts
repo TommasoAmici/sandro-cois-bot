@@ -1,18 +1,21 @@
-import { request } from "undici";
 import cfg from "../../config";
 import { Competition } from "./types";
 
-export const apiGet = (endpoint: string) =>
-  request(`http://api.football-data.org/v2${endpoint}`, {
+export const apiGet = (endpoint: string) => {
+  if (!cfg.footballDataToken) {
+    throw new Error("Missing FOOTBALLDATA_TOKEN");
+  }
+  return fetch(`http://api.football-data.org/v2${endpoint}`, {
     headers: { "X-Auth-Token": cfg.footballDataToken },
   });
+};
 
 export const getCurrMatchday = async (
   competitionCode: string,
 ): Promise<number> => {
   try {
     const res = await apiGet(`/competitions/${competitionCode}/`);
-    const data: Competition = await res.body.json();
+    const data: Competition = await res.json();
     return data.currentSeason.currentMatchday;
   } catch (error) {
     console.error(error);
@@ -20,7 +23,7 @@ export const getCurrMatchday = async (
   }
 };
 
-export const overrideTeamNames = {
+export const overrideTeamNames: Record<number, string> = {
   108: "Inter",
   586: "Torino",
   1107: "SPAL",
@@ -50,7 +53,7 @@ export const overrideTeamNames = {
   5911: "Monza",
 };
 
-export const refereeRoles = {
+export const refereeRoles: Record<string, string> = {
   ASSISTANT_REFEREE_N1: "Assistente",
   ASSISTANT_REFEREE_N2: "Assistente",
   FOURTH_OFFICIAL: "Quarto uomo",
