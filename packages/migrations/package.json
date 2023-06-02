@@ -6,7 +6,7 @@
     "build": "esbuild --bundle --platform=node --target=node16 src/0001_redisearch.ts --outfile=dist/0001_redisearch.js"
   },
   "dependencies": {
-    "ioredis": "5.3.1",
+    "ioredis": "5.3.2",
     "typescript": "5.0.4"
   },
   "devDependencies": {
