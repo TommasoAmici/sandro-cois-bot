@@ -27,8 +27,8 @@ importers:
   packages/bot:
     dependencies:
       '@mapbox/mapbox-sdk':
-        specifier: 0.15.0
-        version: 0.15.0
+        specifier: 0.15.1
+        version: 0.15.1
       '@vitalets/google-translate-api':
         specifier: 9.1.0
         version: 9.1.0
@@ -587,8 +587,8 @@ packages:
       xtend: 4.0.2
     dev: false
 
-  /@mapbox/mapbox-sdk@0.15.0:
-    resolution: {integrity: sha512-oU7XI8c7nQKLqdcLvnFVv4t0wq7rI+1SgW8HmUMr1XFirWKtVVNgsiZEI3esmfBeMhDpXmzHeZ1SV6dx35Qo9A==}
+  /@mapbox/mapbox-sdk@0.15.1:
+    resolution: {integrity: sha512-SdJtg4s1Qhm0o6wGGWqYvNF6E6qBEPiYdZkqQDNblW0H9/yC2Wqywuy+QTAc2e4FWjDttbBzU9g/PaV7Zozb/A==}
     engines: {node: '>=6'}
     dependencies:
       '@mapbox/fusspot': 0.4.0
