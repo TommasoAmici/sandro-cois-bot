@@ -27,7 +27,7 @@
     "esbuild": "0.17.19",
     "nodemon": "2.0.22",
     "typescript": "5.0.4",
-    "vite": "4.1.4",
+    "vite": "4.3.9",
     "vitest": "0.29.2"
   },
   "scripts": {
