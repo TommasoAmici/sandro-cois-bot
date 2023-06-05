@@ -42,8 +42,8 @@ importers:
         specifier: 1.7.1
         version: 1.7.1
       html-entities:
-        specifier: 2.3.3
-        version: 2.3.3
+        specifier: 2.3.4
+        version: 2.3.4
       ioredis:
         specifier: 5.3.2
         version: 5.3.2
@@ -481,7 +481,7 @@ packages:
     resolution: {integrity: sha512-Ut62LV90H9tgXwyhmfR8U6yCw/6xeo26IlsbAJJfqPomaqDN2zoLb2Z+cbmy5AycJFhwNJDdH0zqjQp7Ox/eXg==}
     deprecated: This is a stub types definition. html-entities provides its own type definitions, so you do not need this installed.
     dependencies:
-      html-entities: 2.3.3
+      html-entities: 2.3.4
     dev: true
 
   /@types/http-cache-semantics@4.0.1:
@@ -1707,8 +1707,8 @@ packages:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
     dev: false
 
-  /html-entities@2.3.3:
-    resolution: {integrity: sha512-DV5Ln36z34NNTDgnz0EWGBLZENelNAtkiFA4kyNOG2tDI6Mz1uSWiq1wAKdyjnJwyDiDO7Fa2SO1CTxPXL8VxA==}
+  /html-entities@2.3.4:
+    resolution: {integrity: sha512-TtiHkpRBqP40OzizVWjwBPBsiqchEZxAg/nys6D6lIpdoVLo7sWZ/5Sf/s4UaBHQ6pzUzEr3NiItvEoO46sPtQ==}
 
   /html-escaper@2.0.2:
     resolution: {integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==}
