@@ -7,20 +7,16 @@ export const getImage = async (
   query: string,
   ctx: HearsContext<Context>,
 ): Promise<void> => {
-  try {
-    const images = await google.image(query, { safe: false });
-    if (!images || images.length === 0) {
-      ctx.reply("No photo found.", {
-        reply_to_message_id: ctx.msg.message_id,
-      });
-    } else {
-      const item = randomChoice(images);
-      ctx.replyWithPhoto(item.url, {
-        reply_to_message_id: ctx.msg.message_id,
-      });
-    }
-  } catch (error) {
-    ctx.reply(String(error));
+  const images = await google.image(query, { safe: false });
+  if (!images || images.length === 0) {
+    await ctx.reply("No photo found.", {
+      reply_to_message_id: ctx.msg.message_id,
+    });
+  } else {
+    const item = randomChoice(images);
+    await ctx.replyWithPhoto(item.url, {
+      reply_to_message_id: ctx.msg.message_id,
+    });
   }
 };
 
