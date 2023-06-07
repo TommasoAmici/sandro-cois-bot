@@ -1,10 +1,23 @@
 {
   "compilerOptions": {
-    "outDir": "./built",
-    "allowJs": true,
-    "target": "es2015",
-    "moduleResolution": "node",
-    "lib": ["es2018"]
+    "types": ["bun-types"],
+    "noEmit": true,
+
+    "lib": ["esnext"],
+    "module": "esnext",
+    "target": "esnext",
+
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "moduleDetection": "force",
+    "esModuleInterop": true,
+
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["./src/**/*"]
 }

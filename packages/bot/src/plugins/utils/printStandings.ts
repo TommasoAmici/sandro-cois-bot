@@ -1,25 +1,22 @@
-interface Item {
-  count: number;
-  name: string;
-}
-
-export const prettyPrint = (
-  items: Item[],
-  header = `STATS DELL'ERA SANDRO COIS`,
-): string => {
-  let message = `${header}\n\n`;
-  for (let i in items) {
+export function prettyPrintStanding(items: { text: string; count: number }[]) {
+  let message = "";
+  for (const [index, item] of items.entries()) {
     let emojiMedal = "";
-    if (i === "0") {
-      emojiMedal = "🥇";
+    switch (index) {
+      case 0:
+        emojiMedal = "🥇 ";
+        break;
+      case 1:
+        emojiMedal = "🥈 ";
+        break;
+      case 2:
+        emojiMedal = "🥉 ";
+        break;
+      default:
+        break;
     }
-    if (i === "1") {
-      emojiMedal = "🥈";
-    }
-    if (i === "2") {
-      emojiMedal = "🥉";
-    }
-    message += `${emojiMedal} ${items[i].name} - ${items[i].count}\n`;
+    message += `${emojiMedal}${item.text} - ${item.count}\n`;
   }
+
   return message;
-};
+}
