@@ -1,53 +1,86 @@
-import { Context, HearsContext } from "grammy";
-import client from "../redisClient";
-import { getUsers } from "./stats/print";
-import { prettyPrint } from "./utils/printStandings";
-import { sortRecord } from "./utils/sortRecord";
+import { db } from "@/database/database";
+import { middlewareFactory } from "@/middleware";
+import { upsertUser } from "@/user";
+import { Composer, Context, HearsContext } from "grammy";
+import { prettyPrintStanding } from "./utils/printStandings";
 
-const userKey = (ctx: HearsContext<Context>) =>
-  `chat:${ctx.chat.id}:user:${ctx.from?.id}`;
+async function bestemmiatoriCommand(ctx: HearsContext<Context>) {
+  const query = db.query<
+    { text: string; count: number },
+    { $chat_id: number }
+  >(`
+    SELECT COALESCE(u.username, u.first_name, 'no-name') as text, SUM(b.count) AS count
+    FROM bestemmie b
+    JOIN users u ON b.user_id = u.id
+    WHERE b.chat_id = $chat_id
+    GROUP BY b.user_id
+    ORDER BY count DESC
+  `);
+  const rows = query.all({ $chat_id: ctx.chat.id });
+  const text = "FERVIDI CREDENTI  📿🧎‍♂️" + "\n\n" + prettyPrintStanding(rows);
+  await ctx.reply(text);
+}
 
-const setKey = (ctx: HearsContext<Context>) => `${userKey(ctx)}:bestemmie`;
-
-const storeBestemmia = async (ctx: HearsContext<Context>) => {
+function storeBestemmiaMiddleware(ctx: HearsContext<Context>) {
   const text = ctx.msg?.text;
-  if (text === undefined) {
+  if (text === undefined || ctx.from?.id === undefined) {
     return;
   }
-  await client.hincrby(setKey(ctx), text.replaceAll("@", ""), 1);
-};
+  upsertUser(ctx.from);
+  const query = db.query<
+    null,
+    {
+      $chat_id: number;
+      $user_id: number;
+      $body: string;
+    }
+  >(
+    `
+    INSERT INTO bestemmie (chat_id, user_id, body) VALUES($chat_id, $user_id, $body);
+    `,
+  );
+  query.run({
+    $chat_id: ctx.chat.id,
+    $user_id: ctx.from.id,
+    $body: text,
+  });
+}
 
-const incrCounter = async (ctx: HearsContext<Context>) => {
-  const key = userKey(ctx);
-  const stats = await client.hincrby(key, "bestemmie", 1);
-  const username = ctx.from?.username;
-  if (stats === 1 && username) {
-    await client.hset(key, "name", username);
+async function myBestemmieCommand(ctx: HearsContext<Context>) {
+  if (ctx.from?.id === undefined) {
+    return;
   }
-};
 
-const nameFromID = (ctx: HearsContext<Context>) => {
-  const key = userKey(ctx);
-  return client.hget(key, "name");
-};
-
-export const countBestemmia = async (ctx: HearsContext<Context>) => {
-  await storeBestemmia(ctx);
-  await incrCounter(ctx);
-};
-
-export const printUserBestemmie = async (ctx: HearsContext<Context>) => {
-  const bestemmie = await client.hgetall(setKey(ctx));
-  const itemsSorted = sortRecord(bestemmie);
-  const name = await nameFromID(ctx);
-  const header = `BESTEMMIE DI ${name} 📿🧎‍♂️`;
-  const message = prettyPrint(itemsSorted, header);
+  const userQuery = db.query<
+    { first_name: string | null; username: string | null },
+    [number]
+  >("SELECT first_name, username FROM users WHERE id = ?;");
+  const user = userQuery.get(ctx.from.id);
+  const query = db.query<{ text: string; count: number }, [number, number]>(
+    `SELECT LOWER(body) AS text, SUM(count) AS count
+    FROM bestemmie
+    WHERE chat_id = ? AND user_id = ?
+    GROUP BY text
+    ORDER BY count DESC LIMIT 20;`,
+  );
+  const rows = query.all(ctx.chat.id, ctx.from.id);
+  const name = user?.username ?? user?.first_name ?? "";
+  const header = `LE BESTEMMIE DI ${name} 📿🧎‍♂️`;
+  const message = header + "\n\n" + prettyPrintStanding(rows);
   await ctx.reply(message);
-};
+}
 
-export const printBestemmiatori = async (ctx: HearsContext<Context>) => {
-  const users = await getUsers(ctx.chat.id, "bestemmie");
-  const sortedUsers = users.sort((a, b) => b.count - a.count);
-  const message = prettyPrint(sortedUsers, "FERVIDI CREDENTI  📿🧎‍♂️");
-  await ctx.reply(message);
-};
+export const bestemmieComposer = new Composer();
+
+bestemmieComposer.hears(
+  /((porc(o|a)d?)|(mannaggia( al? )?)|\b)(dio|gesù|cristo|madonna|padre pio|san(ta|to|ti|t')? \w+)( \w+)?/i,
+  middlewareFactory(storeBestemmiaMiddleware),
+);
+bestemmieComposer.hears(
+  /^[/!]le_mie_bestemmie$/i,
+  middlewareFactory(myBestemmieCommand),
+);
+bestemmieComposer.hears(
+  /^[/!]bestemmiatori$/i,
+  middlewareFactory(bestemmiatoriCommand),
+);

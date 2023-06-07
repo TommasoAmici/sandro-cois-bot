@@ -1,5 +1,5 @@
 import { Context, HearsContext } from "grammy";
-import { randomChoice, shuffle } from "./utils/random";
+import { randomChoice } from "./utils/random";
 
 type RedditVideo = {
   bitrate_kbps: number;
@@ -210,7 +210,7 @@ export const reddit = async (ctx: HearsContext<Context>) => {
     if (!data) {
       await ctx.reply("Nothing found.");
     } else {
-      const item = randomChoice(shuffle(data.children));
+      const item = randomChoice(data.children);
       // find correct api method
       if (
         item.data.domain === "gfycat.com" ||
