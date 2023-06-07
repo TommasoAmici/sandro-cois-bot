@@ -1,15 +1,14 @@
-import { Context, HearsContext, NextFunction } from "grammy";
+import { NextFunction } from "grammy";
 
-export function hearsMiddlewareFactory(
-  hearsHandler: (ctx: HearsContext<Context>) => Promise<void> | void,
+export function middlewareFactory<T>(
+  handler: (ctx: T) => Promise<void> | void,
 ) {
-  async function handler(ctx: HearsContext<Context>, next: NextFunction) {
+  return async function (ctx: T, next: NextFunction) {
     try {
-      await hearsHandler(ctx);
+      await handler(ctx);
     } catch (error) {
       console.error(error);
     }
     await next();
-  }
-  return handler;
+  };
 }
