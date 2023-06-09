@@ -18,8 +18,8 @@ jobs:
           bun-version: 0.6.7
 
       - run: bun install --ignore-scripts --no-progress
-      - run: cd packages/bot && bun test:ci && cd -
-      - run: cd packages/bot && bun typecheck && cd -
+      - run: bun test:ci
+      - run: bun typecheck
 
   release:
     runs-on: ubuntu-latest
@@ -47,3 +47,26 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           TAG_NAME: ${{ steps.changelog.outputs.tag }}
           BODY: ${{ steps.changelog.outputs.clean_changelog }}
+
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@5.2
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        with:
+          switches: -avzr --delete --exclude=".git"
+          path: deploy.sh
+          remote_path: /apps/sandro-cois/
+          remote_host: ${{ secrets.DEPLOY_HOST }}
+          remote_port: ${{ secrets.DEPLOY_PORT }}
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
+
+      - name: Restart service
+        uses: appleboy/ssh-action@master
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: ${{ secrets.DEPLOY_PORT }}
+          script: |
+            sh /apps/sandro-cois/deploy.sh
