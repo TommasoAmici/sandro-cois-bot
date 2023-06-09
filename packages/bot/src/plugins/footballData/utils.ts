@@ -1,4 +1,4 @@
-import cfg from "../../config";
+import cfg from "@/config";
 import { Competition } from "./types";
 
 export const apiGet = (endpoint: string) => {
