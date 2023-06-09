@@ -1,6 +1,6 @@
 const Pokedex = require("pokedex");
+import { toTitleCase } from "@/utils";
 import { Context, HearsContext } from "grammy";
-import { toTitleCase } from "./utils";
 
 const pokedex = new Pokedex();
 

@@ -1,5 +1,5 @@
+import { paginateMessages } from "@/utils";
 import { Context, HearsContext } from "grammy";
-import { paginateMessages } from "./utils";
 import { randomChoice } from "./utils/random";
 
 const choices = [

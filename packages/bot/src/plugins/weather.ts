@@ -1,6 +1,6 @@
 import { Context, HearsContext } from "grammy";
 
-import cfg from "../config";
+import cfg from "@/config";
 
 const kToC = (temp: number): string => (temp - 273.15).toFixed(1);
 
