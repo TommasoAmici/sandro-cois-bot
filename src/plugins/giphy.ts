@@ -1,5 +1,4 @@
 import { Context, HearsContext } from "grammy";
-import { request } from "undici";
 import cfg from "../config";
 import { randomChoice } from "./utils/random";
 
@@ -105,8 +104,8 @@ export const getGif = async (
     rating: "R",
     lang: "it",
   });
-  const res = await request(`${baseApi}?${params.toString()}`);
-  return res.body.json();
+  const res = await fetch(`${baseApi}?${params.toString()}`);
+  return res.json();
 };
 
 export const sendGif = async (

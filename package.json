@@ -1,23 +1,38 @@
 {
   "name": "sandro-cois-bot",
   "scripts": {
+    "start": "bun run src/index.ts",
+    "start:watch": "bun --hot src/index.ts",
+    "test": "bun test --watch",
+    "test:ci": "bun test",
+    "typecheck": "tsc",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "postinstall": "husky install"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md,html,css,yml,json}": "prettier --write"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@grammyjs/runner": "2.0.3",
+    "@grammyjs/transformer-throttler": "1.2.1",
+    "@mapbox/mapbox-sdk": "0.15.1",
+    "@vitalets/google-translate-api": "9.2.0",
+    "diacritics": "1.3.0",
+    "googlethis": "1.7.1",
+    "grammy": "1.16.1",
+    "html-entities": "2.3.5",
+    "ioredis": "5.3.2",
+    "mathjs": "11.8.0",
+    "node-html-parser": "6.1.5",
+    "pokedex": "1.1.0"
+  },
   "devDependencies": {
-    "bun-types": "^0.6.6",
+    "@types/diacritics": "1.3.1",
+    "bun-types": "0.6.7",
     "husky": "8.0.3",
     "lint-staged": "13.2.2",
-    "pinst": "3.0.0",
     "prettier": "2.8.8",
-    "typescript": "5.0.4"
+    "typescript": "5.1.3"
   }
 }
