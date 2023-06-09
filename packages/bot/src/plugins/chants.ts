@@ -49,14 +49,13 @@ const formatChant = (chant: Chant) =>
 
 export const randomChant = async (ctx: HearsContext<Context>) => {
   const team = ctx.match[1]?.trim();
-  let chant = "";
-  try {
-    const chants = await getChants(team);
-    chant = formatChant(randomChoice(chants));
-  } catch (error) {
-    console.error("failed to send chant");
+
+  const chants = await getChants(team);
+  if (chants.length === 0) {
+    await ctx.reply("No chants found");
     return;
   }
+  const chant = formatChant(randomChoice(chants));
 
   await ctx.reply(chant, {
     parse_mode: "HTML",
