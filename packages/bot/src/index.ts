@@ -2,10 +2,10 @@ import { run } from "@grammyjs/runner";
 import { apiThrottler } from "@grammyjs/transformer-throttler";
 import { Bot } from "grammy";
 
-import { initBot } from "./commands";
-import config from "./config";
-import { db } from "./database/database";
-import { migrate } from "./database/migrate";
+import { initBot } from "@/commands";
+import config from "@/config";
+import { db } from "@/database/database";
+import { migrate } from "@/database/migrate";
 
 await migrate(db);
 
