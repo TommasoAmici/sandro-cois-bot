@@ -12,26 +12,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: latest
 
-      - uses: actions/setup-node@v3
+      - uses: oven-sh/setup-bun@v1
         with:
-          node-version: 18.x
-          cache: "pnpm"
+          bun-version: 0.6.7
 
-      - run: HUSKY=0 pnpm install --frozen-lockfile
-      - run: pnpm --dir packages/bot test:ci
-      - run: pnpm --dir packages/bot typecheck
-      - run: pnpm --dir packages/bot build
-
-      - uses: actions/upload-artifact@v3
-        if: github.ref == 'refs/heads/main'
-        with:
-          name: artifacts
-          path: |
-            packages/bot/dist/index.js
+      - run: bun install --ignore-scripts --no-progress
+      - run: cd packages/bot && bun test:ci && cd -
+      - run: cd packages/bot && bun typecheck && cd -
 
   release:
     runs-on: ubuntu-latest
@@ -52,39 +40,10 @@ jobs:
           skip-on-empty: "true"
           skip-tag: "true"
 
-      - uses: actions/download-artifact@v3
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
-        with:
-          name: artifacts
-          path: artifacts
-
       - name: Create Release
-        run: gh release create "$TAG_NAME" --notes "$BODY" artifacts/index.js
+        run: gh release create "$TAG_NAME" --notes "$BODY"
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
         env:
           GH_TOKEN: ${{ github.token }}
           TAG_NAME: ${{ steps.changelog.outputs.tag }}
           BODY: ${{ steps.changelog.outputs.clean_changelog }}
-
-      - name: rsync deployments
-        uses: burnett01/rsync-deployments@5.2
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
-        with:
-          switches: -avzr --delete --exclude=".git"
-          path: artifacts/index.js
-          remote_path: /apps/sandro-cois/
-          remote_host: ${{ secrets.DEPLOY_HOST }}
-          remote_port: ${{ secrets.DEPLOY_PORT }}
-          remote_user: ${{ secrets.DEPLOY_USER }}
-          remote_key: ${{ secrets.DEPLOY_KEY }}
-
-      - name: Restart service
-        uses: appleboy/ssh-action@master
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
-        with:
-          host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          key: ${{ secrets.DEPLOY_KEY }}
-          port: ${{ secrets.DEPLOY_PORT }}
-          script: |
-            sudo /usr/bin/systemctl restart sandro-cois.service
