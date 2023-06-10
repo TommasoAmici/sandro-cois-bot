@@ -1,8 +1,36 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [3.0.1] - 2023-06-10
+
+- Removed `ioredis` from dependencies. It was only used by the migration script to
+  transfer data from Redis to SQLite. If you need to migrate from v2 to v3 check out the
+  instructions below.
+
+## [3.0.0] - 2023-06-10
+
+### BREAKING CHANGES
+
+- this bot is now written for the [bun](https://bun.sh) runtime and it
+  is not compatible with node anymore
+
+- all features that relied on Redis to store data have
+  been migrated to use SQLite. A migration script is provided and it can
+  be run with `bun src/scripts/redis_to_sqlite.ts`. It will transfer all
+  data from Redis to a SQLite database.
+  - First, `git checkout v3.0.0` as the Redis client library and the migration script are
+    only available in this version.
+  - `REDIS_PORT` can be set if your Redis instance is not listening on port 6379.
+  - `DATABASE_PATH` can be set to change the location of the SQLite database, it defaults
+    to `bot.sqlite` in the current directory.
+  - The functionality provided by Redisearch to perform full text searches
+    on quotes is now provided by the fts5 SQLite extension (<https://www.sqlite.org/fts5.html>).
+    Since not all SQLite installations include the extension, it is possible
+    to load it dynamically at runtime by providing the path to the extension
+    in the `SQLITE_EXTENSIONS` environment variable.
+    Example: `SQLITE_EXTENSIONS=/path/to/fts5.so`
 
 ## [2.2.0] - 2022-03-01
 
@@ -19,38 +47,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - improved regex for user's displeasure
-- _(footballData)_ if no team name override exists use given team name, list refs and dates
-- _(footballData)_ if no team name override exists use given team name, list refs and dates
-- _(deps)_ update dependency ioredis to v4.28.1
-- _(bestemmie)_ improved regex to detect bestemmie
-- regex are stateful
-- _(bestemmie)_ the regex needs to match the whole message
-- _(deps)_ update dependency ioredis to v4.28.2
-- _(deps)_ update dependency node-telegram-bot-api to v0.55.0
-- _(deps)_ update dependency node-telegram-bot-api to v0.56.0
-- _(deps)_ update dependency fuse.js to v6.5.0
-- _(deps)_ update dependency mathjs to v10.0.1
-- _(deps)_ update dependency fuse.js to v6.5.2
-- _(deps)_ update dependency fuse.js to v6.5.3
-- _(deps)_ update dependency node-html-parser to v5.2.0
-- _(deps)_ update dependency mathjs to v10.0.2
-- _(deps)_ update dependency ioredis to v4.28.3
-- _(deps)_ update dependency mathjs to v10.1.0
-- _(deps)_ update dependency axios to v0.25.0
-- _(deps)_ update dependency mathjs to v10.1.1
-- _(deps)_ update dependency ioredis to v4.28.4
-- _(deps)_ update dependency ioredis to v4.28.5
-- _(deps)_ update dependency axios to v0.26.0
-- _(deps)_ update dependency @vitalets/google-translate-api to v8
-- _(deps)_ update dependency mathjs to v10.2.0
-- only show competitions included in free tier
+- _(football data)_ if no team name override exists use given team name, list refs and dates
+- _(football data)_ only show competitions included in free tier
 - _(football data)_ improved right padding when printing standings
+- _(bestemmie)_ improved regex to detect bestemmie
+- _(bestemmie)_ the regex needs to match the whole message
 
 ## [2.1.1] - 2021-11-15
 
 ### Fixed
 
-- _(deps)_ downgraded lint-staged to v11
 - improved regex for user's displeasure
 
 ## [2.1.0] - 2021-11-15
@@ -58,13 +64,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - added plugins to measure pleasures and displeasures
-
-### Fixed
-
-- _(deps)_ update dependency axios to v0.24.0
-- _(deps)_ update dependency node-html-parser to v5.1.0
-- _(deps)_ update dependency mathjs to v9.5.2
-- _(deps)_ update dependency mathjs to v10
 
 ## [2.0.2] - 2021-10-14
 
@@ -80,16 +79,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - couldn’t set gifs anymore because of conflict with gotw count
 - spongebob plugin wouldn’t work for uppercase text
 - would only return a subset of users/quotes
-- _(deps)_ removed unused redis
 - stats wouldn't return all users in a chat
-- _(deps)_ update dependency node-html-parser to v4.1.5
-- _(deps)_ update dependency mathjs to v9.5.0
-- _(deps)_ update dependency ioredis to v4.27.10
-- _(deps)_ update dependency node-html-parser to v5
-- _(deps)_ update dependency ioredis to v4.27.11
-- _(deps)_ update dependency typescript to v4.4.4
-- _(deps)_ update dependency mathjs to v9.5.1
-- _(deps)_ update dependency ioredis to v4.28.0
-- _(deps)_ update dependency axios to v0.23.0
-- added types for AxiosResponses
 - _(giphy)_ if no mp4 exists on original image, send gif
