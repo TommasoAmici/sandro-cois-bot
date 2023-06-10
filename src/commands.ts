@@ -6,7 +6,6 @@ import { amoreMerdaComposer } from "@/plugins/amoreMerda";
 import { anyGood } from "@/plugins/anyGood";
 import { bestemmieComposer } from "@/plugins/bestemmie";
 import { calculator } from "@/plugins/calc";
-import calciomercato from "@/plugins/calciomercato";
 import { randomChant } from "@/plugins/chants";
 import { coronavirusGago, coronavirusPercent } from "@/plugins/coronavirus";
 import { cursive, cursiveInReply } from "@/plugins/cursive";
@@ -35,6 +34,7 @@ import { treccani } from "@/plugins/treccani";
 import { ultimouomo } from "@/plugins/ultimouomo";
 import { weather } from "@/plugins/weather";
 import { what } from "@/plugins/what";
+import { footballNews } from "./plugins/calciomercato";
 
 export function initBot(bot: Bot) {
   bot.use(statsComposer);
@@ -103,7 +103,7 @@ export function initBot(bot: Bot) {
 
   bot.hears(
     /^[/!](calciomercato|cm)(?:@\w+)?$/i,
-    middlewareFactory(calciomercato),
+    middlewareFactory(footballNews),
   );
   bot.hears(/^[/!]nazi(?:@\w+)?$/i, middlewareFactory(naziMods));
 

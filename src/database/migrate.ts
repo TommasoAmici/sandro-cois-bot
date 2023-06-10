@@ -16,22 +16,20 @@ export async function migrate(db: Database) {
     );
   `);
 
-  const currentMigrationQuery = db.prepare(
-    "SELECT name FROM migrations ORDER BY created_at DESC LIMIT 1",
+  const currentMigrationQuery = db.prepare<{ name: string }, []>(
+    "SELECT name FROM migrations",
   );
-  const currentMigration = currentMigrationQuery.get() as null | {
-    name: string;
-  };
+  const _appliedMigrations = currentMigrationQuery.all();
+  const appliedMigrations = new Set(
+    _appliedMigrations.map((migration) => migration.name),
+  );
 
   const migrations = fs
     .readdirSync(path.join(import.meta.dir, "migrations"))
     .sort();
 
   for (const migration of migrations) {
-    if (
-      currentMigration &&
-      (currentMigration.name === migration || currentMigration.name > migration)
-    ) {
+    if (appliedMigrations.has(migration)) {
       console.log("\t%s: skipped", migration);
       continue;
     }
@@ -39,6 +37,7 @@ export async function migrate(db: Database) {
       path.join(import.meta.dir, "migrations", migration),
     ).text();
     const statements = sql.split(";");
+    db.run("BEGIN;");
     for (const statement of statements) {
       if (!statement.trim()) {
         continue;
@@ -46,6 +45,7 @@ export async function migrate(db: Database) {
       db.run(statement);
     }
     db.run("INSERT INTO migrations (name) VALUES (?)", [migration]);
+    db.run("COMMIT;");
     console.log("\t%s: applied", migration);
   }
 
