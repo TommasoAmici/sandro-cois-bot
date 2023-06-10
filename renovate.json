@@ -1,5 +1,6 @@
 {
   "extends": ["config:base", ":semanticCommitTypeAll(chore)"],
+  "enabled": false,
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch"],
