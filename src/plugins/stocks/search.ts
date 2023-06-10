@@ -22,7 +22,7 @@ const url = (ticker: string) =>
 
 const makeString = (globalQuote: StocksSearch[]) =>
   globalQuote
-    .map(g => `${g["1. symbol"]}, ${g["2. name"]}, ${g["4. region"]}`)
+    .map((g) => `${g["1. symbol"]}, ${g["2. name"]}, ${g["4. region"]}`)
     .join("\n");
 
 export default async (ctx: HearsContext<Context>) => {

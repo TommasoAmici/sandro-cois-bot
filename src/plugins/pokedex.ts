@@ -4,10 +4,25 @@ import { Context, HearsContext } from "grammy";
 
 const pokedex = new Pokedex();
 
-const makeCaption = (pokemon: any): string =>
+type Pokemon = {
+  id: string;
+  species_id: string;
+  height: string;
+  weight: string;
+  base_experience: string;
+  order: string;
+  is_default: string;
+  name: string;
+  sprites: {
+    normal: string;
+    animated: string;
+  };
+};
+
+const makeCaption = (pokemon: Pokemon): string =>
   `#${pokemon.id} ${toTitleCase(pokemon.name)}\nHeight: ${
-    pokemon.height / 10
-  } m\nWeight: ${pokemon.weight / 10} kg`;
+    parseInt(pokemon.height) / 10
+  } m\nWeight: ${parseInt(pokemon.weight) / 10} kg`;
 
 export const pokedexByName = async (ctx: HearsContext<Context>) => {
   const pokemon = pokedex.pokemon(ctx.match[1].toLowerCase());

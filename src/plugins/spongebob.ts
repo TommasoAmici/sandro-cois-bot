@@ -1,8 +1,8 @@
 import { Context, HearsContext } from "grammy";
 
 const _spongebob = (word: string) => {
-  let output = [];
-  for (let char of word) {
+  const output = [];
+  for (const char of word) {
     output.push(Math.random() > 0.5 ? char.toUpperCase() : char);
   }
   return output.join("");

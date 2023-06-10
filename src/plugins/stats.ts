@@ -32,8 +32,7 @@ async function statsCommand(ctx: HearsContext<Context>) {
     ORDER BY count DESC
   `);
   const rows = query.all(ctx.chat.id);
-  const text =
-    "STATS DELL'ERA SANDRO COIS" + "\n\n" + prettyPrintStanding(rows);
+  const text = `STATS DELL'ERA SANDRO COIS\n\n${prettyPrintStanding(rows)}`;
   await ctx.reply(text);
 }
 
@@ -50,8 +49,7 @@ async function setStatsCommand(ctx: HearsContext<Context>) {
     ORDER BY count DESC
   `);
   const rows = query.all({ $chat_id: ctx.chat.id });
-  const text =
-    "SET STATS DELL'ERA SANDRO COIS" + "\n\n" + prettyPrintStanding(rows);
+  const text = `SET STATS DELL'ERA SANDRO COIS\n\n${prettyPrintStanding(rows)}`;
   await ctx.reply(text);
 }
 

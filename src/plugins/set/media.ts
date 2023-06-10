@@ -229,7 +229,7 @@ export function listMediaCommand(mediaType: MediaType) {
       await ctx.reply(`No ${mediaType.label} set.`);
       return;
     }
-    const text = rows.map(row => row.key).join("\n");
+    const text = rows.map((row) => row.key).join("\n");
     await ctx.reply(text);
   };
 }

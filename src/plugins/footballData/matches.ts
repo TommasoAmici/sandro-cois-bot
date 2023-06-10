@@ -12,7 +12,7 @@ const getTeamName = (t: Team): string =>
   overrideTeamNames[t.id] ?? t.shortName ?? t.name;
 
 const longestTeamName = (matches: Match[], key: "homeTeam" | "awayTeam") =>
-  Math.max(...matches.map(m => getTeamName(m[key]).length));
+  Math.max(...matches.map((m) => getTeamName(m[key]).length));
 
 const formatTeam = (t: Team, pad = 11) => getTeamName(t).padEnd(pad, " ");
 
@@ -29,7 +29,7 @@ const makeMatchesString = async (
   const data: Matches = await res.json();
   const padHomeTeam = longestTeamName(data.matches, "homeTeam");
   const padAwayTeam = longestTeamName(data.matches, "awayTeam");
-  const matchesStrings = data.matches.map(m => {
+  const matchesStrings = data.matches.map((m) => {
     const homeTeam = formatTeam(m.homeTeam, padHomeTeam);
     const awayTeam = formatTeam(m.awayTeam, padAwayTeam);
     const homeTeamScore =
@@ -41,7 +41,7 @@ const makeMatchesString = async (
     const output = `\`${match} ${date}\``;
     if (referees) {
       const refs = m.referees
-        .map(r => `${r.name} ${refereeRoles[r.role] ?? r.role}`)
+        .map((r) => `${r.name} ${refereeRoles[r.role] ?? r.role}`)
         .join(", ");
       const refsString =
         refs !== "" ? `\n${randomRefereeEmoji()} Arbitri: ${refs}` : "";

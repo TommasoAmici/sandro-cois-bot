@@ -19,6 +19,7 @@ jobs:
 
       - run: bun install --ignore-scripts --no-progress
       - run: bun test:ci
+      - run: bun lint:check
       - run: bun typecheck
 
   release:

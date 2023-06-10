@@ -17,7 +17,7 @@ async function bestemmiatoriCommand(ctx: HearsContext<Context>) {
     ORDER BY count DESC
   `);
   const rows = query.all({ $chat_id: ctx.chat.id });
-  const text = "FERVIDI CREDENTI  📿🧎‍♂️" + "\n\n" + prettyPrintStanding(rows);
+  const text = `FERVIDI CREDENTI  📿🧎‍♂️\n\n${prettyPrintStanding(rows)}`;
   await ctx.reply(text);
 }
 

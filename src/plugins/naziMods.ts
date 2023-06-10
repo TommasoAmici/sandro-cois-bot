@@ -5,7 +5,7 @@ export const naziMods = async (ctx: HearsContext<Context>) => {
     const admins = await ctx.getChatAdministrators();
     const nazis =
       "Taking my mods for a walk ( ͡° ͜ʖ ͡°)╯╲___卐卐卐卐\n\n" +
-      admins.map(a => a.user.username).join("\n");
+      admins.map((a) => a.user.username).join("\n");
     await ctx.reply(nazis);
   } catch (error) {
     if (

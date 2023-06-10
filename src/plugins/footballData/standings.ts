@@ -11,10 +11,10 @@ const makeMatchesString = async (
   );
   const data: Standings = await res.json();
   const padEnd = data.standings[0].table
-    .map(t => overrideTeamNames[t.team.id] ?? t.team.name)
+    .map((t) => overrideTeamNames[t.team.id] ?? t.team.name)
     .sort((a, b) => b.length - a.length)[0].length;
   const standingsStrings = data.standings[0].table.map(
-    t =>
+    (t) =>
       `${String(t.position).padStart(2, " ")} ${(
         overrideTeamNames[t.team.id] ?? t.team.name
       ).padEnd(Math.max(15, padEnd), " ")} ${String(t.points).padStart(

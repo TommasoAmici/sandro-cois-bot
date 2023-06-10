@@ -23,13 +23,12 @@ const translationTable = [
 
 const convert = (msg: string) => {
   let convertedMessage = msg;
-  translationTable.forEach(
-    t =>
-      (convertedMessage = convertedMessage.replace(
-        t.find,
-        randomSequence(t.replace),
-      )),
-  );
+  for (const translation of translationTable) {
+    convertedMessage = convertedMessage.replace(
+      translation.find,
+      randomSequence(translation.replace),
+    );
+  }
   return convertedMessage;
 };
 

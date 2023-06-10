@@ -101,7 +101,7 @@ async function addQuoteCommand(ctx: HearsContext<Context>) {
 function addQuoteFromReplyCommand({ addDate = false }: { addDate: boolean }) {
   return async function (ctx: HearsContext<Context>) {
     const msgReply = ctx.msg?.reply_to_message;
-    if (msgReply && msgReply.text && msgReply.text.length !== 0) {
+    if (msgReply?.text && msgReply.text.length !== 0) {
       const author = msgReply.forward_from ?? msgReply.from;
       upsertUser(author);
       const authorID = author?.id ?? null;

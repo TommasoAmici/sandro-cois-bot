@@ -9,30 +9,21 @@ const url =
 const calcioMercato = async (ctx: HearsContext<Context>) => {
   const res = await fetch(url);
   const data = await res.text();
-
-  const article = randomChoice(
-    (parse(data).childNodes as any[]).filter(
-      (a: any) => a.tagName === "article",
-    ),
-  );
-  const item = article.querySelector(".news-item__extract").removeWhitespace();
-  const href = item.attributes.href;
-  const text = decode(item.childNodes[0].rawText);
+  const root = parse(data);
+  const articles = root.querySelectorAll("article");
+  const article = randomChoice(articles);
+  // TODO store the article in a database to avoid duplicates
+  const item = article
+    ?.querySelector(".news-item__extract")
+    ?.removeWhitespace();
+  const href = item?.attributes.href;
+  const text = decode(item?.childNodes[0].rawText);
   await ctx.reply(`${text}\n${href}`, {
     parse_mode: "HTML",
   });
 };
 
 const gazzettaURL = "https://searchapiservice2.gazzetta.it/api/section/calcio";
-
-interface Article {
-  image: string;
-  standFirst: string;
-  section: string[];
-  url: string;
-  headline: string;
-  [propsName: string]: string | string[];
-}
 
 const prepareString = (article: GazzettaArticle): string =>
   `*${article.headline}*\n${article.standFirst}\n\n${article.url}`;
@@ -50,6 +41,7 @@ const gazzetta = async (ctx: HearsContext<Context>) => {
 const providers = [gazzetta, calcioMercato];
 
 export default (ctx: HearsContext<Context>) => {
-  const provider = randomChoice(providers);
+  // const provider = randomChoice(providers);
+  const provider = calcioMercato;
   provider(ctx);
 };

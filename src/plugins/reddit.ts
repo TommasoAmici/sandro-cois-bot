@@ -31,13 +31,13 @@ interface RedditPost {
     approved_at_utc: null | string;
     subreddit: string;
     selftext: string;
-    user_reports: any[];
+    user_reports: unknown[];
     saved: boolean;
     mod_reason_title: null | string;
     gilded: number;
     clicked: boolean;
     title: string;
-    link_flair_richtext: any[];
+    link_flair_richtext: unknown[];
     subreddit_name_prefixed: `r/${string}`;
     hidden: boolean;
     pwls: number;

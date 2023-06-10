@@ -3,7 +3,7 @@ import { Context } from "grammy";
 export const toTitleCase = (str: string): string =>
   str.replace(
     /\w\S*/g,
-    txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(),
+    (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(),
   );
 
 export const paginateMessages = async (
@@ -23,7 +23,7 @@ export const paginateMessages = async (
   for (let i = 0; i < maxChars; i += 3000) {
     chunks.push(longMsg.substring(i, i + 3000));
   }
-  chunks.forEach(async chunk => {
+  chunks.forEach(async (chunk) => {
     await ctx.reply(chunk);
   });
 };

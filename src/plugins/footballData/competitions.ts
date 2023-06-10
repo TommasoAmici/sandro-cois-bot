@@ -14,8 +14,8 @@ export default async (ctx: HearsContext<Context>) => {
   } = await res.json();
   await ctx.reply(
     data.competitions
-      .filter(c => c.plan === "TIER_ONE")
-      .map(c => `${c.code} - ${c.name}`)
+      .filter((c) => c.plan === "TIER_ONE")
+      .map((c) => `${c.code} - ${c.name}`)
       .join("\n"),
     {
       parse_mode: "MarkdownV2",

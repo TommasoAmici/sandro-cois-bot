@@ -27,7 +27,7 @@ const choices = [
 ];
 
 const gago = (k: number): string => {
-  let elements = [];
+  const elements = [];
   for (let i = 0; i < k; i++) {
     elements.push(randomChoice(choices));
   }

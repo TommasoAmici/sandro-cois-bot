@@ -2,7 +2,7 @@ import { Context, HearsContext } from "grammy";
 import { parse } from "node-html-parser";
 import { randInt, randomChoice } from "./utils/random";
 
-const baseURL = `https://www.coridastadio.com/tifoseria/loadmore.asp`;
+const baseURL = "https://www.coridastadio.com/tifoseria/loadmore.asp";
 
 interface Chant {
   team: string;
@@ -31,7 +31,7 @@ const getChants = async (team: string, retries = 3): Promise<Chant[]> => {
   }
   const root = parse(text);
   const chantsEls = root.querySelectorAll(".coro");
-  const _chants = chantsEls.map(c => {
+  const _chants = chantsEls.map((c) => {
     return {
       team: c.querySelector("a.titolocoro")?.textContent,
       text: c

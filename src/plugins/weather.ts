@@ -2,6 +2,53 @@ import { Context, HearsContext } from "grammy";
 
 import cfg from "@/config";
 
+type WeatherResponse =
+  | {
+      cod: string;
+      message: string;
+    }
+  | {
+      coord: {
+        lon: number;
+        lat: number;
+      };
+      weather: {
+        id: number;
+        main: "Clear" | ({} & string);
+        description: "clear sky" | ({} & string);
+        icon: "01d" | ({} & string);
+      }[];
+      base: "stations" | ({} & string);
+      main: {
+        temp: number;
+        feels_like: number;
+        temp_min: number;
+        temp_max: number;
+        pressure: number;
+        humidity: number;
+      };
+      visibility: number;
+      wind: {
+        speed: number;
+        deg: number;
+      };
+      clouds: {
+        all: number;
+      };
+      dt: number;
+      sys: {
+        type: number;
+        id: number;
+        country: string;
+        sunrise: number;
+        sunset: number;
+      };
+      timezone: number;
+      id: number;
+      name: string;
+      cod: number;
+    };
+
 const kToC = (temp: number): string => (temp - 273.15).toFixed(1);
 
 const conditionsEmojis: Record<string, string> = {
@@ -39,9 +86,13 @@ export const weather = async (ctx: HearsContext<Context>) => {
 
   try {
     const response = await fetch(url);
-    const data = await response.json<any>();
+    const data = await response.json<WeatherResponse>();
 
-    if (!data.weather || data.weather.length === 0) {
+    if (
+      response.status === 404 ||
+      !("weather" in data) ||
+      data.weather.length === 0
+    ) {
       await ctx.reply(`Couldn't find the weather for ${query}`);
     } else {
       const conditionsEmoji = getEmoji(data.weather[0].main);

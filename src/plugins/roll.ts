@@ -15,9 +15,9 @@ export const roll = async (ctx: HearsContext<Context>) => {
   }
 
   let total = 0;
-  let throws = [];
+  const throws = [];
   for (let i = 0; i < count; i++) {
-    let val = randInt(1, sides);
+    const val = randInt(1, sides);
     total += val;
     throws.push(val);
   }

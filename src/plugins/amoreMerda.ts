@@ -132,8 +132,7 @@ async function summaryAmore(ctx: Context) {
     return;
   }
 
-  const message =
-    "CLASSIFICA DELL'AMORE 😍" + "\n\n" + prettyPrintStanding(rows);
+  const message = `CLASSIFICA DELL'AMORE 😍\n\n${prettyPrintStanding(rows)}`;
   await ctx.reply(message);
 }
 
@@ -163,8 +162,7 @@ async function summaryMerda(ctx: Context) {
     return;
   }
 
-  const message =
-    "CLASSIFICA DELLA MERDA 🤢" + "\n\n" + prettyPrintStanding(rows);
+  const message = `CLASSIFICA DELLA MERDA 🤢\n\n${prettyPrintStanding(rows)}`;
   await ctx.reply(message);
 }
 

@@ -92,7 +92,7 @@ export async function setListCommand(ctx: HearsContext<Context>) {
     throw new Error("keys is not an array");
   }
   const text = keys
-    .map(key => {
+    .map((key) => {
       if (
         typeof key === "object" &&
         key !== null &&

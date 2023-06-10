@@ -12,7 +12,18 @@ export const location = async (ctx: HearsContext<Context>): Promise<void> => {
   geocodingClient
     .forwardGeocode({ query: query, limit: 1 })
     .send()
-    .then(async (response: any) => {
+    .then(async (response: unknown) => {
+      if (
+        typeof response !== "object" ||
+        response === null ||
+        !("body" in response) ||
+        typeof response.body !== "object" ||
+        response.body === null ||
+        !("features" in response.body) ||
+        !Array.isArray(response.body.features)
+      ) {
+        return;
+      }
       if (response.body.features[0] !== undefined) {
         const coord = response.body.features[0].center;
         await ctx.replyWithPhoto(makeMapboxScreenshot(coord));

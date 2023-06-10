@@ -6,12 +6,9 @@
     "test": "bun test --watch",
     "test:ci": "bun test",
     "typecheck": "tsc",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "postinstall": "husky install"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,md,html,css,yml,json}": "prettier --write"
+    "format": "rome format --write .",
+    "lint": "rome check --apply .",
+    "lint:check": "rome ci ."
   },
   "dependencies": {
     "@grammyjs/runner": "2.0.3",
@@ -29,9 +26,7 @@
   "devDependencies": {
     "@types/diacritics": "1.3.1",
     "bun-types": "0.6.8",
-    "husky": "8.0.3",
-    "lint-staged": "13.2.2",
-    "prettier": "2.8.8",
+    "rome": "12.1.3",
     "typescript": "5.1.3"
   }
 }

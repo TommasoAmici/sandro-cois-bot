@@ -16,7 +16,7 @@ export async function twitterPreview(ctx: Context) {
     return;
   }
 
-  ctx.entities().forEach(e => {
+  ctx.entities().forEach((e) => {
     if (e.type === "url") {
       const url = new URL(e.text);
       sendTweet(url);

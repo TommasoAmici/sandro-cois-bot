@@ -8,10 +8,10 @@ function gtranslate(to: string, from = "it") {
       to: to,
       from: from,
     })
-      .then(res => {
+      .then((res) => {
         ctx.reply(res.text);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
   };
