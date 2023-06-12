@@ -166,7 +166,11 @@ function searchQuotes(query: string, chatID: number, limit = 1) {
       );`,
   );
   // Remove special characters from query to prevent sqlite errors
-  const row = searchQuery.all(query.replaceAll(/[!@#\$]/gi, ""), chatID, limit);
+  const row = searchQuery.all(
+    query.replaceAll(/[!@#?\$]/gi, ""),
+    chatID,
+    limit,
+  );
   return row;
 }
 
