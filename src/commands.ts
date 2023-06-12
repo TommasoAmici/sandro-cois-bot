@@ -37,6 +37,11 @@ import { what } from "@/plugins/what";
 import { footballNews } from "./plugins/calciomercato";
 
 export function initBot(bot: Bot) {
+  bot.errorBoundary(async (err, next) => {
+    console.error(err);
+    await next();
+  });
+
   bot.use(statsComposer);
   bot.use(setsComposer);
   bot.use(quoteComposer);
