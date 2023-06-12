@@ -197,29 +197,30 @@ function deleteQuote(rowid: number) {
 }
 
 async function removeQuote(ctx: HearsContext<Context>) {
+  let query = ctx.match[1];
   if (
     ctx.msg?.reply_to_message?.text &&
     ctx.msg.reply_to_message.text.length !== 0
   ) {
-    const query = ctx.msg.reply_to_message.text;
-    const rows = searchQuotes(query, ctx.chat.id, 5);
-    if (rows.length === 0) {
-      await ctx.reply("No quotes found");
-    } else if (rows.length === 1) {
-      deleteQuote(rows[0].rowid);
-      await ctx.reply("Quote removed!");
-    } else {
-      await ctx.reply(
-        "I found more than one quote, which one do you want to remove?",
-      );
-      for (const row of rows) {
-        await ctx.reply(formatQuote(row), {
-          reply_markup: new InlineKeyboard().text(
-            "Delete",
-            `unquote:${row.rowid}`,
-          ),
-        });
-      }
+    query = ctx.msg.reply_to_message.text;
+  }
+  const rows = searchQuotes(query, ctx.chat.id, 5);
+  if (rows.length === 0) {
+    await ctx.reply("No quotes found");
+  } else if (rows.length === 1) {
+    deleteQuote(rows[0].rowid);
+    await ctx.reply("Quote removed!");
+  } else {
+    await ctx.reply(
+      "I found more than one quote, which one do you want to remove?",
+    );
+    for (const row of rows) {
+      await ctx.reply(formatQuote(row), {
+        reply_markup: new InlineKeyboard().text(
+          "Delete",
+          `unquote:${row.rowid}`,
+        ),
+      });
     }
   }
 }
@@ -258,7 +259,10 @@ quoteComposer.callbackQuery(
   /unquote:(\d+)/,
   middlewareFactory(removeQuoteCallback),
 );
-quoteComposer.hears(/^[/!]unquote(?:@\w+)?$/i, middlewareFactory(removeQuote));
+quoteComposer.hears(
+  /^[/!]unquote(?:@\w+)? (.+)$/i,
+  middlewareFactory(removeQuote),
+);
 quoteComposer.hears(
   /^[/!]quote(?:@\w+)? (.+)/i,
   middlewareFactory(quoteSearchCommand),
