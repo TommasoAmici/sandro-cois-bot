@@ -1,19 +1,14 @@
+import { translate } from "@/lib/translate";
 import { middlewareFactory } from "@/middleware";
-import { translate } from "@vitalets/google-translate-api";
 import { Composer, Context, HearsContext } from "grammy";
 
 function gtranslate(to: string, from = "it") {
-  return function (ctx: HearsContext<Context>) {
-    translate(ctx.match[1], {
+  return async function (ctx: HearsContext<Context>) {
+    const text = await translate(ctx.match[1], {
       to: to,
       from: from,
-    })
-      .then((res) => {
-        ctx.reply(res.text);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    });
+    await ctx.reply(text);
   };
 }
 
