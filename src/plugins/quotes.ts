@@ -149,6 +149,8 @@ async function randomQuoteCommand(ctx: HearsContext<Context>) {
   const row = randomQuoteQuery.get(ctx.chat?.id);
   if (row) {
     await ctx.reply(formatQuote(row));
+  } else {
+    await ctx.reply("No quotes found");
   }
 }
 
