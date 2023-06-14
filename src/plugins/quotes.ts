@@ -1,4 +1,5 @@
 import { db } from "@/database/database";
+import { cleanStringForFTS5Match } from "@/lib/sqlite";
 import { middlewareFactory } from "@/middleware";
 import { upsertUser } from "@/user";
 import { escapeHTML } from "bun";
@@ -168,11 +169,11 @@ function searchQuotes(query: string, chatID: number, limit = 1) {
       );`,
   );
   // Remove special characters from query to prevent sqlite errors
-  const row = searchQuery.all(
-    query.replaceAll(/[!@#?,\$\.'"\\\|\[\]\(\)\{\}\+\-]/gi, ""),
-    chatID,
-    limit,
-  );
+  const cleanQuery = cleanStringForFTS5Match(query);
+  if (cleanQuery.trim() === "") {
+    return [];
+  }
+  const row = searchQuery.all(cleanQuery, chatID, limit);
   return row;
 }
 
