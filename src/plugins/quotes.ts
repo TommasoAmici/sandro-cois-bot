@@ -261,6 +261,7 @@ quoteComposer.callbackQuery(
   /unquote:(\d+)/,
   middlewareFactory(removeQuoteCallback),
 );
+quoteComposer.hears(/^[/!]unquote(?:@\w+)?$/i, middlewareFactory(removeQuote));
 quoteComposer.hears(
   /^[/!]unquote(?:@\w+)? (.+)$/i,
   middlewareFactory(removeQuote),
