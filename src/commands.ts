@@ -63,7 +63,7 @@ export function initBot(bot: Bot) {
     middlewareFactory(telegramPremium),
   );
   bot.hears(/^[/!]weather(?:@\w+)? (.+)/i, middlewareFactory(weather));
-  bot.hears(/^[/!]loc(?:@\w+)? (\w+)/i, middlewareFactory(location));
+  bot.hears(/^[/!]loc(?:@\w+)? (.+)/i, middlewareFactory(location));
   bot.hears(/^[/!]treccani(?:@\w+)? (\w+)/i, middlewareFactory(treccani));
 
   bot.hears(/^[/!]kedde$/i, middlewareFactory(keddeInReply));
