@@ -42,3 +42,15 @@ gtranslateComposer.hears(
   /^[/!]napoletano(?:@\w+)? ([\s\S]*)/i,
   middlewareFactory(gtranslate("sw")),
 );
+gtranslateComposer.hears(
+  /^[/!]arabo(?:@\w+)? ([\s\S]*)/i,
+  middlewareFactory(gtranslate("ar")),
+);
+gtranslateComposer.hears(
+  /^[/!]svedese(?:@\w+)? ([\s\S]*)/i,
+  middlewareFactory(gtranslate("sv")),
+);
+gtranslateComposer.hears(
+  /^[/!]yiddish(?:@\w+)? ([\s\S]*)/i,
+  middlewareFactory(gtranslate("yi")),
+);
