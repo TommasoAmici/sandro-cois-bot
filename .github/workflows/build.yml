@@ -15,7 +15,7 @@ jobs:
 
       - uses: oven-sh/setup-bun@v1
         with:
-          bun-version: 0.6.9
+          bun-version: 0.6.11
 
       - run: bun install --ignore-scripts --no-progress
       - run: bun test:ci
@@ -51,7 +51,6 @@ jobs:
 
       - name: rsync deployments
         uses: burnett01/rsync-deployments@5.2
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
         with:
           switches: -avzr --delete --exclude=".git"
           path: deploy.sh
@@ -63,7 +62,6 @@ jobs:
 
       - name: Restart service
         uses: appleboy/ssh-action@master
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
         with:
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
