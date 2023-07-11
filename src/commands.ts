@@ -35,6 +35,7 @@ import { ultimouomo } from "@/plugins/ultimouomo";
 import { weather } from "@/plugins/weather";
 import { what } from "@/plugins/what";
 import { footballNews } from "./plugins/calciomercato";
+import { stickerifyComposer } from "./plugins/stickerify";
 
 export function initBot(bot: Bot) {
   bot.errorBoundary(async (err, next) => {
@@ -49,6 +50,7 @@ export function initBot(bot: Bot) {
   bot.use(footballDataComposer);
   bot.use(gtranslateComposer);
   bot.use(amoreMerdaComposer);
+  bot.use(stickerifyComposer);
 
   // COMMANDS
 
