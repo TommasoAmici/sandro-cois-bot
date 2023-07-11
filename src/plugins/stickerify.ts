@@ -1,4 +1,5 @@
 import config from "@/config.ts";
+import { db } from "@/database/database";
 import { randomEmoji } from "@/lib/emojis";
 import { middlewareFactory } from "@/middleware";
 import { getFile } from "@/telegram";
@@ -9,12 +10,6 @@ import {
   InlineKeyboard,
 } from "grammy";
 import { PhotoSize } from "grammy/types";
-
-/**
- * In memory map to retrieve sticker URLs from callback query data
- * since Telegram has a limit of 64 bytes for callback query data
- */
-const stickerMap = new Map<string, string>();
 
 class Stickerify {
   #imageBlob: Blob;
@@ -68,8 +63,12 @@ export function generateStickerSetName(
 }
 
 async function saveStickerCallback(ctx: CallbackQueryContext<Context>) {
-  const stickerFileURL = stickerMap.get(ctx.match[1]);
-  if (stickerFileURL === undefined) {
+  const stickerFileURL = db
+    .query<{ url: string }, [string]>(
+      "SELECT url FROM stickers_queue WHERE rowid = ? LIMIT 1",
+    )
+    .get(ctx.match[1]);
+  if (stickerFileURL === null) {
     await ctx.reply("Sticker not found");
     return;
   }
@@ -88,7 +87,7 @@ async function saveStickerCallback(ctx: CallbackQueryContext<Context>) {
     ctx.me.username,
   );
   const sticker = {
-    sticker: stickerFileURL,
+    sticker: stickerFileURL.url,
     emoji_list: [randomEmoji()],
   };
 
@@ -116,8 +115,6 @@ async function saveStickerCallback(ctx: CallbackQueryContext<Context>) {
       reply_to_message_id: ctx.message?.message_id,
     });
   } else {
-    stickerMap.delete(ctx.match[1]);
-
     await ctx.editMessageText("Saved");
     await ctx.reply(`Sticker saved in t.me/addstickers/${stickerSetName}`, {
       reply_to_message_id: ctx.message?.message_id,
@@ -163,10 +160,13 @@ async function stickerifyCommand(ctx: Context) {
       return;
     }
 
+    const query = db.query<{ rowid: number }, string>(
+      "INSERT INTO stickers_queue (url) VALUES (?) RETURNING rowid",
+    );
     for (const sticker of stickers) {
       const stk = await ctx.replyWithSticker(sticker);
-      const stickerID = stickerMap.size + 1;
-      stickerMap.set(stickerID.toString(), sticker);
+      const row = query.get(stk.sticker.file_id);
+      const stickerID = row?.rowid;
       await ctx.reply("Save this sticker?", {
         reply_markup: new InlineKeyboard().text("Save", `savestk:${stickerID}`),
         reply_to_message_id: stk.message_id,

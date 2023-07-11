@@ -1,0 +1,4 @@
+CREATE TABLE stickers_queue (
+  url TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
