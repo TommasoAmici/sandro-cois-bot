@@ -53,13 +53,20 @@ export function generateStickerSetName(
   username: string,
   botName: string,
 ) {
-  const truncatedChatID = chatID
+  // chat IDs can be negative and `-` is not valid in sticker set names
+  const chatIDPrefix = chatID > 0 ? "" : "n";
+  const truncatedChatID = Math.abs(chatID)
     .toString()
     .slice(
       0,
-      64 - username.length - "_".length - "_by_".length - botName.length,
+      64 -
+        username.length -
+        "_".length -
+        chatIDPrefix.length -
+        "_by_".length -
+        botName.length,
     );
-  return `${username}_${truncatedChatID}_by_${botName}`;
+  return `${username}_${chatIDPrefix}${truncatedChatID}_by_${botName}`;
 }
 
 async function saveStickerCallback(ctx: CallbackQueryContext<Context>) {
