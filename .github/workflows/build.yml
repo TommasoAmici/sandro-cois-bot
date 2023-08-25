@@ -103,7 +103,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     needs:
-      - build
+      - docker
     steps:
       - uses: actions/checkout@v3
 
