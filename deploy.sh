@@ -1,25 +1,27 @@
 #!/bin/sh
 set -e
 
-if ! type git >/dev/null; then
-  printf "git is not installed.\n"
+PROJECT=sandro-cois-bot
+BASE_PATH="/apps/$PROJECT"
+# Pull image
+cd "$BASE_PATH" || exit 1
+if [ -f ".env" ]; then
+  . "./.env"
+else
+  echo "No .env file found"
   exit 1
 fi
 
-if ! type bun >/dev/null; then
-  printf "bun is not installed.\n"
-  exit 2
-fi
+IMAGE="tommasoamici/$PROJECT:latest"
 
-if [ ! -d "/apps/sandro-cois/source" ]; then
-  printf "Cloning repository...\n"
-  git clone https://github.com/TommasoAmici/sandro-cois-bot.git /apps/sandro-cois/source
-fi
+docker pull "$IMAGE"
 
-cd /apps/sandro-cois/source
-git checkout main
-git pull
+# Stop and restart container
+docker stop "$PROJECT"
+docker rm "$PROJECT"
 
-bun install --production --ignore-scripts
-
-sudo /usr/bin/systemctl restart sandro-cois.service
+# run application
+docker run --env-file "$BASE_PATH/.env" \
+  -v "$BASE_PATH/data":/data \
+  --restart=always -d --name "$PROJECT" \
+  --log-driver journald --log-opt tag=$PROJECT "$IMAGE"
