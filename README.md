@@ -27,29 +27,6 @@ bun install --production --ignore-scripts
 bun src/index.ts
 ```
 
-If you run into a SQL error while applying migrations, it's very likely that
-your SQLite installation does not include the fts5 extension. See the
-[SQLite fts5 extension](#sqlite-fts5-extension) for details on how to build and
-load the extension.
-
-### SQLite fts5 extension
-
-The [SQLite fts5 extension](https://www.sqlite.org/fts5.html) is required to
-perform full text searches on quotes. Since not all SQLite installations include
-this extension, it is possible to load it dynamically at runtime by providing
-the path to the extension in the `SQLITE_EXTENSIONS` environment variable.
-
-You can build the extension from source by following these instructions:
-
-- [How To Compile SQLite](https://www.sqlite.org/howtocompile.html)
-- [Compiling A Loadable Extension](https://www.sqlite.org/loadext.html#compiling_a_loadable_extension)
-
-On Linux, you can build the extension with the following command:
-
-```sh
-gcc -g -fPIC -shared fts5.c -o fts5.so
-```
-
 ### Available plugins
 
 All commands respond to both ! and /, and they are case insensitive. All entries
@@ -102,7 +79,3 @@ in the database are separated by chat id.
 - `/spagnolo [x]` translates into Spanish.
 - `/napoletano [x]` translates into Neapolitan.
 - `/settitle [x]` changes chat title to [x].
-
-### TODO
-
-- Markov plugin

@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file. This
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.1] - 2023-08-25
+
+- Bun's SQLite now includes the [fts5 extension by default](https://github.com/oven-sh/bun/pull/3431),
+so we don't need to load it dynamically anymore.
+
 ## [3.0.1] - 2023-06-10
 
 - Removed `ioredis` from dependencies. It was only used by the migration script
