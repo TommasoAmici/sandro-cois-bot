@@ -79,3 +79,17 @@ in the database are separated by chat id.
 - `/spagnolo [x]` translates into Spanish.
 - `/napoletano [x]` translates into Neapolitan.
 - `/settitle [x]` changes chat title to [x].
+
+#### `/stickerify`
+
+The `/stickerify` command can segment images and automatically create stickers.
+It requires a running service to segment images. I wrote a very
+[simple one in Python](https://github.com/TommasoAmici/http-segmentation),
+but the API is simple enough that you can write your own if you want.
+
+You'll need to set the following environment variables:
+
+- `HTTP_SEGMENTATION_URL`: the URL of the segmentation service
+- `HTTP_SEGMENTATION_AUTH`: the value of the `Authorization` header to send to
+  the segmentation service, it currently only supports basic auth and it does not
+  require setting the `Basic` prefix

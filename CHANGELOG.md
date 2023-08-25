@@ -8,6 +8,12 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Bun's SQLite now includes the [fts5 extension by default](https://github.com/oven-sh/bun/pull/3431),
 so we don't need to load it dynamically anymore.
 
+## [3.5.0] - 2023-07-11
+
+- Added `/stickerify` command to segment images and create stickers. It requires
+a running service to segment images. I wrote a very [simple one in Python](https://github.com/TommasoAmici/http-segmentation),
+but the API is simple enough that you can write your own if you want.
+
 ## [3.0.1] - 2023-06-10
 
 - Removed `ioredis` from dependencies. It was only used by the migration script
