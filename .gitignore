@@ -9,8 +9,7 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
-
+Icon
 
 # Thumbnails
 ._*
@@ -39,6 +38,6 @@ Temporary Items
 !.vscode/extensions.json
 *.code-workspace
 
-data/bot.sqlite
+bot.sqlite
 node_modules/
 *.env
