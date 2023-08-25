@@ -49,6 +49,14 @@ jobs:
           TAG_NAME: ${{ steps.changelog.outputs.tag }}
           BODY: ${{ steps.changelog.outputs.clean_changelog }}
 
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs:
+      - build
+    steps:
+      - uses: actions/checkout@v3
+
       - name: rsync deployments
         uses: burnett01/rsync-deployments@5.2
         with:
