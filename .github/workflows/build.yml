@@ -15,12 +15,12 @@ jobs:
 
       - uses: oven-sh/setup-bun@v1
         with:
-          bun-version: 1.0.2
+          bun-version: 1.0.3
 
       - run: bun install --ignore-scripts --no-progress
       - run: bun test:ci
       - run: bun lint:check
-      # - run: bun typecheck
+      - run: bun typecheck
 
   release:
     runs-on: ubuntu-latest
