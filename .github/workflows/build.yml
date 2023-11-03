@@ -15,7 +15,7 @@ jobs:
 
       - uses: oven-sh/setup-bun@v1
         with:
-          bun-version: 1.0.7
+          bun-version: 1.0.8
 
       - run: bun install --ignore-scripts --no-progress
       - run: bun test:ci
