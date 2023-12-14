@@ -14,16 +14,12 @@ export const paginateMessages = async (
     return;
   }
 
-  const chunks: string[] = [];
   if (longMsg.length > 3000) {
     await ctx.reply("Dio porco ti ammazzo!");
     return;
   }
   const maxChars = longMsg.length;
   for (let i = 0; i < maxChars; i += 3000) {
-    chunks.push(longMsg.substring(i, i + 3000));
+    await ctx.reply(longMsg.substring(i, i + 3000));
   }
-  chunks.forEach(async (chunk) => {
-    await ctx.reply(chunk);
-  });
 };

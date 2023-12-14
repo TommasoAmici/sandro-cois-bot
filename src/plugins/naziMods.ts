@@ -3,9 +3,8 @@ import { Context, HearsContext } from "grammy";
 export const naziMods = async (ctx: HearsContext<Context>) => {
   try {
     const admins = await ctx.getChatAdministrators();
-    const nazis =
-      "Taking my mods for a walk ( ͡° ͜ʖ ͡°)╯╲___卐卐卐卐\n\n" +
-      admins.map((a) => a.user.username).join("\n");
+    const usernames = admins.map((a) => a.user.username).join("\n");
+    const nazis = `Taking my mods for a walk ( ͡° ͜ʖ ͡°)╯╲___卐卐卐卐\n\n${usernames}`;
     await ctx.reply(nazis);
   } catch (error) {
     if (

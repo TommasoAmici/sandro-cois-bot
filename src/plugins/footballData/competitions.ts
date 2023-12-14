@@ -9,7 +9,7 @@ export default async (ctx: HearsContext<Context>) => {
   const res = await apiGet("/competitions/");
   const data: {
     count: number;
-    filters: Object;
+    filters: unknown;
     competitions: Competition[];
   } = await res.json();
   await ctx.reply(

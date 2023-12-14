@@ -29,5 +29,5 @@ export default async (ctx: HearsContext<Context>) => {
   const ticker = ctx.match[2].toUpperCase();
   const res = await fetch(url(ticker));
   const data: AlphaVantageResponse = await res.json();
-  await ctx.reply(makeString(data["bestMatches"]));
+  await ctx.reply(makeString(data.bestMatches));
 };

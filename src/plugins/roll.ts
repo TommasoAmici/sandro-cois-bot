@@ -9,7 +9,7 @@ export const roll = async (ctx: HearsContext<Context>) => {
   let sides = parseInt(ctx.match[2]);
   if (sides >= Number.MAX_SAFE_INTEGER) sides = Number.MAX_SAFE_INTEGER;
 
-  if (isNaN(sides)) {
+  if (Number.isNaN(sides)) {
     sides = count;
     count = 1;
   }

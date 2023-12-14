@@ -21,7 +21,7 @@ import { fileIDFromMessage } from "./getFileId";
  * with the media.
  */
 export function setMediaCommand(media: MediaType) {
-  return async function (ctx: HearsContext<Context>) {
+  return async (ctx: HearsContext<Context>) => {
     const setQuery = db.query<
       null,
       {
@@ -61,7 +61,7 @@ export function setMediaCommand(media: MediaType) {
 }
 
 export function setOnMediaReceived(regex: RegExp, media: MediaType) {
-  return async function (ctx: Context) {
+  return async (ctx: Context) => {
     if (ctx.chat?.id && ctx.msg?.reply_to_message?.text) {
       let key: string | undefined;
       try {
@@ -99,7 +99,7 @@ export function setOnMediaReceived(regex: RegExp, media: MediaType) {
 }
 
 export function unsetMediaCommand(media: MediaType) {
-  return async function (ctx: HearsContext<Context>) {
+  return async (ctx: HearsContext<Context>) => {
     const key = ctx.match[1].toLowerCase();
     const delQuery = db.query<
       { rowid: number },
@@ -170,7 +170,7 @@ async function handleGifs(
 }
 
 export function getMediaCommand(mediaType: MediaType) {
-  return async function (ctx: HearsContext<Context>) {
+  return async (ctx: HearsContext<Context>) => {
     const query = db.query<
       { value: string },
       {
@@ -213,7 +213,7 @@ export function getMediaCommand(mediaType: MediaType) {
  * Lists all keys for the given media type.
  */
 export function listMediaCommand(mediaType: MediaType) {
-  return async function (ctx: HearsContext<Context>) {
+  return async (ctx: HearsContext<Context>) => {
     const query = db.query<
       { key: string },
       {

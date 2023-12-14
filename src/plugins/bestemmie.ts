@@ -66,7 +66,7 @@ async function myBestemmieCommand(ctx: HearsContext<Context>) {
   const rows = query.all(ctx.chat.id, ctx.from.id);
   const name = user?.username ?? user?.first_name ?? "";
   const header = `LE BESTEMMIE DI ${name} 📿🧎‍♂️`;
-  const message = header + "\n\n" + prettyPrintStanding(rows);
+  const message = `${header}\n\n${prettyPrintStanding(rows)}`;
   await ctx.reply(message);
 }
 

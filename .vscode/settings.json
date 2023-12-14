@@ -4,6 +4,6 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "editor.formatOnSave": true,
   "[typescript]": {
-    "editor.defaultFormatter": "rome.rome",
-  },
+    "editor.defaultFormatter": "biomejs.biome"
+  }
 }

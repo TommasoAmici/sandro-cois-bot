@@ -3,7 +3,7 @@ import { middlewareFactory } from "@/middleware";
 import { Composer, Context, HearsContext } from "grammy";
 
 function gtranslate(to: string, from = "it") {
-  return async function (ctx: HearsContext<Context>) {
+  return async (ctx: HearsContext<Context>) => {
     const text = await translate(ctx.match[1], {
       to: to,
       from: from,

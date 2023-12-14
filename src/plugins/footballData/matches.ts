@@ -46,9 +46,8 @@ const makeMatchesString = async (
       const refsString =
         refs !== "" ? `\n${randomRefereeEmoji()} Arbitri: ${refs}` : "";
       return `${output}${refsString}\n`;
-    } else {
-      return output;
     }
+    return output;
   });
   return `*Giornata ${currentMatchday}*\n\n${matchesStrings.join("\n")}`;
 };

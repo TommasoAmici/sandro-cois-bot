@@ -38,4 +38,4 @@ export const mediaTypes = {
   },
 };
 
-export type MediaType = typeof mediaTypes[keyof typeof mediaTypes];
+export type MediaType = (typeof mediaTypes)[keyof typeof mediaTypes];
