@@ -82,6 +82,10 @@ export const getImage = async (
 };
 
 export default (ctx: HearsContext<Context>) => {
+  if (ctx.msg.from?.username === "aridatecezeman") {
+    ctx.reply("Zitto coglione!")
+    return;
+  }
   let query = ctx.match[1];
 
   if (query === undefined && ctx.msg.reply_to_message?.text) {
