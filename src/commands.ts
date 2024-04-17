@@ -35,6 +35,7 @@ import { ultimouomo } from "@/plugins/ultimouomo";
 import { weather } from "@/plugins/weather";
 import { what } from "@/plugins/what";
 import { footballNews } from "./plugins/calciomercato";
+import { debugMessage } from "./plugins/debug";
 import { stickerifyComposer } from "./plugins/stickerify";
 import { twitterComposer } from "./plugins/twitterPreview";
 
@@ -55,6 +56,7 @@ export function initBot(bot: Bot) {
   bot.use(stickerifyComposer);
 
   // COMMANDS
+  bot.hears(/^[/!]debug/i, middlewareFactory(debugMessage));
 
   // IMAGES
   bot.hears(/^[/!][iì](?:@\w+)? (.+)/i, middlewareFactory(getImage));
