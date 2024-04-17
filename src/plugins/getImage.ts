@@ -82,7 +82,7 @@ export const getImage = async (
 };
 
 export default (ctx: HearsContext<Context>) => {
-  if (ctx.msg.from?.username === "aridatecezeman") {
+  if (ctx.msg.from?.id === 58057732) {
     ctx.reply("SMETTELKTE DI SPAMMARE DIOCAN E");
     return;
   }
