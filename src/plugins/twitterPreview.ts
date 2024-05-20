@@ -1,12 +1,14 @@
 import { middlewareFactory } from "@/middleware";
 import { Composer, Context } from "grammy";
 
+const URLS_TO_MAP = new Set(["twitter.com", "mobile.twitter.com", "x.com"]);
+
 /**
  * Removes query parameters from twitter.com URLs to fix the preview in telegram
  */
 async function twitterPreview(ctx: Context) {
   async function sendTweet(url: URL) {
-    if (url.host === "twitter.com") {
+    if (URLS_TO_MAP.has(url.host)) {
       url.search = "";
       url.hostname = "vxtwitter.com";
       await ctx.reply(url.toString());
