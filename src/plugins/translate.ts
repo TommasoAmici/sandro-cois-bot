@@ -43,6 +43,10 @@ gtranslateComposer.hears(
   middlewareFactory(gtranslate("sw")),
 );
 gtranslateComposer.hears(
+  /^[/!]veneto(?:@\w+)? ([\s\S]*)/i,
+  middlewareFactory(gtranslate("vec")),
+);
+gtranslateComposer.hears(
   /^[/!]arabo(?:@\w+)? ([\s\S]*)/i,
   middlewareFactory(gtranslate("ar")),
 );
