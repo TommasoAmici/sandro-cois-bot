@@ -2,16 +2,26 @@ import { Context, HearsContext } from "grammy";
 
 const translationTable = [
   { find: /lt/gi, replace: "rd" },
-  { find: /(ca|ci|co)/gi, replace: "ghe" },
-  { find: /(ia|io|iu)/gi, replace: "ie" },
-  { find: /(ua|uo|ui)/gi, replace: "ue" },
-  { find: /^(a|i|o)([b-df-hj-np-tv-z])/gi, replace: "e$2" },
-  { find: /([b-df-hj-np-tv-z])(a|i|o)$/gi, replace: "$1e" },
-  { find: /([b-df-hj-np-tv-z])(a|i|o)([b-df-hj-np-tv-z])/gi, replace: "$1e$3" },
   { find: /t/gi, replace: "d" },
+  { find: /(ca|ci|co)/gi, replace: "ghe" },
   { find: /c/gi, replace: "g" },
   { find: /p/gi, replace: "b" },
   { find: /q/gi, replace: "g" },
+  { find: /(ai|oi|ui)/gi, replace: "ei" },
+  { find: /(ia|io|iu)/gi, replace: "ie" },
+  { find: /(ua|uo|ui)/gi, replace: "ue" },
+  { find: /([b-df-hj-np-tv-z])(a|i|o|u)\b/gi, replace: "$1e" },
+  { find: /([b-df-hj-np-tv-z])(à|ì|ò|ù)\b/gi, replace: "$1è" },
+  { find: /\b(a|i|o|u)([b-df-hj-np-tv-z])/gi, replace: "e$2" },
+  { find: /\b(à|ì|ò|ù)([b-df-hj-np-tv-z])/gi, replace: "è$2" },
+  {
+    find: /([b-df-hj-np-tv-z])(a|i|o|u)([b-df-hj-np-tv-z])/gi,
+    replace: "$1e$3",
+  },
+  {
+    find: /([b-df-hj-np-tv-z])(à|ì|ò|ù)([b-df-hj-np-tv-z])/gi,
+    replace: "$1è$3",
+  },
 ];
 
 export const convert = (msg: string) => {
