@@ -10,7 +10,7 @@ async function twitterPreview(ctx: Context) {
   async function sendTweet(url: URL) {
     if (URLS_TO_MAP.has(url.host)) {
       url.search = "";
-      url.hostname = "vxtwitter.com";
+      url.hostname = "fxtwitter.com";
       await ctx.reply(url.toString());
     }
   }
