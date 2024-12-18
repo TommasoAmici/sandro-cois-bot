@@ -1,4 +1,4 @@
-import { Context, HearsContext } from "grammy";
+import type { Context, HearsContext } from "grammy";
 import cfg from "../config";
 import { randomChoice } from "./utils/random";
 

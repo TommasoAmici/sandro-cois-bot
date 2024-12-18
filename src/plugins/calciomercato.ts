@@ -1,6 +1,6 @@
 import { db } from "@/database/database";
 import { escapeHTML } from "bun";
-import { Context, HearsContext } from "grammy";
+import type { Context, HearsContext } from "grammy";
 import { decode } from "html-entities";
 import { parse } from "node-html-parser";
 import { randomChoice } from "./utils/random";

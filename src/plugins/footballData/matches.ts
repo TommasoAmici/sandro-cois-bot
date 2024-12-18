@@ -1,6 +1,6 @@
-import { Context, HearsContext } from "grammy";
+import type { Context, HearsContext } from "grammy";
 import { randomChoice } from "../utils/random";
-import { Match, Matches, Team } from "./types";
+import type { Match, Matches, Team } from "./types";
 import {
   apiGet,
   getCurrMatchday,

@@ -1,7 +1,7 @@
 import { db } from "@/database/database";
 import { middlewareFactory } from "@/middleware";
 import { upsertUser } from "@/user";
-import { Composer, Context, HearsContext } from "grammy";
+import { Composer, type Context, type HearsContext } from "grammy";
 import { prettyPrintStanding } from "./utils/printStandings";
 
 function statsMiddleware(ctx: Context) {

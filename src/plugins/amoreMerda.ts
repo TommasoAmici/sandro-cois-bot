@@ -2,7 +2,7 @@ import { db } from "@/database/database";
 import { middlewareFactory } from "@/middleware";
 import { upsertUser } from "@/user";
 import { remove as removeDiacritics } from "diacritics";
-import { Composer, Context, HearsContext } from "grammy";
+import { Composer, type Context, type HearsContext } from "grammy";
 import { prettyPrintStanding } from "./utils/printStandings";
 
 export const cleanKey = (word: string): string => {

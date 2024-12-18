@@ -1,5 +1,5 @@
 import cfg from "@/config";
-import { Competition } from "./types";
+import type { Competition } from "./types";
 
 export const apiGet = (endpoint: string) => {
   if (!cfg.footballDataToken) {

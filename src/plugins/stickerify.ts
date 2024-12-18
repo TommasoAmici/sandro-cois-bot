@@ -4,12 +4,12 @@ import { randomEmoji } from "@/lib/emojis";
 import { middlewareFactory } from "@/middleware";
 import { getFile } from "@/telegram";
 import {
-  CallbackQueryContext,
+  type CallbackQueryContext,
   Composer,
-  Context,
+  type Context,
   InlineKeyboard,
 } from "grammy";
-import { PhotoSize } from "grammy/types";
+import type { PhotoSize } from "grammy/types";
 
 class Stickerify {
   #imageBlob: Blob;

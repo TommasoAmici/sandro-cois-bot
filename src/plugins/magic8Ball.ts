@@ -1,4 +1,4 @@
-import { Context, HearsContext } from "grammy";
+import type { Context, HearsContext } from "grammy";
 import { randomChoice } from "./utils/random";
 
 const choices = [

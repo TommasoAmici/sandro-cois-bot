@@ -1,4 +1,4 @@
-import { Context, HearsContext } from "grammy";
+import type { Context, HearsContext } from "grammy";
 
 export const ultimouomo = async (ctx: HearsContext<Context>): Promise<void> => {
   await ctx.reply("Basta ultimouomo, maledetto capiscer!", {

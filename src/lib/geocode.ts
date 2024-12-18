@@ -1,5 +1,4 @@
 declare global {
-  // biome-ignore lint/style/noVar: variables in global scope must be declared with `var`
   var lastGeocodeRequest: number;
 }
 globalThis.lastGeocodeRequest ??= 0;

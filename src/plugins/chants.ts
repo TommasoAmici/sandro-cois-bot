@@ -1,4 +1,4 @@
-import { Context, HearsContext } from "grammy";
+import type { Context, HearsContext } from "grammy";
 import { parse } from "node-html-parser";
 import { randInt, randomChoice } from "./utils/random";
 

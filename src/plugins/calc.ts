@@ -1,4 +1,4 @@
-import { Context, HearsContext } from "grammy";
+import type { Context, HearsContext } from "grammy";
 import { evaluate } from "mathjs";
 
 export const calculator = async (ctx: HearsContext<Context>) => {

@@ -1,4 +1,4 @@
-import { NextFunction } from "grammy";
+import type { NextFunction } from "grammy";
 
 /**
  * Factory function to create a grammy middleware.

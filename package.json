@@ -7,7 +7,7 @@
     "test:ci": "bun test",
     "typecheck": "tsc",
     "format": "biome format --write .",
-    "lint": "biome check --apply .",
+    "lint": "biome check --write .",
     "lint:check": "biome ci ."
   },
   "dependencies": {

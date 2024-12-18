@@ -1,6 +1,6 @@
 import { translate } from "@/lib/translate";
 import { middlewareFactory } from "@/middleware";
-import { Composer, Context, HearsContext } from "grammy";
+import { Composer, type Context, type HearsContext } from "grammy";
 
 function gtranslate(to: string, from = "it") {
   return async (ctx: HearsContext<Context>) => {

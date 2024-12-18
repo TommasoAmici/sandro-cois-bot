@@ -1,5 +1,5 @@
-import { Context, HearsContext } from "grammy";
-import { Standings } from "./types";
+import type { Context, HearsContext } from "grammy";
+import type { Standings } from "./types";
 import { apiGet, getCurrMatchday, overrideTeamNames } from "./utils";
 
 const makeMatchesString = async (

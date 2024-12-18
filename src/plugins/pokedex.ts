@@ -1,6 +1,6 @@
 const Pokedex = require("pokedex");
 import { toTitleCase } from "@/utils";
-import { Context, HearsContext } from "grammy";
+import type { Context, HearsContext } from "grammy";
 
 const pokedex = new Pokedex();
 
@@ -21,8 +21,8 @@ type Pokemon = {
 
 const makeCaption = (pokemon: Pokemon): string =>
   `#${pokemon.id} ${toTitleCase(pokemon.name)}\nHeight: ${
-    parseInt(pokemon.height) / 10
-  } m\nWeight: ${parseInt(pokemon.weight) / 10} kg`;
+    Number.parseInt(pokemon.height) / 10
+  } m\nWeight: ${Number.parseInt(pokemon.weight) / 10} kg`;
 
 export const pokedexByName = async (ctx: HearsContext<Context>) => {
   const pokemon = pokedex.pokemon(ctx.match[1].toLowerCase());

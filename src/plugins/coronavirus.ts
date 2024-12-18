@@ -1,4 +1,4 @@
-import { Context, HearsContext } from "grammy";
+import type { Context, HearsContext } from "grammy";
 import { randomChoice } from "./utils/random";
 
 const choices = [
@@ -34,7 +34,8 @@ const gago = (k: number): string => {
   return elements.join("");
 };
 export const coronavirusGago = async (ctx: HearsContext<Context>) => {
-  const gagoIndex = parseInt(ctx.match[1]) <= 1500 ? +ctx.match[1] : 1500;
+  const gagoIndex =
+    Number.parseInt(ctx.match[1]) <= 1500 ? +ctx.match[1] : 1500;
   const message = gago(gagoIndex);
   await ctx.reply(message);
 };

@@ -4,10 +4,10 @@ import { middlewareFactory } from "@/middleware";
 import { upsertUser } from "@/user";
 import { escapeHTML } from "bun";
 import {
-  CallbackQueryContext,
+  type CallbackQueryContext,
   Composer,
-  Context,
-  HearsContext,
+  type Context,
+  type HearsContext,
   InlineKeyboard,
 } from "grammy";
 
@@ -229,7 +229,7 @@ async function removeQuote(ctx: HearsContext<Context>) {
 }
 
 async function removeQuoteCallback(ctx: CallbackQueryContext<Context>) {
-  const rowid = parseInt(ctx.match[1]);
+  const rowid = Number.parseInt(ctx.match[1]);
   try {
     deleteQuote(rowid);
     await ctx.answerCallbackQuery({ text: "Quote removed!" });

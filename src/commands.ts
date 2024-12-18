@@ -1,4 +1,4 @@
-import { Bot } from "grammy";
+import type { Bot } from "grammy";
 
 import { middlewareFactory } from "@/middleware";
 import gago from "@/plugins/9gago";

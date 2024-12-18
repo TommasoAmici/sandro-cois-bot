@@ -1,5 +1,5 @@
 import { db } from "@/database/database";
-import { User } from "grammy/types";
+import type { User } from "grammy/types";
 
 export function upsertUser(user: User | undefined) {
   if (user?.id === undefined) {

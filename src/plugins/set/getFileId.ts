@@ -1,5 +1,5 @@
 import type { Message } from "grammy/types";
-import { MediaType, setTypes } from "./enum";
+import { type MediaType, setTypes } from "./enum";
 
 export function fileIDFromMessage(msg: Message, mediaMsg: MediaType) {
   if (msg?.photo && mediaMsg.type === setTypes.photos) {

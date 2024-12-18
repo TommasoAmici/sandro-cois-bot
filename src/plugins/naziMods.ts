@@ -1,4 +1,4 @@
-import { Context, HearsContext } from "grammy";
+import type { Context, HearsContext } from "grammy";
 
 export const naziMods = async (ctx: HearsContext<Context>) => {
   try {

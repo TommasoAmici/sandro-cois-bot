@@ -1,5 +1,5 @@
-import { Context, HearsContext } from "grammy";
-import { Competition } from "./types";
+import type { Context, HearsContext } from "grammy";
+import type { Competition } from "./types";
 import { apiGet } from "./utils";
 
 /**

@@ -1,5 +1,5 @@
 import { middlewareFactory } from "@/middleware";
-import { Composer, Context } from "grammy";
+import { Composer, type Context } from "grammy";
 
 const URLS_TO_MAP = new Set(["twitter.com", "mobile.twitter.com", "x.com"]);
 

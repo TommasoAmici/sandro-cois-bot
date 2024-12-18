@@ -1,4 +1,4 @@
-import { Context, HearsContext } from "grammy";
+import type { Context, HearsContext } from "grammy";
 
 export const what = async (ctx: HearsContext<Context>): Promise<void> => {
   if (ctx.msg?.reply_to_message) {

@@ -1,5 +1,5 @@
 import { geocode } from "@/lib/geocode";
-import { Context, HearsContext } from "grammy";
+import type { Context, HearsContext } from "grammy";
 import cfg from "../config";
 
 const makeMapboxScreenshot = (lat: number, lon: number): string =>
@@ -9,8 +9,8 @@ export async function location(ctx: HearsContext<Context>) {
   const query = ctx.match[1];
   const data = await geocode(query);
   if (data.length > 0) {
-    const lat = parseFloat(data[0].lat);
-    const lon = parseFloat(data[0].lon);
+    const lat = Number.parseFloat(data[0].lat);
+    const lon = Number.parseFloat(data[0].lon);
     await ctx.replyWithLocation(lat, lon);
     if (cfg.mapboxToken) {
       await ctx.replyWithPhoto(makeMapboxScreenshot(lat, lon));

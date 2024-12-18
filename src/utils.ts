@@ -1,4 +1,4 @@
-import { Context } from "grammy";
+import type { Context } from "grammy";
 
 export const toTitleCase = (str: string): string =>
   str.replace(

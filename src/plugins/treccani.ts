@@ -1,7 +1,7 @@
 import { parse } from "node-html-parser";
 
 import { paginateMessages } from "@/utils";
-import { Context, HearsContext } from "grammy";
+import type { Context, HearsContext } from "grammy";
 
 const baseURL = "https://www.treccani.it";
 

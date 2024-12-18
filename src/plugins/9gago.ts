@@ -1,5 +1,5 @@
 import { paginateMessages } from "@/utils";
-import { Context, HearsContext } from "grammy";
+import type { Context, HearsContext } from "grammy";
 import { randomChoice } from "./utils/random";
 
 const choices = [
@@ -32,7 +32,7 @@ const gago = (k: number): string => {
 
 export default {
   numeric: async (ctx: HearsContext<Context>) => {
-    const gagoIndex = parseInt(ctx.match[1]);
+    const gagoIndex = Number.parseInt(ctx.match[1]);
     const message = gago(gagoIndex);
     await paginateMessages(ctx, message);
   },
