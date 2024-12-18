@@ -178,7 +178,7 @@ async function handleAudio(
         caption: audio.description,
       });
     } else {
-      await ctx.reply("Error :(");
+      await ctx.reply("Couldn't find anything");
     }
   }
 }
