@@ -117,3 +117,21 @@ setsComposer.hears(
   /^(?!.*http)(.+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)$/i,
   middlewareFactory(getMediaCommand(mediaTypes.gifs)),
 );
+
+// AUDIO
+setsComposer.hears(
+  /^[/!]setaudio(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
+  middlewareFactory(setMediaCommand(mediaTypes.audio)),
+);
+setsComposer.hears(
+  /^[/!]listaudio(?:@\w+)?$/i,
+  middlewareFactory(listMediaCommand(mediaTypes.audio)),
+);
+setsComposer.hears(
+  /^[/!]unsetaudio(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
+  middlewareFactory(unsetMediaCommand(mediaTypes.audio)),
+);
+setsComposer.hears(
+  /^(?!.*http)(.+)\.(mp3|wav|ogg)$/i,
+  middlewareFactory(getMediaCommand(mediaTypes.audio)),
+);

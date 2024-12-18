@@ -1,9 +1,18 @@
 import type { Context, HearsContext } from "grammy";
 
+import config from "@/config";
 import { db } from "@/database/database";
+import { Freesound } from "@/lib/freesound";
 import { getImage } from "../getImage";
 import { getGif, sendGif } from "../giphy";
-import { MediaType, SetType } from "./enum";
+import {
+  AUDIO,
+  GIF,
+  PHOTO,
+  STICKER,
+  type MediaType,
+  type SetType,
+} from "./enum";
 import { fileIDFromMessage } from "./getFileId";
 
 /**
@@ -151,6 +160,26 @@ async function handlePhoto(
   }
 }
 
+const freesound = new Freesound(config.freesoundToken);
+
+async function handleAudio(
+  fileID: string | undefined,
+  key: string,
+  ctx: HearsContext<Context>,
+) {
+  if (fileID !== undefined) {
+    ctx.replyWithAudio(fileID);
+  } else {
+    // if no audio is set try freesound API
+    const audio = await freesound.search(key);
+    if (audio) {
+      await ctx.replyWithAudio(audio.previews["preview-hq-mp3"]);
+    } else {
+      await ctx.reply("Error :(");
+    }
+  }
+}
+
 async function handleGifs(
   fileID: string | undefined,
   key: string,
@@ -190,14 +219,17 @@ export function getMediaCommand(mediaType: MediaType) {
 
     const fileId = row?.value;
     switch (mediaType.type) {
-      case 2:
+      case PHOTO:
         handlePhoto(fileId, key, ctx);
         break;
-      case 3:
+      case GIF:
         handleGifs(fileId, key, ctx);
         break;
-      case 4:
+      case STICKER:
         handleStickers(fileId, ctx);
+        break;
+      case AUDIO:
+        handleAudio(fileId, key, ctx);
         break;
       default:
         break;

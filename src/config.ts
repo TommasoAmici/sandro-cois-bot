@@ -1,5 +1,6 @@
 export default {
   telegramToken: process.env.TELEGRAM_TOKEN,
+  freesoundToken: process.env.FREESOUND_TOKEN ?? "",
   openWeatherToken: process.env.OPENWEATHER_TOKEN,
   giphyToken: process.env.GIPHY_TOKEN,
   mapboxToken: process.env.MAPBOX_TOKEN,

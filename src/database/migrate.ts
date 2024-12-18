@@ -7,6 +7,7 @@ import path from "node:path";
  */
 export async function migrate(db: Database) {
   console.info("Applying database migrations");
+  console.group();
   console.time("Database migrations applied");
   db.run("PRAGMA foreign_keys = ON;");
   db.run(`
@@ -30,7 +31,7 @@ export async function migrate(db: Database) {
 
   for (const migration of migrations) {
     if (appliedMigrations.has(migration)) {
-      console.log("\t%s: skipped", migration);
+      console.log("%s: skipped", migration);
       continue;
     }
     const sql = await Bun.file(
@@ -46,8 +47,8 @@ export async function migrate(db: Database) {
     }
     db.run("INSERT INTO migrations (name) VALUES (?)", [migration]);
     db.run("COMMIT;");
-    console.log("\t%s: applied", migration);
+    console.log("%s: applied", migration);
   }
-
+  console.groupEnd();
   console.timeEnd("Database migrations applied");
 }

@@ -1,18 +1,21 @@
-const TEXT = 1 as const;
+export const TEXT = 1 as const;
 type Text = typeof TEXT;
-const PHOTO = 2 as const;
+export const PHOTO = 2 as const;
 type Photo = typeof PHOTO;
-const GIF = 3 as const;
+export const GIF = 3 as const;
 type Gif = typeof GIF;
-const STICKER = 4 as const;
+export const STICKER = 4 as const;
 type Sticker = typeof STICKER;
-export type SetType = Text | Photo | Gif | Sticker;
+export const AUDIO = 5 as const;
+type Audio = typeof AUDIO;
+export type SetType = Text | Photo | Gif | Sticker | Audio;
 
 export const setTypes = {
   text: TEXT,
   photos: PHOTO,
   gifs: GIF,
   stickers: STICKER,
+  audio: AUDIO,
 };
 
 export const mediaTypes = {
@@ -30,6 +33,11 @@ export const mediaTypes = {
     type: GIF,
     ext: "gif" as const,
     label: "gif" as const,
+  },
+  audio: {
+    type: AUDIO,
+    ext: "mp3" as const,
+    label: "audio" as const,
   },
   stickers: {
     type: STICKER,

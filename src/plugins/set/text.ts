@@ -1,7 +1,7 @@
 import type { Context, HearsContext } from "grammy";
 
 import { db } from "@/database/database";
-import { SetType, setTypes } from "./enum";
+import { type SetType, setTypes } from "./enum";
 
 /**
  * Usage: /set <key> <value>
@@ -20,7 +20,9 @@ export async function setCommand(ctx: HearsContext<Context>) {
     }
   >(
     `INSERT INTO sets (chat_id, user_id, type, key, value)
-      VALUES ($chat_id, $user_id, $type, $key, $value);`,
+      VALUES ($chat_id, $user_id, $type, $key, $value)
+      ON CONFLICT(chat_id, type, key) DO UPDATE
+      SET user_id = excluded.user_id, value = excluded.value;`,
   );
 
   const key = ctx.match[1];
