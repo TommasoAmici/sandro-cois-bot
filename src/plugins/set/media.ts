@@ -173,7 +173,10 @@ async function handleAudio(
     // if no audio is set try freesound API
     const audio = await freesound.search(key);
     if (audio) {
-      await ctx.replyWithAudio(audio.previews["preview-hq-mp3"]);
+      await ctx.replyWithAudio(audio.previews["preview-hq-mp3"], {
+        title: audio.name,
+        caption: audio.description,
+      });
     } else {
       await ctx.reply("Error :(");
     }
