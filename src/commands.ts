@@ -38,6 +38,7 @@ import { footballNews } from "./plugins/calciomercato";
 import { debugMessage } from "./plugins/debug";
 import { stickerifyComposer } from "./plugins/stickerify";
 import { twitterComposer } from "./plugins/twitterPreview";
+import { instagramComposer } from "./plugins/instagramPreview";
 
 export function initBot(bot: Bot) {
   bot.errorBoundary(async (err, next) => {
@@ -47,6 +48,7 @@ export function initBot(bot: Bot) {
 
   bot.use(statsComposer);
   bot.use(twitterComposer);
+  bot.use(instagramComposer);
   bot.use(setsComposer);
   bot.use(quoteComposer);
   bot.use(bestemmieComposer);
