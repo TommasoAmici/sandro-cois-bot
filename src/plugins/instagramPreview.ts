@@ -1,7 +1,7 @@
 import { middlewareFactory } from "@/middleware";
 import { Composer, type Context } from "grammy";
 
-const URLS_TO_MAP = new Set(["instagram.com"]);
+const URLS_TO_MAP = new Set(["instagram.com", "www.instagram.com"]);
 
 /**
  * Removes query parameters from URLs to fix the preview in telegram
