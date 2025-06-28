@@ -203,6 +203,10 @@ async function handleGifs(
 
 export function getMediaCommand(mediaType: MediaType) {
   return async (ctx: HearsContext<Context>) => {
+    if (ctx.msg.from?.id === 58057732) {
+      ctx.reply("SMETTELKTE DI SPAMMARE DIOCAN E");
+      return;
+    }
     const query = db.query<
       { value: string },
       {
