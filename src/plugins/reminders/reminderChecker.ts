@@ -22,7 +22,7 @@ export function startReminderChecker(bot: Bot) {
               ? `https://t.me/c/${reminder.chat_id.toString().replace("-100", "")}/${reminder.message_id}`
               : null;
 
-          let message = `🔔 **Promemoria!**\n`;
+          let message = "🔔 **Promemoria!**\n";
 
           if (reminder.reminder_text) {
             message += `\n📝 ${reminder.reminder_text}\n`;

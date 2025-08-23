@@ -36,7 +36,7 @@ describe("Reminders", () => {
       expect(reminder?.user_id).toBe(789);
       expect(reminder?.message_id).toBe(100);
       expect(reminder?.reminder_text).toBe("Test reminder");
-      expect(reminder?.sent).toBe(0 as any);
+      expect(reminder?.sent).toBe(0);
     });
 
     it("should create a reminder with minimal options", () => {
@@ -126,7 +126,7 @@ describe("Reminders", () => {
       reminders.markAsSent(id);
 
       const reminder = reminders.getById(id);
-      expect(reminder?.sent).toBe(1 as any);
+      expect(reminder?.sent).toBe(1);
       expect(reminder?.sent_at).toBeTruthy();
     });
   });

@@ -87,7 +87,7 @@ export class Reminders {
 
   getById(id: number): Reminder | null {
     const query = this.db.prepare<Reminder, { $id: number }>(
-      `SELECT * FROM reminders WHERE id = $id`,
+      "SELECT * FROM reminders WHERE id = $id",
     );
 
     return query.get({ $id: id });
@@ -113,7 +113,7 @@ export class Reminders {
 
   deleteReminder(id: number): boolean {
     const query = this.db.prepare<null, { $id: number }>(
-      `DELETE FROM reminders WHERE id = $id AND sent = FALSE`,
+      "DELETE FROM reminders WHERE id = $id AND sent = FALSE",
     );
 
     const result = query.run({ $id: id });
