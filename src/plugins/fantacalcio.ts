@@ -65,12 +65,12 @@ const parseFantacalcioPage = (html: string): FantacalcioStats | null => {
       "";
 
     // Try to find stats in various possible structures
-    let matches = 0,
-      goals = 0,
-      assists = 0,
-      avgVoto = 0,
-      avgFantavoto = 0,
-      quotation = 0;
+    let matches = 0;
+    let goals = 0;
+    let assists = 0;
+    let avgVoto = 0;
+    let avgFantavoto = 0;
+    let quotation = 0;
 
     // Look for stats in table format
     $("table tr").each((_, row) => {
@@ -193,4 +193,3 @@ ${stats.quotation > 0 ? `• Quotazione: ${stats.quotation}` : ""}
     await ctx.reply("Si è verificato un errore nel recuperare i dati.");
   }
 };
-
