@@ -36,6 +36,7 @@ import { weather } from "@/plugins/weather";
 import { what } from "@/plugins/what";
 import { footballNews } from "./plugins/calciomercato";
 import { debugMessage } from "./plugins/debug";
+import { fantacalcio } from "./plugins/fantacalcio";
 import { stickerifyComposer } from "./plugins/stickerify";
 import { twitterComposer } from "./plugins/twitterPreview";
 import { instagramComposer } from "./plugins/instagramPreview";
@@ -118,6 +119,7 @@ export function initBot(bot: Bot) {
     /^[/!](calciomercato|cm)(?:@\w+)?$/i,
     middlewareFactory(footballNews),
   );
+  bot.hears(/^[/!]fantacalcio(?:@\w+)? (.+)/i, middlewareFactory(fantacalcio));
   bot.hears(/^[/!]nazi(?:@\w+)?$/i, middlewareFactory(naziMods));
 
   bot.hears(/^[/!]spongebob(?:@\w+)? (.+)/i, middlewareFactory(spongebob));
