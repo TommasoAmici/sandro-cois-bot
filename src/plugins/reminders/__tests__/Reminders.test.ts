@@ -1,34 +1,15 @@
 import { Database } from "bun:sqlite";
 import { describe, it, expect, beforeEach, afterEach } from "bun:test";
 import { Reminders } from "../Reminders";
+import { migrate } from "@/database/migrate";
 
 describe("Reminders", () => {
   let db: Database;
   let reminders: Reminders;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     db = new Database(":memory:");
-
-    db.run(`
-      CREATE TABLE reminders (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        chat_id INTEGER NOT NULL,
-        user_id INTEGER NOT NULL,
-        message_id INTEGER,
-        reply_to_message_id INTEGER,
-        reminder_text TEXT,
-        remind_at TIMESTAMP NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-        sent BOOLEAN DEFAULT FALSE,
-        sent_at TIMESTAMP
-      );
-    `);
-
-    db.run(
-      `CREATE INDEX idx_reminders_pending ON reminders(remind_at, sent) WHERE sent = FALSE;`,
-    );
-    db.run(`CREATE INDEX idx_reminders_chat ON reminders(chat_id, user_id);`);
-
+    await migrate(db);
     reminders = new Reminders(db);
   });
 
