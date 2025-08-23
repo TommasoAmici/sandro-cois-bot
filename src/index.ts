@@ -6,6 +6,7 @@ import { initBot } from "@/commands";
 import config from "@/config";
 import { db } from "@/database/database";
 import { migrate } from "@/database/migrate";
+import { startReminderChecker } from "@/plugins/reminders/reminderChecker";
 
 await migrate(db);
 
@@ -18,6 +19,7 @@ const throttler = apiThrottler();
 bot.api.config.use(throttler);
 
 initBot(bot);
+startReminderChecker(bot);
 
 console.log("Starting bot...");
 run(bot);
