@@ -35,7 +35,7 @@ async function remindMeCommand(ctx: HearsContext<Context>) {
 
     if (!remindAt) {
       await ctx.reply(
-        "Non riesco a capire quando vuoi essere ricordato. Prova con un'espressione come 'tra 5 minuti', 'domani alle 15', 'lunedì prossimo', ecc.",
+        "Non riesco a capire quando vuoi che ti venga ricordato. Prova con un'espressione come 'tra 5 minuti', 'domani alle 15', 'lunedì prossimo', ecc.",
         { reply_to_message_id: ctx.msg.message_id },
       );
       return;
@@ -53,7 +53,7 @@ async function remindMeCommand(ctx: HearsContext<Context>) {
 
     if (!remindAt) {
       await ctx.reply(
-        "Non riesco a capire quando vuoi essere ricordato. Prova con un'espressione come 'tra 5 minuti', 'domani alle 15', 'lunedì prossimo', ecc.",
+        "Non riesco a capire quando vuoi che ti venga ricordato. Prova con un'espressione come 'tra 5 minuti', 'domani alle 15', 'lunedì prossimo', ecc.",
         { reply_to_message_id: ctx.msg.message_id },
       );
       return;
