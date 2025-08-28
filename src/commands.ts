@@ -39,6 +39,7 @@ import { debugMessage } from "./plugins/debug";
 import { stickerifyComposer } from "./plugins/stickerify";
 import { twitterComposer } from "./plugins/twitterPreview";
 import { instagramComposer } from "./plugins/instagramPreview";
+import { remindersComposer } from "./plugins/reminders";
 
 export function initBot(bot: Bot) {
   bot.errorBoundary(async (err, next) => {
@@ -56,6 +57,7 @@ export function initBot(bot: Bot) {
   bot.use(gtranslateComposer);
   bot.use(amoreMerdaComposer);
   bot.use(stickerifyComposer);
+  bot.use(remindersComposer);
 
   // COMMANDS
   bot.hears(/^[/!]debug/i, middlewareFactory(debugMessage));
