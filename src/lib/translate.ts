@@ -41,7 +41,7 @@ export async function translate(
     },
     body,
   });
-  const data = await res.json<RawResponse>();
+  const data = (await res.json()) as RawResponse;
   return data.sentences
     .filter((s): s is Sentence => "trans" in s)
     .map((s) => s.trans)

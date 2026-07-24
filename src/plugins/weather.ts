@@ -86,7 +86,7 @@ export const weather = async (ctx: HearsContext<Context>) => {
 
   try {
     const response = await fetch(url);
-    const data = await response.json<WeatherResponse>();
+    const data = (await response.json()) as WeatherResponse;
 
     if (
       response.status === 404 ||

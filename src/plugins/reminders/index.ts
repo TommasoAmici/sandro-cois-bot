@@ -92,7 +92,7 @@ async function remindMeCommand(ctx: HearsContext<Context>) {
       {
         reply_to_message_id: ctx.msg.message_id,
         parse_mode: "Markdown",
-        disable_web_page_preview: true,
+        link_preview_options: { is_disabled: true },
       },
     );
   } catch (error) {

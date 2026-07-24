@@ -105,7 +105,7 @@ export const getGif = async (
     lang: "it",
   });
   const res = await fetch(`${baseApi}?${params.toString()}`);
-  return res.json();
+  return (await res.json()) as IGiphyResponse;
 };
 
 export const sendGif = async (

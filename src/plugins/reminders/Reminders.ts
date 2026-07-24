@@ -9,7 +9,7 @@ export interface Reminder {
   reminder_text: string | null;
   remind_at: string;
   created_at: string;
-  sent: boolean;
+  sent: 0 | 1;
   sent_at: string | null;
 }
 

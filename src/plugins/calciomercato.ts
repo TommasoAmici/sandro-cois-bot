@@ -76,7 +76,7 @@ class Gazzetta {
 
   async fetch() {
     const res = await fetch(this.url);
-    const { data }: GazzettaResponse = await res.json();
+    const { data } = (await res.json()) as GazzettaResponse;
     return data;
   }
 

@@ -9,7 +9,7 @@ const makeMatchesString = async (
   const res = await apiGet(
     `/competitions/${competitionCode}/standings/?matchday=${currentMatchday}`,
   );
-  const data: Standings = await res.json();
+  const data = (await res.json()) as Standings;
   const padEnd = data.standings[0].table
     .map((t) => overrideTeamNames[t.team.id] ?? t.team.name)
     .sort((a, b) => b.length - a.length)[0].length;

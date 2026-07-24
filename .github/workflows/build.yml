@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7.0.1
 
-      - uses: oven-sh/setup-bun@v1
+      - uses: oven-sh/setup-bun@v2.2.0
         with:
-          bun-version: 1.2.21
+          bun-version: 1.3.14
 
       - run: bun install --ignore-scripts --no-progress
       - run: bun test:ci
@@ -31,10 +31,10 @@ jobs:
       skipped: ${{ steps.output_step.outputs.skipped }}
       version: ${{ steps.output_step.outputs.version }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7.0.1
       - name: Create changelog
         id: changelog
-        uses: TriPSs/conventional-changelog-action@v3
+        uses: TriPSs/conventional-changelog-action@v6.4.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           git-push: "false"
@@ -66,21 +66,21 @@ jobs:
     if: ${{ needs.release.outputs.skipped == 'false' }}
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7.0.1
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v4.2.0
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v4.5.1
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Build and push
         id: docker_build
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v7.3.0
         with:
           context: ./
           file: ./Dockerfile
@@ -97,10 +97,10 @@ jobs:
     needs:
       - docker
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7.0.1
 
       - name: rsync deployments
-        uses: burnett01/rsync-deployments@5.2
+        uses: burnett01/rsync-deployments@v9
         with:
           switches: -avzr --delete --exclude=".git"
           path: deploy.sh
@@ -111,7 +111,7 @@ jobs:
           remote_key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Restart service
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1.2.5
         with:
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}

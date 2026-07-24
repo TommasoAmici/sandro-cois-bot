@@ -26,7 +26,7 @@ const makeMatchesString = async (
   const res = await apiGet(
     `/competitions/${competitionCode}/matches/?matchday=${currentMatchday}`,
   );
-  const data: Matches = await res.json();
+  const data = (await res.json()) as Matches;
   const padHomeTeam = longestTeamName(data.matches, "homeTeam");
   const padAwayTeam = longestTeamName(data.matches, "awayTeam");
   const matchesStrings = data.matches.map((m) => {

@@ -35,7 +35,7 @@ export function startReminderChecker(bot: Bot) {
           await bot.api.sendMessage(reminder.chat_id, message, {
             reply_to_message_id: reminder.reply_to_message_id || undefined,
             parse_mode: "Markdown",
-            disable_web_page_preview: true,
+            link_preview_options: { is_disabled: true },
           });
 
           reminders.markAsSent(reminder.id);

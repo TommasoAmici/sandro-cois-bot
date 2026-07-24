@@ -15,7 +15,7 @@ export const getCurrMatchday = async (
 ): Promise<number> => {
   try {
     const res = await apiGet(`/competitions/${competitionCode}/`);
-    const data: Competition = await res.json();
+    const data = (await res.json()) as Competition;
     return data.currentSeason.currentMatchday;
   } catch (error) {
     console.error(error);

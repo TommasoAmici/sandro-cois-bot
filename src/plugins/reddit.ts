@@ -205,7 +205,7 @@ export const reddit = async (ctx: HearsContext<Context>) => {
 
   try {
     const res = await fetch(baseApi);
-    const { data }: ISubredditResponse = await res.json();
+    const { data } = (await res.json()) as ISubredditResponse;
 
     if (!data) {
       await ctx.reply("Nothing found.");

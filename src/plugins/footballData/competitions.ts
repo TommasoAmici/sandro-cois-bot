@@ -7,11 +7,11 @@ import { apiGet } from "./utils";
  */
 export default async (ctx: HearsContext<Context>) => {
   const res = await apiGet("/competitions/");
-  const data: {
+  const data = (await res.json()) as {
     count: number;
     filters: unknown;
     competitions: Competition[];
-  } = await res.json();
+  };
   await ctx.reply(
     data.competitions
       .filter((c) => c.plan === "TIER_ONE")

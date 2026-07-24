@@ -23,7 +23,7 @@ const ONE_SECOND = 1000;
 /**
  * Geocode a query using the Maps.co API
  */
-export async function geocode(query: string) {
+export async function geocode(query: string): Promise<GeocodeResponse[]> {
   // Rate limit to respect the API limits
   if (Date.now() - globalThis.lastGeocodeRequest < ONE_SECOND) {
     await Bun.sleep(ONE_SECOND);
@@ -33,5 +33,5 @@ export async function geocode(query: string) {
   const url = new URL("https://geocode.maps.co/search");
   url.searchParams.append("q", query);
   const res = await fetch(url);
-  return res.json<GeocodeResponse[]>();
+  return (await res.json()) as GeocodeResponse[];
 }

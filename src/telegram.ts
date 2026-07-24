@@ -6,7 +6,7 @@ export async function getFile(fileID: string) {
   if (!res.ok) {
     throw new Error(`HTTP error! status: ${res.status}`);
   }
-  const json = await res.json<{
+  const json = (await res.json()) as {
     ok: boolean;
     result: {
       file_path: string;
@@ -14,6 +14,6 @@ export async function getFile(fileID: string) {
       file_unique_id: string;
       file_size: number;
     };
-  }>();
+  };
   return json;
 }

@@ -9,7 +9,7 @@ import {
   type Context,
   InlineKeyboard,
 } from "grammy";
-import type { PhotoSize } from "grammy/types";
+import type { InputSticker, PhotoSize } from "grammy/types";
 
 class Stickerify {
   #imageBlob: Blob;
@@ -35,7 +35,7 @@ class Stickerify {
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
     }
-    const json = await res.json<{ file_names: string[] }>();
+    const json = (await res.json()) as { file_names: string[] };
     return json.file_names;
   }
 }
@@ -93,8 +93,9 @@ async function saveStickerCallback(ctx: CallbackQueryContext<Context>) {
     ctx.from.username,
     ctx.me.username,
   );
-  const sticker = {
+  const sticker: InputSticker = {
     sticker: stickerFileURL.url,
+    format: "static",
     emoji_list: [randomEmoji()],
   };
 
@@ -114,17 +115,16 @@ async function saveStickerCallback(ctx: CallbackQueryContext<Context>) {
       stickerSetName,
       ctx.chat.id.toString(),
       [sticker],
-      "static",
     );
   }
   if (!success) {
     await ctx.reply("Failed to save sticker", {
-      reply_to_message_id: ctx.message?.message_id,
+      reply_to_message_id: ctx.msgId,
     });
   } else {
     await ctx.editMessageText("Saved");
     await ctx.reply(`Sticker saved in t.me/addstickers/${stickerSetName}`, {
-      reply_to_message_id: ctx.message?.message_id,
+      reply_to_message_id: ctx.msgId,
     });
   }
 }

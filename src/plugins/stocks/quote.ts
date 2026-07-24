@@ -32,6 +32,6 @@ export default async (ctx: HearsContext<Context>) => {
   const ticker = ctx.match[2].toUpperCase();
 
   const res = await fetch(url(ticker));
-  const data: AlphaVantageResponse = await res.json();
+  const data = (await res.json()) as AlphaVantageResponse;
   await ctx.reply(makeString(data["Global Quote"]));
 };
