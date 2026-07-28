@@ -150,7 +150,7 @@ async function handlePhoto(
   if (fileID !== undefined) {
     ctx.replyWithPhoto(fileID);
   } else {
-    // if no image is set try google api
+    // if no image is set try image search
     try {
       await getImage(key, ctx);
     } catch (error) {
