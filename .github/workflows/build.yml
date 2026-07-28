@@ -99,22 +99,22 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
 
-      - name: Copy deploy script
-        uses: appleboy/scp-action@v1.0.0
-        with:
-          host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          key: ${{ secrets.DEPLOY_KEY }}
-          port: ${{ secrets.DEPLOY_PORT }}
-          source: deploy.sh
-          target: /apps/sandro-cois/
+      - name: Prepare SSH config
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf 'Host sandro-cois\n  HostName %s\n  User %s\n  Port %s\n' \
+            "$SSH_HOST" "$SSH_USER" "$SSH_PORT" > ~/.ssh/config
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/config ~/.ssh/known_hosts ~/.ssh/id_ed25519
 
       - name: Deploy
-        uses: appleboy/ssh-action@v1.2.5
-        with:
-          host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          key: ${{ secrets.DEPLOY_KEY }}
-          port: ${{ secrets.DEPLOY_PORT }}
-          script: |
-            sh /apps/sandro-cois/deploy.sh
+        run: |
+          rsync -avzr deploy.sh sandro-cois:/apps/sandro-cois/
+          ssh sandro-cois sh /apps/sandro-cois/deploy.sh
