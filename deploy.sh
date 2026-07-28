@@ -2,7 +2,7 @@
 set -e
 
 PROJECT=sandro-cois-bot
-BASE_PATH="/apps/$PROJECT"
+BASE_PATH="/apps/sandro-cois"
 # Pull image
 cd "$BASE_PATH" || exit 1
 if [ -f ".env" ]; then
@@ -17,8 +17,8 @@ IMAGE="tommasoamici/$PROJECT:latest"
 docker pull "$IMAGE"
 
 # Stop and restart container
-docker stop "$PROJECT"
-docker rm "$PROJECT"
+docker stop "$PROJECT" || true
+docker rm "$PROJECT" || true
 
 # run application
 docker run --env-file "$BASE_PATH/.env" \
