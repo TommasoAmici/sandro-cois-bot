@@ -10,7 +10,7 @@ async function instagramPreview(ctx: Context) {
   async function sendMsg(url: URL) {
     if (URLS_TO_MAP.has(url.host)) {
       url.search = "";
-      url.hostname = "ddinstagram.com";
+      url.hostname = "kkinstagram.com";
       await ctx.reply(url.toString());
     }
   }
