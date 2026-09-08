@@ -1,6 +1,20 @@
 const USER_AGENT =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 
+// DuckDuckGo's image endpoint rejects requests that do not look like the
+// browser XHR request made by its results page (HTTP 403). Keep these headers
+// together so the initial page load and API request stay easy to compare.
+const IMAGE_API_HEADERS = {
+  "User-Agent": USER_AGENT,
+  Accept: "application/json, text/javascript, */*; q=0.01",
+  "Accept-Language": "en-US,en;q=0.9",
+  Referer: "https://duckduckgo.com/",
+  "Sec-Fetch-Dest": "empty",
+  "Sec-Fetch-Mode": "cors",
+  "Sec-Fetch-Site": "same-origin",
+  "X-Requested-With": "XMLHttpRequest",
+};
+
 const VQD_PATTERNS = [
   /vqd=(\d+-\d+)/,
   /"vqd":"(\d+-\d+)"/,
@@ -59,10 +73,7 @@ export const searchImages = async (
   apiUrl.searchParams.set("p", "1");
 
   const apiResponse = await fetch(apiUrl, {
-    headers: {
-      "User-Agent": USER_AGENT,
-      Referer: "https://duckduckgo.com/",
-    },
+    headers: IMAGE_API_HEADERS,
   });
 
   if (!apiResponse.ok) {
