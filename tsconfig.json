@@ -13,7 +13,8 @@
     "skipLibCheck": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["bun", "diacritics"]
   },
   "include": ["./src/**/*"]
 }
