@@ -5,7 +5,7 @@
     "start:watch": "bun --hot src/index.ts",
     "test": "bun test --watch",
     "test:ci": "bun test",
-    "format": "biome format --write .",
+    "format": "bun fmt",
     "lint": "biome check --write .",
     "lint:check": "biome ci ."
   },
