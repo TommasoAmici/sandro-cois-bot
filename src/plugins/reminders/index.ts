@@ -69,7 +69,7 @@ async function remindMeCommand(ctx: HearsContext<Context>) {
   }
 
   try {
-    const reminderId = reminders.create({
+    const _reminderId = reminders.create({
       chatId: ctx.chat.id,
       userId: ctx.from.id,
       messageId: ctx.msg.message_id,

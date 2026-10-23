@@ -12,5 +12,5 @@
  * @see https://www.sqlite.org/fts5.html#fts5_strings
  */
 export function cleanStringForFTS5Match(str: string) {
-  return str.replaceAll(/[!@#?,\$\.'"\\\|\[\]\(\)\{\}\+\-><]/gi, "");
+  return str.replaceAll(/[!@#?,$.'"\\|[\](){}+\-><]/gi, "");
 }

@@ -232,7 +232,7 @@ async function removeQuote(ctx: HearsContext<Context>) {
 }
 
 async function removeQuoteCallback(ctx: CallbackQueryContext<Context>) {
-  const rowid = Number.parseInt(ctx.match[1]);
+  const rowid = Number.parseInt(ctx.match[1], 10);
   try {
     deleteQuote(rowid);
     await ctx.answerCallbackQuery({ text: "Quote removed!" });

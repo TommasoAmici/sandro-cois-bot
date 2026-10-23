@@ -108,7 +108,7 @@ async function saveStickerCallback(ctx: CallbackQueryContext<Context>) {
       stickerSetName,
       sticker,
     );
-  } catch (error) {
+  } catch (_error) {
     // sticker set does not exist, so we must create a new one
     success = await ctx.api.createNewStickerSet(
       ctx.from.id,
@@ -145,7 +145,7 @@ async function stickerifyCommand(ctx: Context) {
     let file: Awaited<ReturnType<typeof getFile>>;
     try {
       file = await getFile(biggestPhoto.file_id);
-    } catch (error) {
+    } catch (_error) {
       ctx.reply("Failed to download image from Telegram");
       return;
     }
@@ -162,7 +162,7 @@ async function stickerifyCommand(ctx: Context) {
     let stickers: string[] = [];
     try {
       stickers = await stickerify.stickers();
-    } catch (error) {
+    } catch (_error) {
       await ctx.reply("Error while processing image");
       return;
     }

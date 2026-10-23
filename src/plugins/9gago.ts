@@ -32,7 +32,7 @@ const gago = (k: number): string => {
 
 export default {
   numeric: async (ctx: HearsContext<Context>) => {
-    const gagoIndex = Number.parseInt(ctx.match[1]);
+    const gagoIndex = Number.parseInt(ctx.match[1], 10);
     const message = gago(gagoIndex);
     await paginateMessages(ctx, message);
   },

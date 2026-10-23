@@ -16,7 +16,7 @@ setsComposer.on(
   ":photo",
   middlewareFactory(
     setOnMediaReceived(
-      /([A-Za-z\u00C0-\u017F\0-9\_]+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)/i,
+      /([A-Za-z\u00C0-\u017F\0-9_]+)\.(png|jpg|jpeg|tiff|bmp|pic|psd|svg)/i,
       mediaTypes.photos,
     ),
   ),
@@ -25,7 +25,7 @@ setsComposer.on(
   ":sticker",
   middlewareFactory(
     setOnMediaReceived(
-      /([A-Za-z\u00C0-\u017F\0-9\_]+)\.(stk)/i,
+      /([A-Za-z\u00C0-\u017F\0-9_]+)\.(stk)/i,
       mediaTypes.stickers,
     ),
   ),
@@ -34,7 +34,7 @@ setsComposer.on(
   ":document",
   middlewareFactory(
     setOnMediaReceived(
-      /([A-Za-z\u00C0-\u017F\0-9\_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i,
+      /([A-Za-z\u00C0-\u017F\0-9_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i,
       mediaTypes.gifs,
     ),
   ),
@@ -43,7 +43,7 @@ setsComposer.on(
   ":video",
   middlewareFactory(
     setOnMediaReceived(
-      /([A-Za-z\u00C0-\u017F\0-9\_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i,
+      /([A-Za-z\u00C0-\u017F\0-9_]+)\.(gif|webm|mp4|gifv|mkv|avi|divx|m4v|mov)/i,
       mediaTypes.gifs,
     ),
   ),
@@ -70,7 +70,7 @@ setsComposer.hears(
   middlewareFactory(getMediaCommand(mediaTypes.photos)),
 );
 setsComposer.hears(
-  /^[/!]setpic(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
+  /^[/!]setpic(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9_]+)/i,
   middlewareFactory(setMediaCommand(mediaTypes.photos)),
 );
 setsComposer.hears(
@@ -78,7 +78,7 @@ setsComposer.hears(
   middlewareFactory(listMediaCommand(mediaTypes.photos)),
 );
 setsComposer.hears(
-  /^[/!]unsetpic(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
+  /^[/!]unsetpic(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9_]+)/i,
   middlewareFactory(unsetMediaCommand(mediaTypes.photos)),
 );
 
@@ -88,11 +88,11 @@ setsComposer.hears(
   middlewareFactory(listMediaCommand(mediaTypes.stickers)),
 );
 setsComposer.hears(
-  /^[/!]setstk(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
+  /^[/!]setstk(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9_]+)/i,
   middlewareFactory(setMediaCommand(mediaTypes.stickers)),
 );
 setsComposer.hears(
-  /^[/!]unsetstk(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
+  /^[/!]unsetstk(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9_]+)/i,
   middlewareFactory(unsetMediaCommand(mediaTypes.stickers)),
 );
 setsComposer.hears(
@@ -102,7 +102,7 @@ setsComposer.hears(
 
 // GIFS
 setsComposer.hears(
-  /^[/!]setgif(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
+  /^[/!]setgif(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9_]+)/i,
   middlewareFactory(setMediaCommand(mediaTypes.gifs)),
 );
 setsComposer.hears(
@@ -110,7 +110,7 @@ setsComposer.hears(
   middlewareFactory(listMediaCommand(mediaTypes.gifs)),
 );
 setsComposer.hears(
-  /^[/!]unsetgif(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
+  /^[/!]unsetgif(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9_]+)/i,
   middlewareFactory(unsetMediaCommand(mediaTypes.gifs)),
 );
 setsComposer.hears(
@@ -120,7 +120,7 @@ setsComposer.hears(
 
 // AUDIO
 setsComposer.hears(
-  /^[/!]setaudio(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
+  /^[/!]setaudio(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9_]+)/i,
   middlewareFactory(setMediaCommand(mediaTypes.audio)),
 );
 setsComposer.hears(
@@ -128,7 +128,7 @@ setsComposer.hears(
   middlewareFactory(listMediaCommand(mediaTypes.audio)),
 );
 setsComposer.hears(
-  /^[/!]unsetaudio(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9\_]+)/i,
+  /^[/!]unsetaudio(?:@\w+)? ([A-Za-z\u00C0-\u017F\0-9_]+)/i,
   middlewareFactory(unsetMediaCommand(mediaTypes.audio)),
 );
 setsComposer.hears(

@@ -26,7 +26,7 @@ export const calculator = async (ctx: HearsContext<Context>) => {
     else {
       await ctx.reply(evaluated);
     }
-  } catch (error) {
+  } catch (_error) {
     await ctx.reply("🤷🏻‍♂️");
   }
 };

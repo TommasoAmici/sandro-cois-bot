@@ -2,11 +2,11 @@ import type { Context, HearsContext } from "grammy";
 import { randInt } from "./utils/random";
 
 export const roll = async (ctx: HearsContext<Context>) => {
-  let count = Number.parseInt(ctx.match[1]);
+  let count = Number.parseInt(ctx.match[1], 10);
   if (count === undefined || count === 0) count = 1;
   if (count >= 1000) count = 1000;
 
-  let sides = Number.parseInt(ctx.match[2]);
+  let sides = Number.parseInt(ctx.match[2], 10);
   if (sides >= Number.MAX_SAFE_INTEGER) sides = Number.MAX_SAFE_INTEGER;
 
   if (Number.isNaN(sides)) {

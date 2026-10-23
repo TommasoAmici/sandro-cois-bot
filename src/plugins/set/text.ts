@@ -35,7 +35,7 @@ export async function setCommand(ctx: HearsContext<Context>) {
       $type: setTypes.text,
       $user_id: ctx.from?.id ?? null,
     });
-  } catch (error) {
+  } catch (_error) {
     await ctx.reply(`Couldn't set ${key} :(`);
   }
   const message = `${key} => ${val}`;
@@ -54,7 +54,7 @@ export async function unsetCommand(ctx: HearsContext<Context>) {
   const key = ctx.match[1];
   try {
     unsetCommandQuery.run(ctx.chat.id, setTypes.text, key);
-  } catch (error) {
+  } catch (_error) {
     await ctx.reply(`Couldn't unset ${key} :(`);
   }
   const message = `Unset ${key}`;

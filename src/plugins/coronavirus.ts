@@ -35,7 +35,7 @@ const gago = (k: number): string => {
 };
 export const coronavirusGago = async (ctx: HearsContext<Context>) => {
   const gagoIndex =
-    Number.parseInt(ctx.match[1]) <= 1500 ? +ctx.match[1] : 1500;
+    Number.parseInt(ctx.match[1], 10) <= 1500 ? +ctx.match[1] : 1500;
   const message = gago(gagoIndex);
   await ctx.reply(message);
 };

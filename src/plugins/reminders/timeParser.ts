@@ -6,7 +6,7 @@ italianCustom.parsers.push({
   pattern: () =>
     /\b(tra|fra)\s+(\d+)\s+(minut[oi]|or[ae]|giorn[oi]|settiman[ae]|mes[ei])\b/i,
   extract: (context, match) => {
-    const num = Number.parseInt(match[2]);
+    const num = Number.parseInt(match[2], 10);
     const unit = match[3].toLowerCase();
 
     const now = context.refDate || new Date();
@@ -129,8 +129,8 @@ italianCustom.parsers.push({
   pattern: () =>
     /\b(?:alle?\s+)?(\d{1,2})(?::(\d{2}))?\s*(del mattino|di mattina|del pomeriggio|di pomeriggio|di sera|della sera|di notte|della notte)?\b/i,
   extract: (context, match) => {
-    const hour = Number.parseInt(match[1]);
-    const minute = match[2] ? Number.parseInt(match[2]) : 0;
+    const hour = Number.parseInt(match[1], 10);
+    const minute = match[2] ? Number.parseInt(match[2], 10) : 0;
     const period = match[3]?.toLowerCase();
 
     if (hour > 24 || minute > 59) return null;
