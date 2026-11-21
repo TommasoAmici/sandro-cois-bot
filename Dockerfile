@@ -1,4 +1,4 @@
-FROM oven/bun:1.4.4
+FROM oven/bun:1.4.5
 
 WORKDIR /opt/sandro-cois-bot/
 
